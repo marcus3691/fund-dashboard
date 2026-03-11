@@ -14,7 +14,7 @@
         .nav-links a:hover, .nav-links a.active { color: #58a6ff; }
         .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
         .section { display: none; }
-        .section.active { display: block; }
+        .section.active { display: block; overflow-x: hidden; }
         .metrics-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; margin-bottom: 30px; }
         .metric-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
         .metric-card .value { font-size: 28px; font-weight: 600; color: #58a6ff; margin: 10px 0; }
@@ -35,8 +35,8 @@
         .mini-chart:hover { border-color: #58a6ff; transform: translateY(-2px); }
         .mini-chart h4 { font-size: 12px; color: #8b949e; margin-bottom: 10px; text-align: center; }
         .mini-chart svg { width: 100%; height: 100px; }
-        .table-container { background: #161b22; border: 1px solid #30363d; border-radius: 8px; overflow: hidden; margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; }
+        .table-container { background: #161b22; border: 1px solid #30363d; border-radius: 8px; overflow-x: auto; margin-top: 20px; -webkit-overflow-scrolling: touch; position: relative; }
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
         th { background: #21262d; padding: 12px 15px; text-align: left; font-size: 12px; color: #8b949e; font-weight: 500; }
         td { padding: 12px 15px; border-bottom: 1px solid #30363d; font-size: 13px; }
         tr:hover { background: #21262d; }
@@ -77,6 +77,67 @@
         .big-chart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; }
         .big-chart-content { background: #161b22; width: 90%; max-width: 1000px; margin: 50px auto; border-radius: 12px; padding: 30px; }
         .big-chart-svg { width: 100%; height: 500px; background: #0d1117; border-radius: 8px; }
+        
+        /* ========== 移动端适配 ========== */
+        @media (max-width: 768px) {
+            .navbar { padding: 12px 15px; }
+            .navbar h1 { font-size: 16px; }
+            .navbar h1::before { content: "📊 "; }
+            .nav-links { float: none; display: inline-block; margin-left: 10px; }
+            .nav-links a { margin-left: 15px; font-size: 13px; }
+            .container { padding: 15px; overflow: visible; }
+            .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .metric-card { padding: 12px 8px; }
+            .metric-card .value { font-size: 18px; }
+            .metric-card .label { font-size: 10px; }
+            .category-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .category-card { padding: 15px; }
+            .category-card h3 { font-size: 12px; }
+            .category-card .count { font-size: 24px; }
+            .category-card .stats { font-size: 10px; }
+            .mini-charts-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .mini-chart { padding: 10px; }
+            .mini-chart svg { height: 80px; }
+            th, td { padding: 10px 8px; font-size: 11px; white-space: nowrap; }
+            .table-container { 
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                position: relative;
+                width: 100%;
+            }
+            #category-detail-section, #top10-section { 
+                overflow-x: hidden; 
+            }
+            #category-detail-section .table-container, #top10-section .table-container { 
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                display: block;
+                width: 100%;
+                max-width: 100vw;
+            }
+            #category-detail-section table, #top10-section table {
+                min-width: 850px;
+            }
+            .fund-name { font-size: 12px; }
+            .fund-code { font-size: 10px; margin-left: 4px; }
+            .modal-content { width: 95%; margin: 15px auto; }
+            .modal-header { padding: 15px; }
+            .modal-header h2 { font-size: 15px; }
+            .modal-body { padding: 15px; }
+            .radar-container { flex-direction: column; gap: 15px; }
+            .radar-chart { flex: 1; width: 100%; }
+            .dimension-section { padding: 12px; }
+            .dimension-section h3 { font-size: 13px; }
+            .dimension-section p, .dimension-section li { font-size: 12px; }
+            .big-chart-content { width: 95%; margin: 20px auto; padding: 15px; }
+            .big-chart-svg { height: 300px; }
+        }
+        @media (max-width: 480px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-grid { grid-template-columns: 1fr; }
+            .mini-charts-grid { grid-template-columns: 1fr; }
+            .nav-links a { margin-left: 10px; font-size: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -225,7 +286,18 @@
         
         function showSection(name) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(name + '-section').classList.add('active');
+            const target = document.getElementById(name + '-section');
+            target.classList.add('active');
+            // Force reflow for scroll to work
+            setTimeout(() => {
+                const containers = target.querySelectorAll('.table-container');
+                containers.forEach(c => {
+                    c.style.overflowX = 'scroll';
+                    c.scrollLeft = 0;
+                    void c.offsetWidth; // force reflow
+                    c.style.overflowX = 'auto';
+                });
+            }, 10);
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             if (name === 'overview') document.querySelectorAll('.nav-links a')[0].classList.add('active');
             if (name === 'top10') document.querySelectorAll('.nav-links a')[1].classList.add('active');
