@@ -7,9 +7,14 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
-        .navbar { background: #161b22; padding: 15px 30px; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; }
+        .navbar { background: #161b22; padding: 15px 30px; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; }
         .navbar h1 { font-size: 18px; color: #58a6ff; display: inline-block; }
-        .nav-links { float: right; }
+        .navbar-left { display: flex; align-items: center; gap: 20px; flex: 1; }
+        .search-box { position: relative; width: 300px; }
+        .search-box input { width: 100%; padding: 8px 35px 8px 15px; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; font-size: 14px; }
+        .search-box input:focus { outline: none; border-color: #58a6ff; }
+        .search-box .search-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #8b949e; }
+        .nav-links { display: flex; align-items: center; gap: 25px; }
         .nav-links a { color: #8b949e; text-decoration: none; margin-left: 25px; font-size: 14px; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active { color: #58a6ff; }
         .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
@@ -78,12 +83,34 @@
         .big-chart-content { background: #161b22; width: 90%; max-width: 1000px; margin: 50px auto; border-radius: 12px; padding: 30px; }
         .big-chart-svg { width: 100%; height: 500px; background: #0d1117; border-radius: 8px; }
         
+        /* ========== 筛选区域样式 ========== */
+        .filter-section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .filter-row { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; align-items: center; }
+        .filter-row:last-child { margin-bottom: 0; }
+        .filter-label { font-size: 13px; color: #8b949e; min-width: 60px; }
+        .filter-tags { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+        .filter-tag { padding: 6px 12px; background: #21262d; border: 1px solid #30363d; border-radius: 4px; font-size: 12px; color: #c9d1d9; cursor: pointer; transition: all 0.2s; }
+        .filter-tag:hover { border-color: #58a6ff; color: #58a6ff; }
+        .filter-tag.active { background: #58a6ff; border-color: #58a6ff; color: #fff; }
+        .filter-select { padding: 6px 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 4px; color: #c9d1d9; font-size: 12px; min-width: 120px; cursor: pointer; }
+        .filter-select:focus { outline: none; border-color: #58a6ff; }
+        .filter-actions { display: flex; gap: 10px; align-items: center; }
+        .btn { padding: 6px 16px; border-radius: 4px; font-size: 12px; cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
+        .btn-primary { background: #238636; color: #fff; border-color: #238636; }
+        .btn-primary:hover { background: #2ea043; }
+        .btn-secondary { background: #21262d; color: #c9d1d9; border-color: #30363d; }
+        .btn-secondary:hover { border-color: #8b949e; }
+        .result-count { font-size: 13px; color: #8b949e; margin-left: auto; }
+        .result-count span { color: #58a6ff; font-weight: 600; }
+        
         /* ========== 移动端适配 ========== */
         @media (max-width: 768px) {
-            .navbar { padding: 12px 15px; }
+            .navbar { padding: 10px 15px; flex-wrap: wrap; gap: 8px; }
+            .navbar-left { width: 100%; flex-direction: column; gap: 8px; }
             .navbar h1 { font-size: 16px; }
-            .navbar h1::before { content: "📊 "; }
-            .nav-links { float: none; display: inline-block; margin-left: 10px; }
+            .search-box { width: 100%; }
+            .search-box input { font-size: 14px; padding: 8px 35px 8px 12px; }
+            .nav-links { width: 100%; justify-content: center; margin-left: 0; margin-top: 5px; }
             .nav-links a { margin-left: 15px; font-size: 13px; }
             .container { padding: 15px; overflow: visible; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
@@ -120,6 +147,15 @@
             }
             .fund-name { font-size: 12px; }
             .fund-code { font-size: 10px; margin-left: 4px; }
+            .filter-section { padding: 15px; }
+            .filter-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .filter-label { min-width: auto; font-size: 12px; }
+            .filter-tags { width: 100%; }
+            .filter-tag { padding: 4px 8px; font-size: 11px; }
+            .filter-select { width: 100%; padding: 5px 10px; font-size: 12px; }
+            .filter-actions { width: 100%; margin-top: 10px; margin-left: 0; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+            .result-count { width: 100%; text-align: center; margin: 5px 0; }
+            .btn { padding: 5px 10px; font-size: 11px; }
             .modal-content { width: 95%; margin: 15px auto; }
             .modal-header { padding: 15px; }
             .modal-header h2 { font-size: 15px; }
@@ -142,7 +178,13 @@
 </head>
 <body>
     <nav class="navbar">
-        <h1>📊 基金产品库智能分析系统</h1>
+        <div class="navbar-left">
+            <h1>📊 基金产品库</h1>
+            <div class="search-box">
+                <input type="text" id="globalSearch" placeholder="搜索基金名称或代码..." oninput="handleSearch(this.value)">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
         <div class="nav-links">
             <a onclick="showSection('overview')" class="active">概览</a>
             <a onclick="showSection('top10')">TOP10</a>
@@ -158,6 +200,51 @@
                 <div class="metric-card"><div class="label">加权平均年化波动率</div><div class="value">11.2%</div></div>
                 <div class="metric-card"><div class="label">平均最大回撤</div><div class="value">-8.5%</div></div>
                 <div class="metric-card"><div class="label">平均卡玛比率</div><div class="value">3.35</div></div>
+            </div>
+            
+            <!-- 筛选区域 -->
+            <div class="filter-section">
+                <div class="filter-row">
+                    <span class="filter-label">类别:</span>
+                    <div class="filter-tags" id="categoryFilters">
+                        <span class="filter-tag active" data-value="all" onclick="filterByCategory('all')">全部</span>
+                        <span class="filter-tag" data-value="灵活配置-平衡(高择时)" onclick="filterByCategory('灵活配置-平衡(高择时)')">灵活配置</span>
+                        <span class="filter-tag" data-value="混合型-偏股" onclick="filterByCategory('混合型-偏股')">混合型-偏股</span>
+                        <span class="filter-tag" data-value="混合型-平衡" onclick="filterByCategory('混合型-平衡')">混合型-平衡</span>
+                        <span class="filter-tag" data-value="混合型-偏债" onclick="filterByCategory('混合型-偏债')">混合型-偏债</span>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <span class="filter-label">评分:</span>
+                    <div class="filter-tags" id="scoreFilters">
+                        <span class="filter-tag active" data-value="all" onclick="filterByScore('all')">全部</span>
+                        <span class="filter-tag" data-value="excellent" onclick="filterByScore('excellent')">优秀(85+)</span>
+                        <span class="filter-tag" data-value="good" onclick="filterByScore('good')">良好(80-85)</span>
+                        <span class="filter-tag" data-value="aboveAvg" onclick="filterByScore('aboveAvg')">中等偏上(75-80)</span>
+                        <span class="filter-tag" data-value="medium" onclick="filterByScore('medium')">中等(60-75)</span>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <span class="filter-label">评级:</span>
+                    <div class="filter-tags" id="ratingFilters">
+                        <span class="filter-tag active" data-value="all" onclick="filterByRating('all')">全部</span>
+                        <span class="filter-tag" data-value="5" onclick="filterByRating('5')">★★★★★</span>
+                        <span class="filter-tag" data-value="4" onclick="filterByRating('4')">★★★★☆</span>
+                        <span class="filter-tag" data-value="3" onclick="filterByRating('3')">★★★☆☆</span>
+                        <span class="filter-tag" data-value="2" onclick="filterByRating('2')">★★☆☆☆</span>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <span class="filter-label">管理人:</span>
+                    <select class="filter-select" id="managerSelect" onchange="filterByManager(this.value)">
+                        <option value="all">全部管理人</option>
+                    </select>
+                    <div class="filter-actions" style="margin-left: auto;">
+                        <span class="result-count">共 <span id="resultCount">84</span> 只基金</span>
+                        <button class="btn btn-secondary" onclick="clearAllFilters()">清空筛选</button>
+                        <button class="btn btn-primary" onclick="exportToExcel()">📊 导出Excel</button>
+                    </div>
+                </div>
             </div>
             
             <div class="category-section">
@@ -205,6 +292,27 @@
                         <h4>类别分布</h4>
                         <svg viewBox="0 0 200 100" id="miniChart4"></svg>
                     </div>
+                </div>
+            </div>
+            
+            <!-- 筛选结果表格 -->
+            <div id="filter-results-section" style="margin-top: 30px;">
+                <h2>📋 筛选结果</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable('score')" style="cursor: pointer;">综合分 ↕</th>
+                                <th onclick="sortTable('name')" style="cursor: pointer;">基金名称 ↕</th>
+                                <th>管理人</th>
+                                <th>类别</th>
+                                <th onclick="sortTable('return')" style="cursor: pointer;">近1年收益率 ↕</th>
+                                <th onclick="sortTable('sharpe')" style="cursor: pointer;">夏普 ↕</th>
+                                <th onclick="sortTable('dd')" style="cursor: pointer;">回撤 ↕</th>
+                            </tr>
+                        </thead>
+                        <tbody id="filterResultsBody"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -487,6 +595,228 @@
                 }
             }, 50);
         }
+        
+        // ========== 筛选功能 ==========
+        let currentFilters = {
+            search: '',
+            category: 'all',
+            score: 'all',
+            rating: 'all',
+            manager: 'all'
+        };
+        let currentSort = { field: 'score', order: 'desc' };
+        let filteredFunds = [];
+        
+        // 初始化管理人选项
+        function initManagerSelect() {
+            const managers = new Set();
+            Object.values(fundReports).forEach(r => {
+                const manager = r.name.replace(/[A-C]$/, '').replace(/\d+$/, '').trim();
+                managers.add(manager);
+            });
+            const select = document.getElementById('managerSelect');
+            Array.from(managers).sort().forEach(m => {
+                select.innerHTML += `<option value="${m}">${m}</option>`;
+            });
+        }
+        
+        // 搜索功能
+        function handleSearch(keyword) {
+            currentFilters.search = keyword.toLowerCase();
+            applyFilters();
+        }
+        
+        // 类别筛选
+        function filterByCategory(category) {
+            currentFilters.category = category;
+            updateFilterTags('categoryFilters', category);
+            applyFilters();
+        }
+        
+        // 评分筛选
+        function filterByScore(score) {
+            currentFilters.score = score;
+            updateFilterTags('scoreFilters', score);
+            applyFilters();
+        }
+        
+        // 评级筛选
+        function filterByRating(rating) {
+            currentFilters.rating = rating;
+            updateFilterTags('ratingFilters', rating);
+            applyFilters();
+        }
+        
+        // 管理人筛选
+        function filterByManager(manager) {
+            currentFilters.manager = manager;
+            applyFilters();
+        }
+        
+        // 更新标签样式
+        function updateFilterTags(containerId, activeValue) {
+            const container = document.getElementById(containerId);
+            container.querySelectorAll('.filter-tag').forEach(tag => {
+                tag.classList.toggle('active', tag.dataset.value === activeValue);
+            });
+        }
+        
+        // 应用所有筛选
+        function applyFilters() {
+            filteredFunds = Object.values(fundReports).filter(r => {
+                // 搜索筛选
+                if (currentFilters.search) {
+                    const matchName = r.name.toLowerCase().includes(currentFilters.search);
+                    const matchCode = r.code.toLowerCase().includes(currentFilters.search);
+                    if (!matchName && !matchCode) return false;
+                }
+                
+                // 类别筛选
+                if (currentFilters.category !== 'all' && r.category !== currentFilters.category) {
+                    return false;
+                }
+                
+                // 评分筛选
+                if (currentFilters.score !== 'all') {
+                    const score = r.score;
+                    const ranges = {
+                        'excellent': [85, 100],
+                        'good': [80, 85],
+                        'aboveAvg': [75, 80],
+                        'medium': [60, 75]
+                    };
+                    const [min, max] = ranges[currentFilters.score];
+                    if (score < min || score >= max) return false;
+                }
+                
+                // 评级筛选
+                if (currentFilters.rating !== 'all') {
+                    const ratingStars = (r.rating.match(/★/g) || []).length;
+                    if (ratingStars !== parseInt(currentFilters.rating)) return false;
+                }
+                
+                // 管理人筛选
+                if (currentFilters.manager !== 'all') {
+                    if (!r.name.includes(currentFilters.manager)) return false;
+                }
+                
+                return true;
+            });
+            
+            // 排序
+            sortFilteredFunds();
+            
+            // 更新显示
+            updateFilterResults();
+            document.getElementById('resultCount').textContent = filteredFunds.length;
+        }
+        
+        // 排序功能
+        function sortTable(field) {
+            if (currentSort.field === field) {
+                currentSort.order = currentSort.order === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.field = field;
+                currentSort.order = 'desc';
+            }
+            sortFilteredFunds();
+            updateFilterResults();
+        }
+        
+        function sortFilteredFunds() {
+            const { field, order } = currentSort;
+            filteredFunds.sort((a, b) => {
+                let valA, valB;
+                if (field === 'score') {
+                    valA = a.score; valB = b.score;
+                } else if (field === 'name') {
+                    valA = a.name; valB = b.name;
+                } else if (field === 'return' || field === 'sharpe' || field === 'dd') {
+                    valA = a.radar[field === 'return' ? '收益能力' : field === 'sharpe' ? '夏普比率' : '回撤控制'];
+                    valB = b.radar[field === 'return' ? '收益能力' : field === 'sharpe' ? '夏普比率' : '回撤控制'];
+                }
+                if (order === 'asc') return valA > valB ? 1 : -1;
+                return valA < valB ? 1 : -1;
+            });
+        }
+        
+        // 更新筛选结果表格
+        function updateFilterResults() {
+            const tbody = document.getElementById('filterResultsBody');
+            if (filteredFunds.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:#8b949e;">未找到匹配基金，请调整筛选条件</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = filteredFunds.map((r, i) => {
+                const manager = r.name.replace(/[A-C]$/, '').replace(/\d+$/, '').trim();
+                const returnVal = r.radar['收益能力'];
+                const sharpeVal = r.radar['夏普比率'];
+                const ddVal = r.radar['回撤控制'];
+                return `<tr class="clickable" onclick="showFundDetailByCode('${r.code}')">
+                    <td><span class="score-badge">${r.score.toFixed(1)}</span></td>
+                    <td><div class="fund-name">${r.name}<span class="fund-code">${r.code}</span></div></td>
+                    <td>${manager}</td>
+                    <td><span class="tag">${r.category.replace('灵活配置-平衡(高择时)', '灵活配置')}</span></td>
+                    <td class="metric-high">+${returnVal.toFixed(1)}%</td>
+                    <td>${sharpeVal.toFixed(2)}</td>
+                    <td>${ddVal.toFixed(1)}%</td>
+                </tr>`;
+            }).join('');
+        }
+        
+        // 清空筛选
+        function clearAllFilters() {
+            currentFilters = { search: '', category: 'all', score: 'all', rating: 'all', manager: 'all' };
+            document.getElementById('globalSearch').value = '';
+            document.getElementById('managerSelect').value = 'all';
+            updateFilterTags('categoryFilters', 'all');
+            updateFilterTags('scoreFilters', 'all');
+            updateFilterTags('ratingFilters', 'all');
+            applyFilters();
+        }
+        
+        // 导出Excel
+        function exportToExcel() {
+            if (filteredFunds.length === 0) {
+                alert('没有数据可导出');
+                return;
+            }
+            
+            const headers = ['基金代码', '基金名称', '管理人', '类别', '综合评分', '星级评级', '收益能力', '夏普比率', '回撤控制'];
+            const rows = filteredFunds.map(r => {
+                const manager = r.name.replace(/[A-C]$/, '').replace(/\d+$/, '').trim();
+                return [
+                    r.code,
+                    r.name,
+                    manager,
+                    r.category,
+                    r.score.toFixed(1),
+                    r.rating,
+                    r.radar['收益能力'].toFixed(1),
+                    r.radar['夏普比率'].toFixed(2),
+                    r.radar['回撤控制'].toFixed(1)
+                ];
+            });
+            
+            let csvContent = '\uFEFF'; // BOM for UTF-8
+            csvContent += headers.join(',') + '\n';
+            rows.forEach(row => {
+                csvContent += row.map(cell => `"${cell}"`).join(',') + '\n';
+            });
+            
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `基金筛选结果_${new Date().toISOString().slice(0,10).replace(/-/g,'')}.csv`;
+            link.click();
+        }
+        
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initManagerSelect();
+            applyFilters();
+        });
     </script>
 </body>
 </html>
