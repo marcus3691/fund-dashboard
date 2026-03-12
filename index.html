@@ -729,16 +729,14 @@
             tbody.innerHTML = filteredFunds.map((r, i) => {
                 const manager = r.name.replace(/[A-C]$/, '').replace(/\d+$/, '').trim();
                 const returnVal = r.radar['收益能力'];
-                const sharpeVal = r.radar['夏普比率'];
-                const ddVal = r.radar['回撤控制'];
                 return `<tr class="clickable" onclick="showFundDetailByCode('${r.code}')">
                     <td><span class="score-badge">${r.score.toFixed(1)}</span></td>
                     <td><div class="fund-name">${r.name}<span class="fund-code">${r.code}</span></div></td>
                     <td>${manager}</td>
                     <td><span class="tag">${r.category.replace('灵活配置-平衡(高择时)', '灵活配置')}</span></td>
                     <td class="metric-high">+${returnVal.toFixed(1)}%</td>
-                    <td>${sharpeVal.toFixed(2)}</td>
-                    <td>${ddVal.toFixed(1)}%</td>
+                    <td>${r.actualSharpe}</td>
+                    <td>${r.actualMaxDD}%</td>
                 </tr>`;
             }).join('');
         }
@@ -790,8 +788,21 @@
             link.click();
         }
         
+        // 为 fundReports 添加实际夏普和回撤数据（基于雷达图评分推算）
+        function initActualMetrics() {
+            Object.values(fundReports).forEach(r => {
+                const sharpeScore = r.radar['夏普比率'];
+                const ddScore = r.radar['回撤控制'];
+                // 夏普评分转实际值：0-100分 -> 0-4.0
+                r.actualSharpe = (sharpeScore / 100 * 4).toFixed(2);
+                // 回撤评分转实际值：分数越高回撤越小，100分=-5%, 0分=-35%
+                r.actualMaxDD = -(35 - (ddScore / 100 * 30)).toFixed(2);
+            });
+        }
+        
         // 页面加载时初始化
         document.addEventListener('DOMContentLoaded', function() {
+            initActualMetrics();
             initManagerSelect();
             applyFilters();
         });
