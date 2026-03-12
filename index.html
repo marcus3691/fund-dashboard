@@ -235,6 +235,15 @@
                     </div>
                 </div>
                 <div class="filter-row">
+                    <span class="filter-label">库别:</span>
+                    <div class="filter-tags" id="libraryFilters">
+                        <span class="filter-tag active" data-value="all" onclick="filterByLibrary('all')">全部</span>
+                        <span class="filter-tag" data-value="core" onclick="filterByLibrary('core')">🔴 核心库(85+)</span>
+                        <span class="filter-tag" data-value="watch" onclick="filterByLibrary('watch')">🟡 观察库(75-85)</span>
+                        <span class="filter-tag" data-value="reserve" onclick="filterByLibrary('reserve')">🟢 备选库(&lt;75)</span>
+                    </div>
+                </div>
+                <div class="filter-row">
                     <span class="filter-label">管理人:</span>
                     <select class="filter-select" id="managerSelect" onchange="filterByManager(this.value)">
                         <option value="all">全部管理人</option>
@@ -284,6 +293,7 @@
                                 <th onclick="sortTable('name')" style="cursor: pointer;">基金名称 ↕</th>
                                 <th>管理人</th>
                                 <th>类别</th>
+                                <th>库别</th>
                                 <th onclick="sortTable('return')" style="cursor: pointer;">近1年收益率 ↕</th>
                                 <th onclick="sortTable('sharpe')" style="cursor: pointer;">夏普 ↕</th>
                                 <th onclick="sortTable('dd')" style="cursor: pointer;">回撤 ↕</th>
@@ -303,6 +313,7 @@
                             <th>排名</th>
                             <th>基金名称</th>
                             <th>类别</th>
+                            <th>库别</th>
                             <th>近6个月收益率</th>
                             <th>近1年收益率</th>
                             <th>近3年收益率</th>
@@ -321,7 +332,7 @@
             <div class="table-container">
                 <table>
                     <thead>
-                        <tr><th>排名</th><th>基金名称</th><th>近6个月收益率</th><th>近1年收益率</th><th>近3年收益率</th><th>波动率</th><th>夏普</th><th>回撤</th><th>综合分</th></tr>
+                        <tr><th>排名</th><th>基金名称</th><th>库别</th><th>近6个月收益率</th><th>近1年收益率</th><th>近3年收益率</th><th>波动率</th><th>夏普</th><th>回撤</th><th>综合分</th></tr>
                     </thead>
                     <tbody id="categoryBody"></tbody>
                 </table>
@@ -397,7 +408,7 @@
                 const returnClass = fund.return >= 0 ? 'metric-high' : 'metric-negative';
                 const return6mClass = fund.return6m >= 0 ? 'metric-high' : 'metric-negative';
                 const return3yClass = fund.return3y >= 0 ? 'metric-high' : 'metric-negative';
-                return `<tr class="clickable" onclick="showFundDetailByCode('${fund.code}')"><td><span class="rank-badge ${index < 3 ? 'rank-' + (index + 1) : 'rank-other'}">${fund.rank}</span></td><td><div class="fund-name">${fund.name}<span class="fund-code">${fund.code}</span></div><div class="company">${fund.company}</div></td><td><span class="tag">${fund.category.replace('灵活配置-平衡(高择时)', '灵活配置').replace('混合型-', '混合-')}</span></td><td class="${return6mClass}">${fund.return6m > 0 ? '+' : ''}${fund.return6m.toFixed(2)}%</td><td class="${returnClass}">${fund.return > 0 ? '+' : ''}${fund.return.toFixed(2)}%</td><td class="${return3yClass}">${fund.return3y > 0 ? '+' : ''}${fund.return3y.toFixed(2)}%</td><td>${fund.sharpe.toFixed(2)}</td><td><span class="score-badge">${fund.score.toFixed(1)}</span></td></tr>`;
+                return `<tr class="clickable" onclick="showFundDetailByCode('${fund.code}')"><td><span class="rank-badge ${index < 3 ? 'rank-' + (index + 1) : 'rank-other'}">${fund.rank}</span></td><td><div class="fund-name">${fund.name}<span class="fund-code">${fund.code}</span></div><div class="company">${fund.company}</div></td><td><span class="tag">${fund.category.replace('灵活配置-平衡(高择时)', '灵活配置').replace('混合型-', '混合-')}</span></td><td>${getLibraryBadge(fund.score)}</td><td class="${return6mClass}">${fund.return6m > 0 ? '+' : ''}${fund.return6m.toFixed(2)}%</td><td class="${returnClass}">${fund.return > 0 ? '+' : ''}${fund.return.toFixed(2)}%</td><td class="${return3yClass}">${fund.return3y > 0 ? '+' : ''}${fund.return3y.toFixed(2)}%</td><td>${fund.sharpe.toFixed(2)}</td><td><span class="score-badge">${fund.score.toFixed(1)}</span></td></tr>`;
             }).join('');
         }
         
@@ -561,7 +572,7 @@
             document.getElementById('category-title').innerText = category.replace('灵活配置-平衡(高择时)', '灵活配置') + ' - 共' + funds.length + '只基金';
             document.getElementById('categoryBody').innerHTML = funds.map((f,i) => {
                 const rc = f.return >= 0 ? 'metric-high' : 'metric-negative';
-                return `<tr class="clickable" onclick="showFundDetailByCode('${f.code}')"><td>${i+1}</td><td><div class="fund-name">${f.name}<span class="fund-code">${f.code}</span></div></td><td class="${rc}">${f.return_6m > 0 ? '+' : ''}${f.return_6m.toFixed(2)}%</td><td class="${rc}">${f.return > 0 ? '+' : ''}${f.return.toFixed(2)}%</td><td class="${rc}">${f.return_3y > 0 ? '+' : ''}${f.return_3y.toFixed(2)}%</td><td>${f.vol.toFixed(2)}%</td><td>${f.sharpe.toFixed(2)}</td><td>${f.dd.toFixed(2)}%</td><td><span class="score-badge">${f.score.toFixed(1)}</span></td></tr>`;
+                return `<tr class="clickable" onclick="showFundDetailByCode('${f.code}')"><td>${i+1}</td><td><div class="fund-name">${f.name}<span class="fund-code">${f.code}</span></div></td><td>${getLibraryBadge(f.score)}</td><td class="${rc}">${f.return_6m > 0 ? '+' : ''}${f.return_6m.toFixed(2)}%</td><td class="${rc}">${f.return > 0 ? '+' : ''}${f.return.toFixed(2)}%</td><td class="${rc}">${f.return_3y > 0 ? '+' : ''}${f.return_3y.toFixed(2)}%</td><td>${f.vol.toFixed(2)}%</td><td>${f.sharpe.toFixed(2)}</td><td>${f.dd.toFixed(2)}%</td><td><span class="score-badge">${f.score.toFixed(1)}</span></td></tr>`;
             }).join('');
             showSection('category-detail');
             // Force reflow for category detail scroll
@@ -582,7 +593,8 @@
             category: 'all',
             score: 'all',
             rating: 'all',
-            manager: 'all'
+            manager: 'all',
+            library: 'all'
         };
         let currentSort = { field: 'score', order: 'desc' };
         let filteredFunds = [];
@@ -629,6 +641,31 @@
             currentFilters.rating = rating;
             updateFilterTags('ratingFilters', rating);
             applyFilters();
+        }
+        
+        // 库别筛选
+        function filterByLibrary(library) {
+            currentFilters.library = library;
+            updateFilterTags('libraryFilters', library);
+            applyFilters();
+        }
+        
+        // 获取库别标签
+        function getLibraryBadge(score) {
+            if (score >= 85) {
+                return '<span style="background:#f44336;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🔴 核心库</span>';
+            } else if (score >= 75) {
+                return '<span style="background:#ff9800;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🟡 观察库</span>';
+            } else {
+                return '<span style="background:#4caf50;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🟢 备选库</span>';
+            }
+        }
+        
+        // 获取库别文字
+        function getLibraryText(score) {
+            if (score >= 85) return '核心库';
+            if (score >= 75) return '观察库';
+            return '备选库';
         }
         
         // 管理人筛选
@@ -684,6 +721,13 @@
                     if (!r.name.includes(currentFilters.manager)) return false;
                 }
                 
+                // 库别筛选
+                if (currentFilters.library !== 'all') {
+                    const score = r.score;
+                    const libraryType = score >= 85 ? 'core' : score >= 75 ? 'watch' : 'reserve';
+                    if (libraryType !== currentFilters.library) return false;
+                }
+                
                 return true;
             });
             
@@ -728,7 +772,7 @@
         function updateFilterResults() {
             const tbody = document.getElementById('filterResultsBody');
             if (filteredFunds.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:#8b949e;">未找到匹配基金，请调整筛选条件</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:40px;color:#8b949e;">未找到匹配基金，请调整筛选条件</td></tr>';
                 return;
             }
             
@@ -739,6 +783,7 @@
                     <td><div class="fund-name">${r.name}<span class="fund-code">${r.code}</span></div></td>
                     <td>${r.management}</td>
                     <td><span class="tag">${r.category.replace('灵活配置-平衡(高择时)', '灵活配置')}</span></td>
+                    <td>${getLibraryBadge(r.score)}</td>
                     <td class="metric-high">+${returnVal.toFixed(1)}%</td>
                     <td>${r.actualSharpe}</td>
                     <td>${r.actualMaxDD}%</td>
@@ -748,12 +793,13 @@
         
         // 清空筛选
         function clearAllFilters() {
-            currentFilters = { search: '', category: 'all', score: 'all', rating: 'all', manager: 'all' };
+            currentFilters = { search: '', category: 'all', score: 'all', rating: 'all', manager: 'all', library: 'all' };
             document.getElementById('globalSearch').value = '';
             document.getElementById('managerSelect').value = 'all';
             updateFilterTags('categoryFilters', 'all');
             updateFilterTags('scoreFilters', 'all');
             updateFilterTags('ratingFilters', 'all');
+            updateFilterTags('libraryFilters', 'all');
             applyFilters();
         }
         
