@@ -12,6 +12,7 @@ python3 get_fund_managers.py > /tmp/fund_manager_update.log 2>&1
 
 if [ $? -eq 0 ]; then
     echo "✓ 基金经理数据获取成功"
+    cat /tmp/fund_manager_update.log
     
     # 2. 更新 index.html
     echo "正在更新网页..."
@@ -19,38 +20,9 @@ if [ $? -eq 0 ]; then
     
     if [ $? -eq 0 ]; then
         echo "✓ 网页更新成功"
+        cat /tmp/update_managers.log
         
-        # 3. 更新 top10Funds 的经理信息
-        python3 -c "
-import json
-import re
-
-with open('fund_manager_data.json', 'r', encoding='utf-8') as f:
-    manager_data = json.load(f)
-
-with open('index.html', 'r', encoding='utf-8') as f:
-    content = f.read()
-
-top10_codes = [
-    '019222.OF', '017969.OF', '018832.OF', '017979.OF', '019235.OF',
-    '015779.OF', '011982.OF', '023605.OF', '019485.OF', '017760.OF'
-]
-
-for code in top10_codes:
-    manager = manager_data.get(code, {}).get('manager', '未知')
-    # 先移除旧的 manager 字段
-    content = re.sub(rf\"(, manager: '[^']+')\", '', content)
-    # 添加新的 manager 字段
-    pattern = rf\"(\\{{ rank: \\d+, code: '{code}', name: '[^']+')\"
-    replacement = rf\"\\1, manager: '{manager}'\"
-    content = re.sub(pattern, replacement, content)
-
-with open('index.html', 'w', encoding='utf-8') as f:
-    f.write(content)
-print('✓ top10Funds 经理信息更新成功')
-"
-        
-        # 4. 提交并推送
+        # 3. 提交并推送
         git add index.html fund_manager_data.json
         git commit -m "Auto: 更新基金经理数据 $(date +%Y-%m-%d)"
         
