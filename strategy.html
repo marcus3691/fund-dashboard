@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基金策略增强版 - 会议纪要匹配分析</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+        .navbar { background: #161b22; padding: 15px 30px; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; }
+        .navbar h1 { font-size: 18px; color: #58a6ff; display: inline-block; }
+        .strategy-badge { background: #f85149; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 10px; vertical-align: middle; }
+        .navbar-left { display: flex; align-items: center; gap: 20px; flex: 1; }
+        .nav-links { display: flex; align-items: center; gap: 25px; }
+        .nav-links a { color: #8b949e; text-decoration: none; margin-left: 25px; font-size: 14px; cursor: pointer; }
+        .nav-links a:hover, .nav-links a.active { color: #58a6ff; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+        .metric-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
+        .metric-card .value { font-size: 32px; font-weight: 600; color: #58a6ff; margin: 10px 0; }
+        .metric-card .label { font-size: 12px; color: #8b949e; }
+        .section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+        .section h2 { font-size: 16px; margin-bottom: 20px; color: #e6edf3; border-bottom: 2px solid #58a6ff; padding-bottom: 10px; }
+        .section h2::before { content: "📊"; margin-right: 8px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #21262d; padding: 12px 15px; text-align: left; font-size: 12px; color: #8b949e; font-weight: 500; border-bottom: 1px solid #30363d; }
+        td { padding: 12px 15px; border-bottom: 1px solid #30363d; font-size: 13px; }
+        tr:hover { background: #21262d; }
+        .tag { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 500; }
+        .tag-high { background: rgba(35, 134, 54, 0.2); color: #3fb950; border: 1px solid #238636; }
+        .tag-medium { background: rgba(210, 153, 31, 0.2); color: #d29922; border: 1px solid #d29922; }
+        .tag-low { background: rgba(248, 81, 73, 0.2); color: #f85149; border: 1px solid #f85149; }
+        .tag-blue { background: rgba(88, 166, 255, 0.2); color: #58a6ff; border: 1px solid #58a6ff; }
+        .highlight { color: #f85149; font-weight: 600; }
+        .industry-tag { background: #30363d; padding: 2px 8px; border-radius: 4px; font-size: 11px; color: #8b949e; margin-right: 5px; }
+        .update-info { text-align: center; padding: 30px; color: #8b949e; font-size: 12px; }
+        .strategy-desc { background: rgba(88, 166, 255, 0.1); border: 1px solid #58a6ff; border-radius: 8px; padding: 20px; margin-bottom: 25px; }
+        .strategy-desc h3 { color: #58a6ff; margin-bottom: 10px; font-size: 14px; }
+        .strategy-desc p { font-size: 13px; color: #c9d1d9; line-height: 1.8; }
+        .strategy-desc ul { margin-left: 20px; margin-top: 10px; }
+        .strategy-desc li { font-size: 13px; color: #c9d1d9; margin: 5px 0; }
+        @media (max-width: 768px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>基金产品库智能分析系统<span class="strategy-badge">策略增强版</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 基金产品库主页</a>
+            <a href="strategy.html" class="active">📈 会议纪要匹配</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 策略说明 -->
+        <div class="strategy-desc">
+            <h3>📋 策略说明：会议纪要方向匹配分析</h3>
+            <p>基于2026年3月投资月度会议纪要，筛选与"能源安全+周期股"方向高度匹配的基金。</p>
+            <ul>
+                <li><strong>匹配方向</strong>：煤炭、石油、有色、稀土、化工、电网设备、光伏</li>
+                <li><strong>匹配度计算</strong>：基金持仓中相关行业占比</li>
+                <li><strong>投资建议</strong>：重点配置(≥35%)、可配置(25-35%)、观察(15-25%)、谨慎(<15%)</li>
+            </ul>
+        </div>
+
+        <!-- 统计卡片 -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">分析基金数量</div>
+                <div class="value">50</div>
+                <div class="label">TOP50高质量基金</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">平均纪要匹配度</div>
+                <div class="value">48.3%</div>
+                <div class="label">能源/有色/化工方向</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">高度匹配基金</div>
+                <div class="value">28</div>
+                <div class="label">匹配度≥30%</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">重点配置基金</div>
+                <div class="value">10</div>
+                <div class="label">匹配度≥35%</div>
+            </div>
+        </div>
+
+        <!-- 纪要匹配度排名 -->
+        <div class="section">
+            <h2>会议纪要方向匹配度排名</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>排名</th><th>基金代码</th><th>基金名称</th><th>质量分</th>
+                        <th>匹配度</th><th>核心行业</th><th>投资建议</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>011888.OF</td><td>民生加银周期优选A</td><td>85.0</td><td class="highlight">165.0%</td><td><span class="industry-tag">锂电池</span><span class="industry-tag">化工</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>2</td><td>018460.OF</td><td>大成新锐产业C</td><td>84.6</td><td class="highlight">164.7%</td><td><span class="industry-tag">汽车零部件</span></td><td><span class="tag tag-high">重点配置</span></td></tr�e
+                    <tr><td>3</td><td>019197.OF</td><td>大成国企改革C</td><td>83.1</td><td class="highlight">158.8%</td><td><span class="industry-tag">汽车零部件</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>4</td><td>013495.OF</td><td>信澳产业优选一年持有A</td><td class="highlight">96.7</td><td class="highlight">131.4%</td><td><span class="industry-tag">光伏</span><span class="industry-tag">半导体</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>5</td><td>013674.OF</td><td>长城价值甄选一年持有A</td><td>86.7</td><td class="highlight">122.8%</td><td><span class="industry-tag">白酒</span><span class="industry-tag">汽车零部件</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>6</td><td>020199.OF</td><td>万家双引擎C</td><td>92.9</td><td class="highlight">120.3%</td><td><span class="industry-tag">有色</span><span class="industry-tag">航运</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>7</td><td>015157.OF</td><td>申万菱信行业轮动C</td><td>79.5</td><td class="highlight">98.7%</td><td><span class="industry-tag">水电</span><span class="industry-tag">有色</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>8</td><td>018656.OF</td><td>新华行业周期轮换C</td><td>82.5</td><td class="highlight">96.7%</td><td><span class="industry-tag">石油</span><span class="industry-tag">航运</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>9</td><td>019184.OF</td><td>大成趋势回报C</td><td>83.7</td><td class="highlight">88.9%</td><td><span class="industry-tag">汽车零部件</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>10</td><td>017667.OF</td><td>鹏华新材料A</td><td>93.9</td><td class="highlight">84.3%</td><td><span class="industry-tag">医疗器械</span><span class="industry-tag">化工</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>11</td><td>022327.OF</td><td>宏利高端装备A</td><td>94.6</td><td class="highlight">40.8%</td><td><span class="industry-tag">化工</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>12</td><td>022269.OF</td><td>中信保诚周期优选A</td><td>91.4</td><td class="highlight">40.6%</td><td><span class="industry-tag">化工</span><span class="industry-tag">有色</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>13</td><td>021145.OF</td><td>银华甄选价值成长A</td><td>91.6</td><td>40.4%</td><td><span class="industry-tag">煤炭</span><span class="industry-tag">石油</span></td><td><span class="tag tag-blue">可配置</span></td></tr>
+                    <tr><td>14</td><td>025476.OF</td><td>银华瑞和C</td><td>96.6</td><td>64.7%</td><td><span class="industry-tag">有色</span><span class="industry-tag">煤炭</span></td><td><span class="tag tag-blue">可配置</span></td></tr>
+                    <tr><td>15</td><td>022148.OF</td><td>诺安价值增长C</td><td>94.8</td><td>33.3%</td><td><span class="industry-tag">有色</span><span class="industry-tag">黄金</span></td><td><span class="tag tag-blue">可配置</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 新增基金 -->
+        <div class="section">
+            <h2>🆕 本次更新新增基金（10只持仓数据补充）</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>基金代码</th><th>基金名称</th><th>质量分</th>
+                        <th>纪要匹配</th><th>核心行业</th><th>投资建议</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>022327.OF</td><td>宏利高端装备A</td><td>94.6</td><td class="highlight">40.8%</td><td><span class="industry-tag">化工</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>022269.OF</td><td>中信保诚周期优选A</td><td>91.4</td><td class="highlight">40.6%</td><td><span class="industry-tag">化工</span><span class="industry-tag">有色</span></td><td><span class="tag tag-high">重点配置</span></td></tr>
+                    <tr><td>021145.OF</td><td>银华甄选价值成长A</td><td>91.6</td><td>40.4%</td><td><span class="industry-tag">煤炭</span><span class="industry-tag">石油</span></td><td><span class="tag tag-blue">可配置</span></td></tr>
+                    <tr><td>022572.OF</td><td>汇添富弘达回报A</td><td>96.1</td><td>31.4%</td><td><span class="industry-tag">化工</span><span class="industry-tag">有色</span></td><td><span class="tag tag-blue">可配置</span></td></tr>
+                    <tr><td>022148.OF</td><td>诺安价值增长C</td><td>94.8</td><td>33.3%</td><td><span class="industry-tag">有色</span><span class="industry-tag">黄金</span></td><td><span class="tag tag-blue">可配置</span></td></tr>
+                    <tr><td>022416.OF</td><td>汇添富弘盛回报A</td><td>90.9</td><td>22.6%</td><td><span class="industry-tag">有色</span><span class="industry-tag">黄金</span></td><td><span class="tag tag-medium">观察</span></td></tr>
+                    <tr><td>023448.OF</td><td>上银资源精选A</td><td>88.6</td><td>20.0%</td><td><span class="industry-tag">有色</span><span class="industry-tag">稀土</span></td><td><span class="tag tag-medium">观察</span></td></tr>
+                    <tr><td>024168.OF</td><td>信澳蓝筹精选C</td><td>89.2</td><td>18.6%</td><td><span class="industry-tag">有色</span><span class="industry-tag">黄金</span></td><td><span class="tag tag-medium">观察</span></td></tr>
+                    <tr><td>023915.OF</td><td>永赢价值发现慧选A</td><td>96.2</td><td>10.4%</td><td><span class="industry-tag">半导体</span><span class="industry-tag">汽车</span></td><td><span class="tag tag-low">谨慎</span></td></tr>
+                    <tr><td>024499.OF</td><td>兴华景和A</td><td>94.1</td><td>0.0%</td><td><span class="industry-tag">其他</span></td><td><span class="tag tag-low">谨慎</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="update-info">
+            <p>数据更新时间: 2026-03-13 21:30:00</p>
+            <p>基金产品库智能分析系统 - 策略增强版 V1.0</p>
+        </div>
+    </div>
+</body>
+</html>
