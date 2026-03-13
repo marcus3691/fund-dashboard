@@ -6390,5 +6390,591 @@
       "胜率": 60,
       "阿尔法": 77
     }
+  },
+  "023915.OF": {
+    "name": "永赢价值发现慧选A",
+    "code": "023915.OF",
+    "category": "混合型",
+    "annual_return": 26.28,
+    "sharpe": 1.64,
+    "volatility": 14.78,
+    "max_drawdown": 10.03,
+    "quality_score": 96.2,
+    "match_score": 10.4,
+    "industry_distribution": {
+      "其他": 22.330000000000002,
+      "半导体": 6.18,
+      "汽车": 4.41,
+      "电网设备": 4.18,
+      "机械": 4.08
+    },
+    "top_holdings": [
+      {
+        "symbol": "600710.SH",
+        "stk_mkv_ratio": 3.74
+      },
+      {
+        "symbol": "920037.BJ",
+        "stk_mkv_ratio": 3.95
+      },
+      {
+        "symbol": "000951.SZ",
+        "stk_mkv_ratio": 3.95
+      },
+      {
+        "symbol": "002342.SZ",
+        "stk_mkv_ratio": 4.08
+      },
+      {
+        "symbol": "603191.SH",
+        "stk_mkv_ratio": 4.18
+      },
+      {
+        "symbol": "600686.SH",
+        "stk_mkv_ratio": 4.41
+      },
+      {
+        "symbol": "0981.HK",
+        "stk_mkv_ratio": 6.18
+      },
+      {
+        "symbol": "002865.SZ",
+        "stk_mkv_ratio": 3.47
+      },
+      {
+        "symbol": "688698.SH",
+        "stk_mkv_ratio": 3.58
+      },
+      {
+        "symbol": "000680.SZ",
+        "stk_mkv_ratio": 3.64
+      }
+    ]
+  },
+  "022572.OF": {
+    "name": "汇添富弘达回报A",
+    "code": "022572.OF",
+    "category": "混合型",
+    "annual_return": 23.19,
+    "sharpe": 1.64,
+    "volatility": 12.92,
+    "max_drawdown": 8.15,
+    "quality_score": 96.1,
+    "match_score": 31.4,
+    "industry_distribution": {
+      "化工": 31.4,
+      "其他": 17.89,
+      "锂矿": 4.73
+    },
+    "top_holdings": [
+      {
+        "symbol": "603379.SH",
+        "stk_mkv_ratio": 5.44
+      },
+      {
+        "symbol": "002258.SZ",
+        "stk_mkv_ratio": 4.55
+      },
+      {
+        "symbol": "002064.SZ",
+        "stk_mkv_ratio": 6.01
+      },
+      {
+        "symbol": "600426.SH",
+        "stk_mkv_ratio": 4.98
+      },
+      {
+        "symbol": "600160.SH",
+        "stk_mkv_ratio": 4.06
+      },
+      {
+        "symbol": "600141.SH",
+        "stk_mkv_ratio": 5.56
+      },
+      {
+        "symbol": "000830.SZ",
+        "stk_mkv_ratio": 5.35
+      },
+      {
+        "symbol": "000792.SZ",
+        "stk_mkv_ratio": 8.22
+      },
+      {
+        "symbol": "000683.SZ",
+        "stk_mkv_ratio": 5.12
+      },
+      {
+        "symbol": "000408.SZ",
+        "stk_mkv_ratio": 4.73
+      }
+    ]
+  },
+  "022148.OF": {
+    "name": "诺安价值增长C",
+    "code": "022148.OF",
+    "category": "混合型",
+    "annual_return": 26.98,
+    "sharpe": 1.53,
+    "volatility": 16.33,
+    "max_drawdown": 10.54,
+    "quality_score": 94.8,
+    "match_score": 33.3,
+    "industry_distribution": {
+      "其他": 34.04,
+      "有色": 21.85,
+      "有色/黄金": 7.42,
+      "有色/稀土": 4.04
+    },
+    "top_holdings": [
+      {
+        "symbol": "600259.SH",
+        "stk_mkv_ratio": 4.04
+      },
+      {
+        "symbol": "002895.SZ",
+        "stk_mkv_ratio": 4.28
+      },
+      {
+        "symbol": "600489.SH",
+        "stk_mkv_ratio": 5.03
+      },
+      {
+        "symbol": "002517.SZ",
+        "stk_mkv_ratio": 5.5
+      },
+      {
+        "symbol": "600309.SH",
+        "stk_mkv_ratio": 5.51
+      },
+      {
+        "symbol": "605060.SH",
+        "stk_mkv_ratio": 5.97
+      },
+      {
+        "symbol": "601899.SH",
+        "stk_mkv_ratio": 7.42
+      },
+      {
+        "symbol": "000893.SZ",
+        "stk_mkv_ratio": 7.75
+      },
+      {
+        "symbol": "000960.SZ",
+        "stk_mkv_ratio": 10.63
+      },
+      {
+        "symbol": "603993.SH",
+        "stk_mkv_ratio": 11.22
+      }
+    ]
+  },
+  "022327.OF": {
+    "name": "宏利高端装备A",
+    "code": "022327.OF",
+    "category": "股票型",
+    "annual_return": 22.9,
+    "sharpe": 1.51,
+    "volatility": 13.81,
+    "max_drawdown": 8.34,
+    "quality_score": 94.6,
+    "match_score": 40.8,
+    "industry_distribution": {
+      "化工": 40.790000000000006,
+      "其他": 21.049999999999997
+    },
+    "top_holdings": [
+      {
+        "symbol": "603260.SH",
+        "stk_mkv_ratio": 4.04
+      },
+      {
+        "symbol": "603225.SH",
+        "stk_mkv_ratio": 7.16
+      },
+      {
+        "symbol": "002585.SZ",
+        "stk_mkv_ratio": 4.35
+      },
+      {
+        "symbol": "002493.SZ",
+        "stk_mkv_ratio": 7.5
+      },
+      {
+        "symbol": "002092.SZ",
+        "stk_mkv_ratio": 3.79
+      },
+      {
+        "symbol": "600426.SH",
+        "stk_mkv_ratio": 11.4
+      },
+      {
+        "symbol": "600623.SH",
+        "stk_mkv_ratio": 3.95
+      },
+      {
+        "symbol": "600075.SH",
+        "stk_mkv_ratio": 8.96
+      },
+      {
+        "symbol": "000703.SZ",
+        "stk_mkv_ratio": 5.77
+      },
+      {
+        "symbol": "000683.SZ",
+        "stk_mkv_ratio": 4.92
+      }
+    ]
+  },
+  "024499.OF": {
+    "name": "兴华景和A",
+    "code": "024499.OF",
+    "category": "混合型",
+    "annual_return": 19.19,
+    "sharpe": 1.46,
+    "volatility": 11.75,
+    "max_drawdown": 7.91,
+    "quality_score": 94.1,
+    "match_score": 0,
+    "industry_distribution": {
+      "其他": 50.53
+    },
+    "top_holdings": [
+      {
+        "symbol": "688616.SH",
+        "stk_mkv_ratio": 4.65
+      },
+      {
+        "symbol": "688571.SH",
+        "stk_mkv_ratio": 4.8
+      },
+      {
+        "symbol": "300371.SZ",
+        "stk_mkv_ratio": 4.73
+      },
+      {
+        "symbol": "301503.SZ",
+        "stk_mkv_ratio": 5.5
+      },
+      {
+        "symbol": "301065.SZ",
+        "stk_mkv_ratio": 5.3
+      },
+      {
+        "symbol": "688355.SH",
+        "stk_mkv_ratio": 5.44
+      },
+      {
+        "symbol": "688517.SH",
+        "stk_mkv_ratio": 5.14
+      },
+      {
+        "symbol": "688092.SH",
+        "stk_mkv_ratio": 4.9
+      },
+      {
+        "symbol": "003008.SZ",
+        "stk_mkv_ratio": 4.63
+      },
+      {
+        "symbol": "600051.SH",
+        "stk_mkv_ratio": 5.44
+      }
+    ]
+  },
+  "021145.OF": {
+    "name": "银华甄选价值成长A",
+    "code": "021145.OF",
+    "category": "混合型",
+    "annual_return": 27.91,
+    "sharpe": 1.4,
+    "volatility": 18.46,
+    "max_drawdown": 13.1,
+    "quality_score": 91.6,
+    "match_score": 40.4,
+    "industry_distribution": {
+      "煤炭": 28.79,
+      "其他": 20.990000000000002,
+      "石油": 6.56,
+      "化工": 5.08
+    },
+    "top_holdings": [
+      {
+        "symbol": "603225.SH",
+        "stk_mkv_ratio": 5.08
+      },
+      {
+        "symbol": "601898.SH",
+        "stk_mkv_ratio": 5.16
+      },
+      {
+        "symbol": "601699.SH",
+        "stk_mkv_ratio": 5.37
+      },
+      {
+        "symbol": "601225.SH",
+        "stk_mkv_ratio": 5.39
+      },
+      {
+        "symbol": "601001.SH",
+        "stk_mkv_ratio": 5.47
+      },
+      {
+        "symbol": "601088.SH",
+        "stk_mkv_ratio": 5.77
+      },
+      {
+        "symbol": "601666.SH",
+        "stk_mkv_ratio": 5.87
+      },
+      {
+        "symbol": "600348.SH",
+        "stk_mkv_ratio": 6.29
+      },
+      {
+        "symbol": "0883.HK",
+        "stk_mkv_ratio": 1.12
+      },
+      {
+        "symbol": "600938.SH",
+        "stk_mkv_ratio": 6.56
+      }
+    ]
+  },
+  "022269.OF": {
+    "name": "中信保诚周期优选A",
+    "code": "022269.OF",
+    "category": "混合型",
+    "annual_return": 25.48,
+    "sharpe": 1.27,
+    "volatility": 18.49,
+    "max_drawdown": 11.45,
+    "quality_score": 91.4,
+    "match_score": 40.6,
+    "industry_distribution": {
+      "化工": 25.2,
+      "其他": 14.959999999999999,
+      "有色": 10.09,
+      "有色/黄金": 5.35
+    },
+    "top_holdings": [
+      {
+        "symbol": "603993.SH",
+        "stk_mkv_ratio": 4.93
+      },
+      {
+        "symbol": "601899.SH",
+        "stk_mkv_ratio": 5.35
+      },
+      {
+        "symbol": "002064.SZ",
+        "stk_mkv_ratio": 7.96
+      },
+      {
+        "symbol": "600426.SH",
+        "stk_mkv_ratio": 5.2
+      },
+      {
+        "symbol": "2259.HK",
+        "stk_mkv_ratio": 4.96
+      },
+      {
+        "symbol": "600346.SH",
+        "stk_mkv_ratio": 4.99
+      },
+      {
+        "symbol": "600309.SH",
+        "stk_mkv_ratio": 5.01
+      },
+      {
+        "symbol": "600160.SH",
+        "stk_mkv_ratio": 6.81
+      },
+      {
+        "symbol": "000830.SZ",
+        "stk_mkv_ratio": 5.23
+      },
+      {
+        "symbol": "000807.SZ",
+        "stk_mkv_ratio": 5.16
+      }
+    ]
+  },
+  "022416.OF": {
+    "name": "汇添富弘盛回报A",
+    "code": "022416.OF",
+    "category": "混合型",
+    "annual_return": 31.12,
+    "sharpe": 1.42,
+    "volatility": 20.48,
+    "max_drawdown": 14.02,
+    "quality_score": 90.9,
+    "match_score": 22.6,
+    "industry_distribution": {
+      "其他": 23.290000000000006,
+      "有色": 14.49,
+      "有色/黄金": 8.16,
+      "锂矿": 5.27
+    },
+    "top_holdings": [
+      {
+        "symbol": "603067.SH",
+        "stk_mkv_ratio": 3.76
+      },
+      {
+        "symbol": "603799.SH",
+        "stk_mkv_ratio": 4.45
+      },
+      {
+        "symbol": "603993.SH",
+        "stk_mkv_ratio": 5.14
+      },
+      {
+        "symbol": "002532.SZ",
+        "stk_mkv_ratio": 4.45
+      },
+      {
+        "symbol": "002738.SZ",
+        "stk_mkv_ratio": 3.87
+      },
+      {
+        "symbol": "601899.SH",
+        "stk_mkv_ratio": 8.16
+      },
+      {
+        "symbol": "2099.HK",
+        "stk_mkv_ratio": 3.94
+      },
+      {
+        "symbol": "2899.HK",
+        "stk_mkv_ratio": 2.24
+      },
+      {
+        "symbol": "3993.HK",
+        "stk_mkv_ratio": 1.09
+      },
+      {
+        "symbol": "600301.SH",
+        "stk_mkv_ratio": 3.94
+      }
+    ]
+  },
+  "024168.OF": {
+    "name": "信澳蓝筹精选C",
+    "code": "024168.OF",
+    "category": "股票型",
+    "annual_return": 16.94,
+    "sharpe": 1.03,
+    "volatility": 14.57,
+    "max_drawdown": 7.7,
+    "quality_score": 89.2,
+    "match_score": 18.6,
+    "industry_distribution": {
+      "有色": 12.23,
+      "其他": 11.540000000000001,
+      "有色/黄金": 6.32,
+      "锂矿": 3.97,
+      "银行": 3.04
+    },
+    "top_holdings": [
+      {
+        "symbol": "603993.SH",
+        "stk_mkv_ratio": 4.86
+      },
+      {
+        "symbol": "002532.SZ",
+        "stk_mkv_ratio": 2.89
+      },
+      {
+        "symbol": "600919.SH",
+        "stk_mkv_ratio": 3.04
+      },
+      {
+        "symbol": "601899.SH",
+        "stk_mkv_ratio": 6.32
+      },
+      {
+        "symbol": "601601.SH",
+        "stk_mkv_ratio": 2.98
+      },
+      {
+        "symbol": "601328.SH",
+        "stk_mkv_ratio": 2.75
+      },
+      {
+        "symbol": "600489.SH",
+        "stk_mkv_ratio": 2.92
+      },
+      {
+        "symbol": "600595.SH",
+        "stk_mkv_ratio": 3.0
+      },
+      {
+        "symbol": "000807.SZ",
+        "stk_mkv_ratio": 4.37
+      },
+      {
+        "symbol": "000408.SZ",
+        "stk_mkv_ratio": 3.97
+      }
+    ]
+  },
+  "023448.OF": {
+    "name": "上银资源精选A",
+    "code": "023448.OF",
+    "category": "混合型",
+    "annual_return": 23.74,
+    "sharpe": 1.01,
+    "volatility": 21.45,
+    "max_drawdown": 10.75,
+    "quality_score": 88.6,
+    "match_score": 20.0,
+    "industry_distribution": {
+      "有色": 15.05,
+      "其他": 10.92,
+      "有色/稀土": 2.93,
+      "有色/黄金": 2.03
+    },
+    "top_holdings": [
+      {
+        "symbol": "603799.SH",
+        "stk_mkv_ratio": 3.5
+      },
+      {
+        "symbol": "002155.SZ",
+        "stk_mkv_ratio": 2.74
+      },
+      {
+        "symbol": "002379.SZ",
+        "stk_mkv_ratio": 2.88
+      },
+      {
+        "symbol": "601899.SH",
+        "stk_mkv_ratio": 2.03
+      },
+      {
+        "symbol": "601600.SH",
+        "stk_mkv_ratio": 2.9
+      },
+      {
+        "symbol": "600489.SH",
+        "stk_mkv_ratio": 2.65
+      },
+      {
+        "symbol": "600549.SH",
+        "stk_mkv_ratio": 2.93
+      },
+      {
+        "symbol": "600595.SH",
+        "stk_mkv_ratio": 3.09
+      },
+      {
+        "symbol": "2899.HK",
+        "stk_mkv_ratio": 1.15
+      },
+      {
+        "symbol": "2600.HK",
+        "stk_mkv_ratio": 1.5
+      }
+    ]
   }
 }
