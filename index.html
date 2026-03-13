@@ -239,8 +239,8 @@
                     <div class="filter-tags" id="libraryFilters">
                         <span class="filter-tag active" data-value="all" onclick="filterByLibrary('all')">全部</span>
                         <span class="filter-tag" data-value="core" onclick="filterByLibrary('core')">🔴 核心库(85+)</span>
-                        <span class="filter-tag" data-value="watch" onclick="filterByLibrary('watch')">🟡 观察库(75-85)</span>
-                        <span class="filter-tag" data-value="reserve" onclick="filterByLibrary('reserve')">🟢 备选库(&lt;75)</span>
+                        <span class="filter-tag" data-value="reserve" onclick="filterByLibrary('reserve')">🟡 备选库(75-85)</span>
+                        <span class="filter-tag" data-value="watch" onclick="filterByLibrary('watch')">🟢 观察库(&lt;75)</span>
                     </div>
                 </div>
                 <div class="filter-row">
@@ -655,17 +655,17 @@
             if (score >= 85) {
                 return '<span style="background:#f44336;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🔴 核心库</span>';
             } else if (score >= 75) {
-                return '<span style="background:#ff9800;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🟡 观察库</span>';
+                return '<span style="background:#ff9800;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🟡 备选库</span>';
             } else {
-                return '<span style="background:#4caf50;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🟢 备选库</span>';
+                return '<span style="background:#4caf50;padding:2px 8px;border-radius:4px;font-size:11px;color:white;">🟢 观察库</span>';
             }
         }
         
         // 获取库别文字
         function getLibraryText(score) {
             if (score >= 85) return '核心库';
-            if (score >= 75) return '观察库';
-            return '备选库';
+            if (score >= 75) return '备选库';
+            return '观察库';
         }
         
         // 管理人筛选
@@ -724,7 +724,7 @@
                 // 库别筛选
                 if (currentFilters.library !== 'all') {
                     const score = r.score;
-                    const libraryType = score >= 85 ? 'core' : score >= 75 ? 'watch' : 'reserve';
+                    const libraryType = score >= 85 ? 'core' : score >= 75 ? 'reserve' : 'watch';
                     if (libraryType !== currentFilters.library) return false;
                 }
                 
