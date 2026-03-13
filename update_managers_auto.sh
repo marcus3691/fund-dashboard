@@ -1,0 +1,79 @@
+#!/bin/bash
+# 基金经理数据自动更新脚本
+# 每周一早上8点执行
+
+cd /root/.openclaw/workspace/fund_data/analysis
+
+echo "=== 基金经理数据更新 $(date) ==="
+
+# 1. 获取最新基金经理数据
+echo "正在获取基金经理数据..."
+python3 get_fund_managers.py > /tmp/fund_manager_update.log 2>&1
+
+if [ $? -eq 0 ]; then
+    echo "✓ 基金经理数据获取成功"
+    
+    # 2. 更新 index.html
+    echo "正在更新网页..."
+    python3 update_managers.py > /tmp/update_managers.log 2>&1
+    
+    if [ $? -eq 0 ]; then
+        echo "✓ 网页更新成功"
+        
+        # 3. 更新 top10Funds 的经理信息
+        python3 -c "
+import json
+import re
+
+with open('fund_manager_data.json', 'r', encoding='utf-8') as f:
+    manager_data = json.load(f)
+
+with open('index.html', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+top10_codes = [
+    '019222.OF', '017969.OF', '018832.OF', '017979.OF', '019235.OF',
+    '015779.OF', '011982.OF', '023605.OF', '019485.OF', '017760.OF'
+]
+
+for code in top10_codes:
+    manager = manager_data.get(code, {}).get('manager', '未知')
+    # 先移除旧的 manager 字段
+    content = re.sub(rf\"(, manager: '[^']+')\", '', content)
+    # 添加新的 manager 字段
+    pattern = rf\"(\\{{ rank: \\d+, code: '{code}', name: '[^']+')\"
+    replacement = rf\"\\1, manager: '{manager}'\"
+    content = re.sub(pattern, replacement, content)
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(content)
+print('✓ top10Funds 经理信息更新成功')
+"
+        
+        # 4. 提交并推送
+        git add index.html fund_manager_data.json
+        git commit -m "Auto: 更新基金经理数据 $(date +%Y-%m-%d)"
+        
+        # 尝试推送（最多3次）
+        for i in 1 2 3; do
+            echo "尝试推送第 $i 次..."
+            timeout 120 git push origin main
+            if [ $? -eq 0 ]; then
+                echo "✓ 推送成功"
+                break
+            else
+                echo "✗ 推送失败，等待重试..."
+                sleep 30
+            fi
+        done
+        
+    else
+        echo "✗ 网页更新失败"
+        cat /tmp/update_managers.log
+    fi
+else
+    echo "✗ 基金经理数据获取失败"
+    cat /tmp/fund_manager_update.log
+fi
+
+echo "=== 更新完成 $(date) ==="
