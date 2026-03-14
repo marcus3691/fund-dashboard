@@ -16,9 +16,8 @@ from email.header import Header
 SMTP_SERVER = "smtp.139.com"
 SMTP_PORT = 465
 SENDER_EMAIL = "18817205079@139.com"
-# 使用授权码（不是登录密码）
-# 用户需要从139邮箱设置中获取授权码
-SENDER_PASSWORD = os.environ.get('EMAIL_AUTH_CODE', 'your_auth_code_here')
+# 授权码从TOOLS.md获取
+SENDER_PASSWORD = os.environ.get('EMAIL_AUTH_CODE', 'ab96ed0b496fd94f6e00')
 RECIPIENT_EMAIL = "18817205079@139.com"
 
 def send_signal_email(signal, test_mode=False):
