@@ -1,0 +1,25 @@
+[
+  {
+    "title": "测试新闻：黄金价格上涨",
+    "content": "今日黄金价格突破5200美元，市场情绪乐观",
+    "source": "测试",
+    "url": "https://test.com",
+    "keywords": [
+      "黄金",
+      "上涨"
+    ],
+    "sentiment": "positive",
+    "id": "NEWS_20260314_001",
+    "created_at": "2026-03-14T21:20:10.332849",
+    "processed": true,
+    "processed_at": "2026-03-14T21:20:10.332949",
+    "extracted_signals": [
+      {
+        "type": "commodity",
+        "priority": "medium",
+        "trigger": "黄金价格上涨",
+        "action": "关注黄金ETF"
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+# 智能舆情监控系统 - Cron定时任务配置
+# 添加到crontab: crontab -e
+
+# 每日18:00运行完整监控（新闻+观点+研报+邮件汇总）
+0 18 * * * cd /root/.openclaw/workspace && /usr/bin/python3 fund_data/monitor/monitor_main.py --mode daily >> /root/.openclaw/workspace/fund_data/monitor/logs/daily_monitor.log 2>&1
+
+# 每2小时运行新闻监控（实时更新）
+0 */2 * * * cd /root/.openclaw/workspace && /usr/bin/python3 fund_data/monitor/monitor_main.py --mode news >> /root/.openclaw/workspace/fund_data/monitor/logs/news_monitor.log 2>&1
+
+# 每日9:00发送早盘简报
+0 9 * * * cd /root/.openclaw/workspace && /usr/bin/python3 fund_data/monitor/daily_report.py >> /root/.openclaw/workspace/fund_data/monitor/logs/morning_report.log 2>&1
+
+# 清理日志（每周日）
+0 0 * * 0 find /root/.openclaw/workspace/fund_data/monitor/logs/*.log -mtime +7 -delete
