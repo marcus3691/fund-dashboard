@@ -36,8 +36,8 @@ KEYWORDS = {
     }
 }
 
-# Tushare配置（需要从环境变量或配置文件读取）
-TUSHARE_TOKEN = os.environ.get('TUSHARE_TOKEN', '')
+# Tushare配置（从环境变量或配置文件读取）
+TUSHARE_TOKEN = os.environ.get('TUSHARE_TOKEN', '33996190080200cd63a01732ad443c390d9d580913ec938d4e1d704d')
 
 def fetch_tushare_major_news():
     """
