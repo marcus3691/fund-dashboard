@@ -1,0 +1,154 @@
+{
+  "etf_universe": {
+    "core_layer": [
+      {
+        "code": "515220.SH",
+        "name": "煤炭ETF",
+        "category": "能源",
+        "tracking_index": "中证煤炭指数",
+        "management_fee": 0.50,
+        "match_score": 95,
+        "logic": "能源安全核心，地缘冲突下替代能源需求上升",
+        "top_holdings": ["中国神华", "陕西煤业", "兖矿能源"],
+        "weight": 15
+      },
+      {
+        "code": "512400.SH",
+        "name": "有色金属ETF",
+        "category": "有色",
+        "tracking_index": "中证有色金属指数",
+        "management_fee": 0.50,
+        "match_score": 90,
+        "logic": "工业金属涨价，供应链受限推升价格",
+        "top_holdings": ["紫金矿业", "洛阳钼业", "中国铝业"],
+        "weight": 15
+      },
+      {
+        "code": "518880.SH",
+        "name": "黄金ETF",
+        "category": "贵金属",
+        "tracking_index": "上海黄金交易所黄金现货",
+        "management_fee": 0.60,
+        "match_score": 92,
+        "logic": "地缘避险+通胀对冲双重属性",
+        "top_holdings": ["黄金现货"],
+        "weight": 15
+      },
+      {
+        "code": "159972.SZ",
+        "name": "5年地债ETF",
+        "category": "债券",
+        "tracking_index": "中证5年期地方政府债指数",
+        "management_fee": 0.25,
+        "match_score": 75,
+        "logic": "权益市场波动加剧时的避险配置",
+        "top_holdings": ["地方政府债券"],
+        "weight": 15
+      }
+    ],
+    "satellite_layer": [
+      {
+        "code": "512660.SH",
+        "name": "军工ETF",
+        "category": "军工",
+        "tracking_index": "中证军工指数",
+        "management_fee": 0.50,
+        "match_score": 88,
+        "logic": "国防安全支出增加，地缘冲突长期化",
+        "top_holdings": ["中国船舶", "中航沈飞", "航发动力"],
+        "weight": 10
+      },
+      {
+        "code": "516020.SH",
+        "name": "化工ETF",
+        "category": "化工",
+        "tracking_index": "中证细分化工产业主题指数",
+        "management_fee": 0.50,
+        "match_score": 85,
+        "logic": "成本推动+供应受限，化工品价格上涨",
+        "top_holdings": ["万华化学", "盐湖股份", "华鲁恒升"],
+        "weight": 10
+      },
+      {
+        "code": "512200.SH",
+        "name": "房地产ETF",
+        "category": "地产",
+        "tracking_index": "中证全指房地产指数",
+        "management_fee": 0.50,
+        "match_score": 70,
+        "logic": "高股息+政策托底，防御属性",
+        "top_holdings": ["保利发展", "万科A", "招商蛇口"],
+        "weight": 10
+      }
+    ],
+    "hedge_layer": [
+      {
+        "code": "510300.SH",
+        "name": "沪深300ETF",
+        "category": "宽基",
+        "tracking_index": "沪深300指数",
+        "management_fee": 0.20,
+        "match_score": 60,
+        "logic": "市场 beta 暴露，风格切换时平衡组合",
+        "top_holdings": ["贵州茅台", "宁德时代", "中国平安"],
+        "weight": 5
+      },
+      {
+        "code": "511010.SH",
+        "name": "国债ETF",
+        "category": "债券",
+        "tracking_index": "上证5年期国债指数",
+        "management_fee": 0.30,
+        "match_score": 65,
+        "logic": "极端风险下的终极避险",
+        "top_holdings": ["国债"],
+        "weight": 5
+      }
+    ]
+  },
+  "allocation_strategy": {
+    "aggressive": {
+      "name": "进取型",
+      "description": "高风险高收益，适合风险承受能力强的投资者",
+      "core": 50,
+      "satellite": 40,
+      "hedge": 10
+    },
+    "balanced": {
+      "name": "平衡型",
+      "description": "风险收益平衡，适合大多数投资者",
+      "core": 60,
+      "satellite": 30,
+      "hedge": 10
+    },
+    "conservative": {
+      "name": "保守型",
+      "description": "低风险稳健收益，适合风险厌恶型投资者",
+      "core": 70,
+      "satellite": 20,
+      "hedge": 10
+    }
+  },
+  "rebalance_rules": [
+    {
+      "trigger": "霍尔木兹海峡封锁加深",
+      "action": "核心层能源ETF加仓5%，卫星层减仓",
+      "threshold": "航运费用上涨>20%"
+    },
+    {
+      "trigger": "美伊谈判取得进展",
+      "action": "核心层减仓10%，对冲层加仓",
+      "threshold": "双方释放积极信号"
+    },
+    {
+      "trigger": "油价突破$100",
+      "action": "煤炭ETF获利了结部分，化工ETF加仓",
+      "threshold": "布伦特原油>100美元"
+    },
+    {
+      "trigger": "风格切换至成长",
+      "action": "核心层能源减仓，卫星层军工加仓",
+      "threshold": "成长/价值比值突破上轨"
+    }
+  ]
+}

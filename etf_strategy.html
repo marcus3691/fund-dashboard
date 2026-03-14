@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ETF策略库 - 三层级资产配置工具</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+        
+        /* 导航栏 */
+        .navbar { background: #161b22; padding: 15px 30px; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .navbar h1 { font-size: 18px; color: #58a6ff; display: inline-block; }
+        .etf-badge { background: #a371f7; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 10px; vertical-align: middle; }
+        .navbar-left { display: flex; align-items: center; gap: 20px; flex: 1; min-width: 200px; }
+        .nav-links { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .nav-links a { color: #8b949e; text-decoration: none; font-size: 14px; cursor: pointer; padding: 8px 12px; border-radius: 6px; transition: all 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #58a6ff; background: rgba(88,166,255,0.1); }
+        .nav-links a.active { color: #58a6ff; background: rgba(88,166,255,0.15); }
+        
+        /* 容器 */
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+        
+        /* 策略说明 */
+        .strategy-desc { background: rgba(163, 113, 247, 0.1); border: 1px solid #a371f7; border-radius: 8px; padding: 20px; margin-bottom: 25px; }
+        .strategy-desc h3 { color: #a371f7; margin-bottom: 10px; font-size: 14px; }
+        .strategy-desc p { font-size: 13px; color: #c9d1d9; line-height: 1.8; }
+        .strategy-desc ul { margin-left: 20px; margin-top: 10px; }
+        .strategy-desc li { font-size: 13px; color: #c9d1d9; margin: 5px 0; }
+        
+        /* 风险偏好选择器 */
+        .risk-selector { display: flex; gap: 10px; margin-bottom: 25px; background: #161b22; padding: 15px; border-radius: 8px; border: 1px solid #30363d; }
+        .risk-btn { flex: 1; padding: 12px 20px; border: 1px solid #30363d; background: #0d1117; color: #8b949e; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 14px; }
+        .risk-btn:hover { border-color: #58a6ff; color: #58a6ff; }
+        .risk-btn.active { background: rgba(88, 166, 255, 0.15); border-color: #58a6ff; color: #58a6ff; }
+        .risk-btn.active.aggressive { background: rgba(248, 81, 73, 0.15); border-color: #f85149; color: #f85149; }
+        .risk-btn.active.conservative { background: rgba(63, 185, 80, 0.15); border-color: #3fb950; color: #3fb950; }
+        
+        /* 三层级框架 */
+        .layer-section { margin-bottom: 30px; }
+        .layer-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid; }
+        .layer-header.core { border-color: #f85149; }
+        .layer-header.satellite { border-color: #d29922; }
+        .layer-header.hedge { border-color: #3fb950; }
+        .layer-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .layer-icon.core { background: rgba(248, 81, 73, 0.2); }
+        .layer-icon.satellite { background: rgba(210, 153, 34, 0.2); }
+        .layer-icon.hedge { background: rgba(63, 185, 80, 0.2); }
+        .layer-title { flex: 1; }
+        .layer-title h2 { font-size: 16px; color: #e6edf3; margin-bottom: 4px; }
+        .layer-title .subtitle { font-size: 12px; color: #8b949e; }
+        .layer-weight { font-size: 24px; font-weight: 600; }
+        .layer-weight.core { color: #f85149; }
+        .layer-weight.satellite { color: #d29922; }
+        .layer-weight.hedge { color: #3fb950; }
+        
+        /* 进度条 */
+        .progress-bar { width: 100%; height: 8px; background: #21262d; border-radius: 4px; margin-top: 8px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+        .progress-fill.core { background: linear-gradient(90deg, #f85149, #ff7b72); }
+        .progress-fill.satellite { background: linear-gradient(90deg, #d29922, #e3b341); }
+        .progress-fill.hedge { background: linear-gradient(90deg, #3fb950, #56d364); }
+        
+        /* 指标网格 */
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+        .metric-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
+        .metric-card .value { font-size: 28px; font-weight: 600; color: #58a6ff; margin: 10px 0; }
+        .metric-card .value.core { color: #f85149; }
+        .metric-card .value.satellite { color: #d29922; }
+        .metric-card .value.hedge { color: #3fb950; }
+        .metric-card .label { font-size: 12px; color: #8b949e; }
+        
+        /* ETF卡片 */
+        .etf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+        .etf-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; transition: all 0.2s; position: relative; overflow: hidden; }
+        .etf-card:hover { border-color: #58a6ff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(88,166,255,0.15); }
+        .etf-card.core { border-left: 3px solid #f85149; }
+        .etf-card.satellite { border-left: 3px solid #d29922; }
+        .etf-card.hedge { border-left: 3px solid #3fb950; }
+        
+        .etf-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        .etf-info h3 { font-size: 16px; color: #e6edf3; margin-bottom: 4px; }
+        .etf-code { font-size: 12px; color: #8b949e; font-family: monospace; }
+        .etf-weight { font-size: 24px; font-weight: 600; color: #58a6ff; }
+        .etf-weight.core { color: #f85149; }
+        .etf-weight.satellite { color: #d29922; }
+        .etf-weight.hedge { color: #3fb950; }
+        
+        .etf-category { display: inline-block; background: #21262d; padding: 2px 10px; border-radius: 4px; font-size: 11px; color: #8b949e; margin-bottom: 10px; }
+        
+        .etf-logic { font-size: 12px; color: #c9d1d9; line-height: 1.6; margin-bottom: 12px; padding: 10px; background: rgba(88,166,255,0.05); border-radius: 6px; }
+        
+        .etf-holdings { margin-bottom: 12px; }
+        .etf-holdings .label { font-size: 11px; color: #8b949e; margin-bottom: 6px; }
+        .holding-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        .holding-tag { background: #30363d; padding: 2px 8px; border-radius: 4px; font-size: 11px; color: #c9d1d9; }
+        
+        .etf-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #30363d; font-size: 11px; color: #8b949e; }
+        .match-score { color: #58a6ff; font-weight: 600; }
+        .match-score.high { color: #3fb950; }
+        
+        /* 调仓规则 */
+        .rebalance-section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+        .rebalance-section h2 { font-size: 16px; margin-bottom: 20px; color: #e6edf3; border-bottom: 2px solid #a371f7; padding-bottom: 10px; }
+        .rebalance-item { display: flex; gap: 15px; padding: 15px; background: #0d1117; border-radius: 6px; margin-bottom: 10px; border-left: 3px solid #a371f7; }
+        .rebalance-trigger { flex: 0 0 200px; }
+        .rebalance-trigger .label { font-size: 11px; color: #8b949e; margin-bottom: 4px; }
+        .rebalance-trigger .value { font-size: 13px; color: #f85149; font-weight: 500; }
+        .rebalance-action { flex: 1; }
+        .rebalance-action .label { font-size: 11px; color: #8b949e; margin-bottom: 4px; }
+        .rebalance-action .value { font-size: 13px; color: #c9d1d9; }
+        
+        /* 对比区域 */
+        .compare-section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+        .compare-section h2 { font-size: 16px; margin-bottom: 20px; color: #e6edf3; }
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .compare-card { padding: 20px; border-radius: 8px; }
+        .compare-card.etf { background: rgba(163, 113, 247, 0.1); border: 1px solid #a371f7; }
+        .compare-card.fund { background: rgba(88, 166, 255, 0.1); border: 1px solid #58a6ff; }
+        .compare-card h3 { font-size: 14px; margin-bottom: 15px; }
+        .compare-card.etf h3 { color: #a371f7; }
+        .compare-card.fund h3 { color: #58a6ff; }
+        .compare-card ul { list-style: none; }
+        .compare-card li { font-size: 12px; color: #c9d1d9; padding: 6px 0; padding-left: 16px; position: relative; }
+        .compare-card li::before { content: "✓"; position: absolute; left: 0; color: #3fb950; }
+        
+        /* 更新信息 */
+        .update-info { text-align: center; padding: 30px; color: #8b949e; font-size: 12px; }
+        
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .container { padding: 20px; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .compare-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 12px 16px; }
+            .container { padding: 16px; }
+            .risk-selector { flex-direction: column; }
+            .etf-grid { grid-template-columns: 1fr; }
+            .rebalance-item { flex-direction: column; }
+            .rebalance-trigger { flex: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>基金产品库智能分析系统<span class="etf-badge">ETF策略库</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 产品库主页</a>
+            <a href="strategy.html">📈 三层级策略</a>
+            <a href="etf_strategy.html" class="active">📊 ETF配置</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 策略说明 -->
+        <div class="strategy-desc">
+            <h3>📋 ETF三层级资产配置工具</h3>
+            <p>基于韦冀星地缘冲突策略，使用行业ETF执行三层级配置。ETF相比主动基金具有更高透明度、更低成本和更灵活的久期调整能力。</p>
+            <ul>
+                <li><strong>核心层（50-70%）</strong>：能源、有色、黄金等确定性品种ETF</li>
+                <li><strong>卫星层（20-40%）</strong>：军工、化工、地产等趋势品种ETF</li>
+                <li><strong>对冲层（10%）</strong>：宽基、债券等防御品种ETF</li>
+            </ul>
+        </div>
+
+        <!-- 风险偏好选择 -->
+        <div class="risk-selector">
+            <button class="risk-btn aggressive" data-risk="aggressive" onclick="setRiskProfile('aggressive')">
+                <div style="font-weight: 600;">进取型</div>
+                <div style="font-size: 11px; margin-top: 4px;">核心50% | 卫星40% | 对冲10%</div>
+            </button>
+            <button class="risk-btn active balanced" data-risk="balanced" onclick="setRiskProfile('balanced')">
+                <div style="font-weight: 600;">平衡型</div>
+                <div style="font-size: 11px; margin-top: 4px;">核心60% | 卫星30% | 对冲10%</div>
+            </button>
+            <button class="risk-btn conservative" data-risk="conservative" onclick="setRiskProfile('conservative')">
+                <div style="font-weight: 600;">保守型</div>
+                <div style="font-size: 11px; margin-top: 4px;">核心70% | 卫星20% | 对冲10%</div>
+            </button>
+        </div>
+
+        <!-- 配置概览 -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">核心层配置</div>
+                <div class="value core" id="corePercent">60%</div>
+                <div class="progress-bar"><div class="progress-fill core" id="coreProgress" style="width: 60%"></div></div>
+            </div>
+            <div class="metric-card">
+                <div class="label">卫星层配置</div>
+                <div class="value satellite" id="satellitePercent">30%</div>
+                <div class="progress-bar"><div class="progress-fill satellite" id="satelliteProgress" style="width: 30%"></div></div>
+            </div>
+            <div class="metric-card">
+                <div class="label">对冲层配置</div>
+                <div class="value hedge" id="hedgePercent">10%</div>
+                <div class="progress-bar"><div class="progress-fill hedge" id="hedgeProgress" style="width: 10%"></div></div>
+            </div>
+            <div class="metric-card">
+                <div class="label">ETF数量</div>
+                <div class="value">9只</div>
+                <div class="label">覆盖8大行业</div>
+            </div>
+        </div>
+
+        <!-- 核心层 -->
+        <div class="layer-section">
+            <div class="layer-header core">
+                <div class="layer-icon core">🎯</div>
+                <div class="layer-title">
+                    <h2>核心层 - 确定性品种</h2>
+                    <div class="subtitle">长久期配置 | 地缘冲突直接受益 | 高匹配度ETF</div>
+                </div>
+                <div class="layer-weight core" id="coreWeight">60%</div>
+            </div>
+            
+            <div class="etf-grid" id="coreGrid">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+
+        <!-- 卫星层 -->
+        <div class="layer-section">
+            <div class="layer-header satellite">
+                <div class="layer-icon satellite">📈</div>
+                <div class="layer-title">
+                    <h2>卫星层 - 趋势品种</h2>
+                    <div class="subtitle">中久期配置 | 根据冲突发展动态调整 | 中匹配度ETF</div>
+                </div>
+                <div class="layer-weight satellite" id="satelliteWeight">30%</div>
+            </div>
+            
+            <div class="etf-grid" id="satelliteGrid">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+
+        <!-- 对冲层 -->
+        <div class="layer-section">
+            <div class="layer-header hedge">
+                <div class="layer-icon hedge">🛡️</div>
+                <div class="layer-title">
+                    <h2>对冲层 - 防御品种</h2>
+                    <div class="subtitle">短久期配置 | 风险防范+风格平衡 | 低匹配度ETF</div>
+                </div>
+                <div class="layer-weight hedge" id="hedgeWeight">10%</div>
+            </div>
+            
+            <div class="etf-grid" id="hedgeGrid">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+
+        <!-- 调仓规则 -->
+        <div class="rebalance-section">
+            <h2>🔄 动态调仓触发规则</h2>
+            <div class="rebalance-item">
+                <div class="rebalance-trigger">
+                    <div class="label">触发条件</div>
+                    <div class="value">霍尔木兹封锁加深</div>
+                </div>
+                <div class="rebalance-action">
+                    <div class="label">调仓动作</div>
+                    <div class="value">核心层能源ETF加仓5%，卫星层减仓；监控航运费用上涨>20%</div>
+                </div>
+            </div>
+            <div class="rebalance-item">
+                <div class="rebalance-trigger">
+                    <div class="label">触发条件</div>
+                    <div class="value">美伊谈判取得进展</div>
+                </div>
+                <div class="rebalance-action">
+                    <div class="label">调仓动作</div>
+                    <div class="value">核心层减仓10%，对冲层加仓；监控双方积极信号</div>
+                </div>
+            </div>
+            <div class="rebalance-item">
+                <div class="rebalance-trigger">
+                    <div class="label">触发条件</div>
+                    <div class="value">油价突破$100</div>
+                </div>
+                <div class="rebalance-action">
+                    <div class="label">调仓动作</div>
+                    <div class="value">煤炭ETF获利了结部分，化工ETF加仓；监控布伦特原油价格</div>
+                </div>
+            </div>
+            <div class="rebalance-item">
+                <div class="rebalance-trigger">
+                    <div class="label">触发条件</div>
+                    <div class="value">风格切换至成长</div>
+                </div>
+                <div class="rebalance-action">
+                    <div class="label">调仓动作</div>
+                    <div class="value">核心层能源减仓，卫星层军工加仓；监控成长/价值比值</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETF vs 主动基金对比 -->
+        <div class="compare-section">
+            <h2>📊 ETF配置 vs 主动基金筛选</h2>
+            <div class="compare-grid">
+                <div class="compare-card etf">
+                    <h3>✨ ETF配置方案</h3>
+                    <ul>
+                        <li>持仓透明，实时可知</li>
+                        <li>成本低（管理费0.2%-0.6%）</li>
+                        <li>久期调整灵活（二级市场买卖）</li>
+                        <li>策略纯度高（行业Beta暴露）</li>
+                        <li>无基金经理风格漂移风险</li>
+                        <li>适合：战术资产配置、久期管理</li>
+                    </ul>
+                </div>
+                <div class="compare-card fund">
+                    <h3>🎯 主动基金方案</h3>
+                    <ul>
+                        <li>专业选股，追求Alpha</li>
+                        <li>费用较高（管理费1%-1.5%）</li>
+                        <li>调仓受限（申赎成本高）</li>
+                        <li>持仓滞后（季报披露）</li>
+                        <li>存在风格漂移风险</li>
+                        <li>适合：长期持有、获取超额收益</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-info">
+            <p>ETF策略库 V1.0 | 更新时间: 2026-03-14</p>
+            <p>风险提示：ETF交易存在市场风险，配置比例仅供参考，请根据自身风险承受能力调整</p>
+        </div>
+    </div>
+
+    <script>
+        // ETF数据
+        const etfData = {
+            core: [
+                { code: '515220.SH', name: '煤炭ETF', category: '能源', tracking: '中证煤炭指数', fee: 0.50, score: 95, logic: '能源安全核心，地缘冲突下替代能源需求上升', holdings: ['中国神华', '陕西煤业', '兖矿能源'], weight: 15 },
+                { code: '512400.SH', name: '有色金属ETF', category: '有色', tracking: '中证有色金属指数', fee: 0.50, score: 90, logic: '工业金属涨价，供应链受限推升价格', holdings: ['紫金矿业', '洛阳钼业', '中国铝业'], weight: 15 },
+                { code: '518880.SH', name: '黄金ETF', category: '贵金属', tracking: '上海黄金交易所黄金现货', fee: 0.60, score: 92, logic: '地缘避险+通胀对冲双重属性', holdings: ['黄金现货'], weight: 15 },
+                { code: '159972.SZ', name: '5年地债ETF', category: '债券', tracking: '中证5年期地方政府债指数', fee: 0.25, score: 75, logic: '权益市场波动加剧时的避险配置', holdings: ['地方政府债券'], weight: 15 }
+            ],
+            satellite: [
+                { code: '512660.SH', name: '军工ETF', category: '军工', tracking: '中证军工指数', fee: 0.50, score: 88, logic: '国防安全支出增加，地缘冲突长期化', holdings: ['中国船舶', '中航沈飞', '航发动力'], weight: 10 },
+                { code: '516020.SH', name: '化工ETF', category: '化工', tracking: '中证细分化工产业主题指数', fee: 0.50, score: 85, logic: '成本推动+供应受限，化工品价格上涨', holdings: ['万华化学', '盐湖股份', '华鲁恒升'], weight: 10 },
+                { code: '512200.SH', name: '房地产ETF', category: '地产', tracking: '中证全指房地产指数', fee: 0.50, score: 70, logic: '高股息+政策托底，防御属性', holdings: ['保利发展', '万科A', '招商蛇口'], weight: 10 }
+            ],
+            hedge: [
+                { code: '510300.SH', name: '沪深300ETF', category: '宽基', tracking: '沪深300指数', fee: 0.20, score: 60, logic: '市场 beta 暴露，风格切换时平衡组合', holdings: ['贵州茅台', '宁德时代', '中国平安'], weight: 5 },
+                { code: '511010.SH', name: '国债ETF', category: '债券', tracking: '上证5年期国债指数', fee: 0.30, score: 65, logic: '极端风险下的终极避险', holdings: ['国债'], weight: 5 }
+            ]
+        };
+
+        // 风险偏好配置
+        const riskProfiles = {
+            aggressive: { core: 50, satellite: 40, hedge: 10 },
+            balanced: { core: 60, satellite: 30, hedge: 10 },
+            conservative: { core: 70, satellite: 20, hedge: 10 }
+        };
+
+        let currentProfile = 'balanced';
+
+        // 设置风险偏好
+        function setRiskProfile(profile) {
+            currentProfile = profile;
+            
+            // 更新按钮状态
+            document.querySelectorAll('.risk-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.risk === profile) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // 更新配置比例
+            const config = riskProfiles[profile];
+            updateAllocation(config);
+        }
+
+        // 更新配置显示
+        function updateAllocation(config) {
+            // 更新数字和进度条
+            document.getElementById('corePercent').textContent = config.core + '%';
+            document.getElementById('coreProgress').style.width = config.core + '%';
+            document.getElementById('coreWeight').textContent = config.core + '%';
+            
+            document.getElementById('satellitePercent').textContent = config.satellite + '%';
+            document.getElementById('satelliteProgress').style.width = config.satellite + '%';
+            document.getElementById('satelliteWeight').textContent = config.satellite + '%';
+            
+            document.getElementById('hedgePercent').textContent = config.hedge + '%';
+            document.getElementById('hedgeProgress').style.width = config.hedge + '%';
+            document.getElementById('hedgeWeight').textContent = config.hedge + '%';
+            
+            // 重新渲染ETF卡片（按新比例分配权重）
+            renderETFCards();
+        }
+
+        // 渲染ETF卡片
+        function renderETFCards() {
+            const config = riskProfiles[currentProfile];
+            
+            // 核心层
+            const coreGrid = document.getElementById('coreGrid');
+            const coreCount = etfData.core.length;
+            const coreWeightPerETF = Math.round(config.core / coreCount);
+            coreGrid.innerHTML = etfData.core.map(etf => createETFCard(etf, 'core', coreWeightPerETF)).join('');
+            
+            // 卫星层
+            const satelliteGrid = document.getElementById('satelliteGrid');
+            const satelliteCount = etfData.satellite.length;
+            const satelliteWeightPerETF = Math.round(config.satellite / satelliteCount);
+            satelliteGrid.innerHTML = etfData.satellite.map(etf => createETFCard(etf, 'satellite', satelliteWeightPerETF)).join('');
+            
+            // 对冲层
+            const hedgeGrid = document.getElementById('hedgeGrid');
+            const hedgeCount = etfData.hedge.length;
+            const hedgeWeightPerETF = Math.round(config.hedge / hedgeCount);
+            hedgeGrid.innerHTML = etfData.hedge.map(etf => createETFCard(etf, 'hedge', hedgeWeightPerETF)).join('');
+        }
+
+        // 创建ETF卡片HTML
+        function createETFCard(etf, layer, weight) {
+            const scoreClass = etf.score >= 90 ? 'high' : '';
+            return `
+                <div class="etf-card ${layer}">
+                    <div class="etf-header">
+                        <div class="etf-info">
+                            <h3>${etf.name}</h3>
+                            <div class="etf-code">${etf.code} | ${etf.tracking}</div>
+                        </div>
+                        <div class="etf-weight ${layer}">${weight}%</div>
+                    </div>
+                    <div class="etf-category">${etf.category} | 管理费${etf.fee}%</div>
+                    <div class="etf-logic">${etf.logic}</div>
+                    <div class="etf-holdings">
+                        <div class="label">前三大持仓</div>
+                        <div class="holding-tags">${etf.holdings.map(h => `<span class="holding-tag">${h}</span>`).join('')}</div>
+                    </div>
+                    <div class="etf-footer">
+                        <span>匹配度: <span class="match-score ${scoreClass}">${etf.score}</span></span>
+                        <span>${layer === 'core' ? '长久期' : layer === 'satellite' ? '中久期' : '短久期'}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderETFCards();
+        });
+    </script>
+</body>
+</html>
