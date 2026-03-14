@@ -352,8 +352,8 @@
         </div>
 
         <div class="update-info">
-            <p>ETF策略库 V1.0 | 更新时间: 2026-03-14</p>
-            <p>风险提示：ETF交易存在市场风险，配置比例仅供参考，请根据自身风险承受能力调整</p>
+            <p>ETF策略库 V2.0 | <span id="updateTime">行情更新: 加载中...</span></p>
+            <p>数据来源: 模拟行情（Tushare Pro待接入）| 风险提示：ETF交易存在市场风险</p>
         </div>
     </div>
 
@@ -426,13 +426,23 @@
         }
 
         // 渲染ETF卡片
-        function renderETFCards() {
+        async function renderETFCards() {
             const config = riskProfiles[currentProfile];
+            
+            // 加载行情数据
+            let marketData = {};
+            try {
+                const response = await fetch('etf_daily_data.json');
+                const data = await response.json();
+                marketData = data.etf_list || {};
+            } catch (e) {
+                console.error('加载行情数据失败:', e);
+            }
             
             // 核心层 - 4只ETF
             const coreGrid = document.getElementById('coreGrid');
             const coreWeightPerETF = Math.round(config.core / etfData.core.length);
-            coreGrid.innerHTML = etfData.core.map(etf => createETFCard(etf, 'core', coreWeightPerETF)).join('');
+            coreGrid.innerHTML = etfData.core.map(etf => createETFCard(etf, 'core', coreWeightPerETF, marketData[etf.code])).join('');
             
             // 卫星层 - 6只ETF（4科技+2周期）
             const satelliteGrid = document.getElementById('satelliteGrid');
@@ -444,22 +454,32 @@
             
             let satelliteHTML = '';
             techETFs.forEach(etf => {
-                satelliteHTML += createETFCard(etf, 'satellite', techWeight);
+                satelliteHTML += createETFCard(etf, 'satellite', techWeight, marketData[etf.code]);
             });
             cycleETFs.forEach(etf => {
-                satelliteHTML += createETFCard(etf, 'satellite', cycleWeight);
+                satelliteHTML += createETFCard(etf, 'satellite', cycleWeight, marketData[etf.code]);
             });
             satelliteGrid.innerHTML = satelliteHTML;
             
             // 对冲层 - 2只ETF
             const hedgeGrid = document.getElementById('hedgeGrid');
             const hedgeWeightPerETF = Math.round(config.hedge / etfData.hedge.length);
-            hedgeGrid.innerHTML = etfData.hedge.map(etf => createETFCard(etf, 'hedge', hedgeWeightPerETF)).join('');
+            hedgeGrid.innerHTML = etfData.hedge.map(etf => createETFCard(etf, 'hedge', hedgeWeightPerETF, marketData[etf.code])).join('');
+            
+            // 更新时间显示
+            if (marketData && Object.keys(marketData).length > 0) {
+                const updateTime = new Date().toLocaleString('zh-CN');
+                const timeEl = document.getElementById('updateTime');
+                if (timeEl) timeEl.textContent = '行情更新: ' + updateTime;
+            }
         }
 
         // 创建ETF卡片HTML
-        function createETFCard(etf, layer, weight) {
+        function createETFCard(etf, layer, weight, marketData) {
             const scoreClass = etf.score >= 90 ? 'high' : '';
+            const changeClass = marketData && marketData.change_pct >= 0 ? 'positive' : 'negative';
+            const changeSymbol = marketData && marketData.change_pct >= 0 ? '+' : '';
+            
             return `
                 <div class="etf-card ${layer}">
                     <div class="etf-header">
@@ -467,10 +487,36 @@
                             <h3>${etf.name}</h3>
                             <div class="etf-code">${etf.code} | ${etf.tracking}</div>
                         </div>
-                        <div class="etf-weight ${layer}">${weight}%</div>
+                        <div style="text-align: right;">
+                            <div class="etf-weight ${layer}">${weight}%</div>
+                            ${marketData ? `
+                            <div style="font-size: 14px; margin-top: 4px;">
+                                <span style="color: #e6edf3; font-weight: 600;">${marketData.latest.close.toFixed(3)}</span>
+                                <span style="color: ${marketData.change_pct >= 0 ? '#3fb950' : '#f85149'}; font-size: 12px; margin-left: 6px;">
+                                    ${changeSymbol}${marketData.change_pct.toFixed(2)}%
+                                </span>
+                            </div>
+                            ` : ''}
+                        </div>
                     </div>
                     <div class="etf-category">${etf.category} | 管理费${etf.fee}%</div>
                     <div class="etf-logic">${etf.logic}</div>
+                    ${marketData ? `
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; padding: 10px; background: #0d1117; border-radius: 6px; font-size: 11px;">
+                        <div>
+                            <div style="color: #8b949e;">MA5</div>
+                            <div style="color: ${marketData.latest.close > marketData.metrics.ma5 ? '#3fb950' : '#f85149'};">${marketData.metrics.ma5.toFixed(3)}</div>
+                        </div>
+                        <div>
+                            <div style="color: #8b949e;">MA20</div>
+                            <div style="color: ${marketData.latest.close > marketData.metrics.ma20 ? '#3fb950' : '#f85149'};">${marketData.metrics.ma20.toFixed(3)}</div>
+                        </div>
+                        <div>
+                            <div style="color: #8b949e;">波动率</div>
+                            <div style="color: #58a6ff;">${marketData.metrics.volatility_20d.toFixed(1)}%</div>
+                        </div>
+                    </div>
+                    ` : ''}
                     <div class="etf-holdings">
                         <div class="label">前三大持仓</div>
                         <div class="holding-tags">${etf.holdings.map(h => `<span class="holding-tag">${h}</span>`).join('')}</div>
