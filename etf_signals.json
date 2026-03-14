@@ -148,6 +148,29 @@
       "review_status": "pending",
       "reviewer": null,
       "review_notes": "需监控VIX实际走势和美股后续表现，确认波动率上升趋势"
+    },
+    {
+      "id": "SIG_20260314_007",
+      "timestamp": "2026-03-14T11:18:00",
+      "type": "geopolitical",
+      "priority": "high",
+      "status": "pending_review",
+      "trigger": {
+        "event": "霍尔木兹海峡通航恢复或美伊达成妥协",
+        "threshold": "航运正常化/油价跌破90美元",
+        "current_value": "待观察（博弈论阶段高概率结果）",
+        "source": "政信三公子分析/均值回归逻辑"
+      },
+      "action": {
+        "layer": "core,satellite",
+        "target": "515220.SH,518880.SH,512480.SH,515880.SH,159819.SZ",
+        "direction": "能源减仓，科技加仓",
+        "suggested_weight": 10,
+        "rationale": "'胆小鬼游戏'理性结果：双方都有动机避免鱼死网破，地缘风险降温后能源价格回落，美股科技股反弹（七巨头已调整10%），国内映射同步反弹"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "review_notes": "这是基于博弈论的中期策略信号，需等待霍尔木兹通航/美伊谈判进展确认。触发条件：①霍尔木兹通航正常 ②油价跌破90 ③美伊释放谈判信号。信号触发后：核心层能源ETF获利了结，卫星层科技ETF（半导体/通信/AI）分批抄底加仓"
     }
   ],
   "signal_rules": {
