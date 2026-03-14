@@ -9775,5 +9775,613 @@
     "generated_at": "2026-03-14T22:55:24.451394",
     "id": "VIEW_20260314_125",
     "created_at": "2026-03-14T22:55:24.451416"
+  },
+  {
+    "manager": "鲍无可",
+    "fund": "景顺长城能源基建",
+    "report": {
+      "manager": "鲍无可",
+      "fund": "景顺长城能源基建",
+      "fund_code": "260112",
+      "company": "景顺长城",
+      "style": "深度价值",
+      "aum": "80亿+",
+      "note": "低估值策略",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:57.640244",
+      "performance": {
+        "latest_nav": 3.535,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": 6.35,
+          "3月": 19.3,
+          "6月": 28.45,
+          "1年": 47.05
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002318.SZ",
+            "ratio": 9.19
+          },
+          {
+            "stock_code": "601898.SH",
+            "ratio": 4.26
+          },
+          {
+            "stock_code": "601899.SH",
+            "ratio": 11.89
+          },
+          {
+            "stock_code": "601168.SH",
+            "ratio": 4.23
+          },
+          {
+            "stock_code": "002128.SZ",
+            "ratio": 5.8
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年表现优秀(+47.05%)，持仓相对集中",
+        "strengths": [
+          "业绩领先同类",
+          "短期趋势向上"
+        ],
+        "risks": [
+          "持仓集中度较高"
+        ],
+        "recommendation": "可重点关注",
+        "top_holdings": "002318.SZ, 601898.SH, 601899.SH"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:57.640269",
+    "id": "VIEW_20260314_126",
+    "created_at": "2026-03-14T23:03:57.640290"
+  },
+  {
+    "manager": "林英睿",
+    "fund": "广发睿毅领先",
+    "report": {
+      "manager": "林英睿",
+      "fund": "广发睿毅领先",
+      "fund_code": "005233",
+      "company": "广发",
+      "style": "困境反转",
+      "aum": "70亿+",
+      "note": "航空股投资",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:57.824652",
+      "performance": {
+        "latest_nav": 2.3189,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": -14.0,
+          "3月": -8.21,
+          "6月": -3.64,
+          "1年": -1.31
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002928.SZ",
+            "ratio": 8.46
+          },
+          {
+            "stock_code": "603081.SH",
+            "ratio": 5.2
+          },
+          {
+            "stock_code": "603043.SH",
+            "ratio": 4.82
+          },
+          {
+            "stock_code": "603885.SH",
+            "ratio": 7.44
+          },
+          {
+            "stock_code": "601021.SH",
+            "ratio": 9.13
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年调整(-1.31%)，持仓均衡",
+        "strengths": [],
+        "risks": [
+          "近期业绩承压",
+          "短期趋势向下"
+        ],
+        "recommendation": "建议观望",
+        "top_holdings": "002928.SZ, 603081.SH, 603043.SH"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:57.824676",
+    "id": "VIEW_20260314_127",
+    "created_at": "2026-03-14T23:03:57.824697"
+  },
+  {
+    "manager": "王海峰",
+    "fund": "银华鑫盛灵活",
+    "report": {
+      "manager": "王海峰",
+      "fund": "银华鑫盛灵活",
+      "fund_code": "501022",
+      "company": "银华",
+      "style": "周期价值",
+      "aum": "60亿+",
+      "note": "周期股专家",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:57.894191",
+      "performance": null,
+      "holdings": null,
+      "analysis": {
+        "summary": "业绩数据待更新，持仓数据待更新",
+        "strengths": [],
+        "risks": [],
+        "recommendation": "保持关注"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:57.894206",
+    "id": "VIEW_20260314_128",
+    "created_at": "2026-03-14T23:03:57.894224"
+  },
+  {
+    "manager": "杨嘉文",
+    "fund": "易方达科瑞",
+    "report": {
+      "manager": "杨嘉文",
+      "fund": "易方达科瑞",
+      "fund_code": "003293",
+      "company": "易方达",
+      "style": "价值成长",
+      "aum": "50亿+",
+      "note": "中小盘价值",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:58.082026",
+      "performance": {
+        "latest_nav": 2.4031,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": 3.31,
+          "3月": 13.85,
+          "6月": 8.95,
+          "1年": 40.62
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300750.SZ",
+            "ratio": 3.41
+          },
+          {
+            "stock_code": "603259.SH",
+            "ratio": 2.58
+          },
+          {
+            "stock_code": "002916.SZ",
+            "ratio": 3.65
+          },
+          {
+            "stock_code": "002831.SZ",
+            "ratio": 4.01
+          },
+          {
+            "stock_code": "300502.SZ",
+            "ratio": 4.16
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年表现优秀(+40.62%)，持仓较为分散",
+        "strengths": [
+          "业绩领先同类",
+          "风险分散"
+        ],
+        "risks": [],
+        "recommendation": "可重点关注",
+        "top_holdings": "300750.SZ, 603259.SH, 002916.SZ"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:58.082049",
+    "id": "VIEW_20260314_129",
+    "created_at": "2026-03-14T23:03:58.082070"
+  },
+  {
+    "manager": "程琨",
+    "fund": "广发优企精选",
+    "report": {
+      "manager": "程琨",
+      "fund": "广发优企精选",
+      "fund_code": "002624",
+      "company": "广发",
+      "style": "企业价值",
+      "aum": "50亿+",
+      "note": "企业质量选股",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:58.219876",
+      "performance": {
+        "latest_nav": 2.959,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": -0.67,
+          "3月": 10.98,
+          "6月": 14.62,
+          "1年": 27.77
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002984.SZ",
+            "ratio": 4.46
+          },
+          {
+            "stock_code": "603337.SH",
+            "ratio": 4.71
+          },
+          {
+            "stock_code": "603997.SH",
+            "ratio": 6.13
+          },
+          {
+            "stock_code": "000333.SZ",
+            "ratio": 9.82
+          },
+          {
+            "stock_code": "002595.SZ",
+            "ratio": 5.0
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年表现良好(+27.77%)，持仓均衡",
+        "strengths": [
+          "业绩稳健"
+        ],
+        "risks": [],
+        "recommendation": "可重点关注",
+        "top_holdings": "002984.SZ, 603337.SH, 603997.SH"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:58.219897",
+    "id": "VIEW_20260314_130",
+    "created_at": "2026-03-14T23:03:58.219917"
+  },
+  {
+    "manager": "吴渭",
+    "fund": "博时汇智回报",
+    "report": {
+      "manager": "吴渭",
+      "fund": "博时汇智回报",
+      "fund_code": "004448",
+      "company": "博时",
+      "style": "绝对收益",
+      "aum": "40亿+",
+      "note": "回撤控制好",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:58.341180",
+      "performance": {
+        "latest_nav": 3.197,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": -2.82,
+          "3月": 8.0,
+          "6月": -1.54,
+          "1年": 55.79
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601138.SH",
+            "ratio": 5.26
+          },
+          {
+            "stock_code": "300750.SZ",
+            "ratio": 10.1
+          },
+          {
+            "stock_code": "603876.SH",
+            "ratio": 7.05
+          },
+          {
+            "stock_code": "603306.SH",
+            "ratio": 8.14
+          },
+          {
+            "stock_code": "603986.SH",
+            "ratio": 6.65
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年表现优秀(+55.79%)，持仓均衡",
+        "strengths": [
+          "业绩领先同类"
+        ],
+        "risks": [],
+        "recommendation": "可重点关注",
+        "top_holdings": "601138.SH, 300750.SZ, 603876.SH"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:58.341201",
+    "id": "VIEW_20260314_131",
+    "created_at": "2026-03-14T23:03:58.341221"
+  },
+  {
+    "manager": "袁维德",
+    "fund": "中欧价值智选",
+    "report": {
+      "manager": "袁维德",
+      "fund": "中欧价值智选",
+      "fund_code": "166005",
+      "company": "中欧",
+      "style": "价值平衡",
+      "aum": "80亿+",
+      "note": "曹名长团队",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:58.509989",
+      "performance": {
+        "latest_nav": 3.3461,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": 3.43,
+          "3月": 12.3,
+          "6月": 16.84,
+          "1年": 48.33
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601138.SH",
+            "ratio": 3.87
+          },
+          {
+            "stock_code": "002831.SZ",
+            "ratio": 3.39
+          },
+          {
+            "stock_code": "603993.SH",
+            "ratio": 3.54
+          },
+          {
+            "stock_code": "002701.SZ",
+            "ratio": 3.36
+          },
+          {
+            "stock_code": "300308.SZ",
+            "ratio": 3.85
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年表现优秀(+48.33%)，持仓均衡",
+        "strengths": [
+          "业绩领先同类"
+        ],
+        "risks": [],
+        "recommendation": "可重点关注",
+        "top_holdings": "601138.SH, 002831.SZ, 603993.SH"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:58.510010",
+    "id": "VIEW_20260314_132",
+    "created_at": "2026-03-14T23:03:58.510031"
+  },
+  {
+    "manager": "蓝小康",
+    "fund": "中欧红利优享",
+    "report": {
+      "manager": "蓝小康",
+      "fund": "中欧红利优享",
+      "fund_code": "004814",
+      "company": "中欧",
+      "style": "红利价值",
+      "aum": "60亿+",
+      "note": "高股息策略",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:58.666259",
+      "performance": {
+        "latest_nav": 2.3072,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": -0.5,
+          "3月": 2.27,
+          "6月": 9.39,
+          "1年": 35.43
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601336.SH",
+            "ratio": 3.27
+          },
+          {
+            "stock_code": "601899.SH",
+            "ratio": 5.75
+          },
+          {
+            "stock_code": "002142.SZ",
+            "ratio": 2.6
+          },
+          {
+            "stock_code": "600031.SH",
+            "ratio": 2.71
+          },
+          {
+            "stock_code": "1336.HK",
+            "ratio": 6.32
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年表现优秀(+35.43%)，持仓均衡",
+        "strengths": [
+          "业绩领先同类"
+        ],
+        "risks": [],
+        "recommendation": "可重点关注",
+        "top_holdings": "601336.SH, 601899.SH, 002142.SZ"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:58.666280",
+    "id": "VIEW_20260314_133",
+    "created_at": "2026-03-14T23:03:58.666302"
+  },
+  {
+    "manager": "李崟",
+    "fund": "安信稳健增值",
+    "report": {
+      "manager": "李崟",
+      "fund": "安信稳健增值",
+      "fund_code": "001316",
+      "company": "安信",
+      "style": "稳健价值",
+      "aum": "90亿+",
+      "note": "绝对收益",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:58.832436",
+      "performance": {
+        "latest_nav": 1.8328,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": 1.82,
+          "3月": 2.48,
+          "6月": 3.8,
+          "1年": 5.99
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "000983.SZ",
+            "ratio": 3.73
+          },
+          {
+            "stock_code": "600036.SH",
+            "ratio": 3.8
+          },
+          {
+            "stock_code": "600985.SH",
+            "ratio": 4.34
+          },
+          {
+            "stock_code": "600048.SH",
+            "ratio": 5.55
+          },
+          {
+            "stock_code": "601898.SH",
+            "ratio": 5.66
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年小幅上涨(+5.99%)，持仓均衡",
+        "strengths": [],
+        "risks": [],
+        "recommendation": "保持关注",
+        "top_holdings": "000983.SZ, 600036.SH, 600985.SH"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:58.832458",
+    "id": "VIEW_20260314_134",
+    "created_at": "2026-03-14T23:03:58.832479"
+  },
+  {
+    "manager": "张翼飞",
+    "fund": "安信民稳增长",
+    "report": {
+      "manager": "张翼飞",
+      "fund": "安信民稳增长",
+      "fund_code": "008809",
+      "company": "安信",
+      "style": "股债平衡",
+      "aum": "70亿+",
+      "note": "固收+策略",
+      "tier": "key",
+      "report_type": "standard",
+      "generated_at": "2026-03-14T23:03:58.943044",
+      "performance": {
+        "latest_nav": 1.7093,
+        "latest_date": "20260314",
+        "returns": {
+          "1月": 4.28,
+          "3月": 5.4,
+          "6月": 7.52,
+          "1年": 14.8
+        }
+      },
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "3668.HK",
+            "ratio": 2.73
+          },
+          {
+            "stock_code": "600985.SH",
+            "ratio": 3.07
+          },
+          {
+            "stock_code": "1109.HK",
+            "ratio": 4.17
+          },
+          {
+            "stock_code": "601001.SH",
+            "ratio": 4.45
+          },
+          {
+            "stock_code": "002142.SZ",
+            "ratio": 5.36
+          }
+        ]
+      },
+      "analysis": {
+        "summary": "近1年表现良好(+14.8%)，持仓较为分散",
+        "strengths": [
+          "业绩稳健",
+          "风险分散"
+        ],
+        "risks": [],
+        "recommendation": "可重点关注",
+        "top_holdings": "3668.HK, 600985.SH, 1109.HK"
+      }
+    },
+    "tier": "key",
+    "generated_at": "2026-03-14T23:03:58.943067",
+    "id": "VIEW_20260314_135",
+    "created_at": "2026-03-14T23:03:58.943089"
   }
 ]
