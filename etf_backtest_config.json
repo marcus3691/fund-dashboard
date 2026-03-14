@@ -1,0 +1,119 @@
+{
+  "backtest_config": {
+    "version": "1.0",
+    "update_date": "2026-03-14",
+    "description": "ETF策略组合回测配置"
+  },
+  "test_periods": [
+    {
+      "name": "完整周期",
+      "start_date": "2020-01-01",
+      "end_date": "2026-03-14",
+      "description": "包含疫情、复苏、地缘冲突的完整周期"
+    },
+    {
+      "name": "疫情冲击",
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "description": "COVID-19冲击与恢复"
+    },
+    {
+      "name": "地缘冲突",
+      "start_date": "2022-02-01",
+      "end_date": "2023-12-31",
+      "description": "俄乌冲突至今"
+    },
+    {
+      "name": "AI爆发",
+      "start_date": "2023-01-01",
+      "end_date": "2026-03-14",
+      "description": "ChatGPT发布至今"
+    }
+  ],
+  "initial_capital": 1000000,
+  "transaction_cost": {
+    "buy": 0.0003,
+    "sell": 0.0003,
+    "min_fee": 5
+  },
+  "rebalance_rules": {
+    "frequency": "monthly",
+    "threshold": 0.05,
+    "cost": 0.001
+  },
+  "strategies": {
+    "aggressive": {
+      "name": "进取型策略",
+      "allocation": {
+        "core": 50,
+        "satellite": 40,
+        "hedge": 10
+      },
+      "etf_weights": {
+        "515220.SH": 15,
+        "512400.SH": 15,
+        "518880.SH": 15,
+        "159972.SZ": 5,
+        "512480.SH": 10,
+        "515880.SH": 10,
+        "159819.SZ": 10,
+        "516510.SH": 10,
+        "510300.SH": 5,
+        "511010.SH": 5
+      }
+    },
+    "balanced": {
+      "name": "平衡型策略",
+      "allocation": {
+        "core": 60,
+        "satellite": 30,
+        "hedge": 10
+      },
+      "etf_weights": {
+        "515220.SH": 20,
+        "512400.SH": 20,
+        "518880.SH": 15,
+        "159972.SZ": 5,
+        "512480.SH": 10,
+        "515880.SH": 10,
+        "512660.SH": 10,
+        "510300.SH": 5,
+        "511010.SH": 5
+      }
+    },
+    "conservative": {
+      "name": "保守型策略",
+      "allocation": {
+        "core": 70,
+        "satellite": 20,
+        "hedge": 10
+      },
+      "etf_weights": {
+        "515220.SH": 25,
+        "512400.SH": 25,
+        "518880.SH": 15,
+        "159972.SZ": 5,
+        "512480.SH": 10,
+        "510300.SH": 10,
+        "511010.SH": 5
+      }
+    }
+  },
+  "benchmarks": {
+    "aggressive": {
+      "H00906": 85,
+      "H11001": 10,
+      "GC001": 5
+    },
+    "balanced": {
+      "H00906": 60,
+      "H11001": 30,
+      "GC001": 10
+    },
+    "conservative": {
+      "H00906": 35,
+      "H11001": 50,
+      "GC001": 15
+    }
+  }
+}

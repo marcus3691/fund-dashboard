@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ETF回测系统 - 策略绩效分析</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+        
+        .navbar { background: #161b22; padding: 15px 30px; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .navbar h1 { font-size: 18px; color: #58a6ff; display: inline-block; }
+        .backtest-badge { background: #238636; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 10px; vertical-align: middle; }
+        .nav-links { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .nav-links a { color: #8b949e; text-decoration: none; font-size: 14px; cursor: pointer; padding: 8px 12px; border-radius: 6px; transition: all 0.2s; }
+        .nav-links a:hover { color: #58a6ff; background: rgba(88,166,255,0.1); }
+        .nav-links a.active { color: #58a6ff; background: rgba(88,166,255,0.15); }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+        
+        /* 回测配置区 */
+        .config-section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+        .config-section h2 { font-size: 16px; margin-bottom: 20px; color: #e6edf3; border-bottom: 2px solid #58a6ff; padding-bottom: 10px; }
+        .config-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .config-item { display: flex; flex-direction: column; gap: 8px; }
+        .config-item label { font-size: 12px; color: #8b949e; }
+        .config-item select, .config-item input { padding: 10px 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; font-size: 14px; }
+        .config-item select:focus, .config-item input:focus { outline: none; border-color: #58a6ff; }
+        .run-btn { background: #238636; color: white; border: none; padding: 12px 30px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; margin-top: 20px; }
+        .run-btn:hover { background: #2ea043; }
+        
+        /* 结果概览 */
+        .results-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .summary-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
+        .summary-card .label { font-size: 12px; color: #8b949e; margin-bottom: 8px; }
+        .summary-card .value { font-size: 28px; font-weight: 600; }
+        .summary-card .value.positive { color: #3fb950; }
+        .summary-card .value.negative { color: #f85149; }
+        .summary-card .sub-value { font-size: 12px; color: #8b949e; margin-top: 5px; }
+        
+        /* 图表区 */
+        .chart-section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+        .chart-section h3 { font-size: 14px; color: #e6edf3; margin-bottom: 20px; }
+        .chart-container { position: relative; height: 400px; }
+        
+        /* 指标对比表 */
+        .metrics-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .metrics-table th { background: #21262d; padding: 12px 15px; text-align: left; color: #8b949e; font-weight: 500; border-bottom: 1px solid #30363d; }
+        .metrics-table td { padding: 12px 15px; border-bottom: 1px solid #30363d; }
+        .metrics-table tr:hover { background: #21262d; }
+        .metrics-table .strategy { color: #58a6ff; font-weight: 500; }
+        .metrics-table .benchmark { color: #8b949e; }
+        .metrics-table .positive { color: #3fb950; }
+        .metrics-table .negative { color: #f85149; }
+        
+        /* 交易记录 */
+        .trade-list { max-height: 400px; overflow-y: auto; }
+        .trade-item { display: flex; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid #30363d; font-size: 12px; }
+        .trade-item:last-child { border-bottom: none; }
+        .trade-date { color: #8b949e; width: 100px; }
+        .trade-action { flex: 1; }
+        .trade-action.buy { color: #3fb950; }
+        .trade-action.sell { color: #f85149; }
+        .trade-amount { text-align: right; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 16px; }
+            .config-grid { grid-template-columns: 1fr; }
+            .results-summary { grid-template-columns: repeat(2, 1fr); }
+            .chart-container { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>ETF策略库<span class="backtest-badge">回测系统</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 产品库</a>
+            <a href="strategy.html">📈 三层级策略</a>
+            <a href="etf_strategy.html">📊 ETF配置</a>
+            <a href="etf_backtest.html" class="active">📉 回测分析</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 回测配置 -->
+        <div class="config-section">
+            <h2>⚙️ 回测参数设置</h2>
+            <div class="config-grid">
+                <div class="config-item">
+                    <label>策略类型</label>
+                    <select id="strategySelect">
+                        <option value="balanced">平衡型（推荐）</option>
+                        <option value="aggressive">进取型</option>
+                        <option value="conservative">保守型</option>
+                    </select>
+                </div>
+                <div class="config-item">
+                    <label>回测周期</label>
+                    <select id="periodSelect">
+                        <option value="full">完整周期（2020-至今）</option>
+                        <option value="covid">疫情冲击（2020）</option>
+                        <option value="geopolitical">地缘冲突（2022-2023）</option>
+                        <option value="ai">AI爆发（2023-至今）</option>
+                    </select>
+                </div>
+                <div class="config-item">
+                    <label>初始资金（万元）</label>
+                    <input type="number" id="initialCapital" value="100" min="10" max="10000">
+                </div>
+                <div class="config-item">
+                    <label>交易费率（%）</label>
+                    <input type="number" id="transactionCost" value="0.03" step="0.01" min="0" max="1">
+                </div>
+            </div>
+            <button class="run-btn" onclick="runBacktest()">🚀 开始回测</button>
+        </div>
+
+        <!-- 结果概览 -->
+        <div class="results-summary" id="resultsSummary" style="display: none;">
+            <div class="summary-card">
+                <div class="label">策略累计收益</div>
+                <div class="value positive" id="strategyReturn">+45.2%</div>
+                <div class="sub-value">年化: +12.5%</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">基准累计收益</div>
+                <div class="value" id="benchmarkReturn">+28.5%</div>
+                <div class="sub-value">中证800+全债组合</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">超额收益</div>
+                <div class="value positive" id="excessReturn">+16.7%</div>
+                <div class="sub-value">信息比率: 1.25</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">最大回撤</div>
+                <div class="value negative" id="maxDrawdown">-18.5%</div>
+                <div class="sub-value">基准回撤: -22.3%</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">夏普比率</div>
+                <div class="value" id="sharpeRatio">1.42</div>
+                <div class="sub-value">基准: 0.95</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">胜率</div>
+                <div class="value" id="winRate">62.5%</div>
+                <div class="sub-value">月度胜率</div>
+            </div>
+        </div>
+
+        <!-- 收益曲线图 -->
+        <div class="chart-section" id="chartSection" style="display: none;">
+            <h3>📈 累计收益曲线对比</h3>
+            <div class="chart-container">
+                <canvas id="returnChart"></canvas>
+            </div>
+        </div>
+
+        <!-- 指标对比表 -->
+        <div class="chart-section" id="metricsSection" style="display: none;">
+            <h3>📊 绩效指标对比</h3>
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th>指标</th>
+                        <th>策略表现</th>
+                        <th>基准表现</th>
+                        <th>超额/差异</th>
+                    </tr>
+                </thead>
+                <tbody id="metricsTableBody">
+                    <!-- 动态生成 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 交易记录 -->
+        <div class="chart-section" id="tradesSection" style="display: none;">
+            <h3>📝 调仓记录</h3>
+            <div class="trade-list" id="tradeList">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 回测引擎
+        class BacktestEngine {
+            constructor(config) {
+                this.config = config;
+                this.initialCapital = config.initialCapital;
+                this.transactionCost = config.transactionCost;
+                this.priceData = {};
+                this.benchmarkData = {};
+                this.trades = [];
+                this.dailyReturns = [];
+            }
+
+            async loadData() {
+                try {
+                    const response = await fetch('etf_historical_data.json');
+                    const data = await response.json();
+                    this.priceData = data.price_data;
+                    this.benchmarkData = data.benchmark_data;
+                    return true;
+                } catch (e) {
+                    console.error('加载数据失败:', e);
+                    return false;
+                }
+            }
+
+            run() {
+                const strategy = this.config.strategy;
+                const weights = this.getStrategyWeights(strategy);
+                
+                // 获取日期序列
+                const dates = this.getDateSequence();
+                
+                // 初始化
+                let portfolio = { cash: this.initialCapital, positions: {} };
+                let portfolioValue = this.initialCapital;
+                const portfolioHistory = [];
+                const benchmarkHistory = [];
+                
+                // 初始建仓
+                for (const [code, weight] of Object.entries(weights)) {
+                    const price = this.getPrice(code, dates[0]);
+                    if (price) {
+                        const amount = (this.initialCapital * weight / 100) / price;
+                        const cost = amount * price * this.transactionCost;
+                        portfolio.positions[code] = { amount, cost: cost };
+                        portfolio.cash -= amount * price + cost;
+                    }
+                }
+                
+                // 逐日回测
+                let maxValue = this.initialCapital;
+                let maxDrawdown = 0;
+                
+                for (let i = 0; i < dates.length; i++) {
+                    const date = dates[i];
+                    
+                    // 计算组合净值
+                    portfolioValue = portfolio.cash;
+                    for (const [code, pos] of Object.entries(portfolio.positions)) {
+                        const price = this.getPrice(code, date);
+                        if (price) {
+                            portfolioValue += pos.amount * price;
+                        }
+                    }
+                    
+                    // 计算基准净值
+                    const benchmarkValue = this.calculateBenchmarkValue(date, i);
+                    
+                    // 记录历史
+                    portfolioHistory.push({
+                        date,
+                        value: portfolioValue,
+                        return: (portfolioValue / this.initialCapital - 1) * 100
+                    });
+                    
+                    benchmarkHistory.push({
+                        date,
+                        value: benchmarkValue,
+                        return: (benchmarkValue / 1000 - 1) * 100  // 基准初始值为1000
+                    });
+                    
+                    // 计算回撤
+                    if (portfolioValue > maxValue) {
+                        maxValue = portfolioValue;
+                    }
+                    const drawdown = (maxValue - portfolioValue) / maxValue;
+                    if (drawdown > maxDrawdown) {
+                        maxDrawdown = drawdown;
+                    }
+                    
+                    // 月度再平衡（简化版）
+                    if (i > 0 && i % 21 === 0) {  // 假设每月21个交易日
+                        this.rebalance(portfolio, weights, date);
+                    }
+                }
+                
+                // 计算绩效指标
+                const totalReturn = (portfolioValue / this.initialCapital - 1) * 100;
+                const benchmarkReturn = benchmarkHistory[benchmarkHistory.length - 1].return;
+                const excessReturn = totalReturn - benchmarkReturn;
+                const annualReturn = this.calculateAnnualReturn(totalReturn, dates.length);
+                const volatility = this.calculateVolatility(portfolioHistory);
+                const sharpeRatio = this.calculateSharpeRatio(annualReturn, volatility);
+                const benchmarkSharpe = this.calculateBenchmarkSharpe(benchmarkHistory);
+                
+                return {
+                    totalReturn,
+                    benchmarkReturn,
+                    excessReturn,
+                    annualReturn,
+                    maxDrawdown: maxDrawdown * 100,
+                    sharpeRatio,
+                    benchmarkSharpe,
+                    portfolioHistory,
+                    benchmarkHistory,
+                    trades: this.trades,
+                    winRate: this.calculateWinRate(portfolioHistory)
+                };
+            }
+
+            getStrategyWeights(strategy) {
+                const weights = {
+                    aggressive: {
+                        "515220.SH": 15, "512400.SH": 15, "518880.SH": 15, "159972.SZ": 5,
+                        "512480.SH": 10, "515880.SH": 10, "159819.SZ": 10, "516510.SH": 10,
+                        "510300.SH": 5, "511010.SH": 5
+                    },
+                    balanced: {
+                        "515220.SH": 20, "512400.SH": 20, "518880.SH": 15, "159972.SZ": 5,
+                        "512480.SH": 10, "515880.SH": 10, "512660.SH": 10,
+                        "510300.SH": 5, "511010.SH": 5
+                    },
+                    conservative: {
+                        "515220.SH": 25, "512400.SH": 25, "518880.SH": 15, "159972.SZ": 5,
+                        "512480.SH": 10, "510300.SH": 10, "511010.SH": 10
+                    }
+                };
+                return weights[strategy] || weights.balanced;
+            }
+
+            getDateSequence() {
+                // 从价格数据中提取日期序列
+                const dates = new Set();
+                for (const code of Object.keys(this.priceData)) {
+                    const prices = this.priceData[code].prices;
+                    Object.keys(prices).forEach(d => dates.add(d));
+                }
+                return Array.from(dates).sort();
+            }
+
+            getPrice(code, date) {
+                const etf = this.priceData[code];
+                if (!etf) return null;
+                return etf.prices[date] || null;
+            }
+
+            calculateBenchmarkValue(date, index) {
+                // 根据策略类型计算基准
+                const benchmarks = this.getBenchmarkWeights();
+                let value = 0;
+                
+                for (const [code, weight] of Object.entries(benchmarks)) {
+                    const data = this.benchmarkData[code];
+                    if (data && data.prices[date]) {
+                        value += data.prices[date] * weight / 100;
+                    }
+                }
+                
+                return value || 1000;
+            }
+
+            getBenchmarkWeights() {
+                const weights = {
+                    aggressive: { "H00906": 85, "H11001": 10, "GC001": 5 },
+                    balanced: { "H00906": 60, "H11001": 30, "GC001": 10 },
+                    conservative: { "H00906": 35, "H11001": 50, "GC001": 15 }
+                };
+                return weights[this.config.strategy] || weights.balanced;
+            }
+
+            rebalance(portfolio, targetWeights, date) {
+                const totalValue = Object.entries(portfolio.positions).reduce((sum, [code, pos]) => {
+                    const price = this.getPrice(code, date);
+                    return sum + (price ? pos.amount * price : 0);
+                }, portfolio.cash);
+                
+                // 简化的再平衡逻辑
+                for (const [code, targetWeight] of Object.entries(targetWeights)) {
+                    const price = this.getPrice(code, date);
+                    if (!price) continue;
+                    
+                    const targetValue = totalValue * targetWeight / 100;
+                    const currentPos = portfolio.positions[code] || { amount: 0 };
+                    const currentValue = currentPos.amount * price;
+                    const diff = targetValue - currentValue;
+                    
+                    if (Math.abs(diff) > totalValue * 0.05) {  // 偏离超过5%才调仓
+                        const tradeAmount = diff / price;
+                        const cost = Math.abs(tradeAmount * price * this.transactionCost);
+                        
+                        if (tradeAmount > 0) {
+                            // 买入
+                            if (portfolio.cash >= tradeAmount * price + cost) {
+                                portfolio.positions[code] = {
+                                    amount: currentPos.amount + tradeAmount,
+                                    cost: currentPos.cost + cost
+                                };
+                                portfolio.cash -= tradeAmount * price + cost;
+                                this.trades.push({ date, code, action: '买入', amount: tradeAmount, price });
+                            }
+                        } else {
+                            // 卖出
+                            if (currentPos.amount >= Math.abs(tradeAmount)) {
+                                portfolio.positions[code].amount += tradeAmount;  // tradeAmount为负
+                                portfolio.cash += Math.abs(tradeAmount) * price - cost;
+                                this.trades.push({ date, code, action: '卖出', amount: Math.abs(tradeAmount), price });
+                            }
+                        }
+                    }
+                }
+            }
+
+            calculateAnnualReturn(totalReturn, days) {
+                const years = days / 252;  // 假设每年252个交易日
+                return (Math.pow(1 + totalReturn / 100, 1 / years) - 1) * 100;
+            }
+
+            calculateVolatility(history) {
+                const returns = [];
+                for (let i = 1; i < history.length; i++) {
+                    returns.push(history[i].value / history[i-1].value - 1);
+                }
+                const mean = returns.reduce((a, b) => a + b, 0) / returns.length;
+                const variance = returns.reduce((sum, r) => sum + Math.pow(r - mean, 2), 0) / returns.length;
+                return Math.sqrt(variance) * Math.sqrt(252) * 100;  // 年化波动率
+            }
+
+            calculateSharpeRatio(annualReturn, volatility, riskFreeRate = 3) {
+                return (annualReturn - riskFreeRate) / volatility;
+            }
+
+            calculateBenchmarkSharpe(benchmarkHistory) {
+                const returns = [];
+                for (let i = 1; i < benchmarkHistory.length; i++) {
+                    returns.push(benchmarkHistory[i].value / benchmarkHistory[i-1].value - 1);
+                }
+                const mean = returns.reduce((a, b) => a + b, 0) / returns.length * 252;
+                const variance = returns.reduce((sum, r) => {
+                    const dailyMean = returns.reduce((a, b) => a + b, 0) / returns.length;
+                    return sum + Math.pow(r - dailyMean, 2);
+                }, 0) / returns.length;
+                const vol = Math.sqrt(variance) * Math.sqrt(252) * 100;
+                return (mean * 100 - 3) / vol;
+            }
+
+            calculateWinRate(history) {
+                let winCount = 0;
+                for (let i = 1; i < history.length; i++) {
+                    if (history[i].value > history[i-1].value) {
+                        winCount++;
+                    }
+                }
+                return (winCount / (history.length - 1) * 100).toFixed(1);
+            }
+        }
+
+        // 运行回测
+        async function runBacktest() {
+            const strategy = document.getElementById('strategySelect').value;
+            const period = document.getElementById('periodSelect').value;
+            const initialCapital = parseFloat(document.getElementById('initialCapital').value) * 10000;
+            const transactionCost = parseFloat(document.getElementById('transactionCost').value) / 100;
+            
+            const config = {
+                strategy,
+                period,
+                initialCapital,
+                transactionCost
+            };
+            
+            const engine = new BacktestEngine(config);
+            const dataLoaded = await engine.loadData();
+            
+            if (!dataLoaded) {
+                alert('加载历史数据失败');
+                return;
+            }
+            
+            const results = engine.run();
+            displayResults(results);
+        }
+
+        // 显示回测结果
+        function displayResults(results) {
+            // 显示概览
+            document.getElementById('resultsSummary').style.display = 'grid';
+            document.getElementById('chartSection').style.display = 'block';
+            document.getElementById('metricsSection').style.display = 'block';
+            document.getElementById('tradesSection').style.display = 'block';
+            
+            // 更新概览卡片
+            document.getElementById('strategyReturn').textContent = 
+                (results.totalReturn >= 0 ? '+' : '') + results.totalReturn.toFixed(1) + '%';
+            document.getElementById('strategyReturn').className = 'value ' + (results.totalReturn >= 0 ? 'positive' : 'negative');
+            
+            document.getElementById('benchmarkReturn').textContent = results.benchmarkReturn.toFixed(1) + '%';
+            
+            document.getElementById('excessReturn').textContent = 
+                (results.excessReturn >= 0 ? '+' : '') + results.excessReturn.toFixed(1) + '%';
+            document.getElementById('excessReturn').className = 'value ' + (results.excessReturn >= 0 ? 'positive' : 'negative');
+            
+            document.getElementById('maxDrawdown').textContent = results.maxDrawdown.toFixed(1) + '%';
+            document.getElementById('sharpeRatio').textContent = results.sharpeRatio.toFixed(2);
+            document.getElementById('winRate').textContent = results.winRate + '%';
+            
+            // 绘制图表
+            drawChart(results.portfolioHistory, results.benchmarkHistory);
+            
+            // 更新指标表
+            updateMetricsTable(results);
+            
+            // 更新交易记录
+            updateTradeList(results.trades);
+        }
+
+        // 绘制收益曲线
+        function drawChart(portfolioHistory, benchmarkHistory) {
+            const ctx = document.getElementById('returnChart').getContext('2d');
+            
+            if (window.returnChartInstance) {
+                window.returnChartInstance.destroy();
+            }
+            
+            window.returnChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: portfolioHistory.map(h => h.date),
+                    datasets: [
+                        {
+                            label: '策略累计收益',
+                            data: portfolioHistory.map(h => h.return),
+                            borderColor: '#58a6ff',
+                            backgroundColor: 'rgba(88, 166, 255, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        },
+                        {
+                            label: '基准累计收益',
+                            data: benchmarkHistory.map(h => h.return),
+                            borderColor: '#8b949e',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#c9d1d9' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y.toFixed(2) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: '#8b949e' },
+                            grid: { color: '#30363d' }
+                        },
+                        y: {
+                            ticks: { 
+                                color: '#8b949e',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            grid: { color: '#30363d' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 更新指标表
+        function updateMetricsTable(results) {
+            const tbody = document.getElementById('metricsTableBody');
+            tbody.innerHTML = `
+                <tr>
+                    <td>累计收益率</td>
+                    <td class="strategy ${results.totalReturn >= 0 ? 'positive' : 'negative'}">${results.totalReturn.toFixed(2)}%</td>
+                    <td class="benchmark">${results.benchmarkReturn.toFixed(2)}%</td>
+                    <td class="${results.excessReturn >= 0 ? 'positive' : 'negative'}">${results.excessReturn >= 0 ? '+' : ''}${results.excessReturn.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                    <td>年化收益率</td>
+                    <td class="strategy">${results.annualReturn.toFixed(2)}%</td>
+                    <td class="benchmark">-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>最大回撤</td>
+                    <td class="strategy negative">-${results.maxDrawdown.toFixed(2)}%</td>
+                    <td class="benchmark">-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>夏普比率</td>
+                    <td class="strategy">${results.sharpeRatio.toFixed(2)}</td>
+                    <td class="benchmark">${results.benchmarkSharpe.toFixed(2)}</td>
+                    <td class="${results.sharpeRatio > results.benchmarkSharpe ? 'positive' : 'negative'}">${(results.sharpeRatio - results.benchmarkSharpe).toFixed(2)}</td>
+                </tr>
+                <tr>
+                    <td>Calmar比率</td>
+                    <td class="strategy">${(results.annualReturn / results.maxDrawdown).toFixed(2)}</td>
+                    <td class="benchmark">-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>交易次数</td>
+                    <td class="strategy">${results.trades.length}</td>
+                    <td class="benchmark">-</td>
+                    <td>-</td>
+                </tr>
+            `;
+        }
+
+        // 更新交易记录
+        function updateTradeList(trades) {
+            const list = document.getElementById('tradeList');
+            if (trades.length === 0) {
+                list.innerHTML = '<div class="trade-item">暂无调仓记录</div>';
+                return;
+            }
+            
+            list.innerHTML = trades.slice(-20).reverse().map(trade => `
+                <div class="trade-item">
+                    <span class="trade-date">${trade.date}</span>
+                    <span class="trade-action ${trade.action === '买入' ? 'buy' : 'sell'}">${trade.action} ${trade.code}</span>
+                    <span class="trade-amount">${trade.amount.toFixed(2)}股 @ ${trade.price.toFixed(3)}</span>
+                </div>
+            `).join('');
+        }
+
+        // 页面加载时自动运行一次回测
+        document.addEventListener('DOMContentLoaded', function() {
+            runBacktest();
+        });
+    </script>
+</body>
+</html>
