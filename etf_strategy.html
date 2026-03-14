@@ -161,13 +161,14 @@
     <div class="container">
         <!-- 策略说明 -->
         <div class="strategy-desc">
-            <h3>📋 ETF三层级资产配置工具</h3>
-            <p>基于韦冀星地缘冲突策略，使用行业ETF执行三层级配置。ETF相比主动基金具有更高透明度、更低成本和更灵活的久期调整能力。</p>
+            <h3>📋 ETF三层级资产配置工具（融合双主线策略）</h3>
+            <p>基于<strong>韦冀星地缘冲突策略</strong>+<strong>月度会议纪要科技主线</strong>，构建"防御+进攻"双轮驱动的资产配置框架。</p>
             <ul>
-                <li><strong>核心层（50-70%）</strong>：能源、有色、黄金等确定性品种ETF</li>
-                <li><strong>卫星层（20-40%）</strong>：军工、化工、地产等趋势品种ETF</li>
-                <li><strong>对冲层（10%）</strong>：宽基、债券等防御品种ETF</li>
+                <li><strong>防御主线 - 地缘冲突受益</strong>：能源、有色、黄金、航运（核心层50-70%）</li>
+                <li><strong>进攻主线 - 科技成长配置</strong>：AI算力、应用平台、数据要素（卫星层20-40%）</li>
+                <li><strong>再平衡机制</strong>：地缘紧张→增配防御；风格切换成长→增配科技；高股息底仓恒定（对冲层10%）</li>
             </ul>
+            <p style="margin-top: 10px; font-size: 12px; color: #8b949e;">💡 韦冀星研报提示：长期科技为先，但要做"高低切"——从算力硬件（上半场）切换到应用平台（下半场），沿着AI财富重构的"再分配"思路配置</p>
         </div>
 
         <!-- 风险偏好选择 -->
@@ -205,8 +206,8 @@
             </div>
             <div class="metric-card">
                 <div class="label">ETF数量</div>
-                <div class="value">9只</div>
-                <div class="label">覆盖8大行业</div>
+                <div class="value">12只</div>
+                <div class="label">覆盖10大行业</div>
             </div>
         </div>
 
@@ -231,10 +232,28 @@
             <div class="layer-header satellite">
                 <div class="layer-icon satellite">📈</div>
                 <div class="layer-title">
-                    <h2>卫星层 - 趋势品种</h2>
-                    <div class="subtitle">中久期配置 | 根据冲突发展动态调整 | 中匹配度ETF</div>
+                    <h2>卫星层 - 进攻配置（科技+周期趋势）</h2>
+                    <div class="subtitle">中久期配置 | 科技主线（AI算力→应用）+ 地缘趋势 | 建议权重20-40%</div>
                 </div>
                 <div class="layer-weight satellite" id="satelliteWeight">30%</div>
+            </div>
+            
+            <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                <div style="font-size: 13px; color: #e6edf3; margin-bottom: 10px;"><strong>🔄 科技主线轮动策略</strong></div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 12px;">
+                    <div style="background: rgba(88,166,255,0.1); padding: 10px; border-radius: 6px;">
+                        <div style="color: #58a6ff; font-weight: 600;">上半场：AI算力</div>
+                        <div style="color: #8b949e; margin-top: 5px;">半导体 + 光模块</div>
+                    </div>
+                    <div style="background: rgba(163,113,247,0.1); padding: 10px; border-radius: 6px;">
+                        <div style="color: #a371f7; font-weight: 600;">下半场：AI应用</div>
+                        <div style="color: #8b949e; margin-top: 5px;">AI平台 + 云计算</div>
+                    </div>
+                    <div style="background: rgba(210,153,34,0.1); padding: 10px; border-radius: 6px;">
+                        <div style="color: #d29922; font-weight: 600;">再分配逻辑</div>
+                        <div style="color: #8b949e; margin-top: 5px;">掌握分配入口的平台</div>
+                    </div>
+                </div>
             </div>
             
             <div class="etf-grid" id="satelliteGrid">
@@ -348,9 +367,12 @@
                 { code: '159972.SZ', name: '5年地债ETF', category: '债券', tracking: '中证5年期地方政府债指数', fee: 0.25, score: 75, logic: '权益市场波动加剧时的避险配置', holdings: ['地方政府债券'], weight: 15 }
             ],
             satellite: [
-                { code: '512660.SH', name: '军工ETF', category: '军工', tracking: '中证军工指数', fee: 0.50, score: 88, logic: '国防安全支出增加，地缘冲突长期化', holdings: ['中国船舶', '中航沈飞', '航发动力'], weight: 10 },
-                { code: '516020.SH', name: '化工ETF', category: '化工', tracking: '中证细分化工产业主题指数', fee: 0.50, score: 85, logic: '成本推动+供应受限，化工品价格上涨', holdings: ['万华化学', '盐湖股份', '华鲁恒升'], weight: 10 },
-                { code: '512200.SH', name: '房地产ETF', category: '地产', tracking: '中证全指房地产指数', fee: 0.50, score: 70, logic: '高股息+政策托底，防御属性', holdings: ['保利发展', '万科A', '招商蛇口'], weight: 10 }
+                { code: '512480.SH', name: '半导体ETF', category: '科技-算力', tracking: '中证全指半导体指数', fee: 0.50, score: 88, logic: 'AI算力基础设施，科技主线上半场核心', holdings: ['中芯国际', '海光信息', '韦尔股份'], weight: 8 },
+                { code: '515880.SH', name: '通信ETF', category: '科技-光模块', tracking: '中证全指通信设备指数', fee: 0.50, score: 86, logic: '光模块/CPO核心标的，AI算力配套', holdings: ['中际旭创', '中兴通讯', '新易盛'], weight: 8 },
+                { code: '159819.SZ', name: '人工智能ETF', category: '科技-AI应用', tracking: '中证人工智能主题指数', fee: 0.50, score: 85, logic: 'AI应用平台，科技主线下半场核心', holdings: ['科大讯飞', '金山办公', '寒武纪'], weight: 7 },
+                { code: '516510.SH', name: '云计算ETF', category: '科技-云服务', tracking: '中证云计算与大数据指数', fee: 0.50, score: 82, logic: '掌握分配入口的平台型公司，AI再分配逻辑', holdings: ['浪潮信息', '中科曙光', '用友网络'], weight: 7 },
+                { code: '512660.SH', name: '军工ETF', category: '军工', tracking: '中证军工指数', fee: 0.50, score: 88, logic: '国防安全支出增加，地缘冲突长期化', holdings: ['中国船舶', '中航沈飞', '航发动力'], weight: 5 },
+                { code: '516020.SH', name: '化工ETF', category: '化工', tracking: '中证细分化工产业主题指数', fee: 0.50, score: 85, logic: '成本推动+供应受限，化工品价格上涨', holdings: ['万华化学', '盐湖股份', '华鲁恒升'], weight: 5 }
             ],
             hedge: [
                 { code: '510300.SH', name: '沪深300ETF', category: '宽基', tracking: '沪深300指数', fee: 0.20, score: 60, logic: '市场 beta 暴露，风格切换时平衡组合', holdings: ['贵州茅台', '宁德时代', '中国平安'], weight: 5 },
@@ -407,22 +429,31 @@
         function renderETFCards() {
             const config = riskProfiles[currentProfile];
             
-            // 核心层
+            // 核心层 - 4只ETF
             const coreGrid = document.getElementById('coreGrid');
-            const coreCount = etfData.core.length;
-            const coreWeightPerETF = Math.round(config.core / coreCount);
+            const coreWeightPerETF = Math.round(config.core / etfData.core.length);
             coreGrid.innerHTML = etfData.core.map(etf => createETFCard(etf, 'core', coreWeightPerETF)).join('');
             
-            // 卫星层
+            // 卫星层 - 6只ETF（4科技+2周期）
             const satelliteGrid = document.getElementById('satelliteGrid');
-            const satelliteCount = etfData.satellite.length;
-            const satelliteWeightPerETF = Math.round(config.satellite / satelliteCount);
-            satelliteGrid.innerHTML = etfData.satellite.map(etf => createETFCard(etf, 'satellite', satelliteWeightPerETF)).join('');
+            // 科技ETF占60%卫星层权重，周期ETF占40%
+            const techETFs = etfData.satellite.filter(e => e.category.includes('科技'));
+            const cycleETFs = etfData.satellite.filter(e => !e.category.includes('科技'));
+            const techWeight = Math.round(config.satellite * 0.6 / techETFs.length);
+            const cycleWeight = Math.round(config.satellite * 0.4 / cycleETFs.length);
             
-            // 对冲层
+            let satelliteHTML = '';
+            techETFs.forEach(etf => {
+                satelliteHTML += createETFCard(etf, 'satellite', techWeight);
+            });
+            cycleETFs.forEach(etf => {
+                satelliteHTML += createETFCard(etf, 'satellite', cycleWeight);
+            });
+            satelliteGrid.innerHTML = satelliteHTML;
+            
+            // 对冲层 - 2只ETF
             const hedgeGrid = document.getElementById('hedgeGrid');
-            const hedgeCount = etfData.hedge.length;
-            const hedgeWeightPerETF = Math.round(config.hedge / hedgeCount);
+            const hedgeWeightPerETF = Math.round(config.hedge / etfData.hedge.length);
             hedgeGrid.innerHTML = etfData.hedge.map(etf => createETFCard(etf, 'hedge', hedgeWeightPerETF)).join('');
         }
 
