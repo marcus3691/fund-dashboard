@@ -1,0 +1,47 @@
+[
+  {
+    "manager": "张坤",
+    "fund": "易方达蓝筹精选",
+    "fund_code": "005827",
+    "company": "易方达",
+    "style": "深度价值",
+    "source": "基金季报",
+    "url": "https://fund.eastmoney.com/005827.html",
+    "content": "<200 https://fund.eastmoney.com/005827.html>",
+    "extracted_at": "2026-03-14T21:43:36.227799",
+    "key_points": [],
+    "sentiment": "neutral",
+    "id": "VIEW_20260314_001",
+    "created_at": "2026-03-14T21:43:36.228003"
+  },
+  {
+    "manager": "朱少醒",
+    "fund": "富国天惠成长",
+    "fund_code": "161005",
+    "company": "富国",
+    "style": "均衡价值",
+    "source": "基金季报",
+    "url": "https://fund.eastmoney.com/161005.html",
+    "content": "<200 https://fund.eastmoney.com/161005.html>",
+    "extracted_at": "2026-03-14T21:43:36.268681",
+    "key_points": [],
+    "sentiment": "neutral",
+    "id": "VIEW_20260314_002",
+    "created_at": "2026-03-14T21:43:36.268892"
+  },
+  {
+    "manager": "萧楠",
+    "fund": "易方达消费行业",
+    "fund_code": "110022",
+    "company": "易方达",
+    "style": "消费价值",
+    "source": "基金季报",
+    "url": "https://fund.eastmoney.com/110022.html",
+    "content": "<200 https://fund.eastmoney.com/110022.html>",
+    "extracted_at": "2026-03-14T21:43:36.316303",
+    "key_points": [],
+    "sentiment": "neutral",
+    "id": "VIEW_20260314_003",
+    "created_at": "2026-03-14T21:43:36.316510"
+  }
+]

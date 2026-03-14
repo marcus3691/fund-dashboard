@@ -16,21 +16,11 @@ from database import news_db, manager_db, report_db
 from news_monitor import run_news_monitor
 from daily_report import generate_and_send_report
 
-# 监控的基金经理名单
-MONITOR_MANAGERS = [
-    {'name': '张坤', 'fund': '易方达蓝筹精选', 'company': '易方达', 'style': '价值'},
-    {'name': '朱少醒', 'fund': '富国天惠成长', 'company': '富国', 'style': '价值'},
-    {'name': '谢治宇', 'fund': '兴证全球合润', 'company': '兴证全球', 'style': '均衡'},
-    {'name': '葛兰', 'fund': '中欧医疗健康', 'company': '中欧', 'style': '成长'},
-    {'name': '刘格菘', 'fund': '广发小盘成长', 'company': '广发', 'style': '成长'},
-    {'name': '冯明远', 'fund': '信达澳亚新能源', 'company': '信达澳亚', 'style': '成长'},
-    {'name': '傅鹏博', 'fund': '睿远成长价值', 'company': '睿远', 'style': '均衡'},
-    {'name': '王崇', 'fund': '交银新成长', 'company': '交银施罗德', 'style': '均衡'},
-    {'name': '张清华', 'fund': '易方达安心回报', 'company': '易方达', 'style': '固收+'},
-    {'name': '萧楠', 'fund': '易方达消费行业', 'company': '易方达', 'style': '消费'},
-    {'name': '赵诣', 'fund': '泉果旭源', 'company': '泉果', 'style': '新能源'},
-    {'name': '何帅', 'fund': '交银优势行业', 'company': '交银施罗德', 'style': '轮动'},
-]
+# 监控的基金经理名单 - 分层监控体系
+# 核心层：从manager_tiers导入50位核心基金经理
+from manager_tiers import CORE_MANAGERS
+
+MONITOR_MANAGERS = CORE_MANAGERS  # 50位核心层基金经理
 
 def update_etf_signals():
     """将生成的信号更新到ETF信号系统"""
@@ -91,19 +81,34 @@ def update_etf_signals():
     return new_signals
 
 def run_manager_monitor():
-    """运行基金经理观点监控"""
+    """运行基金经理观点监控 - 分层体系"""
     print(f"\n{'='*60}")
-    print(f"基金经理观点监控 - {datetime.now().strftime('%Y-%m-%d')}")
+    print(f"基金经理观点监控 - 分层监控体系")
+    print(f"时间: {datetime.now().strftime('%Y-%m-%d')}")
     print(f"{'='*60}\n")
     
-    print(f"监控名单（共{len(MONITOR_MANAGERS)}位）:")
-    for m in MONITOR_MANAGERS:
-        print(f"  - {m['name']} ({m['fund']}) - {m['style']}型")
+    # 导入核心层监控模块
+    from core_manager_monitor import run_core_manager_monitor
     
-    # TODO: 实现基金经理观点抓取
-    print("\n⚠️ 基金经理观点监控开发中...")
+    print(f"【核心层】监控{len(CORE_MANAGERS)}位顶级基金经理")
+    print(f"标准: 管理规模>100亿 + 业绩持续优秀")
+    print(f"报告深度: 九维度完整分析")
+    print()
     
-    return []
+    # 运行核心层监控（实际抓取）
+    success, fail = run_core_manager_monitor(limit=10)  # 先测试10人
+    
+    print(f"\n【重点层】待扩展至200人")
+    print(f"标准: 管理规模30-100亿 + 某领域专长")
+    print(f"状态: 框架已就绪，待数据补充")
+    print()
+    
+    print(f"【基础层】全市场异常监控")
+    print(f"范围: 所有公募基金约3000位基金经理")
+    print(f"触发: 业绩突变/规模异动/调仓异常")
+    print(f"状态: 待开发")
+    
+    return success, fail
 
 def run_report_monitor():
     """运行研报监控"""
