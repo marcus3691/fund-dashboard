@@ -1,0 +1,91 @@
+{
+  "skills": {
+    "web_scraper": {
+      "description": "基于Scrapling的网页抓取工具，支持普通网页、动态页面和反反爬抓取",
+      "entry": "skills/web-scraper/web_scraper.py",
+      "functions": {
+        "scrape_web": {
+          "description": "抓取单个网页内容",
+          "parameters": {
+            "url": {
+              "type": "string",
+              "description": "目标网页URL",
+              "required": true
+            },
+            "mode": {
+              "type": "string",
+              "description": "抓取模式: auto(自动) / static(静态) / dynamic(动态) / stealth(反反爬)",
+              "default": "auto",
+              "required": false
+            },
+            "selector": {
+              "type": "string",
+              "description": "CSS选择器，用于提取特定内容",
+              "required": false
+            }
+          },
+          "returns": {
+            "success": "bool",
+            "url": "string",
+            "title": "string",
+            "content": "string",
+            "selected_content": "string",
+            "error": "string"
+          }
+        },
+        "scrape_multiple": {
+          "description": "批量抓取多个网页",
+          "parameters": {
+            "urls": {
+              "type": "array",
+              "description": "URL列表",
+              "required": true
+            },
+            "mode": {
+              "type": "string",
+              "description": "抓取模式",
+              "default": "auto",
+              "required": false
+            }
+          }
+        },
+        "extract_structured_data": {
+          "description": "根据schema提取结构化数据",
+          "parameters": {
+            "url": {
+              "type": "string",
+              "description": "目标URL",
+              "required": true
+            },
+            "schema": {
+              "type": "object",
+              "description": "提取规则，如{\"title\": \"h1::text\"}",
+              "required": true
+            }
+          }
+        },
+        "monitor_webpage": {
+          "description": "监控网页变化",
+          "parameters": {
+            "url": {
+              "type": "string",
+              "description": "监控目标URL",
+              "required": true
+            },
+            "selector": {
+              "type": "string",
+              "description": "监控的CSS选择器",
+              "required": true
+            },
+            "interval": {
+              "type": "integer",
+              "description": "检查间隔(秒)",
+              "default": 3600,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
