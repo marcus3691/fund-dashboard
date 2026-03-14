@@ -1,0 +1,128 @@
+{
+  "signal_system": {
+    "version": "1.0",
+    "update_time": "2026-03-14",
+    "description": "ETF策略库调仓信号系统 - 自动抓取+人工复核",
+    "notification": {
+      "email": "18817205079@139.com",
+      "enabled": true
+    }
+  },
+  "active_signals": [
+    {
+      "id": "SIG_20260314_001",
+      "timestamp": "2026-03-14T10:30:00",
+      "type": "geopolitical",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "霍尔木兹海峡航运费用上涨",
+        "threshold": "BDI指数突破2000点",
+        "current_value": "2050点",
+        "source": "波罗的海交易所"
+      },
+      "action": {
+        "layer": "core",
+        "target": "515220.SH",
+        "direction": "加仓",
+        "suggested_weight": 5,
+        "rationale": "航运费用飙升预示能源运输成本上升，煤炭作为替代能源受益"
+      },
+      "review_status": "approved",
+      "reviewer": "system",
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_20260314_002",
+      "timestamp": "2026-03-14T09:15:00",
+      "type": "tech_rotation",
+      "priority": "medium",
+      "status": "active",
+      "trigger": {
+        "event": "英伟达GTC大会新品发布",
+        "threshold": "B200芯片性能超预期",
+        "current_value": "性能提升4倍",
+        "source": "NVIDIA官方"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "512480.SH,515880.SH",
+        "direction": "加仓",
+        "suggested_weight": 3,
+        "rationale": "AI算力需求持续高增长，半导体和光模块ETF受益"
+      },
+      "review_status": "approved",
+      "reviewer": "system",
+      "expires_at": "2026-03-28T23:59:59"
+    }
+  ],
+  "pending_signals": [
+    {
+      "id": "SIG_20260314_003",
+      "timestamp": "2026-03-14T08:00:00",
+      "type": "macro",
+      "priority": "high",
+      "status": "pending_review",
+      "trigger": {
+        "event": "美伊谈判传出积极信号",
+        "threshold": "双方同意暂停军事行动",
+        "current_value": "待确认",
+        "source": "路透社快讯"
+      },
+      "action": {
+        "layer": "core",
+        "target": "all_energy",
+        "direction": "减仓",
+        "suggested_weight": 10,
+        "rationale": "地缘风险降温，能源ETF可能回调，建议获利了结"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "review_notes": "需要核实消息来源可靠性，避免假消息导致错误调仓"
+    }
+  ],
+  "signal_rules": {
+    "auto_approve": {
+      "conditions": [
+        "信号来源为官方数据（交易所、统计局等）",
+        "触发阈值明确且可量化",
+        "建议调仓幅度≤5%"
+      ],
+      "priority": ["low", "medium"]
+    },
+    "manual_review": {
+      "conditions": [
+        "信号来源为媒体报道",
+        "建议调仓幅度>5%",
+        "涉及全部清仓或大幅加仓"
+      ],
+      "priority": ["high", "critical"]
+    }
+  },
+  "signal_sources": {
+    "geopolitical": {
+      "name": "地缘冲突监控",
+      "sources": ["新华社", "路透社", "BBC", "Al Jazeera"],
+      "keywords": ["霍尔木兹", "伊朗", "以色列", "中东", "石油", "航运"],
+      "check_frequency": "每2小时"
+    },
+    "tech_rotation": {
+      "name": "科技行业轮动",
+      "sources": ["NVIDIA官网", "OpenAI博客", "工信部", "半导体行业协会"],
+      "keywords": ["AI芯片", "光模块", "大模型", "算力", "云计算"],
+      "check_frequency": "每日"
+    },
+    "macro": {
+      "name": "宏观数据",
+      "sources": ["国家统计局", "美联储", "OPEC", "EIA"],
+      "keywords": ["CPI", "PMI", "利率", "原油库存", "GDP"],
+      "check_frequency": "数据发布时"
+    },
+    "technical": {
+      "name": "技术指标",
+      "sources": ["交易所行情"],
+      "indicators": ["MA突破", "波动率异常", "成交量突变"],
+      "check_frequency": "实时"
+    }
+  }
+}

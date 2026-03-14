@@ -113,6 +113,25 @@
         .rebalance-action .label { font-size: 11px; color: #8b949e; margin-bottom: 4px; }
         .rebalance-action .value { font-size: 13px; color: #c9d1d9; }
         
+        /* 信号弹窗 */
+        .signal-modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .signal-modal-overlay.active { display: flex; }
+        .signal-modal { background: #161b22; border: 1px solid #30363d; border-radius: 12px; width: 100%; max-width: 500px; max-height: 80vh; overflow: hidden; }
+        .signal-modal-header { padding: 20px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
+        .signal-modal-header h3 { font-size: 16px; color: #e6edf3; }
+        .signal-badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+        .signal-badge.high { background: #f85149; color: white; }
+        .signal-badge.medium { background: #d29922; color: white; }
+        .signal-modal-body { padding: 20px; overflow-y: auto; }
+        .signal-section { margin-bottom: 16px; }
+        .signal-section h4 { font-size: 12px; color: #8b949e; margin-bottom: 8px; }
+        .signal-section p { font-size: 13px; color: #c9d1d9; line-height: 1.6; }
+        .signal-highlight { background: rgba(88,166,255,0.1); padding: 10px; border-radius: 6px; border-left: 3px solid #58a6ff; }
+        .signal-action { display: flex; gap: 10px; margin-top: 20px; }
+        .signal-btn { flex: 1; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }
+        .signal-btn.primary { background: #238636; color: white; }
+        .signal-btn.secondary { background: #30363d; color: #c9d1d9; }
+        
         /* 对比区域 */
         .compare-section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
         .compare-section h2 { font-size: 16px; margin-bottom: 20px; color: #e6edf3; }
@@ -147,6 +166,38 @@
     </style>
 </head>
 <body>
+    <!-- 信号弹窗 -->
+    <div id="signalModal" class="signal-modal-overlay">
+        <div class="signal-modal">
+            <div class="signal-modal-header">
+                <h3>🔔 调仓信号提醒</h3>
+                <span id="signalBadge" class="signal-badge high">HIGH</span>
+            </div>
+            <div class="signal-modal-body">
+                <div class="signal-section">
+                    <h4>触发事件</h4>
+                    <p id="signalEvent">霍尔木兹海峡航运费用上涨</p>
+                </div>
+                <div class="signal-section signal-highlight">
+                    <h4>建议操作</h4>
+                    <p id="signalAction"><strong>加仓</strong> 煤炭ETF (515220.SH) <strong>5%</strong></p>
+                </div>
+                <div class="signal-section">
+                    <h4>调仓逻辑</h4>
+                    <p id="signalRationale">航运费用飙升预示能源运输成本上升，煤炭作为替代能源受益</p>
+                </div>
+                <div class="signal-section">
+                    <h4>数据来源</h4>
+                    <p id="signalSource">波罗的海交易所 | BDI指数: 2050点</p>
+                </div>
+                <div class="signal-action">
+                    <button class="signal-btn secondary" onclick="dismissSignal()">暂不处理</button>
+                    <button class="signal-btn primary" onclick="markSignalDone()">已阅，去调仓</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="navbar-left">
             <h1>基金产品库智能分析系统<span class="etf-badge">ETF策略库</span></h1>
@@ -532,6 +583,127 @@
         // 初始化
         document.addEventListener('DOMContentLoaded', function() {
             renderETFCards();
+            loadActiveSignals();
+        });
+        
+        // 加载活跃信号
+        async function loadActiveSignals() {
+            try {
+                const response = await fetch('etf_signals.json');
+                const data = await response.json();
+                const activeSignals = data.active_signals || [];
+                
+                // 过滤高优先级且未读的信号
+                const highPrioritySignals = activeSignals.filter(s => 
+                    (s.priority === 'high' || s.priority === 'critical') && 
+                    !isSignalDismissed(s.id)
+                );
+                
+                if (highPrioritySignals.length > 0) {
+                    // 显示第一个高优先级信号
+                    showSignal(highPrioritySignals[0]);
+                }
+                
+                // 更新信号计数
+                updateSignalCount(activeSignals.length);
+                
+            } catch (e) {
+                console.error('加载信号失败:', e);
+            }
+        }
+        
+        // 显示信号弹窗
+        function showSignal(signal) {
+            document.getElementById('signalEvent').textContent = signal.trigger.event;
+            document.getElementById('signalAction').innerHTML = `
+                <strong>${signal.action.direction}</strong> 
+                ${getETFName(signal.action.target)} 
+                <strong>${signal.action.suggested_weight}%</strong>
+            `;
+            document.getElementById('signalRationale').textContent = signal.action.rationale;
+            document.getElementById('signalSource').textContent = 
+                `${signal.trigger.source} | 当前值: ${signal.trigger.current_value}`;
+            
+            // 设置优先级标签
+            const badge = document.getElementById('signalBadge');
+            badge.textContent = signal.priority.toUpperCase();
+            badge.className = 'signal-badge ' + signal.priority;
+            
+            // 存储当前信号ID
+            document.getElementById('signalModal').dataset.signalId = signal.id;
+            
+            // 显示弹窗
+            document.getElementById('signalModal').classList.add('active');
+        }
+        
+        // 获取ETF名称
+        function getETFName(code) {
+            const allETFs = [...etfData.core, ...etfData.satellite, ...etfData.hedge];
+            const etf = allETFs.find(e => e.code === code || code.includes(e.code));
+            return etf ? `${etf.name} (${code})` : code;
+        }
+        
+        // 关闭信号弹窗
+        function dismissSignal() {
+            const modal = document.getElementById('signalModal');
+            const signalId = modal.dataset.signalId;
+            
+            // 记录已忽略
+            if (signalId) {
+                markSignalAsDismissed(signalId);
+            }
+            
+            modal.classList.remove('active');
+        }
+        
+        // 标记信号已处理
+        function markSignalDone() {
+            const modal = document.getElementById('signalModal');
+            const signalId = modal.dataset.signalId;
+            
+            // 记录已处理
+            if (signalId) {
+                markSignalAsDismissed(signalId);
+                // TODO: 可以发送反馈到服务器
+            }
+            
+            modal.classList.remove('active');
+            
+            // 滚动到对应ETF
+            // TODO: 实现滚动定位
+        }
+        
+        // 检查信号是否已忽略（本地存储）
+        function isSignalDismissed(signalId) {
+            const dismissed = localStorage.getItem('dismissedSignals');
+            if (!dismissed) return false;
+            
+            const list = JSON.parse(dismissed);
+            return list.includes(signalId);
+        }
+        
+        // 标记信号为已忽略
+        function markSignalAsDismissed(signalId) {
+            const dismissed = localStorage.getItem('dismissedSignals');
+            const list = dismissed ? JSON.parse(dismissed) : [];
+            
+            if (!list.includes(signalId)) {
+                list.push(signalId);
+                localStorage.setItem('dismissedSignals', JSON.stringify(list));
+            }
+        }
+        
+        // 更新信号计数（可以添加到导航栏）
+        function updateSignalCount(count) {
+            // TODO: 在导航栏显示未读信号数
+            console.log(`当前活跃信号: ${count}个`);
+        }
+        
+        // 点击遮罩关闭弹窗
+        document.getElementById('signalModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                dismissSignal();
+            }
         });
     </script>
 </body>

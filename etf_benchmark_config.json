@@ -1,0 +1,81 @@
+{
+  "benchmark_config": {
+    "description": "ETF策略库回测基准配置 - 基于风险等级的多指数组合",
+    "update_date": "2026-03-14",
+    "indices": {
+      "H00906": {
+        "name": "中证800净收益指数",
+        "description": "大中盘A股代表，含分红再投资",
+        "type": "权益",
+        "volatility": "高",
+        "expected_return": "8-12%"
+      },
+      "H11001": {
+        "name": "中证全债指数",
+        "description": "全市场债券代表，利率债+信用债",
+        "type": "债券",
+        "volatility": "低",
+        "expected_return": "3-5%"
+      },
+      "GC001": {
+        "name": "1天国债逆回购利率",
+        "description": "无风险利率基准，资金成本参考",
+        "type": "现金",
+        "volatility": "极低",
+        "expected_return": "2-3%"
+      }
+    }
+  },
+  "risk_profiles": {
+    "aggressive": {
+      "name": "进取型",
+      "description": "追求高收益，能承受较大回撤",
+      "benchmark": {
+        "H00906": 85,
+        "H11001": 10,
+        "GC001": 5
+      },
+      "rationale": "高权益暴露捕捉市场beta，少量债券平滑波动，现金保持流动性",
+      "expected_annual_return": "7-11%",
+      "max_drawdown": "-25% to -35%"
+    },
+    "balanced": {
+      "name": "平衡型",
+      "description": "风险收益平衡，适合大多数投资者",
+      "benchmark": {
+        "H00906": 60,
+        "H11001": 30,
+        "GC001": 10
+      },
+      "rationale": "经典股债6:3:1配置，权益获取增长，债券降低波动，现金应对赎回",
+      "expected_annual_return": "5-8%",
+      "max_drawdown": "-15% to -25%"
+    },
+    "conservative": {
+      "name": "保守型",
+      "description": "本金安全优先，追求稳定收益",
+      "benchmark": {
+        "H00906": 35,
+        "H11001": 50,
+        "GC001": 15
+      },
+      "rationale": "债券为主确保稳健，适度权益增强收益，较高现金仓位应对极端风险",
+      "expected_annual_return": "3-6%",
+      "max_drawdown": "-8% to -15%"
+    }
+  },
+  "rebalance_rules": {
+    "frequency": "季度再平衡",
+    "threshold": "单一指数偏离目标权重±5%时触发再平衡",
+    "cost": "假设双边交易成本0.1%"
+  },
+  "performance_metrics": {
+    "calculate_against_benchmark": [
+      "超额收益率 (Strategy Return - Benchmark Return)",
+      "信息比率 (IR = Excess Return / Tracking Error)",
+      "最大回撤对比",
+      "夏普比率对比",
+      "Calmar比率对比"
+    ]
+  }
+}
