@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-03-14T23:28:30.874753",
+  "total_signals": 9,
+  "signals": [
+    {
+      "type": "调仓异常",
+      "manager": "张坤",
+      "fund_code": "005827",
+      "fund_name": "易方达蓝筹精选",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比11306334520.6%",
+      "trigger_value": "11306334520.6%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874480"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "萧楠",
+      "fund_code": "110022",
+      "fund_name": "易方达消费行业",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比5584828381.8%",
+      "trigger_value": "5584828381.8%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874498"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "谢治宇",
+      "fund_code": "163406",
+      "fund_name": "兴证全球合润",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比4145935025.8%",
+      "trigger_value": "4145935025.8%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874507"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "周蔚文",
+      "fund_code": "166002",
+      "fund_name": "中欧新蓝筹",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比1659964876.4%",
+      "trigger_value": "1659964876.4%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874513"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "曹名长",
+      "fund_code": "166005",
+      "fund_name": "中欧价值发现",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比352249109.9%",
+      "trigger_value": "352249109.9%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874518"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "徐彦",
+      "fund_code": "090007",
+      "fund_name": "大成策略回报",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比886362372.7%",
+      "trigger_value": "886362372.7%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874523"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "丘栋荣",
+      "fund_code": "006551",
+      "fund_name": "中庚价值领航",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比576303089.7%",
+      "trigger_value": "576303089.7%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874528"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "姜诚",
+      "fund_code": "006567",
+      "fund_name": "中泰星元价值优选",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比1931546767.6%",
+      "trigger_value": "1931546767.6%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874533"
+    },
+    {
+      "type": "调仓异常",
+      "manager": "谭丽",
+      "fund_code": "005267",
+      "fund_name": "嘉实价值精选",
+      "severity": "high",
+      "description": "持仓高度集中，前5大占比1041359600.4%",
+      "trigger_value": "1041359600.4%",
+      "recommendation": "集中度风险较高，关注单一标的风险",
+      "timestamp": "2026-03-14T23:28:30.874538"
+    }
+  ]
+}
