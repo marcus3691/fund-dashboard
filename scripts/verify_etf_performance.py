@@ -90,9 +90,11 @@ def verify_conflict_impact():
     print("="*70)
     print()
     
-    # 设置时间范围
-    end_date = '2026-03-14'
-    start_date = '2026-03-07'  # 一周前作为基准
+    # 设置时间范围 - 完整冲突周期
+    # 美以袭击伊朗起点：2026年2月28日
+    # 验证截止：2026年3月13日（Tushare最新数据）
+    end_date = '2026-03-13'
+    start_date = '2026-02-28'  # 冲突爆发日
     
     print(f"验证周期: {start_date} 至 {end_date}")
     print()
