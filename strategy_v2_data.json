@@ -1,0 +1,77 @@
+{
+  "strategy_info": {
+    "name": "韦冀星地缘冲突策略（融合月度会议纪要）",
+    "version": "2.0",
+    "update_date": "2026-03-14",
+    "description": "基于美以伊冲突预期差分析，构建三层级资产配置策略"
+  },
+  "framework": {
+    "core_layer": {
+      "name": "核心层（确定性品种）60%",
+      "description": "地缘冲突直接受益板块，长期配置",
+      "sectors": ["航运", "黄金", "能源上游", "煤炭", "石油"],
+      "criteria": "持仓占比>40%",
+      "duration": "长久期（6-12月）"
+    },
+    "satellite_layer": {
+      "name": "卫星层（趋势品种）30%", 
+      "description": "根据冲突发展动态调整",
+      "sectors": ["有色", "化工", "军工", "煤化工"],
+      "criteria": "持仓占比>25%",
+      "duration": "中久期（3-6月）"
+    },
+    "hedge_layer": {
+      "name": "对冲层（非共识配置）10%",
+      "description": "风险防范和通胀对冲",
+      "sectors": ["高股息", "农林牧渔", "短债"],
+      "criteria": "股息率>3% 或 防御属性",
+      "duration": "短久期（1-3月）"
+    }
+  },
+  "sector_weights": {
+    "航运": 1.5,
+    "黄金": 1.2,
+    "军工": 1.0,
+    "石油": 1.0,
+    "煤炭": 1.0,
+    "有色": 0.9,
+    "化工": 0.8,
+    "稀土": 0.8,
+    "电网设备": 0.6,
+    "光伏": 0.5
+  },
+  "risk_factors": [
+    {
+      "name": "霍尔木兹海峡解封",
+      "impact": "航运、油运基金受损",
+      "monitor": "海峡通航状态"
+    },
+    {
+      "name": "美伊谈判超预期",
+      "impact": "地缘风险溢价下降，全部受益基金回调",
+      "monitor": "谈判进展"
+    },
+    {
+      "name": "风格切换",
+      "impact": "周期→成长，能源基金承压",
+      "monitor": "市场风格指标"
+    }
+  ],
+  "fund_allocation": {
+    "core_layer": [
+      {"code": "020199.OF", "name": "万家双引擎C", "match_score": 95, "sectors": ["有色", "航运"], "weight": 15},
+      {"code": "018656.OF", "name": "新华行业周期轮换C", "match_score": 92, "sectors": ["石油", "航运"], "weight": 15},
+      {"code": "021145.OF", "name": "银华甄选价值成长A", "match_score": 88, "sectors": ["煤炭", "石油"], "weight": 15},
+      {"code": "022148.OF", "name": "诺安价值增长C", "match_score": 85, "sectors": ["有色", "黄金"], "weight": 15}
+    ],
+    "satellite_layer": [
+      {"code": "011888.OF", "name": "民生加银周期优选A", "match_score": 90, "sectors": ["锂电池", "化工"], "weight": 10},
+      {"code": "022327.OF", "name": "宏利高端装备A", "match_score": 85, "sectors": ["化工"], "weight": 10},
+      {"code": "022269.OF", "name": "中信保诚周期优选A", "match_score": 82, "sectors": ["化工", "有色"], "weight": 10}
+    ],
+    "hedge_layer": [
+      {"code": "015157.OF", "name": "申万菱信行业轮动C", "match_score": 75, "sectors": ["水电", "高股息"], "weight": 5},
+      {"code": "高股息ETF", "name": "红利低波ETF", "match_score": 70, "sectors": ["高股息"], "weight": 5}
+    ]
+  }
+}

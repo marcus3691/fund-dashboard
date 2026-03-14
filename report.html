@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>基金产品库策略增强版报告</title>
+    <style>
+        @page { size: A4; margin: 20mm; }
+        body { font-family: "Microsoft YaHei", sans-serif; font-size: 10pt; line-height: 1.6; color: #333; }
+        .header { text-align: center; border-bottom: 3px solid #1a237e; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h1 { font-size: 18pt; color: #1a237e; margin: 0; }
+        .header p { font-size: 9pt; color: #666; margin: 5px 0 0; }
+        .section { margin-bottom: 25px; }
+        .section h2 { font-size: 12pt; color: #1a237e; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 12px; }
+        .stats { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .stat-box { text-align: center; padding: 10px; background: #f5f7fa; border-radius: 5px; width: 22%; }
+        .stat-box .value { font-size: 16pt; font-weight: bold; color: #1a237e; }
+        .stat-box .label { font-size: 8pt; color: #666; }
+        table { width: 100%; border-collapse: collapse; font-size: 8pt; margin-top: 10px; }
+        th { background: #1a237e; color: white; padding: 8px; text-align: left; font-weight: 600; }
+        td { padding: 6px 8px; border-bottom: 1px solid #eee; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .highlight { color: #d32f2f; font-weight: bold; }
+        .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 7pt; }
+        .tag-high { background: #e8f5e9; color: #2e7d32; }
+        .tag-medium { background: #fff3e0; color: #ef6c00; }
+        .tag-low { background: #ffebee; color: #c62828; }
+        .footer { text-align: center; font-size: 8pt; color: #999; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>基金产品库策略增强版报告</h1>
+        <p>基于2026年3月投资月度会议纪要 - 能源/有色/化工方向匹配分析</p>
+        <p>生成时间: 2026-03-13</p>
+    </div>
+
+    <div class="section">
+        <div class="stats">
+            <div class="stat-box">
+                <div class="value">50</div>
+                <div class="label">分析基金数量</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">48.3%</div>
+                <div class="label">平均匹配度</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">28</div>
+                <div class="label">高度匹配(≥30%)</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">10</div>
+                <div class="label">重点配置(≥35%)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>TOP15 会议纪要方向匹配度排名</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:5%">排名</th>
+                    <th style="width:12%">基金代码</th>
+                    <th style="width:22%">基金名称</th>
+                    <th style="width:8%">质量分</th>
+                    <th style="width:10%">匹配度</th>
+                    <th style="width:20%">核心行业</th>
+                    <th style="width:13%">投资建议</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>011888.OF</td><td>民生加银周期优选A</td><td>85.0</td><td class="highlight">165.0%</td><td>锂电池+化工</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>2</td><td>018460.OF</td><td>大成新锐产业C</td><td>84.6</td><td class="highlight">164.7%</td><td>汽车零部件</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>3</td><td>019197.OF</td><td>大成国企改革C</td><td>83.1</td><td class="highlight">158.8%</td><td>汽车零部件</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>4</td><td>013495.OF</td><td>信澳产业优选一年持有A</td><td class="highlight">96.7</td><td class="highlight">131.4%</td><td>光伏+半导体</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>5</td><td>013674.OF</td><td>长城价值甄选一年持有A</td><td>86.7</td><td class="highlight">122.8%</td><td>白酒+汽车零部件</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>6</td><td>020199.OF</td><td>万家双引擎C</td><td>92.9</td><td class="highlight">120.3%</td><td>有色+航运</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>7</td><td>015157.OF</td><td>申万菱信行业轮动C</td><td>79.5</td><td class="highlight">98.7%</td><td>水电+有色</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>8</td><td>018656.OF</td><td>新华行业周期轮换C</td><td>82.5</td><td class="highlight">96.7%</td><td>石油+航运</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>9</td><td>019184.OF</td><td>大成趋势回报C</td><td>83.7</td><td class="highlight">88.9%</td><td>汽车零部件</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>10</td><td>017667.OF</td><td>鹏华新材料A</td><td>93.9</td><td class="highlight">84.3%</td><td>医疗器械+化工</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>11</td><td>022327.OF</td><td>宏利高端装备A</td><td>94.6</td><td class="highlight">40.8%</td><td>化工</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>12</td><td>022269.OF</td><td>中信保诚周期优选A</td><td>91.4</td><td class="highlight">40.6%</td><td>化工+有色</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>13</td><td>021145.OF</td><td>银华甄选价值成长A</td><td>91.6</td><td>40.4%</td><td>煤炭+石油</td><td><span class="tag tag-medium">可配置</span></td></tr>
+                <tr><td>14</td><td>025476.OF</td><td>银华瑞和C</td><td>96.6</td><td>64.7%</td><td>有色+煤炭</td><td><span class="tag tag-medium">可配置</span></td></tr>
+                <tr><td>15</td><td>022148.OF</td><td>诺安价值增长C</td><td>94.8</td><td>33.3%</td><td>有色+黄金</td><td><span class="tag tag-medium">可配置</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>本次新增基金（10只持仓数据补充）</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>基金代码</th><th>基金名称</th><th>质量分</th>
+                    <th>纪要匹配</th><th>核心行业</th><th>投资建议</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>022327.OF</td><td>宏利高端装备A</td><td>94.6</td><td class="highlight">40.8%</td><td>化工</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>022269.OF</td><td>中信保诚周期优选A</td><td>91.4</td><td class="highlight">40.6%</td><td>化工+有色</td><td><span class="tag tag-high">重点配置</span></td></tr>
+                <tr><td>021145.OF</td><td>银华甄选价值成长A</td><td>91.6</td><td>40.4%</td><td>煤炭+石油</td><td><span class="tag tag-medium">可配置</span></td></tr>
+                <tr><td>022572.OF</td><td>汇添富弘达回报A</td><td>96.1</td><td>31.4%</td><td>化工+有色</td><td><span class="tag tag-medium">可配置</span></td></tr>
+                <tr><td>022148.OF</td><td>诺安价值增长C</td><td>94.8</td><td>33.3%</td><td>有色+黄金</td><td><span class="tag tag-medium">可配置</span></td></tr>
+                <tr><td>022416.OF</td><td>汇添富弘盛回报A</td><td>90.9</td><td>22.6%</td><td>有色+黄金</td><td><span class="tag tag-medium">观察</span></td></tr>
+                <tr><td>023448.OF</td><td>上银资源精选A</td><td>88.6</td><td>20.0%</td><td>有色+稀土</td><td><span class="tag tag-medium">观察</span></td></tr>
+                <tr><td>024168.OF</td><td>信澳蓝筹精选C</td><td>89.2</td><td>18.6%</td><td>有色+黄金</td><td><span class="tag tag-medium">观察</span></td></tr>
+                <tr><td>023915.OF</td><td>永赢价值发现慧选A</td><td>96.2</td><td>10.4%</td><td>半导体+汽车</td><td><span class="tag tag-low">谨慎</span></td></tr>
+                <tr><td>024499.OF</td><td>兴华景和A</td><td>94.1</td><td>0.0%</td><td>其他</td><td><span class="tag tag-low">谨慎</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>核心结论</h2>
+        <p><strong>1. 化工板块</strong>成为最匹配方向（宏利40.8%、中信保诚40.6%、汇添富弘达31.4%）</p>
+        <p><strong>2. 传统能源</strong>（煤炭+石油）银华甄选40.4%，能源安全主线清晰</p>
+        <p><strong>3. 周期股</strong>有色+化工双主线配置的中信保诚周期优选表现突出</p>
+        <p><strong>4. 风险提示</strong>：永赢价值发现质量分最高(96.2)但匹配度仅10.4%，风格偏成长需谨慎</p>
+    </div>
+
+    <div class="footer">
+        <p>基金产品库智能分析系统 - 数据更新时间: 2026-03-13</p>
+        <p>本报告仅供参考，不构成投资建议</p>
+    </div>
+</body>
+</html>
