@@ -54,6 +54,52 @@
       "review_status": "approved",
       "reviewer": "system",
       "expires_at": "2026-03-28T23:59:59"
+    },
+    {
+      "id": "SIG_20260314_004",
+      "timestamp": "2026-03-14T11:10:00",
+      "type": "geopolitical",
+      "priority": "critical",
+      "status": "active",
+      "trigger": {
+        "event": "美军轰炸伊朗哈尔克岛",
+        "threshold": "极限施压升级",
+        "current_value": "90%石油出口受威胁",
+        "source": "政信三公子分析"
+      },
+      "action": {
+        "layer": "core",
+        "target": "515220.SH,518880.SH",
+        "direction": "加仓",
+        "suggested_weight": 8,
+        "rationale": "哈尔克岛是伊朗经济命脉(90%石油出口)，博弈论阶段进入胆小鬼游戏，能源安全和黄金避险双重逻辑强化"
+      },
+      "review_status": "approved",
+      "reviewer": "manual",
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_20260314_005",
+      "timestamp": "2026-03-14T11:10:00",
+      "type": "tech_rotation",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "科技七巨头技术性调整",
+        "threshold": "较高点跌逾10%",
+        "current_value": "已进入调整区间",
+        "source": "彭博/政信三公子"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "512480.SH,515880.SH,159819.SZ",
+        "direction": "减仓",
+        "suggested_weight": 5,
+        "rationale": "科技七巨头年内全线负收益，美股科技股承压，卫星层科技ETF建议获利了结部分仓位"
+      },
+      "review_status": "approved",
+      "reviewer": "manual",
+      "expires_at": "2026-03-21T23:59:59"
     }
   ],
   "pending_signals": [
@@ -79,6 +125,29 @@
       "review_status": "pending",
       "reviewer": null,
       "review_notes": "需要核实消息来源可靠性，避免假消息导致错误调仓"
+    },
+    {
+      "id": "SIG_20260314_006",
+      "timestamp": "2026-03-14T11:15:00",
+      "type": "macro",
+      "priority": "high",
+      "status": "pending_review",
+      "trigger": {
+        "event": "市场波动率显著提高",
+        "threshold": "VIX突破30",
+        "current_value": "博弈论阶段，不确定性极高",
+        "source": "政信三公子分析"
+      },
+      "action": {
+        "layer": "hedge",
+        "target": "511010.SH,510300.SH",
+        "direction": "加仓",
+        "suggested_weight": 5,
+        "rationale": "胆小鬼博弈阶段，波动率将显著提高，建议增加对冲层仓位（国债+宽基），降低组合波动"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "review_notes": "需监控VIX实际走势和美股后续表现，确认波动率上升趋势"
     }
   ],
   "signal_rules": {
