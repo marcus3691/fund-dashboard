@@ -33,14 +33,14 @@ def fetch_fund_performance(fund_code: str) -> Dict:
         
         # 计算收益
         df = df.sort_values('ann_date')
-        latest_nav = float(df.iloc[-1]['nav'])
+        latest_nav = float(df.iloc[-1]['unit_nav'])  # 修复：使用unit_nav
         latest_date = df.iloc[-1]['ann_date']
         
         # 计算区间收益
         returns = {}
         for days, label in [(30, '1月'), (90, '3月'), (180, '6月'), (365, '1年')]:
             if len(df) > days:
-                old_nav = float(df.iloc[-days]['nav'])
+                old_nav = float(df.iloc[-days]['unit_nav'])  # 修复：使用unit_nav
                 returns[label] = round((latest_nav - old_nav) / old_nav * 100, 2)
         
         return {
