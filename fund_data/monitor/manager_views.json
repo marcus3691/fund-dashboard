@@ -897,5 +897,4207 @@
     "generated_at": "2026-03-14T22:08:56.305118",
     "id": "VIEW_20260314_023",
     "created_at": "2026-03-14T22:08:56.305152"
+  },
+  {
+    "manager": "张坤",
+    "fund": "易方达蓝筹精选",
+    "report": {
+      "manager": "张坤",
+      "fund": "易方达蓝筹精选",
+      "fund_code": "005827",
+      "company": "易方达",
+      "style": "深度价值",
+      "aum": "超800亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:09.828472",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002027.SZ",
+            "stock_name": "",
+            "ratio": 4.96,
+            "mkv": 14.52
+          },
+          {
+            "stock_code": "6618.HK",
+            "stock_name": "",
+            "ratio": 5.41,
+            "mkv": 15.84
+          },
+          {
+            "stock_code": "9987.HK",
+            "stock_name": "",
+            "ratio": 9.53,
+            "mkv": 27.9
+          },
+          {
+            "stock_code": "9988.HK",
+            "stock_name": "",
+            "ratio": 10.18,
+            "mkv": 29.79
+          },
+          {
+            "stock_code": "0883.HK",
+            "stock_name": "",
+            "ratio": 8.54,
+            "mkv": 25.01
+          },
+          {
+            "stock_code": "0700.HK",
+            "stock_name": "",
+            "ratio": 10.57,
+            "mkv": 30.95
+          },
+          {
+            "stock_code": "600809.SH",
+            "stock_name": "",
+            "ratio": 10.14,
+            "mkv": 29.7
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 10.49,
+            "mkv": 30.71
+          },
+          {
+            "stock_code": "000858.SZ",
+            "stock_name": "",
+            "ratio": 10.2,
+            "mkv": 29.88
+          },
+          {
+            "stock_code": "000568.SZ",
+            "stock_name": "",
+            "ratio": 10.14,
+            "mkv": 29.7
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002027.SZ(4.96%), 6618.HK(5.41%), 9987.HK(9.53%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:09.828493",
+    "id": "VIEW_20260314_024",
+    "created_at": "2026-03-14T22:19:09.828514"
+  },
+  {
+    "manager": "朱少醒",
+    "fund": "富国天惠成长",
+    "report": {
+      "manager": "朱少醒",
+      "fund": "富国天惠成长",
+      "fund_code": "161005",
+      "company": "富国",
+      "style": "均衡价值",
+      "aum": "超300亿",
+      "tenure": "15年+",
+      "generated_at": "2026-03-14T22:19:09.892094",
+      "performance": null,
+      "holdings": null,
+      "key_insights": [
+        "暂无业绩数据",
+        "暂无持仓数据"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:09.892108",
+    "id": "VIEW_20260314_025",
+    "created_at": "2026-03-14T22:19:09.892127"
+  },
+  {
+    "manager": "萧楠",
+    "fund": "易方达消费行业",
+    "report": {
+      "manager": "萧楠",
+      "fund": "易方达消费行业",
+      "fund_code": "110022",
+      "company": "易方达",
+      "style": "消费价值",
+      "aum": "超300亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:10.018608",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 10.38,
+            "mkv": 14.14
+          },
+          {
+            "stock_code": "601058.SH",
+            "stock_name": "",
+            "ratio": 7.31,
+            "mkv": 9.97
+          },
+          {
+            "stock_code": "601633.SH",
+            "stock_name": "",
+            "ratio": 7.07,
+            "mkv": 9.64
+          },
+          {
+            "stock_code": "605499.SH",
+            "stock_name": "",
+            "ratio": 6.72,
+            "mkv": 9.15
+          },
+          {
+            "stock_code": "600809.SH",
+            "stock_name": "",
+            "ratio": 9.5,
+            "mkv": 12.94
+          },
+          {
+            "stock_code": "600660.SH",
+            "stock_name": "",
+            "ratio": 8.4,
+            "mkv": 11.45
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 10.48,
+            "mkv": 14.28
+          },
+          {
+            "stock_code": "000858.SZ",
+            "stock_name": "",
+            "ratio": 5.83,
+            "mkv": 7.95
+          },
+          {
+            "stock_code": "000596.SZ",
+            "stock_name": "",
+            "ratio": 6.35,
+            "mkv": 8.66
+          },
+          {
+            "stock_code": "000568.SZ",
+            "stock_name": "",
+            "ratio": 6.64,
+            "mkv": 9.05
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 000333.SZ(10.38%), 601058.SH(7.31%), 601633.SH(7.07%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:10.018629",
+    "id": "VIEW_20260314_026",
+    "created_at": "2026-03-14T22:19:10.018649"
+  },
+  {
+    "manager": "张坤",
+    "fund": "易方达蓝筹精选",
+    "report": {
+      "manager": "张坤",
+      "fund": "易方达蓝筹精选",
+      "fund_code": "005827",
+      "company": "易方达",
+      "style": "深度价值",
+      "aum": "超800亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:16.115448",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002027.SZ",
+            "stock_name": "",
+            "ratio": 4.96,
+            "mkv": 14.52
+          },
+          {
+            "stock_code": "6618.HK",
+            "stock_name": "",
+            "ratio": 5.41,
+            "mkv": 15.84
+          },
+          {
+            "stock_code": "9987.HK",
+            "stock_name": "",
+            "ratio": 9.53,
+            "mkv": 27.9
+          },
+          {
+            "stock_code": "9988.HK",
+            "stock_name": "",
+            "ratio": 10.18,
+            "mkv": 29.79
+          },
+          {
+            "stock_code": "0883.HK",
+            "stock_name": "",
+            "ratio": 8.54,
+            "mkv": 25.01
+          },
+          {
+            "stock_code": "0700.HK",
+            "stock_name": "",
+            "ratio": 10.57,
+            "mkv": 30.95
+          },
+          {
+            "stock_code": "600809.SH",
+            "stock_name": "",
+            "ratio": 10.14,
+            "mkv": 29.7
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 10.49,
+            "mkv": 30.71
+          },
+          {
+            "stock_code": "000858.SZ",
+            "stock_name": "",
+            "ratio": 10.2,
+            "mkv": 29.88
+          },
+          {
+            "stock_code": "000568.SZ",
+            "stock_name": "",
+            "ratio": 10.14,
+            "mkv": 29.7
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002027.SZ(4.96%), 6618.HK(5.41%), 9987.HK(9.53%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:16.115470",
+    "id": "VIEW_20260314_027",
+    "created_at": "2026-03-14T22:19:16.115492"
+  },
+  {
+    "manager": "朱少醒",
+    "fund": "富国天惠成长",
+    "report": {
+      "manager": "朱少醒",
+      "fund": "富国天惠成长",
+      "fund_code": "161005",
+      "company": "富国",
+      "style": "均衡价值",
+      "aum": "超300亿",
+      "tenure": "15年+",
+      "generated_at": "2026-03-14T22:19:16.175074",
+      "performance": null,
+      "holdings": null,
+      "key_insights": [
+        "暂无业绩数据",
+        "暂无持仓数据"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:16.175092",
+    "id": "VIEW_20260314_028",
+    "created_at": "2026-03-14T22:19:16.175113"
+  },
+  {
+    "manager": "萧楠",
+    "fund": "易方达消费行业",
+    "report": {
+      "manager": "萧楠",
+      "fund": "易方达消费行业",
+      "fund_code": "110022",
+      "company": "易方达",
+      "style": "消费价值",
+      "aum": "超300亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:16.305064",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 10.38,
+            "mkv": 14.14
+          },
+          {
+            "stock_code": "601058.SH",
+            "stock_name": "",
+            "ratio": 7.31,
+            "mkv": 9.97
+          },
+          {
+            "stock_code": "601633.SH",
+            "stock_name": "",
+            "ratio": 7.07,
+            "mkv": 9.64
+          },
+          {
+            "stock_code": "605499.SH",
+            "stock_name": "",
+            "ratio": 6.72,
+            "mkv": 9.15
+          },
+          {
+            "stock_code": "600809.SH",
+            "stock_name": "",
+            "ratio": 9.5,
+            "mkv": 12.94
+          },
+          {
+            "stock_code": "600660.SH",
+            "stock_name": "",
+            "ratio": 8.4,
+            "mkv": 11.45
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 10.48,
+            "mkv": 14.28
+          },
+          {
+            "stock_code": "000858.SZ",
+            "stock_name": "",
+            "ratio": 5.83,
+            "mkv": 7.95
+          },
+          {
+            "stock_code": "000596.SZ",
+            "stock_name": "",
+            "ratio": 6.35,
+            "mkv": 8.66
+          },
+          {
+            "stock_code": "000568.SZ",
+            "stock_name": "",
+            "ratio": 6.64,
+            "mkv": 9.05
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 000333.SZ(10.38%), 601058.SH(7.31%), 601633.SH(7.07%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:16.305085",
+    "id": "VIEW_20260314_029",
+    "created_at": "2026-03-14T22:19:16.305110"
+  },
+  {
+    "manager": "谢治宇",
+    "fund": "兴证全球合润",
+    "report": {
+      "manager": "谢治宇",
+      "fund": "兴证全球合润",
+      "fund_code": "163406",
+      "company": "兴证全球",
+      "style": "均衡价值",
+      "aum": "超600亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:16.415191",
+      "performance": null,
+      "holdings": {
+        "quarter": "20201231",
+        "holdings": [
+          {
+            "stock_code": "300413.SZ",
+            "stock_name": "",
+            "ratio": 3.8,
+            "mkv": 6.81
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 4.49,
+            "mkv": 8.04
+          },
+          {
+            "stock_code": "002594.SZ",
+            "stock_name": "",
+            "ratio": 3.89,
+            "mkv": 6.96
+          },
+          {
+            "stock_code": "601012.SH",
+            "stock_name": "",
+            "ratio": 3.26,
+            "mkv": 5.84
+          },
+          {
+            "stock_code": "601318.SH",
+            "stock_name": "",
+            "ratio": 7.71,
+            "mkv": 13.81
+          },
+          {
+            "stock_code": "688099.SH",
+            "stock_name": "",
+            "ratio": 3.29,
+            "mkv": 5.89
+          },
+          {
+            "stock_code": "600031.SH",
+            "stock_name": "",
+            "ratio": 6.32,
+            "mkv": 11.32
+          },
+          {
+            "stock_code": "600690.SH",
+            "stock_name": "",
+            "ratio": 7.36,
+            "mkv": 13.19
+          },
+          {
+            "stock_code": "600309.SH",
+            "stock_name": "",
+            "ratio": 4.04,
+            "mkv": 7.24
+          },
+          {
+            "stock_code": "000895.SZ",
+            "stock_name": "",
+            "ratio": 3.6,
+            "mkv": 6.44
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300413.SZ(3.8%), 000333.SZ(4.49%), 002594.SZ(3.89%)",
+        "持仓分散(前3大12.2%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:16.415214",
+    "id": "VIEW_20260314_030",
+    "created_at": "2026-03-14T22:19:16.415234"
+  },
+  {
+    "manager": "周蔚文",
+    "fund": "中欧新蓝筹",
+    "report": {
+      "manager": "周蔚文",
+      "fund": "中欧新蓝筹",
+      "fund_code": "166002",
+      "company": "中欧",
+      "style": "大盘价值",
+      "aum": "超500亿",
+      "tenure": "15年+",
+      "generated_at": "2026-03-14T22:19:16.569722",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 4.26,
+            "mkv": 2.96
+          },
+          {
+            "stock_code": "603179.SH",
+            "stock_name": "",
+            "ratio": 3.05,
+            "mkv": 2.12
+          },
+          {
+            "stock_code": "603228.SH",
+            "stock_name": "",
+            "ratio": 3.99,
+            "mkv": 2.77
+          },
+          {
+            "stock_code": "300502.SZ",
+            "stock_name": "",
+            "ratio": 9.73,
+            "mkv": 6.76
+          },
+          {
+            "stock_code": "002714.SZ",
+            "stock_name": "",
+            "ratio": 2.87,
+            "mkv": 1.99
+          },
+          {
+            "stock_code": "300308.SZ",
+            "stock_name": "",
+            "ratio": 10.46,
+            "mkv": 7.26
+          },
+          {
+            "stock_code": "601600.SH",
+            "stock_name": "",
+            "ratio": 3.9,
+            "mkv": 2.7
+          },
+          {
+            "stock_code": "600309.SH",
+            "stock_name": "",
+            "ratio": 6.38,
+            "mkv": 4.43
+          },
+          {
+            "stock_code": "000807.SZ",
+            "stock_name": "",
+            "ratio": 4.71,
+            "mkv": 3.27
+          },
+          {
+            "stock_code": "000426.SZ",
+            "stock_name": "",
+            "ratio": 3.25,
+            "mkv": 2.26
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603259.SH(4.26%), 603179.SH(3.05%), 603228.SH(3.99%)",
+        "持仓分散(前3大11.3%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:16.569746",
+    "id": "VIEW_20260314_031",
+    "created_at": "2026-03-14T22:19:16.569766"
+  },
+  {
+    "manager": "曹名长",
+    "fund": "中欧价值发现",
+    "report": {
+      "manager": "曹名长",
+      "fund": "中欧价值发现",
+      "fund_code": "166005",
+      "company": "中欧",
+      "style": "深度价值",
+      "aum": "超100亿",
+      "tenure": "15年+",
+      "generated_at": "2026-03-14T22:19:16.741388",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601138.SH",
+            "stock_name": "",
+            "ratio": 3.87,
+            "mkv": 0.76
+          },
+          {
+            "stock_code": "002831.SZ",
+            "stock_name": "",
+            "ratio": 3.39,
+            "mkv": 0.66
+          },
+          {
+            "stock_code": "603993.SH",
+            "stock_name": "",
+            "ratio": 3.54,
+            "mkv": 0.69
+          },
+          {
+            "stock_code": "002701.SZ",
+            "stock_name": "",
+            "ratio": 3.36,
+            "mkv": 0.66
+          },
+          {
+            "stock_code": "300308.SZ",
+            "stock_name": "",
+            "ratio": 3.85,
+            "mkv": 0.75
+          },
+          {
+            "stock_code": "601899.SH",
+            "stock_name": "",
+            "ratio": 5.07,
+            "mkv": 0.99
+          },
+          {
+            "stock_code": "002142.SZ",
+            "stock_name": "",
+            "ratio": 3.57,
+            "mkv": 0.7
+          },
+          {
+            "stock_code": "601318.SH",
+            "stock_name": "",
+            "ratio": 4.38,
+            "mkv": 0.86
+          },
+          {
+            "stock_code": "600031.SH",
+            "stock_name": "",
+            "ratio": 4.15,
+            "mkv": 0.81
+          },
+          {
+            "stock_code": "600150.SH",
+            "stock_name": "",
+            "ratio": 3.3,
+            "mkv": 0.65
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 601138.SH(3.87%), 002831.SZ(3.39%), 603993.SH(3.54%)",
+        "持仓分散(前3大10.8%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:16.741411",
+    "id": "VIEW_20260314_032",
+    "created_at": "2026-03-14T22:19:16.741432"
+  },
+  {
+    "manager": "徐彦",
+    "fund": "大成策略回报",
+    "report": {
+      "manager": "徐彦",
+      "fund": "大成策略回报",
+      "fund_code": "090007",
+      "company": "大成",
+      "style": "逆向价值",
+      "aum": "超150亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:16.909744",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601949.SH",
+            "stock_name": "",
+            "ratio": 3.52,
+            "mkv": 0.8
+          },
+          {
+            "stock_code": "002773.SZ",
+            "stock_name": "",
+            "ratio": 11.1,
+            "mkv": 2.52
+          },
+          {
+            "stock_code": "002318.SZ",
+            "stock_name": "",
+            "ratio": 6.43,
+            "mkv": 1.46
+          },
+          {
+            "stock_code": "601333.SH",
+            "stock_name": "",
+            "ratio": 6.49,
+            "mkv": 1.47
+          },
+          {
+            "stock_code": "600938.SH",
+            "stock_name": "",
+            "ratio": 11.56,
+            "mkv": 2.62
+          },
+          {
+            "stock_code": "600941.SH",
+            "stock_name": "",
+            "ratio": 11.15,
+            "mkv": 2.53
+          },
+          {
+            "stock_code": "603296.SH",
+            "stock_name": "",
+            "ratio": 3.51,
+            "mkv": 0.8
+          },
+          {
+            "stock_code": "000739.SZ",
+            "stock_name": "",
+            "ratio": 9.55,
+            "mkv": 2.16
+          },
+          {
+            "stock_code": "000661.SZ",
+            "stock_name": "",
+            "ratio": 4.1,
+            "mkv": 0.93
+          },
+          {
+            "stock_code": "000063.SZ",
+            "stock_name": "",
+            "ratio": 6.44,
+            "mkv": 1.46
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 601949.SH(3.52%), 002773.SZ(11.1%), 002318.SZ(6.43%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:16.909764",
+    "id": "VIEW_20260314_033",
+    "created_at": "2026-03-14T22:19:16.909785"
+  },
+  {
+    "manager": "丘栋荣",
+    "fund": "中庚价值领航",
+    "report": {
+      "manager": "丘栋荣",
+      "fund": "中庚价值领航",
+      "fund_code": "006551",
+      "company": "中庚",
+      "style": "低估值价值",
+      "aum": "超200亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:17.039918",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "2208.HK",
+            "stock_name": "",
+            "ratio": 2.96,
+            "mkv": 0.91
+          },
+          {
+            "stock_code": "603993.SH",
+            "stock_name": "",
+            "ratio": 3.42,
+            "mkv": 1.06
+          },
+          {
+            "stock_code": "002541.SZ",
+            "stock_name": "",
+            "ratio": 6.36,
+            "mkv": 1.96
+          },
+          {
+            "stock_code": "001301.SZ",
+            "stock_name": "",
+            "ratio": 3.01,
+            "mkv": 0.93
+          },
+          {
+            "stock_code": "300855.SZ",
+            "stock_name": "",
+            "ratio": 2.92,
+            "mkv": 0.9
+          },
+          {
+            "stock_code": "3993.HK",
+            "stock_name": "",
+            "ratio": 3.05,
+            "mkv": 0.94
+          },
+          {
+            "stock_code": "3931.HK",
+            "stock_name": "",
+            "ratio": 2.88,
+            "mkv": 0.89
+          },
+          {
+            "stock_code": "9988.HK",
+            "stock_name": "",
+            "ratio": 2.95,
+            "mkv": 0.91
+          },
+          {
+            "stock_code": "0700.HK",
+            "stock_name": "",
+            "ratio": 2.82,
+            "mkv": 0.87
+          },
+          {
+            "stock_code": "0358.HK",
+            "stock_name": "",
+            "ratio": 2.84,
+            "mkv": 0.88
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 2208.HK(2.96%), 603993.SH(3.42%), 002541.SZ(6.36%)",
+        "持仓分散(前3大12.7%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.039940",
+    "id": "VIEW_20260314_034",
+    "created_at": "2026-03-14T22:19:17.039958"
+  },
+  {
+    "manager": "姜诚",
+    "fund": "中泰星元价值优选",
+    "report": {
+      "manager": "姜诚",
+      "fund": "中泰星元价值优选",
+      "fund_code": "006567",
+      "company": "中泰资管",
+      "style": "深度价值",
+      "aum": "超150亿",
+      "tenure": "6年+",
+      "generated_at": "2026-03-14T22:19:17.147494",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601668.SH",
+            "stock_name": "",
+            "ratio": 11.82,
+            "mkv": 5.0
+          },
+          {
+            "stock_code": "002078.SZ",
+            "stock_name": "",
+            "ratio": 11.82,
+            "mkv": 5.0
+          },
+          {
+            "stock_code": "601398.SH",
+            "stock_name": "",
+            "ratio": 10.92,
+            "mkv": 4.61
+          },
+          {
+            "stock_code": "600048.SH",
+            "stock_name": "",
+            "ratio": 5.28,
+            "mkv": 2.23
+          },
+          {
+            "stock_code": "002032.SZ",
+            "stock_name": "",
+            "ratio": 5.86,
+            "mkv": 2.48
+          },
+          {
+            "stock_code": "600426.SH",
+            "stock_name": "",
+            "ratio": 10.43,
+            "mkv": 4.41
+          },
+          {
+            "stock_code": "600585.SH",
+            "stock_name": "",
+            "ratio": 4.41,
+            "mkv": 1.86
+          },
+          {
+            "stock_code": "600486.SH",
+            "stock_name": "",
+            "ratio": 4.43,
+            "mkv": 1.87
+          },
+          {
+            "stock_code": "600153.SH",
+            "stock_name": "",
+            "ratio": 6.3,
+            "mkv": 2.66
+          },
+          {
+            "stock_code": "600036.SH",
+            "stock_name": "",
+            "ratio": 10.9,
+            "mkv": 4.61
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 601668.SH(11.82%), 002078.SZ(11.82%), 601398.SH(10.92%)",
+        "持仓集中度较高(前3大34.6%)，风格鲜明 🎯"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.147516",
+    "id": "VIEW_20260314_035",
+    "created_at": "2026-03-14T22:19:17.147535"
+  },
+  {
+    "manager": "谭丽",
+    "fund": "嘉实价值精选",
+    "report": {
+      "manager": "谭丽",
+      "fund": "嘉实价值精选",
+      "fund_code": "005267",
+      "company": "嘉实",
+      "style": "价值平衡",
+      "aum": "超200亿",
+      "tenure": "7年+",
+      "generated_at": "2026-03-14T22:19:17.245962",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300628.SZ",
+            "stock_name": "",
+            "ratio": 6.42,
+            "mkv": 1.94
+          },
+          {
+            "stock_code": "002244.SZ",
+            "stock_name": "",
+            "ratio": 5.67,
+            "mkv": 1.71
+          },
+          {
+            "stock_code": "601899.SH",
+            "stock_name": "",
+            "ratio": 9.69,
+            "mkv": 2.93
+          },
+          {
+            "stock_code": "600988.SH",
+            "stock_name": "",
+            "ratio": 6.93,
+            "mkv": 2.09
+          },
+          {
+            "stock_code": "689009.SH",
+            "stock_name": "",
+            "ratio": 5.74,
+            "mkv": 1.73
+          },
+          {
+            "stock_code": "600426.SH",
+            "stock_name": "",
+            "ratio": 7.22,
+            "mkv": 2.18
+          },
+          {
+            "stock_code": "1308.HK",
+            "stock_name": "",
+            "ratio": 6.87,
+            "mkv": 2.08
+          },
+          {
+            "stock_code": "600282.SH",
+            "stock_name": "",
+            "ratio": 6.59,
+            "mkv": 1.99
+          },
+          {
+            "stock_code": "600060.SH",
+            "stock_name": "",
+            "ratio": 5.49,
+            "mkv": 1.66
+          },
+          {
+            "stock_code": "600036.SH",
+            "stock_name": "",
+            "ratio": 5.49,
+            "mkv": 1.66
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300628.SZ(6.42%), 002244.SZ(5.67%), 601899.SH(9.69%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.245982",
+    "id": "VIEW_20260314_036",
+    "created_at": "2026-03-14T22:19:17.246001"
+  },
+  {
+    "manager": "葛兰",
+    "fund": "中欧医疗健康",
+    "report": {
+      "manager": "葛兰",
+      "fund": "中欧医疗健康",
+      "fund_code": "003095",
+      "company": "中欧",
+      "style": "医药成长",
+      "aum": "超600亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:17.412662",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 10.8,
+            "mkv": 27.24
+          },
+          {
+            "stock_code": "300759.SZ",
+            "stock_name": "",
+            "ratio": 8.16,
+            "mkv": 20.57
+          },
+          {
+            "stock_code": "688506.SH",
+            "stock_name": "",
+            "ratio": 6.86,
+            "mkv": 17.29
+          },
+          {
+            "stock_code": "002821.SZ",
+            "stock_name": "",
+            "ratio": 6.02,
+            "mkv": 15.17
+          },
+          {
+            "stock_code": "300347.SZ",
+            "stock_name": "",
+            "ratio": 6.98,
+            "mkv": 17.61
+          },
+          {
+            "stock_code": "002653.SZ",
+            "stock_name": "",
+            "ratio": 4.96,
+            "mkv": 12.52
+          },
+          {
+            "stock_code": "002422.SZ",
+            "stock_name": "",
+            "ratio": 4.45,
+            "mkv": 11.21
+          },
+          {
+            "stock_code": "002294.SZ",
+            "stock_name": "",
+            "ratio": 5.2,
+            "mkv": 13.11
+          },
+          {
+            "stock_code": "688235.SH",
+            "stock_name": "",
+            "ratio": 4.38,
+            "mkv": 11.05
+          },
+          {
+            "stock_code": "600276.SH",
+            "stock_name": "",
+            "ratio": 10.77,
+            "mkv": 27.15
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603259.SH(10.8%), 300759.SZ(8.16%), 688506.SH(6.86%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.412683",
+    "id": "VIEW_20260314_037",
+    "created_at": "2026-03-14T22:19:17.412702"
+  },
+  {
+    "manager": "刘格菘",
+    "fund": "广发小盘成长",
+    "report": {
+      "manager": "刘格菘",
+      "fund": "广发小盘成长",
+      "fund_code": "162703",
+      "company": "广发",
+      "style": "科技成长",
+      "aum": "超600亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:17.472000",
+      "performance": null,
+      "holdings": null,
+      "key_insights": [
+        "暂无业绩数据",
+        "暂无持仓数据"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.472017",
+    "id": "VIEW_20260314_038",
+    "created_at": "2026-03-14T22:19:17.472038"
+  },
+  {
+    "manager": "冯明远",
+    "fund": "信达澳亚新能源",
+    "report": {
+      "manager": "冯明远",
+      "fund": "信达澳亚新能源",
+      "fund_code": "001410",
+      "company": "信达澳亚",
+      "style": "硬科技成长",
+      "aum": "超200亿",
+      "tenure": "7年+",
+      "generated_at": "2026-03-14T22:19:17.728900",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002916.SZ",
+            "stock_name": "",
+            "ratio": 2.19,
+            "mkv": 1.25
+          },
+          {
+            "stock_code": "603659.SH",
+            "stock_name": "",
+            "ratio": 1.53,
+            "mkv": 0.88
+          },
+          {
+            "stock_code": "603186.SH",
+            "stock_name": "",
+            "ratio": 1.83,
+            "mkv": 1.05
+          },
+          {
+            "stock_code": "603986.SH",
+            "stock_name": "",
+            "ratio": 2.05,
+            "mkv": 1.17
+          },
+          {
+            "stock_code": "300475.SZ",
+            "stock_name": "",
+            "ratio": 2.34,
+            "mkv": 1.34
+          },
+          {
+            "stock_code": "300308.SZ",
+            "stock_name": "",
+            "ratio": 1.64,
+            "mkv": 0.94
+          },
+          {
+            "stock_code": "002241.SZ",
+            "stock_name": "",
+            "ratio": 3.53,
+            "mkv": 2.02
+          },
+          {
+            "stock_code": "002138.SZ",
+            "stock_name": "",
+            "ratio": 2.01,
+            "mkv": 1.15
+          },
+          {
+            "stock_code": "603296.SH",
+            "stock_name": "",
+            "ratio": 7.83,
+            "mkv": 4.48
+          },
+          {
+            "stock_code": "688120.SH",
+            "stock_name": "",
+            "ratio": 2.22,
+            "mkv": 1.27
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002916.SZ(2.19%), 603659.SH(1.53%), 603186.SH(1.83%)",
+        "持仓分散(前3大5.5%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.728926",
+    "id": "VIEW_20260314_039",
+    "created_at": "2026-03-14T22:19:17.728946"
+  },
+  {
+    "manager": "赵诣",
+    "fund": "泉果旭源",
+    "report": {
+      "manager": "赵诣",
+      "fund": "泉果旭源",
+      "fund_code": "016709",
+      "company": "泉果",
+      "style": "新能源成长",
+      "aum": "超200亿",
+      "tenure": "6年+",
+      "generated_at": "2026-03-14T22:19:17.807841",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 9.27,
+            "mkv": 11.02
+          },
+          {
+            "stock_code": "002850.SZ",
+            "stock_name": "",
+            "ratio": 8.14,
+            "mkv": 9.69
+          },
+          {
+            "stock_code": "002812.SZ",
+            "stock_name": "",
+            "ratio": 9.79,
+            "mkv": 11.64
+          },
+          {
+            "stock_code": "603308.SH",
+            "stock_name": "",
+            "ratio": 6.99,
+            "mkv": 8.31
+          },
+          {
+            "stock_code": "002709.SZ",
+            "stock_name": "",
+            "ratio": 9.19,
+            "mkv": 10.93
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 7.44,
+            "mkv": 8.85
+          },
+          {
+            "stock_code": "300101.SZ",
+            "stock_name": "",
+            "ratio": 6.51,
+            "mkv": 7.74
+          },
+          {
+            "stock_code": "9988.HK",
+            "stock_name": "",
+            "ratio": 6.48,
+            "mkv": 7.71
+          },
+          {
+            "stock_code": "0981.HK",
+            "stock_name": "",
+            "ratio": 6.43,
+            "mkv": 7.64
+          },
+          {
+            "stock_code": "0700.HK",
+            "stock_name": "",
+            "ratio": 7.76,
+            "mkv": 9.23
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300750.SZ(9.27%), 002850.SZ(8.14%), 002812.SZ(9.79%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.807861",
+    "id": "VIEW_20260314_040",
+    "created_at": "2026-03-14T22:19:17.807881"
+  },
+  {
+    "manager": "李晓星",
+    "fund": "银华中小盘精选",
+    "report": {
+      "manager": "李晓星",
+      "fund": "银华中小盘精选",
+      "fund_code": "180031",
+      "company": "银华",
+      "style": "成长均衡",
+      "aum": "超400亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:17.997421",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002463.SZ",
+            "stock_name": "",
+            "ratio": 4.66,
+            "mkv": 1.39
+          },
+          {
+            "stock_code": "600760.SH",
+            "stock_name": "",
+            "ratio": 4.68,
+            "mkv": 1.39
+          },
+          {
+            "stock_code": "688019.SH",
+            "stock_name": "",
+            "ratio": 5.41,
+            "mkv": 1.61
+          },
+          {
+            "stock_code": "688037.SH",
+            "stock_name": "",
+            "ratio": 5.71,
+            "mkv": 1.7
+          },
+          {
+            "stock_code": "688256.SH",
+            "stock_name": "",
+            "ratio": 7.41,
+            "mkv": 2.21
+          },
+          {
+            "stock_code": "002371.SZ",
+            "stock_name": "",
+            "ratio": 8.63,
+            "mkv": 2.57
+          },
+          {
+            "stock_code": "688347.SH",
+            "stock_name": "",
+            "ratio": 8.75,
+            "mkv": 2.6
+          },
+          {
+            "stock_code": "688249.SH",
+            "stock_name": "",
+            "ratio": 8.84,
+            "mkv": 2.63
+          },
+          {
+            "stock_code": "603986.SH",
+            "stock_name": "",
+            "ratio": 9.14,
+            "mkv": 2.72
+          },
+          {
+            "stock_code": "688041.SH",
+            "stock_name": "",
+            "ratio": 9.15,
+            "mkv": 2.72
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002463.SZ(4.66%), 600760.SH(4.68%), 688019.SH(5.41%)",
+        "持仓分散(前3大14.8%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:17.997444",
+    "id": "VIEW_20260314_041",
+    "created_at": "2026-03-14T22:19:17.997463"
+  },
+  {
+    "manager": "归凯",
+    "fund": "嘉实泰和",
+    "report": {
+      "manager": "归凯",
+      "fund": "嘉实泰和",
+      "fund_code": "000595",
+      "company": "嘉实",
+      "style": "质量成长",
+      "aum": "超300亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:18.207736",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300285.SZ",
+            "stock_name": "",
+            "ratio": 6.53,
+            "mkv": 1.59
+          },
+          {
+            "stock_code": "002738.SZ",
+            "stock_name": "",
+            "ratio": 4.55,
+            "mkv": 1.11
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 7.95,
+            "mkv": 1.93
+          },
+          {
+            "stock_code": "002353.SZ",
+            "stock_name": "",
+            "ratio": 7.79,
+            "mkv": 1.89
+          },
+          {
+            "stock_code": "300012.SZ",
+            "stock_name": "",
+            "ratio": 4.1,
+            "mkv": 1.0
+          },
+          {
+            "stock_code": "002273.SZ",
+            "stock_name": "",
+            "ratio": 3.8,
+            "mkv": 0.92
+          },
+          {
+            "stock_code": "688617.SH",
+            "stock_name": "",
+            "ratio": 6.1,
+            "mkv": 1.48
+          },
+          {
+            "stock_code": "688012.SH",
+            "stock_name": "",
+            "ratio": 4.74,
+            "mkv": 1.15
+          },
+          {
+            "stock_code": "600079.SH",
+            "stock_name": "",
+            "ratio": 4.89,
+            "mkv": 1.19
+          },
+          {
+            "stock_code": "000423.SZ",
+            "stock_name": "",
+            "ratio": 3.9,
+            "mkv": 0.95
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300285.SZ(6.53%), 002738.SZ(4.55%), 002475.SZ(7.95%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:18.207756",
+    "id": "VIEW_20260314_042",
+    "created_at": "2026-03-14T22:19:18.207776"
+  },
+  {
+    "manager": "杨锐文",
+    "fund": "景顺长城优选",
+    "report": {
+      "manager": "杨锐文",
+      "fund": "景顺长城优选",
+      "fund_code": "260101",
+      "company": "景顺长城",
+      "style": "科技成长",
+      "aum": "超400亿",
+      "tenure": "9年+",
+      "generated_at": "2026-03-14T22:19:18.490335",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300776.SZ",
+            "stock_name": "",
+            "ratio": 6.19,
+            "mkv": 1.59
+          },
+          {
+            "stock_code": "603737.SH",
+            "stock_name": "",
+            "ratio": 6.67,
+            "mkv": 1.72
+          },
+          {
+            "stock_code": "601231.SH",
+            "stock_name": "",
+            "ratio": 5.35,
+            "mkv": 1.38
+          },
+          {
+            "stock_code": "688548.SH",
+            "stock_name": "",
+            "ratio": 3.7,
+            "mkv": 0.95
+          },
+          {
+            "stock_code": "688213.SH",
+            "stock_name": "",
+            "ratio": 3.51,
+            "mkv": 0.9
+          },
+          {
+            "stock_code": "688349.SH",
+            "stock_name": "",
+            "ratio": 4.85,
+            "mkv": 1.25
+          },
+          {
+            "stock_code": "688301.SH",
+            "stock_name": "",
+            "ratio": 5.69,
+            "mkv": 1.47
+          },
+          {
+            "stock_code": "689009.SH",
+            "stock_name": "",
+            "ratio": 9.35,
+            "mkv": 2.41
+          },
+          {
+            "stock_code": "688002.SH",
+            "stock_name": "",
+            "ratio": 10.26,
+            "mkv": 2.64
+          },
+          {
+            "stock_code": "600732.SH",
+            "stock_name": "",
+            "ratio": 6.04,
+            "mkv": 1.56
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300776.SZ(6.19%), 603737.SH(6.67%), 601231.SH(5.35%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:18.490355",
+    "id": "VIEW_20260314_043",
+    "created_at": "2026-03-14T22:19:18.490374"
+  },
+  {
+    "manager": "崔宸龙",
+    "fund": "前海开源公用事业",
+    "report": {
+      "manager": "崔宸龙",
+      "fund": "前海开源公用事业",
+      "fund_code": "005669",
+      "company": "前海开源",
+      "style": "新能源成长",
+      "aum": "超200亿",
+      "tenure": "4年+",
+      "generated_at": "2026-03-14T22:19:18.627811",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603713.SH",
+            "stock_name": "",
+            "ratio": 4.99,
+            "mkv": 3.49
+          },
+          {
+            "stock_code": "300693.SZ",
+            "stock_name": "",
+            "ratio": 6.48,
+            "mkv": 4.53
+          },
+          {
+            "stock_code": "300068.SZ",
+            "stock_name": "",
+            "ratio": 4.22,
+            "mkv": 2.94
+          },
+          {
+            "stock_code": "002352.SZ",
+            "stock_name": "",
+            "ratio": 6.85,
+            "mkv": 4.78
+          },
+          {
+            "stock_code": "600563.SH",
+            "stock_name": "",
+            "ratio": 9.37,
+            "mkv": 6.54
+          },
+          {
+            "stock_code": "0968.HK",
+            "stock_name": "",
+            "ratio": 5.3,
+            "mkv": 3.7
+          },
+          {
+            "stock_code": "0956.HK",
+            "stock_name": "",
+            "ratio": 5.29,
+            "mkv": 3.7
+          },
+          {
+            "stock_code": "0916.HK",
+            "stock_name": "",
+            "ratio": 4.87,
+            "mkv": 3.4
+          },
+          {
+            "stock_code": "2380.HK",
+            "stock_name": "",
+            "ratio": 6.45,
+            "mkv": 4.5
+          },
+          {
+            "stock_code": "0670.HK",
+            "stock_name": "",
+            "ratio": 1.15,
+            "mkv": 0.81
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603713.SH(4.99%), 300693.SZ(6.48%), 300068.SZ(4.22%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:18.627830",
+    "id": "VIEW_20260314_044",
+    "created_at": "2026-03-14T22:19:18.627849"
+  },
+  {
+    "manager": "郑澄然",
+    "fund": "广发鑫享",
+    "report": {
+      "manager": "郑澄然",
+      "fund": "广发鑫享",
+      "fund_code": "002132",
+      "company": "广发",
+      "style": "高端制造",
+      "aum": "超200亿",
+      "tenure": "4年+",
+      "generated_at": "2026-03-14T22:19:18.779548",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601155.SH",
+            "stock_name": "",
+            "ratio": 3.39,
+            "mkv": 0.33
+          },
+          {
+            "stock_code": "603606.SH",
+            "stock_name": "",
+            "ratio": 7.59,
+            "mkv": 0.75
+          },
+          {
+            "stock_code": "002714.SZ",
+            "stock_name": "",
+            "ratio": 8.14,
+            "mkv": 0.8
+          },
+          {
+            "stock_code": "002100.SZ",
+            "stock_name": "",
+            "ratio": 4.94,
+            "mkv": 0.49
+          },
+          {
+            "stock_code": "002064.SZ",
+            "stock_name": "",
+            "ratio": 3.92,
+            "mkv": 0.39
+          },
+          {
+            "stock_code": "001203.SZ",
+            "stock_name": "",
+            "ratio": 5.01,
+            "mkv": 0.49
+          },
+          {
+            "stock_code": "600012.SH",
+            "stock_name": "",
+            "ratio": 3.7,
+            "mkv": 0.36
+          },
+          {
+            "stock_code": "600426.SH",
+            "stock_name": "",
+            "ratio": 3.38,
+            "mkv": 0.33
+          },
+          {
+            "stock_code": "000830.SZ",
+            "stock_name": "",
+            "ratio": 3.42,
+            "mkv": 0.34
+          },
+          {
+            "stock_code": "000729.SZ",
+            "stock_name": "",
+            "ratio": 3.91,
+            "mkv": 0.38
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 601155.SH(3.39%), 603606.SH(7.59%), 002714.SZ(8.14%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:18.779569",
+    "id": "VIEW_20260314_045",
+    "created_at": "2026-03-14T22:19:18.779590"
+  },
+  {
+    "manager": "陆彬",
+    "fund": "汇丰晋信低碳先锋",
+    "report": {
+      "manager": "陆彬",
+      "fund": "汇丰晋信低碳先锋",
+      "fund_code": "540008",
+      "company": "汇丰晋信",
+      "style": "新能源成长",
+      "aum": "超200亿",
+      "tenure": "5年+",
+      "generated_at": "2026-03-14T22:19:18.970450",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002129.SZ",
+            "stock_name": "",
+            "ratio": 5.47,
+            "mkv": 1.84
+          },
+          {
+            "stock_code": "688798.SH",
+            "stock_name": "",
+            "ratio": 5.82,
+            "mkv": 1.95
+          },
+          {
+            "stock_code": "300014.SZ",
+            "stock_name": "",
+            "ratio": 6.23,
+            "mkv": 2.09
+          },
+          {
+            "stock_code": "300118.SZ",
+            "stock_name": "",
+            "ratio": 6.63,
+            "mkv": 2.23
+          },
+          {
+            "stock_code": "601865.SH",
+            "stock_name": "",
+            "ratio": 7.34,
+            "mkv": 2.46
+          },
+          {
+            "stock_code": "601012.SH",
+            "stock_name": "",
+            "ratio": 9.17,
+            "mkv": 3.08
+          },
+          {
+            "stock_code": "688390.SH",
+            "stock_name": "",
+            "ratio": 9.21,
+            "mkv": 3.09
+          },
+          {
+            "stock_code": "688599.SH",
+            "stock_name": "",
+            "ratio": 9.52,
+            "mkv": 3.2
+          },
+          {
+            "stock_code": "002459.SZ",
+            "stock_name": "",
+            "ratio": 9.8,
+            "mkv": 3.29
+          },
+          {
+            "stock_code": "600438.SH",
+            "stock_name": "",
+            "ratio": 9.99,
+            "mkv": 3.35
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002129.SZ(5.47%), 688798.SH(5.82%), 300014.SZ(6.23%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:18.970469",
+    "id": "VIEW_20260314_046",
+    "created_at": "2026-03-14T22:19:18.970489"
+  },
+  {
+    "manager": "施成",
+    "fund": "国投瑞银新能源",
+    "report": {
+      "manager": "施成",
+      "fund": "国投瑞银新能源",
+      "fund_code": "007689",
+      "company": "国投瑞银",
+      "style": "周期成长",
+      "aum": "超150亿",
+      "tenure": "5年+",
+      "generated_at": "2026-03-14T22:19:19.109282",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603228.SH",
+            "stock_name": "",
+            "ratio": 4.58,
+            "mkv": 1.48
+          },
+          {
+            "stock_code": "002837.SZ",
+            "stock_name": "",
+            "ratio": 10.46,
+            "mkv": 3.37
+          },
+          {
+            "stock_code": "002759.SZ",
+            "stock_name": "",
+            "ratio": 6.28,
+            "mkv": 2.02
+          },
+          {
+            "stock_code": "300476.SZ",
+            "stock_name": "",
+            "ratio": 5.1,
+            "mkv": 1.64
+          },
+          {
+            "stock_code": "002709.SZ",
+            "stock_name": "",
+            "ratio": 9.67,
+            "mkv": 3.12
+          },
+          {
+            "stock_code": "002851.SZ",
+            "stock_name": "",
+            "ratio": 10.56,
+            "mkv": 3.41
+          },
+          {
+            "stock_code": "002738.SZ",
+            "stock_name": "",
+            "ratio": 8.88,
+            "mkv": 2.86
+          },
+          {
+            "stock_code": "002240.SZ",
+            "stock_name": "",
+            "ratio": 4.94,
+            "mkv": 1.59
+          },
+          {
+            "stock_code": "002407.SZ",
+            "stock_name": "",
+            "ratio": 6.48,
+            "mkv": 2.09
+          },
+          {
+            "stock_code": "688256.SH",
+            "stock_name": "",
+            "ratio": 6.43,
+            "mkv": 2.07
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603228.SH(4.58%), 002837.SZ(10.46%), 002759.SZ(6.28%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:19.109301",
+    "id": "VIEW_20260314_047",
+    "created_at": "2026-03-14T22:19:19.109321"
+  },
+  {
+    "manager": "韩创",
+    "fund": "大成新锐产业",
+    "report": {
+      "manager": "韩创",
+      "fund": "大成新锐产业",
+      "fund_code": "090018",
+      "company": "大成",
+      "style": "周期成长",
+      "aum": "超150亿",
+      "tenure": "5年+",
+      "generated_at": "2026-03-14T22:19:19.305492",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601058.SH",
+            "stock_name": "",
+            "ratio": 6.51,
+            "mkv": 3.06
+          },
+          {
+            "stock_code": "601688.SH",
+            "stock_name": "",
+            "ratio": 7.88,
+            "mkv": 3.71
+          },
+          {
+            "stock_code": "601601.SH",
+            "stock_name": "",
+            "ratio": 7.2,
+            "mkv": 3.39
+          },
+          {
+            "stock_code": "600547.SH",
+            "stock_name": "",
+            "ratio": 10.67,
+            "mkv": 5.02
+          },
+          {
+            "stock_code": "600489.SH",
+            "stock_name": "",
+            "ratio": 7.45,
+            "mkv": 3.5
+          },
+          {
+            "stock_code": "600115.SH",
+            "stock_name": "",
+            "ratio": 5.56,
+            "mkv": 2.62
+          },
+          {
+            "stock_code": "000960.SZ",
+            "stock_name": "",
+            "ratio": 8.02,
+            "mkv": 3.77
+          },
+          {
+            "stock_code": "000426.SZ",
+            "stock_name": "",
+            "ratio": 10.5,
+            "mkv": 4.94
+          },
+          {
+            "stock_code": "603619.SH",
+            "stock_name": "",
+            "ratio": 5.52,
+            "mkv": 2.6
+          },
+          {
+            "stock_code": "601118.SH",
+            "stock_name": "",
+            "ratio": 5.07,
+            "mkv": 2.39
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 601058.SH(6.51%), 601688.SH(7.88%), 601601.SH(7.2%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:19.305513",
+    "id": "VIEW_20260314_048",
+    "created_at": "2026-03-14T22:19:19.305534"
+  },
+  {
+    "manager": "钟赟",
+    "fund": "南方新优享",
+    "report": {
+      "manager": "钟赟",
+      "fund": "南方新优享",
+      "fund_code": "000527",
+      "company": "南方",
+      "style": "成长精选",
+      "aum": "超100亿",
+      "tenure": "6年+",
+      "generated_at": "2026-03-14T22:19:19.506202",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300502.SZ",
+            "stock_name": "",
+            "ratio": 2.73,
+            "mkv": 0.68
+          },
+          {
+            "stock_code": "600989.SH",
+            "stock_name": "",
+            "ratio": 2.79,
+            "mkv": 0.69
+          },
+          {
+            "stock_code": "603799.SH",
+            "stock_name": "",
+            "ratio": 3.15,
+            "mkv": 0.78
+          },
+          {
+            "stock_code": "000657.SZ",
+            "stock_name": "",
+            "ratio": 3.42,
+            "mkv": 0.85
+          },
+          {
+            "stock_code": "601628.SH",
+            "stock_name": "",
+            "ratio": 3.54,
+            "mkv": 0.88
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 3.57,
+            "mkv": 0.88
+          },
+          {
+            "stock_code": "300274.SZ",
+            "stock_name": "",
+            "ratio": 3.99,
+            "mkv": 0.99
+          },
+          {
+            "stock_code": "601318.SH",
+            "stock_name": "",
+            "ratio": 4.04,
+            "mkv": 1.0
+          },
+          {
+            "stock_code": "603993.SH",
+            "stock_name": "",
+            "ratio": 6.83,
+            "mkv": 1.69
+          },
+          {
+            "stock_code": "300308.SZ",
+            "stock_name": "",
+            "ratio": 8.95,
+            "mkv": 2.22
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300502.SZ(2.73%), 600989.SH(2.79%), 603799.SH(3.15%)",
+        "持仓分散(前3大8.7%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:19.506224",
+    "id": "VIEW_20260314_049",
+    "created_at": "2026-03-14T22:19:19.506245"
+  },
+  {
+    "manager": "王鹏",
+    "fund": "泰达宏利转型机遇",
+    "report": {
+      "manager": "王鹏",
+      "fund": "泰达宏利转型机遇",
+      "fund_code": "000828",
+      "company": "泰达宏利",
+      "style": "景气成长",
+      "aum": "超100亿",
+      "tenure": "6年+",
+      "generated_at": "2026-03-14T22:19:19.668566",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002916.SZ",
+            "stock_name": "",
+            "ratio": 4.48,
+            "mkv": 1.24
+          },
+          {
+            "stock_code": "300502.SZ",
+            "stock_name": "",
+            "ratio": 10.64,
+            "mkv": 2.95
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 10.38,
+            "mkv": 2.88
+          },
+          {
+            "stock_code": "002409.SZ",
+            "stock_name": "",
+            "ratio": 2.83,
+            "mkv": 0.78
+          },
+          {
+            "stock_code": "002371.SZ",
+            "stock_name": "",
+            "ratio": 7.65,
+            "mkv": 2.12
+          },
+          {
+            "stock_code": "002463.SZ",
+            "stock_name": "",
+            "ratio": 10.08,
+            "mkv": 2.79
+          },
+          {
+            "stock_code": "688256.SH",
+            "stock_name": "",
+            "ratio": 5.45,
+            "mkv": 1.51
+          },
+          {
+            "stock_code": "688036.SH",
+            "stock_name": "",
+            "ratio": 4.07,
+            "mkv": 1.13
+          },
+          {
+            "stock_code": "600426.SH",
+            "stock_name": "",
+            "ratio": 10.08,
+            "mkv": 2.79
+          },
+          {
+            "stock_code": "600183.SH",
+            "stock_name": "",
+            "ratio": 4.8,
+            "mkv": 1.33
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002916.SZ(4.48%), 300502.SZ(10.64%), 002475.SZ(10.38%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:19.668588",
+    "id": "VIEW_20260314_050",
+    "created_at": "2026-03-14T22:19:19.668609"
+  },
+  {
+    "manager": "黄兴亮",
+    "fund": "万家行业优选",
+    "report": {
+      "manager": "黄兴亮",
+      "fund": "万家行业优选",
+      "fund_code": "161903",
+      "company": "万家",
+      "style": "科技成长",
+      "aum": "超100亿",
+      "tenure": "6年+",
+      "generated_at": "2026-03-14T22:19:19.726531",
+      "performance": null,
+      "holdings": null,
+      "key_insights": [
+        "暂无业绩数据",
+        "暂无持仓数据"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:19.726549",
+    "id": "VIEW_20260314_051",
+    "created_at": "2026-03-14T22:19:19.726571"
+  },
+  {
+    "manager": "傅鹏博",
+    "fund": "睿远成长价值",
+    "report": {
+      "manager": "傅鹏博",
+      "fund": "睿远成长价值",
+      "fund_code": "007119",
+      "company": "睿远",
+      "style": "逆向均衡",
+      "aum": "超200亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:19.860417",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002444.SZ",
+            "stock_name": "",
+            "ratio": 3.97,
+            "mkv": 7.67
+          },
+          {
+            "stock_code": "688256.SH",
+            "stock_name": "",
+            "ratio": 4.66,
+            "mkv": 9.0
+          },
+          {
+            "stock_code": "9988.HK",
+            "stock_name": "",
+            "ratio": 5.81,
+            "mkv": 11.21
+          },
+          {
+            "stock_code": "300751.SZ",
+            "stock_name": "",
+            "ratio": 6.3,
+            "mkv": 12.16
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 7.98,
+            "mkv": 15.41
+          },
+          {
+            "stock_code": "002384.SZ",
+            "stock_name": "",
+            "ratio": 8.58,
+            "mkv": 16.57
+          },
+          {
+            "stock_code": "0700.HK",
+            "stock_name": "",
+            "ratio": 9.44,
+            "mkv": 18.21
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 9.5,
+            "mkv": 18.33
+          },
+          {
+            "stock_code": "300476.SZ",
+            "stock_name": "",
+            "ratio": 10.24,
+            "mkv": 19.77
+          },
+          {
+            "stock_code": "300502.SZ",
+            "stock_name": "",
+            "ratio": 10.38,
+            "mkv": 20.04
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002444.SZ(3.97%), 688256.SH(4.66%), 9988.HK(5.81%)",
+        "持仓分散(前3大14.4%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:19.860439",
+    "id": "VIEW_20260314_052",
+    "created_at": "2026-03-14T22:19:19.860459"
+  },
+  {
+    "manager": "王崇",
+    "fund": "交银新成长",
+    "report": {
+      "manager": "王崇",
+      "fund": "交银新成长",
+      "fund_code": "519736",
+      "company": "交银施罗德",
+      "style": "稳健均衡",
+      "aum": "超200亿",
+      "tenure": "9年+",
+      "generated_at": "2026-03-14T22:19:20.033989",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "605117.SH",
+            "stock_name": "",
+            "ratio": 3.86,
+            "mkv": 1.53
+          },
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 4.07,
+            "mkv": 1.62
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 4.1,
+            "mkv": 1.63
+          },
+          {
+            "stock_code": "300308.SZ",
+            "stock_name": "",
+            "ratio": 4.34,
+            "mkv": 1.72
+          },
+          {
+            "stock_code": "603939.SH",
+            "stock_name": "",
+            "ratio": 4.45,
+            "mkv": 1.77
+          },
+          {
+            "stock_code": "002027.SZ",
+            "stock_name": "",
+            "ratio": 5.91,
+            "mkv": 2.35
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 6.15,
+            "mkv": 2.45
+          },
+          {
+            "stock_code": "300910.SZ",
+            "stock_name": "",
+            "ratio": 6.29,
+            "mkv": 2.5
+          },
+          {
+            "stock_code": "601899.SH",
+            "stock_name": "",
+            "ratio": 6.58,
+            "mkv": 2.62
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 10.64,
+            "mkv": 4.23
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 605117.SH(3.86%), 603259.SH(4.07%), 002475.SZ(4.1%)",
+        "持仓分散(前3大12.0%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:20.034012",
+    "id": "VIEW_20260314_053",
+    "created_at": "2026-03-14T22:19:20.034031"
+  },
+  {
+    "manager": "何帅",
+    "fund": "交银优势行业",
+    "report": {
+      "manager": "何帅",
+      "fund": "交银优势行业",
+      "fund_code": "519697",
+      "company": "交银施罗德",
+      "style": "行业轮动",
+      "aum": "超150亿",
+      "tenure": "9年+",
+      "generated_at": "2026-03-14T22:19:20.243367",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "301656.SZ",
+            "stock_name": "",
+            "ratio": 0.04,
+            "mkv": 0.01
+          },
+          {
+            "stock_code": "688729.SH",
+            "stock_name": "",
+            "ratio": 0.06,
+            "mkv": 0.01
+          },
+          {
+            "stock_code": "688795.SH",
+            "stock_name": "",
+            "ratio": 0.49,
+            "mkv": 0.07
+          },
+          {
+            "stock_code": "000915.SZ",
+            "stock_name": "",
+            "ratio": 4.11,
+            "mkv": 0.6
+          },
+          {
+            "stock_code": "600809.SH",
+            "stock_name": "",
+            "ratio": 6.05,
+            "mkv": 0.89
+          },
+          {
+            "stock_code": "000858.SZ",
+            "stock_name": "",
+            "ratio": 13.23,
+            "mkv": 1.94
+          },
+          {
+            "stock_code": "000568.SZ",
+            "stock_name": "",
+            "ratio": 15.53,
+            "mkv": 2.28
+          },
+          {
+            "stock_code": "600276.SH",
+            "stock_name": "",
+            "ratio": 19.53,
+            "mkv": 2.87
+          },
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 20.01,
+            "mkv": 2.94
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 20.68,
+            "mkv": 3.04
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 301656.SZ(0.04%), 688729.SH(0.06%), 688795.SH(0.49%)",
+        "持仓分散(前3大0.6%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:20.243390",
+    "id": "VIEW_20260314_054",
+    "created_at": "2026-03-14T22:19:20.243410"
+  },
+  {
+    "manager": "杨浩",
+    "fund": "交银定期支付双息平衡",
+    "report": {
+      "manager": "杨浩",
+      "fund": "交银定期支付双息平衡",
+      "fund_code": "519732",
+      "company": "交银施罗德",
+      "style": "平衡策略",
+      "aum": "超100亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:20.411899",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002371.SZ",
+            "stock_name": "",
+            "ratio": 3.66,
+            "mkv": 0.64
+          },
+          {
+            "stock_code": "002837.SZ",
+            "stock_name": "",
+            "ratio": 3.67,
+            "mkv": 0.64
+          },
+          {
+            "stock_code": "000807.SZ",
+            "stock_name": "",
+            "ratio": 3.76,
+            "mkv": 0.66
+          },
+          {
+            "stock_code": "002384.SZ",
+            "stock_name": "",
+            "ratio": 4.3,
+            "mkv": 0.75
+          },
+          {
+            "stock_code": "300308.SZ",
+            "stock_name": "",
+            "ratio": 9.37,
+            "mkv": 1.64
+          },
+          {
+            "stock_code": "300502.SZ",
+            "stock_name": "",
+            "ratio": 11.12,
+            "mkv": 1.94
+          },
+          {
+            "stock_code": "600309.SH",
+            "stock_name": "",
+            "ratio": 2.6,
+            "mkv": 0.45
+          },
+          {
+            "stock_code": "002602.SZ",
+            "stock_name": "",
+            "ratio": 2.68,
+            "mkv": 0.47
+          },
+          {
+            "stock_code": "002532.SZ",
+            "stock_name": "",
+            "ratio": 2.73,
+            "mkv": 0.48
+          },
+          {
+            "stock_code": "688347.SH",
+            "stock_name": "",
+            "ratio": 2.74,
+            "mkv": 0.48
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002371.SZ(3.66%), 002837.SZ(3.67%), 000807.SZ(3.76%)",
+        "持仓分散(前3大11.1%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:20.411921",
+    "id": "VIEW_20260314_055",
+    "created_at": "2026-03-14T22:19:20.411941"
+  },
+  {
+    "manager": "刘旭",
+    "fund": "大成高新技术产业",
+    "report": {
+      "manager": "刘旭",
+      "fund": "大成高新技术产业",
+      "fund_code": "000628",
+      "company": "大成",
+      "style": "质量均衡",
+      "aum": "超100亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:20.619168",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 3.71,
+            "mkv": 5.34
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 11.09,
+            "mkv": 15.97
+          },
+          {
+            "stock_code": "002595.SZ",
+            "stock_name": "",
+            "ratio": 10.59,
+            "mkv": 15.26
+          },
+          {
+            "stock_code": "600352.SH",
+            "stock_name": "",
+            "ratio": 3.97,
+            "mkv": 5.72
+          },
+          {
+            "stock_code": "0941.HK",
+            "stock_name": "",
+            "ratio": 10.75,
+            "mkv": 15.48
+          },
+          {
+            "stock_code": "0883.HK",
+            "stock_name": "",
+            "ratio": 6.07,
+            "mkv": 8.74
+          },
+          {
+            "stock_code": "0700.HK",
+            "stock_name": "",
+            "ratio": 6.2,
+            "mkv": 8.92
+          },
+          {
+            "stock_code": "600741.SH",
+            "stock_name": "",
+            "ratio": 4.13,
+            "mkv": 5.94
+          },
+          {
+            "stock_code": "600690.SH",
+            "stock_name": "",
+            "ratio": 8.12,
+            "mkv": 11.7
+          },
+          {
+            "stock_code": "600660.SH",
+            "stock_name": "",
+            "ratio": 6.18,
+            "mkv": 8.9
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300750.SZ(3.71%), 000333.SZ(11.09%), 002595.SZ(10.59%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:20.619189",
+    "id": "VIEW_20260314_056",
+    "created_at": "2026-03-14T22:19:20.619210"
+  },
+  {
+    "manager": "陈一峰",
+    "fund": "安信价值精选",
+    "report": {
+      "manager": "陈一峰",
+      "fund": "安信价值精选",
+      "fund_code": "000577",
+      "company": "安信",
+      "style": "价值均衡",
+      "aum": "超100亿",
+      "tenure": "9年+",
+      "generated_at": "2026-03-14T22:19:20.789670",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "600276.SH",
+            "stock_name": "",
+            "ratio": 3.95,
+            "mkv": 0.53
+          },
+          {
+            "stock_code": "605499.SH",
+            "stock_name": "",
+            "ratio": 4.34,
+            "mkv": 0.58
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 4.36,
+            "mkv": 0.58
+          },
+          {
+            "stock_code": "002602.SZ",
+            "stock_name": "",
+            "ratio": 4.4,
+            "mkv": 0.59
+          },
+          {
+            "stock_code": "002409.SZ",
+            "stock_name": "",
+            "ratio": 6.5,
+            "mkv": 0.87
+          },
+          {
+            "stock_code": "002371.SZ",
+            "stock_name": "",
+            "ratio": 9.31,
+            "mkv": 1.24
+          },
+          {
+            "stock_code": "688012.SH",
+            "stock_name": "",
+            "ratio": 9.79,
+            "mkv": 1.31
+          },
+          {
+            "stock_code": "300502.SZ",
+            "stock_name": "",
+            "ratio": 10.1,
+            "mkv": 1.35
+          },
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 10.41,
+            "mkv": 1.39
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 10.53,
+            "mkv": 1.41
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 600276.SH(3.95%), 605499.SH(4.34%), 002475.SZ(4.36%)",
+        "持仓分散(前3大12.7%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:20.789694",
+    "id": "VIEW_20260314_057",
+    "created_at": "2026-03-14T22:19:20.789713"
+  },
+  {
+    "manager": "张清华",
+    "fund": "易方达安心回报",
+    "report": {
+      "manager": "张清华",
+      "fund": "易方达安心回报",
+      "fund_code": "110027",
+      "company": "易方达",
+      "style": "股债平衡",
+      "aum": "超600亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:20.949193",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 5.06,
+            "mkv": 1.04
+          },
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 4.32,
+            "mkv": 0.88
+          },
+          {
+            "stock_code": "300408.SZ",
+            "stock_name": "",
+            "ratio": 7.5,
+            "mkv": 1.54
+          },
+          {
+            "stock_code": "300502.SZ",
+            "stock_name": "",
+            "ratio": 8.64,
+            "mkv": 1.77
+          },
+          {
+            "stock_code": "300308.SZ",
+            "stock_name": "",
+            "ratio": 10.98,
+            "mkv": 2.25
+          },
+          {
+            "stock_code": "300274.SZ",
+            "stock_name": "",
+            "ratio": 4.34,
+            "mkv": 0.89
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 4.97,
+            "mkv": 1.02
+          },
+          {
+            "stock_code": "688256.SH",
+            "stock_name": "",
+            "ratio": 8.17,
+            "mkv": 1.67
+          },
+          {
+            "stock_code": "688521.SH",
+            "stock_name": "",
+            "ratio": 4.42,
+            "mkv": 0.9
+          },
+          {
+            "stock_code": "600486.SH",
+            "stock_name": "",
+            "ratio": 7.93,
+            "mkv": 1.62
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300750.SZ(5.06%), 603259.SH(4.32%), 300408.SZ(7.5%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:20.949213",
+    "id": "VIEW_20260314_058",
+    "created_at": "2026-03-14T22:19:20.949233"
+  },
+  {
+    "manager": "邬传雁",
+    "fund": "泓德远见回报",
+    "report": {
+      "manager": "邬传雁",
+      "fund": "泓德远见回报",
+      "fund_code": "001500",
+      "company": "泓德",
+      "style": "长期均衡",
+      "aum": "超200亿",
+      "tenure": "9年+",
+      "generated_at": "2026-03-14T22:19:21.115045",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002938.SZ",
+            "stock_name": "",
+            "ratio": 3.4,
+            "mkv": 0.31
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 3.67,
+            "mkv": 0.34
+          },
+          {
+            "stock_code": "002928.SZ",
+            "stock_name": "",
+            "ratio": 3.82,
+            "mkv": 0.35
+          },
+          {
+            "stock_code": "601100.SH",
+            "stock_name": "",
+            "ratio": 3.84,
+            "mkv": 0.35
+          },
+          {
+            "stock_code": "600309.SH",
+            "stock_name": "",
+            "ratio": 3.99,
+            "mkv": 0.37
+          },
+          {
+            "stock_code": "002064.SZ",
+            "stock_name": "",
+            "ratio": 4.03,
+            "mkv": 0.37
+          },
+          {
+            "stock_code": "600036.SH",
+            "stock_name": "",
+            "ratio": 4.27,
+            "mkv": 0.39
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 4.48,
+            "mkv": 0.41
+          },
+          {
+            "stock_code": "600276.SH",
+            "stock_name": "",
+            "ratio": 4.53,
+            "mkv": 0.41
+          },
+          {
+            "stock_code": "601318.SH",
+            "stock_name": "",
+            "ratio": 5.88,
+            "mkv": 0.54
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002938.SZ(3.4%), 300750.SZ(3.67%), 002928.SZ(3.82%)",
+        "持仓分散(前3大10.9%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:21.115068",
+    "id": "VIEW_20260314_059",
+    "created_at": "2026-03-14T22:19:21.115088"
+  },
+  {
+    "manager": "秦毅",
+    "fund": "泓德战略转型",
+    "report": {
+      "manager": "秦毅",
+      "fund": "泓德战略转型",
+      "fund_code": "001705",
+      "company": "泓德",
+      "style": "价值均衡",
+      "aum": "超150亿",
+      "tenure": "7年+",
+      "generated_at": "2026-03-14T22:19:21.276240",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002938.SZ",
+            "stock_name": "",
+            "ratio": 3.55,
+            "mkv": 0.26
+          },
+          {
+            "stock_code": "601138.SH",
+            "stock_name": "",
+            "ratio": 3.57,
+            "mkv": 0.26
+          },
+          {
+            "stock_code": "300037.SZ",
+            "stock_name": "",
+            "ratio": 3.77,
+            "mkv": 0.28
+          },
+          {
+            "stock_code": "300274.SZ",
+            "stock_name": "",
+            "ratio": 3.89,
+            "mkv": 0.29
+          },
+          {
+            "stock_code": "000807.SZ",
+            "stock_name": "",
+            "ratio": 3.94,
+            "mkv": 0.29
+          },
+          {
+            "stock_code": "603338.SH",
+            "stock_name": "",
+            "ratio": 3.99,
+            "mkv": 0.3
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 4.18,
+            "mkv": 0.31
+          },
+          {
+            "stock_code": "601100.SH",
+            "stock_name": "",
+            "ratio": 4.22,
+            "mkv": 0.31
+          },
+          {
+            "stock_code": "601318.SH",
+            "stock_name": "",
+            "ratio": 4.81,
+            "mkv": 0.36
+          },
+          {
+            "stock_code": "002371.SZ",
+            "stock_name": "",
+            "ratio": 6.13,
+            "mkv": 0.45
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002938.SZ(3.55%), 601138.SH(3.57%), 300037.SZ(3.77%)",
+        "持仓分散(前3大10.9%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:21.276262",
+    "id": "VIEW_20260314_060",
+    "created_at": "2026-03-14T22:19:21.276282"
+  },
+  {
+    "manager": "于洋",
+    "fund": "富国新动力",
+    "report": {
+      "manager": "于洋",
+      "fund": "富国新动力",
+      "fund_code": "001508",
+      "company": "富国",
+      "style": "医药均衡",
+      "aum": "超100亿",
+      "tenure": "7年+",
+      "generated_at": "2026-03-14T22:19:21.423082",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603486.SH",
+            "stock_name": "",
+            "ratio": 11.17,
+            "mkv": 2.4
+          },
+          {
+            "stock_code": "002749.SZ",
+            "stock_name": "",
+            "ratio": 4.94,
+            "mkv": 1.06
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 7.66,
+            "mkv": 1.64
+          },
+          {
+            "stock_code": "002475.SZ",
+            "stock_name": "",
+            "ratio": 3.61,
+            "mkv": 0.77
+          },
+          {
+            "stock_code": "002311.SZ",
+            "stock_name": "",
+            "ratio": 10.64,
+            "mkv": 2.28
+          },
+          {
+            "stock_code": "605499.SH",
+            "stock_name": "",
+            "ratio": 4.68,
+            "mkv": 1.01
+          },
+          {
+            "stock_code": "688301.SH",
+            "stock_name": "",
+            "ratio": 3.28,
+            "mkv": 0.7
+          },
+          {
+            "stock_code": "689009.SH",
+            "stock_name": "",
+            "ratio": 10.52,
+            "mkv": 2.26
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 6.16,
+            "mkv": 1.32
+          },
+          {
+            "stock_code": "600019.SH",
+            "stock_name": "",
+            "ratio": 3.22,
+            "mkv": 0.69
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603486.SH(11.17%), 002749.SZ(4.94%), 000333.SZ(7.66%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:21.423103",
+    "id": "VIEW_20260314_061",
+    "created_at": "2026-03-14T22:19:21.423123"
+  },
+  {
+    "manager": "程洲",
+    "fund": "国泰聚信价值优势",
+    "report": {
+      "manager": "程洲",
+      "fund": "国泰聚信价值优势",
+      "fund_code": "000362",
+      "company": "国泰",
+      "style": "逆向均衡",
+      "aum": "超100亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:21.605348",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 5.41,
+            "mkv": 1.03
+          },
+          {
+            "stock_code": "605088.SH",
+            "stock_name": "",
+            "ratio": 7.5,
+            "mkv": 1.42
+          },
+          {
+            "stock_code": "300677.SZ",
+            "stock_name": "",
+            "ratio": 6.55,
+            "mkv": 1.24
+          },
+          {
+            "stock_code": "300602.SZ",
+            "stock_name": "",
+            "ratio": 4.54,
+            "mkv": 0.86
+          },
+          {
+            "stock_code": "002860.SZ",
+            "stock_name": "",
+            "ratio": 5.58,
+            "mkv": 1.06
+          },
+          {
+            "stock_code": "603612.SH",
+            "stock_name": "",
+            "ratio": 6.72,
+            "mkv": 1.28
+          },
+          {
+            "stock_code": "301291.SZ",
+            "stock_name": "",
+            "ratio": 4.43,
+            "mkv": 0.84
+          },
+          {
+            "stock_code": "688503.SH",
+            "stock_name": "",
+            "ratio": 9.89,
+            "mkv": 1.88
+          },
+          {
+            "stock_code": "688566.SH",
+            "stock_name": "",
+            "ratio": 4.89,
+            "mkv": 0.93
+          },
+          {
+            "stock_code": "688606.SH",
+            "stock_name": "",
+            "ratio": 5.7,
+            "mkv": 1.08
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300750.SZ(5.41%), 605088.SH(7.5%), 300677.SZ(6.55%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:21.605369",
+    "id": "VIEW_20260314_062",
+    "created_at": "2026-03-14T22:19:21.605388"
+  },
+  {
+    "manager": "杜洋",
+    "fund": "工银战略转型",
+    "report": {
+      "manager": "杜洋",
+      "fund": "工银战略转型",
+      "fund_code": "000991",
+      "company": "工银瑞信",
+      "style": "大盘均衡",
+      "aum": "超150亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:21.771260",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "002918.SZ",
+            "stock_name": "",
+            "ratio": 4.89,
+            "mkv": 0.71
+          },
+          {
+            "stock_code": "001979.SZ",
+            "stock_name": "",
+            "ratio": 10.16,
+            "mkv": 1.48
+          },
+          {
+            "stock_code": "603737.SH",
+            "stock_name": "",
+            "ratio": 3.49,
+            "mkv": 0.51
+          },
+          {
+            "stock_code": "002572.SZ",
+            "stock_name": "",
+            "ratio": 3.99,
+            "mkv": 0.58
+          },
+          {
+            "stock_code": "002271.SZ",
+            "stock_name": "",
+            "ratio": 3.7,
+            "mkv": 0.54
+          },
+          {
+            "stock_code": "601668.SH",
+            "stock_name": "",
+            "ratio": 8.48,
+            "mkv": 1.23
+          },
+          {
+            "stock_code": "600048.SH",
+            "stock_name": "",
+            "ratio": 9.78,
+            "mkv": 1.42
+          },
+          {
+            "stock_code": "688578.SH",
+            "stock_name": "",
+            "ratio": 3.36,
+            "mkv": 0.49
+          },
+          {
+            "stock_code": "600325.SH",
+            "stock_name": "",
+            "ratio": 5.48,
+            "mkv": 0.8
+          },
+          {
+            "stock_code": "600383.SH",
+            "stock_name": "",
+            "ratio": 4.11,
+            "mkv": 0.6
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 002918.SZ(4.89%), 001979.SZ(10.16%), 603737.SH(3.49%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:21.771280",
+    "id": "VIEW_20260314_063",
+    "created_at": "2026-03-14T22:19:21.771300"
+  },
+  {
+    "manager": "焦巍",
+    "fund": "银华富裕主题",
+    "report": {
+      "manager": "焦巍",
+      "fund": "银华富裕主题",
+      "fund_code": "180012",
+      "company": "银华",
+      "style": "消费均衡",
+      "aum": "超200亿",
+      "tenure": "7年+",
+      "generated_at": "2026-03-14T22:19:22.024281",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "601009.SH",
+            "stock_name": "",
+            "ratio": 3.85,
+            "mkv": 3.2
+          },
+          {
+            "stock_code": "601988.SH",
+            "stock_name": "",
+            "ratio": 5.24,
+            "mkv": 4.35
+          },
+          {
+            "stock_code": "601601.SH",
+            "stock_name": "",
+            "ratio": 5.25,
+            "mkv": 4.36
+          },
+          {
+            "stock_code": "601899.SH",
+            "stock_name": "",
+            "ratio": 6.89,
+            "mkv": 5.72
+          },
+          {
+            "stock_code": "600919.SH",
+            "stock_name": "",
+            "ratio": 7.01,
+            "mkv": 5.82
+          },
+          {
+            "stock_code": "600036.SH",
+            "stock_name": "",
+            "ratio": 8.11,
+            "mkv": 6.74
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 8.17,
+            "mkv": 6.78
+          },
+          {
+            "stock_code": "601998.SH",
+            "stock_name": "",
+            "ratio": 8.34,
+            "mkv": 6.93
+          },
+          {
+            "stock_code": "601318.SH",
+            "stock_name": "",
+            "ratio": 8.89,
+            "mkv": 7.38
+          },
+          {
+            "stock_code": "600926.SH",
+            "stock_name": "",
+            "ratio": 9.2,
+            "mkv": 7.64
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 601009.SH(3.85%), 601988.SH(5.24%), 601601.SH(5.25%)",
+        "持仓分散(前3大14.3%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:22.024305",
+    "id": "VIEW_20260314_064",
+    "created_at": "2026-03-14T22:19:22.024324"
+  },
+  {
+    "manager": "蔡嵩松",
+    "fund": "诺安成长",
+    "report": {
+      "manager": "蔡嵩松",
+      "fund": "诺安成长",
+      "fund_code": "320007",
+      "company": "诺安",
+      "style": "半导体主题",
+      "aum": "超200亿",
+      "tenure": "5年+",
+      "generated_at": "2026-03-14T22:19:22.241739",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "688111.SH",
+            "stock_name": "",
+            "ratio": 2.95,
+            "mkv": 4.28
+          },
+          {
+            "stock_code": "688037.SH",
+            "stock_name": "",
+            "ratio": 3.35,
+            "mkv": 4.85
+          },
+          {
+            "stock_code": "688036.SH",
+            "stock_name": "",
+            "ratio": 3.86,
+            "mkv": 5.59
+          },
+          {
+            "stock_code": "688072.SH",
+            "stock_name": "",
+            "ratio": 4.88,
+            "mkv": 7.08
+          },
+          {
+            "stock_code": "300661.SZ",
+            "stock_name": "",
+            "ratio": 7.76,
+            "mkv": 11.25
+          },
+          {
+            "stock_code": "301269.SZ",
+            "stock_name": "",
+            "ratio": 8.62,
+            "mkv": 12.49
+          },
+          {
+            "stock_code": "688012.SH",
+            "stock_name": "",
+            "ratio": 8.62,
+            "mkv": 12.49
+          },
+          {
+            "stock_code": "688361.SH",
+            "stock_name": "",
+            "ratio": 8.75,
+            "mkv": 12.69
+          },
+          {
+            "stock_code": "002371.SZ",
+            "stock_name": "",
+            "ratio": 8.89,
+            "mkv": 12.88
+          },
+          {
+            "stock_code": "688981.SH",
+            "stock_name": "",
+            "ratio": 9.01,
+            "mkv": 13.06
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 688111.SH(2.95%), 688037.SH(3.35%), 688036.SH(3.86%)",
+        "持仓分散(前3大10.2%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:22.241761",
+    "id": "VIEW_20260314_065",
+    "created_at": "2026-03-14T22:19:22.241782"
+  },
+  {
+    "manager": "郑巍山",
+    "fund": "银河创新成长",
+    "report": {
+      "manager": "郑巍山",
+      "fund": "银河创新成长",
+      "fund_code": "519674",
+      "company": "银河",
+      "style": "科技主题",
+      "aum": "超150亿",
+      "tenure": "5年+",
+      "generated_at": "2026-03-14T22:19:22.445677",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "688691.SH",
+            "stock_name": "",
+            "ratio": 4.04,
+            "mkv": 5.36
+          },
+          {
+            "stock_code": "688361.SH",
+            "stock_name": "",
+            "ratio": 4.57,
+            "mkv": 6.06
+          },
+          {
+            "stock_code": "688008.SH",
+            "stock_name": "",
+            "ratio": 5.77,
+            "mkv": 7.66
+          },
+          {
+            "stock_code": "688220.SH",
+            "stock_name": "",
+            "ratio": 8.59,
+            "mkv": 11.39
+          },
+          {
+            "stock_code": "002371.SZ",
+            "stock_name": "",
+            "ratio": 8.72,
+            "mkv": 11.57
+          },
+          {
+            "stock_code": "688347.SH",
+            "stock_name": "",
+            "ratio": 8.96,
+            "mkv": 11.89
+          },
+          {
+            "stock_code": "603986.SH",
+            "stock_name": "",
+            "ratio": 10.01,
+            "mkv": 13.28
+          },
+          {
+            "stock_code": "688041.SH",
+            "stock_name": "",
+            "ratio": 10.4,
+            "mkv": 13.8
+          },
+          {
+            "stock_code": "688256.SH",
+            "stock_name": "",
+            "ratio": 10.42,
+            "mkv": 13.83
+          },
+          {
+            "stock_code": "688981.SH",
+            "stock_name": "",
+            "ratio": 10.65,
+            "mkv": 14.13
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 688691.SH(4.04%), 688361.SH(4.57%), 688008.SH(5.77%)",
+        "持仓分散(前3大14.4%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:22.445698",
+    "id": "VIEW_20260314_066",
+    "created_at": "2026-03-14T22:19:22.445718"
+  },
+  {
+    "manager": "刘彦春",
+    "fund": "景顺长城新兴成长",
+    "report": {
+      "manager": "刘彦春",
+      "fund": "景顺长城新兴成长",
+      "fund_code": "260108",
+      "company": "景顺长城",
+      "style": "消费主题",
+      "aum": "超500亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:22.674409",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 6.09,
+            "mkv": 9.06
+          },
+          {
+            "stock_code": "300760.SZ",
+            "stock_name": "",
+            "ratio": 8.44,
+            "mkv": 12.57
+          },
+          {
+            "stock_code": "603899.SH",
+            "stock_name": "",
+            "ratio": 5.72,
+            "mkv": 8.52
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 8.19,
+            "mkv": 12.19
+          },
+          {
+            "stock_code": "002311.SZ",
+            "stock_name": "",
+            "ratio": 10.41,
+            "mkv": 15.51
+          },
+          {
+            "stock_code": "601888.SH",
+            "stock_name": "",
+            "ratio": 10.98,
+            "mkv": 16.36
+          },
+          {
+            "stock_code": "600809.SH",
+            "stock_name": "",
+            "ratio": 8.3,
+            "mkv": 12.36
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 10.43,
+            "mkv": 15.53
+          },
+          {
+            "stock_code": "000596.SZ",
+            "stock_name": "",
+            "ratio": 4.81,
+            "mkv": 7.16
+          },
+          {
+            "stock_code": "000568.SZ",
+            "stock_name": "",
+            "ratio": 5.28,
+            "mkv": 7.87
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603259.SH(6.09%), 300760.SZ(8.44%), 603899.SH(5.72%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:22.674430",
+    "id": "VIEW_20260314_067",
+    "created_at": "2026-03-14T22:19:22.674449"
+  },
+  {
+    "manager": "胡昕炜",
+    "fund": "汇添富消费行业",
+    "report": {
+      "manager": "胡昕炜",
+      "fund": "汇添富消费行业",
+      "fund_code": "000083",
+      "company": "汇添富",
+      "style": "消费主题",
+      "aum": "超300亿",
+      "tenure": "7年+",
+      "generated_at": "2026-03-14T22:19:22.858655",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603129.SH",
+            "stock_name": "",
+            "ratio": 3.06,
+            "mkv": 2.51
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 10.48,
+            "mkv": 8.6
+          },
+          {
+            "stock_code": "002311.SZ",
+            "stock_name": "",
+            "ratio": 5.4,
+            "mkv": 4.43
+          },
+          {
+            "stock_code": "605499.SH",
+            "stock_name": "",
+            "ratio": 3.26,
+            "mkv": 2.67
+          },
+          {
+            "stock_code": "300866.SZ",
+            "stock_name": "",
+            "ratio": 3.07,
+            "mkv": 2.52
+          },
+          {
+            "stock_code": "600690.SH",
+            "stock_name": "",
+            "ratio": 8.91,
+            "mkv": 7.31
+          },
+          {
+            "stock_code": "600660.SH",
+            "stock_name": "",
+            "ratio": 3.32,
+            "mkv": 2.72
+          },
+          {
+            "stock_code": "600519.SH",
+            "stock_name": "",
+            "ratio": 7.05,
+            "mkv": 5.78
+          },
+          {
+            "stock_code": "000651.SZ",
+            "stock_name": "",
+            "ratio": 6.62,
+            "mkv": 5.43
+          },
+          {
+            "stock_code": "000568.SZ",
+            "stock_name": "",
+            "ratio": 3.54,
+            "mkv": 2.91
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603129.SH(3.06%), 000333.SZ(10.48%), 002311.SZ(5.4%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:22.858676",
+    "id": "VIEW_20260314_068",
+    "created_at": "2026-03-14T22:19:22.858696"
+  },
+  {
+    "manager": "王宗合",
+    "fund": "鹏华消费优选",
+    "report": {
+      "manager": "王宗合",
+      "fund": "鹏华消费优选",
+      "fund_code": "206007",
+      "company": "鹏华",
+      "style": "消费主题",
+      "aum": "超200亿",
+      "tenure": "10年+",
+      "generated_at": "2026-03-14T22:19:23.070068",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "603129.SH",
+            "stock_name": "",
+            "ratio": 6.33,
+            "mkv": 0.23
+          },
+          {
+            "stock_code": "603697.SH",
+            "stock_name": "",
+            "ratio": 5.74,
+            "mkv": 0.21
+          },
+          {
+            "stock_code": "000333.SZ",
+            "stock_name": "",
+            "ratio": 5.88,
+            "mkv": 0.22
+          },
+          {
+            "stock_code": "603766.SH",
+            "stock_name": "",
+            "ratio": 5.05,
+            "mkv": 0.18
+          },
+          {
+            "stock_code": "002345.SZ",
+            "stock_name": "",
+            "ratio": 9.78,
+            "mkv": 0.36
+          },
+          {
+            "stock_code": "002294.SZ",
+            "stock_name": "",
+            "ratio": 8.48,
+            "mkv": 0.31
+          },
+          {
+            "stock_code": "301326.SZ",
+            "stock_name": "",
+            "ratio": 9.86,
+            "mkv": 0.36
+          },
+          {
+            "stock_code": "688382.SH",
+            "stock_name": "",
+            "ratio": 8.73,
+            "mkv": 0.32
+          },
+          {
+            "stock_code": "300973.SZ",
+            "stock_name": "",
+            "ratio": 6.18,
+            "mkv": 0.23
+          },
+          {
+            "stock_code": "688068.SH",
+            "stock_name": "",
+            "ratio": 6.24,
+            "mkv": 0.23
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 603129.SH(6.33%), 603697.SH(5.74%), 000333.SZ(5.88%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:23.070089",
+    "id": "VIEW_20260314_069",
+    "created_at": "2026-03-14T22:19:23.070110"
+  },
+  {
+    "manager": "赵蓓",
+    "fund": "工银前沿医疗",
+    "report": {
+      "manager": "赵蓓",
+      "fund": "工银前沿医疗",
+      "fund_code": "001717",
+      "company": "工银瑞信",
+      "style": "医药主题",
+      "aum": "超200亿",
+      "tenure": "8年+",
+      "generated_at": "2026-03-14T22:19:23.221321",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300765.SZ",
+            "stock_name": "",
+            "ratio": 6.43,
+            "mkv": 5.23
+          },
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 4.46,
+            "mkv": 3.63
+          },
+          {
+            "stock_code": "300347.SZ",
+            "stock_name": "",
+            "ratio": 4.53,
+            "mkv": 3.69
+          },
+          {
+            "stock_code": "002653.SZ",
+            "stock_name": "",
+            "ratio": 9.91,
+            "mkv": 8.06
+          },
+          {
+            "stock_code": "002422.SZ",
+            "stock_name": "",
+            "ratio": 7.94,
+            "mkv": 6.46
+          },
+          {
+            "stock_code": "002294.SZ",
+            "stock_name": "",
+            "ratio": 7.8,
+            "mkv": 6.34
+          },
+          {
+            "stock_code": "688235.SH",
+            "stock_name": "",
+            "ratio": 6.6,
+            "mkv": 5.37
+          },
+          {
+            "stock_code": "688266.SH",
+            "stock_name": "",
+            "ratio": 5.36,
+            "mkv": 4.36
+          },
+          {
+            "stock_code": "600276.SH",
+            "stock_name": "",
+            "ratio": 10.69,
+            "mkv": 8.7
+          },
+          {
+            "stock_code": "000963.SZ",
+            "stock_name": "",
+            "ratio": 4.85,
+            "mkv": 3.94
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300765.SZ(6.43%), 603259.SH(4.46%), 300347.SZ(4.53%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:23.221341",
+    "id": "VIEW_20260314_070",
+    "created_at": "2026-03-14T22:19:23.221362"
+  },
+  {
+    "manager": "楼慧源",
+    "fund": "交银医药创新",
+    "report": {
+      "manager": "楼慧源",
+      "fund": "交银医药创新",
+      "fund_code": "004075",
+      "company": "交银施罗德",
+      "style": "医药主题",
+      "aum": "超100亿",
+      "tenure": "5年+",
+      "generated_at": "2026-03-14T22:19:23.362772",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300765.SZ",
+            "stock_name": "",
+            "ratio": 2.88,
+            "mkv": 0.52
+          },
+          {
+            "stock_code": "300677.SZ",
+            "stock_name": "",
+            "ratio": 3.6,
+            "mkv": 0.65
+          },
+          {
+            "stock_code": "002422.SZ",
+            "stock_name": "",
+            "ratio": 3.91,
+            "mkv": 0.7
+          },
+          {
+            "stock_code": "688336.SH",
+            "stock_name": "",
+            "ratio": 3.93,
+            "mkv": 0.71
+          },
+          {
+            "stock_code": "688131.SH",
+            "stock_name": "",
+            "ratio": 4.77,
+            "mkv": 0.86
+          },
+          {
+            "stock_code": "301080.SZ",
+            "stock_name": "",
+            "ratio": 4.8,
+            "mkv": 0.86
+          },
+          {
+            "stock_code": "688235.SH",
+            "stock_name": "",
+            "ratio": 9.24,
+            "mkv": 1.66
+          },
+          {
+            "stock_code": "688506.SH",
+            "stock_name": "",
+            "ratio": 10.41,
+            "mkv": 1.87
+          },
+          {
+            "stock_code": "603259.SH",
+            "stock_name": "",
+            "ratio": 10.63,
+            "mkv": 1.91
+          },
+          {
+            "stock_code": "600276.SH",
+            "stock_name": "",
+            "ratio": 10.64,
+            "mkv": 1.91
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300765.SZ(2.88%), 300677.SZ(3.6%), 002422.SZ(3.91%)",
+        "持仓分散(前3大10.4%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:23.362794",
+    "id": "VIEW_20260314_071",
+    "created_at": "2026-03-14T22:19:23.362815"
+  },
+  {
+    "manager": "李瑞",
+    "fund": "东方新能源汽车",
+    "report": {
+      "manager": "李瑞",
+      "fund": "东方新能源汽车",
+      "fund_code": "400015",
+      "company": "东方",
+      "style": "新能源主题",
+      "aum": "超200亿",
+      "tenure": "6年+",
+      "generated_at": "2026-03-14T22:19:23.535057",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 8.39,
+            "mkv": 7.12
+          },
+          {
+            "stock_code": "603799.SH",
+            "stock_name": "",
+            "ratio": 6.28,
+            "mkv": 5.32
+          },
+          {
+            "stock_code": "002709.SZ",
+            "stock_name": "",
+            "ratio": 9.57,
+            "mkv": 8.12
+          },
+          {
+            "stock_code": "002594.SZ",
+            "stock_name": "",
+            "ratio": 4.58,
+            "mkv": 3.88
+          },
+          {
+            "stock_code": "002738.SZ",
+            "stock_name": "",
+            "ratio": 6.95,
+            "mkv": 5.9
+          },
+          {
+            "stock_code": "300124.SZ",
+            "stock_name": "",
+            "ratio": 7.79,
+            "mkv": 6.61
+          },
+          {
+            "stock_code": "002460.SZ",
+            "stock_name": "",
+            "ratio": 4.52,
+            "mkv": 3.84
+          },
+          {
+            "stock_code": "002466.SZ",
+            "stock_name": "",
+            "ratio": 5.13,
+            "mkv": 4.35
+          },
+          {
+            "stock_code": "300014.SZ",
+            "stock_name": "",
+            "ratio": 5.4,
+            "mkv": 4.58
+          },
+          {
+            "stock_code": "002050.SZ",
+            "stock_name": "",
+            "ratio": 8.05,
+            "mkv": 6.83
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300750.SZ(8.39%), 603799.SH(6.28%), 002709.SZ(9.57%)"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:23.535077",
+    "id": "VIEW_20260314_072",
+    "created_at": "2026-03-14T22:19:23.535098"
+  },
+  {
+    "manager": "姚志鹏",
+    "fund": "嘉实智能汽车",
+    "report": {
+      "manager": "姚志鹏",
+      "fund": "嘉实智能汽车",
+      "fund_code": "002168",
+      "company": "嘉实",
+      "style": "智能汽车主题",
+      "aum": "超150亿",
+      "tenure": "7年+",
+      "generated_at": "2026-03-14T22:19:23.671512",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300037.SZ",
+            "stock_name": "",
+            "ratio": 4.34,
+            "mkv": 1.61
+          },
+          {
+            "stock_code": "603501.SH",
+            "stock_name": "",
+            "ratio": 4.41,
+            "mkv": 1.63
+          },
+          {
+            "stock_code": "002738.SZ",
+            "stock_name": "",
+            "ratio": 4.85,
+            "mkv": 1.8
+          },
+          {
+            "stock_code": "002497.SZ",
+            "stock_name": "",
+            "ratio": 5.47,
+            "mkv": 2.02
+          },
+          {
+            "stock_code": "603799.SH",
+            "stock_name": "",
+            "ratio": 5.52,
+            "mkv": 2.04
+          },
+          {
+            "stock_code": "300014.SZ",
+            "stock_name": "",
+            "ratio": 5.7,
+            "mkv": 2.11
+          },
+          {
+            "stock_code": "603659.SH",
+            "stock_name": "",
+            "ratio": 6.25,
+            "mkv": 2.31
+          },
+          {
+            "stock_code": "301358.SZ",
+            "stock_name": "",
+            "ratio": 7.15,
+            "mkv": 2.65
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 9.49,
+            "mkv": 3.51
+          },
+          {
+            "stock_code": "002709.SZ",
+            "stock_name": "",
+            "ratio": 9.79,
+            "mkv": 3.62
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300037.SZ(4.34%), 603501.SH(4.41%), 002738.SZ(4.85%)",
+        "持仓分散(前3大13.6%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:23.671536",
+    "id": "VIEW_20260314_073",
+    "created_at": "2026-03-14T22:19:23.671557"
+  },
+  {
+    "manager": "李游",
+    "fund": "创金合信工业周期",
+    "report": {
+      "manager": "李游",
+      "fund": "创金合信工业周期",
+      "fund_code": "005968",
+      "company": "创金合信",
+      "style": "周期主题",
+      "aum": "超100亿",
+      "tenure": "6年+",
+      "generated_at": "2026-03-14T22:19:23.812430",
+      "performance": null,
+      "holdings": {
+        "quarter": "20251231",
+        "holdings": [
+          {
+            "stock_code": "300274.SZ",
+            "stock_name": "",
+            "ratio": 2.82,
+            "mkv": 0.49
+          },
+          {
+            "stock_code": "300115.SZ",
+            "stock_name": "",
+            "ratio": 2.87,
+            "mkv": 0.5
+          },
+          {
+            "stock_code": "002126.SZ",
+            "stock_name": "",
+            "ratio": 2.89,
+            "mkv": 0.5
+          },
+          {
+            "stock_code": "600699.SH",
+            "stock_name": "",
+            "ratio": 3.02,
+            "mkv": 0.52
+          },
+          {
+            "stock_code": "000807.SZ",
+            "stock_name": "",
+            "ratio": 3.07,
+            "mkv": 0.53
+          },
+          {
+            "stock_code": "002850.SZ",
+            "stock_name": "",
+            "ratio": 3.24,
+            "mkv": 0.56
+          },
+          {
+            "stock_code": "603179.SH",
+            "stock_name": "",
+            "ratio": 5.35,
+            "mkv": 0.92
+          },
+          {
+            "stock_code": "601689.SH",
+            "stock_name": "",
+            "ratio": 7.36,
+            "mkv": 1.27
+          },
+          {
+            "stock_code": "300750.SZ",
+            "stock_name": "",
+            "ratio": 7.98,
+            "mkv": 1.38
+          },
+          {
+            "stock_code": "603119.SH",
+            "stock_name": "",
+            "ratio": 9.03,
+            "mkv": 1.56
+          }
+        ]
+      },
+      "key_insights": [
+        "暂无业绩数据",
+        "前3大重仓: 300274.SZ(2.82%), 300115.SZ(2.87%), 002126.SZ(2.89%)",
+        "持仓分散(前3大8.6%)，风险分散 🛡️"
+      ]
+    },
+    "generated_at": "2026-03-14T22:19:23.812453",
+    "id": "VIEW_20260314_074",
+    "created_at": "2026-03-14T22:19:23.812474"
   }
 ]

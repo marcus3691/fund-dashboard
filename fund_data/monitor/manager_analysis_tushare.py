@@ -51,7 +51,7 @@ def fetch_fund_performance(fund_code: str) -> Dict:
         }
         
     except Exception as e:
-        print(f"  获取业绩数据失败: {e}")
+        print(f"  ⚠️ 获取业绩数据失败: {e}")
         return None
 
 def fetch_fund_holdings(fund_code: str) -> Dict:
@@ -76,7 +76,8 @@ def fetch_fund_holdings(fund_code: str) -> Dict:
             holdings.append({
                 'stock_code': row['symbol'],
                 'stock_name': row.get('name', ''),
-                'ratio': round(float(row['mkv']), 2) if 'mkv' in row else 0
+                'ratio': round(float(row['stk_mkv_ratio']), 2) if 'stk_mkv_ratio' in row and row['stk_mkv_ratio'] else 0,
+                'mkv': round(float(row['mkv']) / 1e8, 2) if 'mkv' in row else 0  # 市值（亿元）
             })
         
         return {
@@ -126,25 +127,50 @@ def generate_manager_report(manager: Dict) -> Dict:
         # 近1年收益判断
         if '1年' in returns:
             yoy_return = returns['1年']
-            if yoy_return > 20:
-                insights.append(f"近1年收益优秀: +{yoy_return}%")
-            elif yoy_return < -10:
-                insights.append(f"近1年收益不佳: {yoy_return}%")
+            if yoy_return > 30:
+                insights.append(f"近1年收益优秀: +{yoy_return}% 🌟")
+            elif yoy_return > 10:
+                insights.append(f"近1年收益良好: +{yoy_return}%")
+            elif yoy_return > 0:
+                insights.append(f"近1年收益: +{yoy_return}%")
+            elif yoy_return > -10:
+                insights.append(f"近1年收益: {yoy_return}%（小幅调整）")
             else:
-                insights.append(f"近1年收益: {yoy_return}%")
+                insights.append(f"近1年收益: {yoy_return}% ⚠️ 需关注")
         
         # 短期趋势判断
         if '1月' in returns and '3月' in returns:
             mom = returns['1月']
             qoq = returns['3月']
-            if mom > 5 and qoq > 10:
-                insights.append("短期趋势向上， momentum强劲")
+            if mom > 10 and qoq > 20:
+                insights.append("短期趋势强劲，momentum优秀 🚀")
+            elif mom > 5 and qoq > 10:
+                insights.append("短期趋势向上，表现良好 📈")
+            elif mom < -10 and qoq < -20:
+                insights.append("短期承压，关注回撤控制 📉")
             elif mom < -5 and qoq < -10:
-                insights.append("短期承压，需关注回撤控制")
+                insights.append("近期调整，需谨慎观察 ⚠️")
+        
+        # 波动性判断
+        if '1月' in returns and '3月' in returns:
+            if abs(returns['1月']) > 15:
+                insights.append("近1月波动较大，注意风险控制")
+    else:
+        insights.append("暂无业绩数据")
     
     if holdings and holdings.get('holdings'):
-        top_holding = holdings['holdings'][0]
-        insights.append(f"第一大重仓: {top_holding.get('stock_name', '')} ({top_holding.get('ratio', 0)}%)")
+        top3 = holdings['holdings'][:3]
+        holdings_desc = ', '.join([f"{h.get('stock_code', '')}({h.get('ratio', 0)}%)" for h in top3])
+        insights.append(f"前3大重仓: {holdings_desc}")
+        
+        # 集中度判断
+        top3_ratio = sum([h.get('ratio', 0) for h in top3])
+        if top3_ratio > 30:
+            insights.append(f"持仓集中度较高(前3大{top3_ratio:.1f}%)，风格鲜明 🎯")
+        elif top3_ratio < 15:
+            insights.append(f"持仓分散(前3大{top3_ratio:.1f}%)，风险分散 🛡️")
+    else:
+        insights.append("暂无持仓数据")
     
     report['key_insights'] = insights
     
