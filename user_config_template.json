@@ -1,0 +1,65 @@
+{
+  "user_config": {
+    "version": "1.0",
+    "last_update": "2026-03-14",
+    "user_id": "local_user",
+    "preferences": {
+      "default_strategy": "balanced",
+      "risk_profile": "medium",
+      "initial_capital": 1000000,
+      "notification_enabled": true,
+      "email": "18817205079@139.com"
+    }
+  },
+  "custom_strategies": [
+    {
+      "id": "custom_001",
+      "name": "我的进取组合",
+      "created_at": "2026-03-14",
+      "description": "自定义进取型配置，增加科技权重",
+      "risk_level": "aggressive",
+      "allocation": {
+        "core": 45,
+        "satellite": 45,
+        "hedge": 10
+      },
+      "etf_weights": {
+        "515220.SH": 15,
+        "512400.SH": 15,
+        "518880.SH": 10,
+        "159972.SZ": 5,
+        "512480.SH": 15,
+        "515880.SH": 15,
+        "159819.SZ": 10,
+        "516510.SH": 5,
+        "510300.SH": 5,
+        "511010.SH": 5
+      },
+      "logic": "看好AI算力，增加半导体和通信ETF权重"
+    }
+  ],
+  "portfolio_history": [
+    {
+      "date": "2026-03-14",
+      "strategy_id": "balanced",
+      "total_value": 1085000,
+      "return_pct": 8.5,
+      "positions": {
+        "515220.SH": { "shares": 10000, "value": 218500 },
+        "512400.SH": { "shares": 20000, "value": 219600 },
+        "518880.SH": { "shares": 3000, "value": 177540 }
+      }
+    }
+  ],
+  "watchlist": [
+    { "code": "515220.SH", "name": "煤炭ETF", "alert_price_high": 2.5, "alert_price_low": 1.8 },
+    { "code": "512480.SH", "name": "半导体ETF", "alert_price_high": 1.2, "alert_price_low": 0.8 }
+  ],
+  "trading_notes": [
+    {
+      "date": "2026-03-14",
+      "content": "今日加仓煤炭ETF，地缘冲突持续，能源安全逻辑未变",
+      "tags": ["地缘冲突", "能源"]
+    }
+  ]
+}

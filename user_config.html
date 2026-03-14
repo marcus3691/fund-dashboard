@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>个人配置中心 - ETF策略库</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+        
+        .navbar { background: #161b22; padding: 15px 30px; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .navbar h1 { font-size: 18px; color: #58a6ff; display: inline-block; }
+        .config-badge { background: #f0883e; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 10px; vertical-align: middle; }
+        .nav-links { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .nav-links a { color: #8b949e; text-decoration: none; font-size: 14px; cursor: pointer; padding: 8px 12px; border-radius: 6px; transition: all 0.2s; }
+        .nav-links a:hover { color: #58a6ff; background: rgba(88,166,255,0.1); }
+        .nav-links a.active { color: #58a6ff; background: rgba(88,166,255,0.15); }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+        
+        /* 标签页 */
+        .tabs { display: flex; gap: 5px; margin-bottom: 25px; border-bottom: 1px solid #30363d; }
+        .tab { padding: 12px 24px; background: transparent; border: none; color: #8b949e; cursor: pointer; font-size: 14px; border-bottom: 2px solid transparent; transition: all 0.2s; }
+        .tab:hover { color: #c9d1d9; }
+        .tab.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        /* 卡片 */
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-bottom: 20px; }
+        .card h2 { font-size: 16px; margin-bottom: 20px; color: #e6edf3; display: flex; align-items: center; gap: 10px; }
+        .card h2 .icon { font-size: 20px; }
+        
+        /* 配置项 */
+        .config-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #30363d; }
+        .config-row:last-child { border-bottom: none; }
+        .config-info h4 { font-size: 14px; color: #e6edf3; margin-bottom: 4px; }
+        .config-info p { font-size: 12px; color: #8b949e; }
+        .config-control { display: flex; align-items: center; gap: 15px; }
+        .config-control input, .config-control select { padding: 8px 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; font-size: 14px; }
+        .config-control input:focus, .config-control select:focus { outline: none; border-color: #58a6ff; }
+        
+        /* ETF权重配置 */
+        .etf-weight-list { margin-top: 15px; }
+        .etf-weight-item { display: flex; align-items: center; gap: 15px; padding: 12px; background: #0d1117; border-radius: 6px; margin-bottom: 10px; }
+        .etf-weight-item .info { flex: 1; }
+        .etf-weight-item .code { font-size: 12px; color: #8b949e; }
+        .etf-weight-item .name { font-size: 14px; color: #e6edf3; }
+        .etf-weight-item .weight-control { display: flex; align-items: center; gap: 10px; }
+        .etf-weight-item input[type="range"] { width: 150px; }
+        .etf-weight-item .weight-value { width: 50px; text-align: center; font-weight: 600; color: #58a6ff; }
+        
+        /* 按钮 */
+        .btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.2s; }
+        .btn-primary { background: #238636; color: white; }
+        .btn-primary:hover { background: #2ea043; }
+        .btn-secondary { background: #30363d; color: #c9d1d9; }
+        .btn-secondary:hover { background: #3d444d; }
+        .btn-danger { background: #f85149; color: white; }
+        .btn-danger:hover { background: #ff7b72; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        
+        /* 导入导出 */
+        .import-export { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .io-card { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
+        .io-card h3 { font-size: 14px; color: #e6edf3; margin-bottom: 15px; }
+        .io-card p { font-size: 12px; color: #8b949e; margin-bottom: 15px; }
+        .io-card .btn { width: 100%; }
+        .io-card input[type="file"] { display: none; }
+        
+        /* 投资组合 */
+        .portfolio-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .portfolio-card { background: #0d1117; border-radius: 8px; padding: 20px; text-align: center; }
+        .portfolio-card .label { font-size: 12px; color: #8b949e; margin-bottom: 8px; }
+        .portfolio-card .value { font-size: 24px; font-weight: 600; }
+        .portfolio-card .value.positive { color: #3fb950; }
+        .portfolio-card .value.negative { color: #f85149; }
+        
+        /* 观察列表 */
+        .watchlist-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #0d1117; border-radius: 6px; margin-bottom: 8px; }
+        .watchlist-item .info h4 { font-size: 14px; color: #e6edf3; }
+        .watchlist-item .info p { font-size: 12px; color: #8b949e; }
+        .watchlist-item .alert { font-size: 12px; color: #d29922; }
+        
+        /* 交易笔记 */
+        .note-item { background: #0d1117; border-left: 3px solid #58a6ff; padding: 15px; margin-bottom: 10px; border-radius: 0 6px 6px 0; }
+        .note-item .date { font-size: 11px; color: #8b949e; margin-bottom: 5px; }
+        .note-item .content { font-size: 13px; color: #c9d1d9; margin-bottom: 8px; }
+        .note-item .tags { display: flex; gap: 5px; }
+        .note-item .tag { background: #21262d; padding: 2px 8px; border-radius: 4px; font-size: 11px; color: #58a6ff; }
+        
+        /* 提示 */
+        .toast { position: fixed; bottom: 30px; right: 30px; background: #238636; color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 1000; }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.error { background: #f85149; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 16px; }
+            .tabs { overflow-x: auto; }
+            .tab { padding: 12px 16px; white-space: nowrap; }
+            .import-export { grid-template-columns: 1fr; }
+            .etf-weight-item { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>ETF策略库<span class="config-badge">个人配置</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 产品库</a>
+            <a href="strategy.html">📈 三层级</a>
+            <a href="etf_strategy.html">📊 ETF配置</a>
+            <a href="etf_backtest.html">📉 回测</a>
+            <a href="user_config.html" class="active">⚙️ 配置</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 标签页 -->
+        <div class="tabs">
+            <button class="tab active" data-tab="strategy">🎯 自定义策略</button>
+            <button class="tab" data-tab="portfolio">💼 投资组合</button>
+            <button class="tab" data-tab="watchlist">👀 观察列表</button>
+            <button class="tab" data-tab="notes">📝 交易笔记</button>
+            <button class="tab" data-tab="data">💾 数据管理</button>
+        </div>
+
+        <!-- 自定义策略 -->
+        <div class="tab-content active" id="strategy-tab">
+            <div class="card">
+                <h2><span class="icon">🎯</span> 创建自定义策略</h2>
+                
+                <div class="config-row">
+                    <div class="config-info">
+                        <h4>策略名称</h4>
+                        <p>给你的策略起个名字</p>
+                    </div>
+                    <div class="config-control">
+                        <input type="text" id="strategyName" placeholder="如：我的进取组合" value="我的自定义策略">
+                    </div>
+                </div>
+
+                <div class="config-row">
+                    <div class="config-info">
+                        <h4>风险等级</h4>
+                        <p>选择适合你的风险承受能力</p>
+                    </div>
+                    <div class="config-control">
+                        <select id="riskLevel">
+                            <option value="conservative">保守型</option>
+                            <option value="balanced" selected>平衡型</option>
+                            <option value="aggressive">进取型</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="config-row">
+                    <div class="config-info">
+                        <h4>策略描述</h4>
+                        <p>记录你的配置逻辑</p>
+                    </div>
+                    <div class="config-control">
+                        <input type="text" id="strategyDesc" placeholder="如：看好AI算力，增加科技权重" style="width: 300px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">⚖️</span> ETF权重配置</h2>
+                
+                <div style="margin-bottom: 15px; padding: 10px; background: rgba(248,81,73,0.1); border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; color: #e6edf3;">总权重:</span>
+                        <span id="totalWeight" style="font-size: 18px; font-weight: 600; color: #f85149;">0%</span>
+                    </div>
+                    <div id="weightWarning" style="font-size: 12px; color: #f85149; margin-top: 5px; display: none;">
+                        ⚠️ 总权重必须等于100%
+                    </div>
+                </div>
+
+                <div class="etf-weight-list" id="etfWeightList">
+                    <!-- 动态生成ETF权重项 -->
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="resetWeights()">🔄 重置</button>
+                    <button class="btn btn-primary" onclick="saveCustomStrategy()">💾 保存策略</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">📋</span> 已保存的策略</h2>
+                <div id="savedStrategies">
+                    <div style="text-align: center; padding: 30px; color: #8b949e;">
+                        暂无自定义策略
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 投资组合 -->
+        <div class="tab-content" id="portfolio-tab">
+            <div class="card">
+                <h2><span class="icon">💼</span> 投资组合概览</h2>
+                
+                <div class="portfolio-summary">
+                    <div class="portfolio-card">
+                        <div class="label">总资产</div>
+                        <div class="value" id="totalAssets">108.5万</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="label">累计收益</div>
+                        <div class="value positive" id="totalReturn">+8.5%</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="label">今日盈亏</div>
+                        <div class="value positive" id="todayReturn">+0.8%</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="label">持仓数量</div>
+                        <div class="value">5只</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="updatePortfolio()">🔄 更新持仓</button>
+                    <button class="btn btn-secondary" onclick="viewPortfolioDetail()">📊 查看详情</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 观察列表 -->
+        <div class="tab-content" id="watchlist-tab">
+            <div class="card">
+                <h2><span class="icon">👀</span> ETF观察列表</h2>
+                
+                <div id="watchlistContainer">
+                    <!-- 动态生成观察列表 -->
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="addToWatchlist()">➕ 添加ETF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交易笔记 -->
+        <div class="tab-content" id="notes-tab">
+            <div class="card">
+                <h2><span class="icon">📝</span> 交易笔记</h2>
+                
+                <div style="margin-bottom: 20px;">
+                    <textarea id="noteContent" placeholder="记录你的交易想法..." 
+                        style="width: 100%; height: 100px; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; resize: vertical;"></textarea>
+                    <div style="margin-top: 10px; display: flex; gap: 10px;">
+                        <input type="text" id="noteTags" placeholder="标签，用逗号分隔（如：地缘冲突,能源）" 
+                            style="flex: 1; padding: 8px 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9;">
+                        <button class="btn btn-primary" onclick="addNote()">添加笔记</button>
+                    </div>
+                </div>
+
+                <div id="notesContainer">
+                    <!-- 动态生成笔记列表 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据管理 -->
+        <div class="tab-content" id="data-tab">
+            <div class="card">
+                <h2><span class="icon">💾</span> 导入/导出配置</h2>
+                
+                <div class="import-export">
+                    <div class="io-card">
+                        <h3>📤 导出配置</h3>
+                        <p>将所有自定义策略、观察列表、交易笔记导出为JSON文件，方便备份或在其他设备导入</p>
+                        <button class="btn btn-primary" onclick="exportConfig()">下载配置文件</button>
+                    </div>
+
+                    <div class="io-card">
+                        <h3>📥 导入配置</h3>
+                        <p>从JSON文件导入配置，将覆盖当前所有自定义数据，请谨慎操作</p>
+                        <input type="file" id="importFile" accept=".json" onchange="importConfig(this)">
+                        <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">选择文件导入</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">🗑️</span> 清除数据</h2>
+                
+                <p style="color: #8b949e; margin-bottom: 15px;">清除所有本地存储的自定义数据，包括策略、观察列表、交易笔记等。此操作不可恢复。</p>
+                
+                <button class="btn btn-danger" onclick="clearAllData()">⚠️ 清除所有数据</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast提示 -->
+    <div id="toast" class="toast"></divdiv>
+
+    <script>
+        // ETF列表
+        const ETF_LIST = [
+            { code: '515220.SH', name: '煤炭ETF', category: '能源' },
+            { code: '512400.SH', name: '有色金属ETF', category: '有色' },
+            { code: '518880.SH', name: '黄金ETF', category: '贵金属' },
+            { code: '159972.SZ', name: '5年地债ETF', category: '债券' },
+            { code: '512480.SH', name: '半导体ETF', category: '科技-算力' },
+            { code: '515880.SH', name: '通信ETF', category: '科技-光模块' },
+            { code: '159819.SZ', name: '人工智能ETF', category: '科技-AI应用' },
+            { code: '516510.SH', name: '云计算ETF', category: '科技-云服务' },
+            { code: '512660.SH', name: '军工ETF', category: '军工' },
+            { code: '516020.SH', name: '化工ETF', category: '化工' },
+            { code: '510300.SH', name: '沪深300ETF', category: '宽基' },
+            { code: '511010.SH', name: '国债ETF', category: '债券' }
+        ];
+
+        // 当前权重配置
+        let currentWeights = {};
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initTabs();
+            initETFWeights();
+            loadSavedData();
+        });
+
+        // 初始化标签页
+        function initTabs() {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab + '-tab').classList.add('active');
+                });
+            });
+        }
+
+        // 初始化ETF权重列表
+        function initETFWeights() {
+            const container = document.getElementById('etfWeightList');
+            container.innerHTML = ETF_LIST.map(etf => {
+                currentWeights[etf.code] = 0;
+                return `
+                    <div class="etf-weight-item" data-code="${etf.code}">
+                        <div class="info">
+                            <div class="name">${etf.name}</div>
+                            <div class="code">${etf.code} · ${etf.category}</div>
+                        </div>
+                        <div class="weight-control">
+                            <input type="range" min="0" max="50" value="0" 
+                                oninput="updateWeight('${etf.code}', this.value)">
+                            <span class="weight-value" id="weight-${etf.code}">0%</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 更新权重
+        function updateWeight(code, value) {
+            currentWeights[code] = parseInt(value);
+            document.getElementById(`weight-${code}`).textContent = value + '%';
+            updateTotalWeight();
+        }
+
+        // 更新总权重
+        function updateTotalWeight() {
+            const total = Object.values(currentWeights).reduce((a, b) => a + b, 0);
+            const totalEl = document.getElementById('totalWeight');
+            const warningEl = document.getElementById('weightWarning');
+            
+            totalEl.textContent = total + '%';
+            
+            if (total === 100) {
+                totalEl.style.color = '#3fb950';
+                warningEl.style.display = 'none';
+            } else {
+                totalEl.style.color = '#f85149';
+                warningEl.style.display = 'block';
+            }
+        }
+
+        // 重置权重
+        function resetWeights() {
+            Object.keys(currentWeights).forEach(code => {
+                currentWeights[code] = 0;
+                document.querySelector(`[data-code="${code}"] input`).value = 0;
+                document.getElementById(`weight-${code}`).textContent = '0%';
+            });
+            updateTotalWeight();
+        }
+
+        // 保存自定义策略
+        function saveCustomStrategy() {
+            const total = Object.values(currentWeights).reduce((a, b) => a + b, 0);
+            if (total !== 100) {
+                showToast('总权重必须等于100%', 'error');
+                return;
+            }
+
+            const strategy = {
+                id: 'custom_' + Date.now(),
+                name: document.getElementById('strategyName').value || '未命名策略',
+                riskLevel: document.getElementById('riskLevel').value,
+                description: document.getElementById('strategyDesc').value,
+                weights: { ...currentWeights },
+                createdAt: new Date().toISOString()
+            };
+
+            // 保存到localStorage
+            const strategies = JSON.parse(localStorage.getItem('customStrategies') || '[]');
+            strategies.push(strategy);
+            localStorage.setItem('customStrategies', JSON.stringify(strategies));
+
+            showToast('策略保存成功！');
+            loadSavedStrategies();
+        }
+
+        // 加载已保存的策略
+        function loadSavedStrategies() {
+            const strategies = JSON.parse(localStorage.getItem('customStrategies') || '[]');
+            const container = document.getElementById('savedStrategies');
+            
+            if (strategies.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 30px; color: #8b949e;">暂无自定义策略</div>';
+                return;
+            }
+
+            container.innerHTML = strategies.map(s => `
+                <div style="background: #0d1117; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600; color: #e6edf3;">${s.name}</div>
+                            <div style="font-size: 12px; color: #8b949e; margin-top: 4px;">${s.description || '无描述'} · ${new Date(s.createdAt).toLocaleDateString()}</div>
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary" onclick="loadStrategy('${s.id}')" style="padding: 6px 12px; font-size: 12px;">加载</button>
+                            <button class="btn btn-danger" onclick="deleteStrategy('${s.id}')" style="padding: 6px 12px; font-size: 12px; margin-left: 8px;">删除</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 加载策略
+        function loadStrategy(id) {
+            const strategies = JSON.parse(localStorage.getItem('customStrategies') || '[]');
+            const strategy = strategies.find(s => s.id === id);
+            
+            if (strategy) {
+                document.getElementById('strategyName').value = strategy.name;
+                document.getElementById('riskLevel').value = strategy.riskLevel;
+                document.getElementById('strategyDesc').value = strategy.description || '';
+                
+                Object.entries(strategy.weights).forEach(([code, weight]) => {
+                    currentWeights[code] = weight;
+                    const input = document.querySelector(`[data-code="${code}"] input`);
+                    if (input) {
+                        input.value = weight;
+                        document.getElementById(`weight-${code}`).textContent = weight + '%';
+                    }
+                });
+                
+                updateTotalWeight();
+                showToast('策略已加载');
+            }
+        }
+
+        // 删除策略
+        function deleteStrategy(id) {
+            if (!confirm('确定要删除这个策略吗？')) return;
+            
+            let strategies = JSON.parse(localStorage.getItem('customStrategies') || '[]');
+            strategies = strategies.filter(s => s.id !== id);
+            localStorage.setItem('customStrategies', JSON.stringify(strategies));
+            
+            loadSavedStrategies();
+            showToast('策略已删除');
+        }
+
+        // 导出配置
+        function exportConfig() {
+            const data = {
+                customStrategies: JSON.parse(localStorage.getItem('customStrategies') || '[]'),
+                watchlist: JSON.parse(localStorage.getItem('watchlist') || '[]'),
+                notes: JSON.parse(localStorage.getItem('tradingNotes') || '[]'),
+                exportTime: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `etf_config_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast('配置已导出');
+        }
+
+        // 导入配置
+        function importConfig(input) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    if (data.customStrategies) {
+                        localStorage.setItem('customStrategies', JSON.stringify(data.customStrategies));
+                    }
+                    if (data.watchlist) {
+                        localStorage.setItem('watchlist', JSON.stringify(data.watchlist));
+                    }
+                    if (data.notes) {
+                        localStorage.setItem('tradingNotes', JSON.stringify(data.notes));
+                    }
+                    
+                    loadSavedData();
+                    showToast('配置导入成功！');
+                } catch (err) {
+                    showToast('配置文件格式错误', 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // 清除所有数据
+        function clearAllData() {
+            if (!confirm('确定要清除所有自定义数据吗？此操作不可恢复！')) return;
+            
+            localStorage.removeItem('customStrategies');
+            localStorage.removeItem('watchlist');
+            localStorage.removeItem('tradingNotes');
+            
+            loadSavedData();
+            showToast('所有数据已清除');
+        }
+
+        // 显示Toast
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast ' + (type === 'error' ? 'error' : '');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // 加载所有保存的数据
+        function loadSavedData() {
+            loadSavedStrategies();
+            loadWatchlist();
+            loadNotes();
+        }
+
+        // 加载观察列表
+        function loadWatchlist() {
+            const watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+            const container = document.getElementById('watchlistContainer');
+            
+            if (watchlist.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 30px; color: #8b949e;">暂无观察中的ETF</div>';
+                return;
+            }
+
+            container.innerHTML = watchlist.map(item => `
+                <div class="watchlist-item">
+                    <div class="info">
+                        <h4>${item.name}</h4>
+                        <p>${item.code}</p>
+                    </div>
+                    <div class="alert">
+                        提醒: ${item.low || '-'} / ${item.high || '-'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 加载交易笔记
+        function loadNotes() {
+            const notes = JSON.parse(localStorage.getItem('tradingNotes') || '[]');
+            const container = document.getElementById('notesContainer');
+            
+            if (notes.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 30px; color: #8b949e;">暂无交易笔记</div>';
+                return;
+            }
+
+            container.innerHTML = notes.slice().reverse().map(note => `
+                <div class="note-item">
+                    <div class="date">${new Date(note.date).toLocaleString()}</div>
+                    <div class="content">${note.content}</div>
+                    <div class="tags">${note.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                </div>
+            `).join('');
+        }
+
+        // 添加笔记
+        function addNote() {
+            const content = document.getElementById('noteContent').value.trim();
+            if (!content) {
+                showToast('请输入笔记内容', 'error');
+                return;
+            }
+
+            const tags = document.getElementById('noteTags').value.split(',').map(t => t.trim()).filter(t => t);
+            
+            const note = {
+                id: Date.now(),
+                date: new Date().toISOString(),
+                content,
+                tags
+            };
+
+            const notes = JSON.parse(localStorage.getItem('tradingNotes') || '[]');
+            notes.push(note);
+            localStorage.setItem('tradingNotes', JSON.stringify(notes));
+
+            document.getElementById('noteContent').value = '';
+            document.getElementById('noteTags').value = '';
+            
+            loadNotes();
+            showToast('笔记添加成功');
+        }
+
+        // 添加观察
+        function addToWatchlist() {
+            const code = prompt('请输入ETF代码（如：515220.SH）：');
+            if (!code) return;
+            
+            const etf = ETF_LIST.find(e => e.code === code);
+            if (!etf) {
+                showToast('未找到该ETF', 'error');
+                return;
+            }
+
+            const watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+            if (watchlist.find(w => w.code === code)) {
+                showToast('该ETF已在观察列表中', 'error');
+                return;
+            }
+
+            watchlist.push({
+                code: etf.code,
+                name: etf.name,
+                low: null,
+                high: null
+            });
+
+            localStorage.setItem('watchlist', JSON.stringify(watchlist));
+            loadWatchlist();
+            showToast('已添加到观察列表');
+        }
+
+        // 更新投资组合
+        function updatePortfolio() {
+            showToast('功能开发中...');
+        }
+
+        // 查看组合详情
+        function viewPortfolioDetail() {
+            showToast('功能开发中...');
+        }
+    </script>
+</body>
+</html>
