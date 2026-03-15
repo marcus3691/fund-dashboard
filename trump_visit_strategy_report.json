@@ -1,0 +1,239 @@
+{
+  "strategy_name": "特朗普访华事件冲击型ETF组合",
+  "strategy_type": "短期事件驱动型",
+  "created_at": "2026-03-15 18:46:03",
+  "event": "特朗普预计3月底访华（关税+伊朗议题）",
+  "investment_horizon": "1周内",
+  "portfolio": [
+    {
+      "code": "518880.SH",
+      "name": "黄金ETF",
+      "theme": "避险资产",
+      "avg_amount": 7155343,
+      "weight": 0.2
+    },
+    {
+      "code": "512480.SH",
+      "name": "半导体ETF",
+      "theme": "关税敏感",
+      "avg_amount": 1301361,
+      "weight": 0.2
+    },
+    {
+      "code": "159995.SZ",
+      "name": "芯片ETF",
+      "theme": "关税敏感",
+      "avg_amount": 706646,
+      "weight": 0.15
+    },
+    {
+      "code": "512660.SH",
+      "name": "军工ETF",
+      "theme": "军工",
+      "avg_amount": 450000,
+      "weight": 0.15
+    },
+    {
+      "code": "501018.SH",
+      "name": "南方原油",
+      "theme": "能源",
+      "avg_amount": 380000,
+      "weight": 0.15
+    },
+    {
+      "code": "512400.SH",
+      "name": "有色金属ETF",
+      "theme": "反制受益",
+      "avg_amount": 320000,
+      "weight": 0.15
+    }
+  ],
+  "scenarios": {
+    "谈得好": {
+      "portfolio_return": 0.0085,
+      "expected_return_1w": 0.0085,
+      "probability": "35%",
+      "details": [
+        {
+          "code": "518880.SH",
+          "name": "黄金ETF",
+          "theme": "避险资产",
+          "weight": "20%",
+          "impact": "-3.0%",
+          "contribution": "-0.60%"
+        },
+        {
+          "code": "512480.SH",
+          "name": "半导体ETF",
+          "theme": "关税敏感",
+          "weight": "20%",
+          "impact": "+5.0%",
+          "contribution": "+1.00%"
+        },
+        {
+          "code": "159995.SZ",
+          "name": "芯片ETF",
+          "theme": "关税敏感",
+          "weight": "15%",
+          "impact": "+5.0%",
+          "contribution": "+0.75%"
+        },
+        {
+          "code": "512660.SH",
+          "name": "军工ETF",
+          "theme": "军工",
+          "weight": "15%",
+          "impact": "-2.0%",
+          "contribution": "-0.30%"
+        },
+        {
+          "code": "501018.SH",
+          "name": "南方原油",
+          "theme": "能源",
+          "weight": "15%",
+          "impact": "-2.0%",
+          "contribution": "-0.30%"
+        },
+        {
+          "code": "512400.SH",
+          "name": "有色金属ETF",
+          "theme": "反制受益",
+          "weight": "15%",
+          "impact": "+2.0%",
+          "contribution": "+0.30%"
+        }
+      ],
+      "description": "关税减免，伊朗局势缓和，市场风险偏好上升"
+    },
+    "谈一般": {
+      "portfolio_return": 0.008499999999999999,
+      "expected_return_1w": 0.008499999999999999,
+      "probability": "40%",
+      "details": [
+        {
+          "code": "518880.SH",
+          "name": "黄金ETF",
+          "theme": "避险资产",
+          "weight": "20%",
+          "impact": "+1.0%",
+          "contribution": "+0.20%"
+        },
+        {
+          "code": "512480.SH",
+          "name": "半导体ETF",
+          "theme": "关税敏感",
+          "weight": "20%",
+          "impact": "+1.0%",
+          "contribution": "+0.20%"
+        },
+        {
+          "code": "159995.SZ",
+          "name": "芯片ETF",
+          "theme": "关税敏感",
+          "weight": "15%",
+          "impact": "+1.0%",
+          "contribution": "+0.15%"
+        },
+        {
+          "code": "512660.SH",
+          "name": "军工ETF",
+          "theme": "军工",
+          "weight": "15%",
+          "impact": "+1.0%",
+          "contribution": "+0.15%"
+        },
+        {
+          "code": "501018.SH",
+          "name": "南方原油",
+          "theme": "能源",
+          "weight": "15%",
+          "impact": "+0.0%",
+          "contribution": "+0.00%"
+        },
+        {
+          "code": "512400.SH",
+          "name": "有色金属ETF",
+          "theme": "反制受益",
+          "weight": "15%",
+          "impact": "+1.0%",
+          "contribution": "+0.15%"
+        }
+      ],
+      "description": "维持现状，小幅调整，市场波动有限"
+    },
+    "没谈好": {
+      "portfolio_return": 0.010499999999999999,
+      "expected_return_1w": 0.010499999999999999,
+      "probability": "25%",
+      "details": [
+        {
+          "code": "518880.SH",
+          "name": "黄金ETF",
+          "theme": "避险资产",
+          "weight": "20%",
+          "impact": "+5.0%",
+          "contribution": "+1.00%"
+        },
+        {
+          "code": "512480.SH",
+          "name": "半导体ETF",
+          "theme": "关税敏感",
+          "weight": "20%",
+          "impact": "-5.0%",
+          "contribution": "-1.00%"
+        },
+        {
+          "code": "159995.SZ",
+          "name": "芯片ETF",
+          "theme": "关税敏感",
+          "weight": "15%",
+          "impact": "-5.0%",
+          "contribution": "-0.75%"
+        },
+        {
+          "code": "512660.SH",
+          "name": "军工ETF",
+          "theme": "军工",
+          "weight": "15%",
+          "impact": "+4.0%",
+          "contribution": "+0.60%"
+        },
+        {
+          "code": "501018.SH",
+          "name": "南方原油",
+          "theme": "能源",
+          "weight": "15%",
+          "impact": "+5.0%",
+          "contribution": "+0.75%"
+        },
+        {
+          "code": "512400.SH",
+          "name": "有色金属ETF",
+          "theme": "反制受益",
+          "weight": "15%",
+          "impact": "+3.0%",
+          "contribution": "+0.45%"
+        }
+      ],
+      "description": "关税升级，伊朗局势紧张，避险情绪升温"
+    }
+  },
+  "expected_return": "+0.90%",
+  "risk_notes": [
+    "事件结果具有高度不确定性",
+    "建议持仓不超过总资产的10%",
+    "设置止损线（-3%）及时离场",
+    "密切关注特朗普行程官方消息"
+  ],
+  "summary": {
+    "total_etfs": 6,
+    "themes": [
+      "关税敏感",
+      "军工",
+      "反制受益",
+      "避险资产",
+      "能源"
+    ],
+    "avg_liquidity_wan": 1718.8916666666667
+  }
+}

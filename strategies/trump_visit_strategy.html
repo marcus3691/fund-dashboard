@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特朗普访华事件冲击型ETF策略</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: #0d1117; 
+            color: #c9d1d9; 
+            line-height: 1.6; 
+        }
+        .navbar { 
+            background: #161b22; 
+            padding: 15px 30px; 
+            border-bottom: 1px solid #30363d; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        .navbar h1 { font-size: 18px; color: #58a6ff; }
+        .nav-links { margin-top: 10px; }
+        .nav-links a { color: #8b949e; text-decoration: none; margin-right: 20px; font-size: 14px; }
+        .nav-links a:hover { color: #58a6ff; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 30px; }
+        
+        .header-card {
+            background: linear-gradient(135deg, #1f6feb 0%, #58a6ff 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .header-card h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .header-card p {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+        }
+        
+        .section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .section h3 {
+            color: #58a6ff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th {
+            background: #21262d;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 13px;
+            color: #8b949e;
+            font-weight: 500;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #30363d;
+            font-size: 13px;
+        }
+        tr:hover { background: #21262d; }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric-card .value {
+            font-size: 28px;
+            font-weight: 600;
+            color: #58a6ff;
+        }
+        .metric-card .value.positive { color: #3fb950; }
+        .metric-card .value.negative { color: #f85149; }
+        .metric-card .label {
+            font-size: 12px;
+            color: #8b949e;
+            margin-top: 5px;
+        }
+        
+        .scenario-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .scenario-card h4 {
+            color: #e6edf3;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .scenario-card .probability {
+            display: inline-block;
+            background: #238636;
+            color: white;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+        .scenario-card .return {
+            font-size: 24px;
+            font-weight: 600;
+            color: #3fb950;
+            margin: 10px 0;
+        }
+        .scenario-card .description {
+            color: #8b949e;
+            font-size: 13px;
+        }
+        
+        .risk-box {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid #f85149;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .risk-box h4 {
+            color: #f85149;
+            margin-bottom: 10px;
+        }
+        .risk-box ul {
+            padding-left: 20px;
+        }
+        .risk-box li {
+            color: #c9d1d9;
+            margin: 5px 0;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #21262d;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #8b949e;
+            margin-right: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #8b949e;
+            font-size: 12px;
+            border-top: 1px solid #30363d;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .metric-grid { grid-template-columns: 1fr; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>📊 基金产品库策略中心</h1>
+        <div class="nav-links">
+            <a href="https://marcus3691.github.io/fund-dashboard">← 返回产品库</a>
+            <a href="../index.html">报告中心</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="header-card">
+            <h2>特朗普访华事件冲击型ETF策略</h2>
+            <p>基于关税和伊朗局势影响的短期事件驱动策略 | 投资周期：1周内 | 生成时间：2026-03-15</p>
+        </div>
+        
+        <div class="section">
+            <h3>📈 策略概述</h3>
+            <p style="margin-bottom: 15px;">
+                <strong>事件背景：</strong>特朗普预计3月底访华，主要议题为关税谈判和伊朗局势。
+            </p>
+            <p>
+                <strong>策略逻辑：</strong>构建受关税和伊朗局势影响的ETF组合，覆盖关税敏感、避险资产、能源、军工、反制受益五大主题，通过分散化配置降低单一事件风险。
+            </p>
+            
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="value positive">+0.90%</div>
+                    <div class="label">加权预期收益(1周)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">6只</div>
+                    <div class="label">ETF组合数量</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">1,719万</div>
+                    <div class="label">平均流动性</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>🎯 ETF组合配置</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>代码</th>
+                        <th>名称</th>
+                        <th>主题</th>
+                        <th>权重</th>
+                        <th>流动性</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>518880.SH</td>
+                        <td>黄金ETF</td>
+                        <td><span class="tag">避险资产</span></td>
+                        <td>20%</td>
+                        <td>7,155万</td>
+                    </tr>
+                    <tr>
+                        <td>512480.SH</td>
+                        <td>半导体ETF</td>
+                        <td><span class="tag">关税敏感</span></td>
+                        <td>20%</td>
+                        <td>1,301万</td>
+                    </tr>
+                    <tr>
+                        <td>159995.SZ</td>
+                        <td>芯片ETF</td>
+                        <td><span class="tag">关税敏感</span></td>
+                        <td>15%</td>
+                        <td>707万</td>
+                    </tr>
+                    <tr>
+                        <td>512660.SH</td>
+                        <td>军工ETF</td>
+                        <td><span class="tag">军工</span></td>
+                        <td>15%</td>
+                        <td>450万</td>
+                    </tr>
+                    <tr>
+                        <td>501018.SH</td>
+                        <td>南方原油</td>
+                        <td><span class="tag">能源</span></td>
+                        <td>15%</td>
+                        <td>380万</td>
+                    </tr>
+                    <tr>
+                        <td>512400.SH</td>
+                        <td>有色金属ETF</td>
+                        <td><span class="tag">反制受益</span></td>
+                        <td>15%</td>
+                        <td>320万</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h3>📊 三种情景分析</h3>
+            
+            <div class="scenario-card">
+                <h4>情景1: 谈得好 <span class="probability">概率35%</span></h4>
+                <div class="return">+0.85%</div>
+                <p class="description">关税减免，伊朗局势缓和，市场风险偏好上升。科技ETF受益，黄金和能源回落。</p>
+            </div>
+            
+            <div class="scenario-card">
+                <h4>情景2: 谈一般 <span class="probability">概率40%</span></h4>
+                <div class="return">+0.85%</div>
+                <p class="description">维持现状，小幅调整，市场波动有限。各资产小幅波动，整体收益稳定。</p>
+            </div>
+            
+            <div class="scenario-card">
+                <h4>情景3: 没谈好 <span class="probability">概率25%</span></h4>
+                <div class="return">+1.05%</div>
+                <p class="description">关税升级，伊朗局势紧张，避险情绪升温。黄金、军工、能源上涨，科技受损。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>⚡ 操作建议</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>建议</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>入场时机</td>
+                        <td>特朗普访华前3-5天，关注官方行程确认</td>
+                    </tr>
+                    <tr>
+                        <td>建议仓位</td>
+                        <td>不超过总资产的10%</td>
+                    </tr>
+                    <tr>
+                        <td>止损线</td>
+                        <td>-3%，及时离场</td>
+                    </tr>
+                    <tr>
+                        <td>止盈线</td>
+                        <td>+2%，可考虑部分止盈</td>
+                    </tr>
+                    <tr>
+                        <td>持有周期</td>
+                        <td>1周内，事件结果明朗后离场</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="risk-box">
+                <h4>⚠️ 风险提示</h4>
+                <ul>
+                    <li>事件结果具有高度不确定性</li>
+                    <li>建议持仓不超过总资产的10%</li>
+                    <li>设置止损线（-3%）及时离场</li>
+                    <li>密切关注特朗普行程官方消息</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>📋 策略文件</h3>
+            <p style="margin-bottom: 15px;">本策略相关代码和数据文件：</p>
+            <ul style="padding-left: 20px; line-height: 2;">
+                <li><code>trump_visit_strategy_v2.py</code> - 策略主程序</li>
+                <li><code>trump_visit_backtest.py</code> - Backtrader回测框架</li>
+                <li><code>trump_visit_strategy_report.json</code> - 完整数据文件</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>免责声明：本策略仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+        <p>基金产品库智能分析系统 | 2026-03-15</p>
+    </div>
+</body>
+</html>
