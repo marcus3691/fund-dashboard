@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>基金产品库 - 移动端</title>
+    <style>
+        /* CSS Reset & Mobile Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        /* Mobile Container */
+        .mobile-container {
+            max-width: 100%;
+            padding: 12px;
+            padding-bottom: 80px;
+        }
+        
+        /* Header */
+        .mobile-header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 16px;
+        }
+        
+        .mobile-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin: 0 0 8px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .mobile-header p {
+            font-size: 0.75rem;
+            color: #888;
+            margin: 0;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .stat-card:active {
+            transform: scale(0.98);
+        }
+        
+        .stat-card.highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+        
+        .stat-card.warning {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin: 24px 0 16px 0;
+            padding-left: 12px;
+            position: relative;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, #ffd700, #ff8c00);
+            border-radius: 2px;
+        }
+        
+        /* Category Cards */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .category-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 14px;
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .category-card:active {
+            transform: scale(0.96);
+        }
+        
+        .category-card:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .category-card:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .category-card:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .category-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .category-count {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .category-sub {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+        }
+        
+        /* Chart Preview Cards */
+        .chart-preview-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .chart-preview-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 14px;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chart-preview-card:active {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .chart-mini {
+            width: 100%;
+            height: 100px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .chart-mini svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .chart-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin: 0;
+        }
+        
+        /* Fund List */
+        .fund-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .fund-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        
+        .fund-item:active {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .fund-item.highlight {
+            border-color: #ffd700;
+            background: rgba(255,215,0,0.05);
+        }
+        
+        .fund-info {
+            flex: 1;
+        }
+        
+        .fund-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        
+        .fund-code {
+            font-size: 0.7rem;
+            color: #888;
+        }
+        
+        .fund-return {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ff4d4d;
+        }
+        
+        .fund-return.negative {
+            color: #4caf50;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .modal.active {
+            display: block;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 16px;
+            padding-bottom: 100px;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .modal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffd700;
+        }
+        
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Radar Chart Container */
+        .radar-container {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 20px;
+            aspect-ratio: 1;
+        }
+        
+        .radar-container svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Dimension Cards */
+        .dimension-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .dimension-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 14px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .dimension-card:nth-child(2) { border-left-color: #f5576c; }
+        .dimension-card:nth-child(3) { border-left-color: #4facfe; }
+        .dimension-card:nth-child(4) { border-left-color: #43e97b; }
+        .dimension-card:nth-child(5) { border-left-color: #ffd700; }
+        .dimension-card:nth-child(6) { border-left-color: #9b59b6; }
+        .dimension-card:nth-child(7) { border-left-color: #e74c3c; }
+        .dimension-card:nth-child(8) { border-left-color: #3498db; }
+        .dimension-card:nth-child(9) { border-left-color: #2ecc71; }
+        
+        .dimension-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+        
+        .dimension-content {
+            font-size: 0.8rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            z-index: 100;
+        }
+        
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-item.active {
+            color: #ffd700;
+        }
+        
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-icon {
+            font-size: 1.3rem;
+            margin-bottom: 2px;
+        }
+        
+        .nav-label {
+            font-size: 0.65rem;
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,215,0,0.3);
+            border-top-color: #ffd700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 2px;
+        }
+        
+        /* Touch feedback */
+        @media (hover: none) {
+            .stat-card:active,
+            .category-card:active,
+            .fund-item:active,
+            .chart-preview-card:active {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container" id="app">
+        <!-- Header -->
+        <div class="mobile-header">
+            <h1>🎯 基金产品库</h1>
+            <p>84只精选基金 · 智能分析 · 实时跟踪</p>
+        </div>
+        
+        <!-- Stats Grid -->
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalFunds">84</div>
+                <div class="stat-label">入池基金</div>
+            </div>
+            <div class="stat-card highlight">
+                <div class="stat-value" id="top10Return">+24%</div>
+                <div class="stat-label">TOP10平均收益</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgQuality">85</div>
+                <div class="stat-label">平均质量分</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="stat-value" id="dataDate">3/10</div>
+                <div class="stat-label">数据更新</div>
+            </div>
+        </div>
+        
+        <!-- Categories -->
+        <div class="section-title">📊 基金分类</div>
+        <div class="category-grid" id="categoryGrid">
+            <!-- Categories will be rendered here -->
+        </div>
+        
+        <!-- Charts Preview -->
+        <div class="section-title">📈 核心图表</div>
+        <div class="chart-preview-list" id="chartPreview">
+            <div class="chart-preview-card" onclick="showChartDetail('return')">
+                <div class="chart-mini" id="chartReturn"></div>
+                <div class="chart-title">TOP10收益对比</div>
+            </div>
+            <div class="chart-preview-card" onclick="showChartDetail('scatter')">
+                <div class="chart-mini" id="chartScatter"></div>
+                <div class="chart-title">收益-风险分布</div>
+            </div>
+            <div class="chart-preview-card" onclick="showChartDetail('sharpe')">
+                <div class="chart-mini" id="chartSharpe"></div>
+                <div class="chart-title">夏普比率排名</div>
+            </div>
+            <div class="chart-preview-card" onclick="showChartDetail('category')">
+                <div class="chart-mini" id="chartCategory"></div>
+                <div class="chart-title">类别分布</div>
+            </div>
+        </div>
+        
+        <!-- Top Funds -->
+        <div class="section-title">🏆 TOP10基金</div>
+        <div class="fund-list" id="topFundsList">
+            <!-- Will be rendered here -->
+        </div>
+    </div>
+    
+    <!-- Detail Modal -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">基金详情</div>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div id="modalBody">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="showSection('overview')">
+            <div class="nav-icon">📊</div>
+            <div class="nav-label">概览</div>
+        </div>
+        <div class="nav-item" onclick="showSection('categories')">
+            <div class="nav-icon">📁</div>
+            <div class="nav-label">分类</div>
+        </div>
+        <div class="nav-item" onclick="showSection('top10')">
+            <div class="nav-icon">🏆</div>
+            <div class="nav-label">TOP10</div>
+        </div>
+        <div class="nav-item" onclick="showSection('analysis')">
+            <div class="nav-icon">🔍</div>
+            <div class="nav-label">分析</div>
+        </div>
+    </div>
+
+    <script>
+        // 基金数据（简化版）
+        const fundData = {
+            categories: [
+                { name: '灵活配置型', count: 46, sub: '平衡配置', color: '#667eea' },
+                { name: '混合型-偏股', count: 30, sub: '较高权益', color: '#f5576c' },
+                { name: '混合型-偏债', count: 5, sub: '稳健收益', color: '#4facfe' },
+                { name: '混合型-平衡', count: 3, sub: '均衡配置', color: '#43e97b' }
+            ],
+            top10: [
+                { name: '长城中小盘成长C', code: '015722.OF', return1y: 36.29, sharpe: 3.0, rating: 'AAA' },
+                { name: '申万菱信新能源汽车C', code: '011712.OF', return1y: 34.54, sharpe: 3.0, rating: 'AAA' },
+                { name: '银河大国智造主题C', code: '016505.OF', return1y: 31.48, sharpe: 3.0, rating: 'AAA' },
+                { name: '国金量化多策略C', code: '017900.OF', return1y: 30.87, sharpe: 3.0, rating: 'AAA' },
+                { name: '浦银安盛港股通量化', code: '013558.OF', return1y: 30.78, sharpe: 3.0, rating: 'AAA' },
+                { name: '汇添富量化选股A', code: '018440.OF', return1y: 30.35, sharpe: 3.0, rating: 'AAA' },
+                { name: '华商优势行业C', code: '015596.OF', return1y: 30.27, sharpe: 2.6, rating: 'AA' },
+                { name: '博时汇荣回报C', code: '013631.OF', return1y: 29.54, sharpe: 2.6, rating: 'AA' },
+                { name: '华安大安全C', code: '013618.OF', return1y: 28.98, sharpe: 2.6, rating: 'AA' },
+                { name: '交银科技创新C', code: '015394.OF', return1y: 28.76, sharpe: 2.6, rating: 'AA' }
+            ]
+        };
+
+        // 初始化
+        function init() {
+            renderCategories();
+            renderTop10();
+            renderMiniCharts();
+        }
+
+        // 渲染分类
+        function renderCategories() {
+            const container = document.getElementById('categoryGrid');
+            container.innerHTML = fundData.categories.map((cat, index) => `
+                <div class="category-card" onclick="showCategoryDetail(${index})">
+                    <div class="category-name">${cat.name}</div>
+                    <div class="category-count">${cat.count}只</div>
+                    <div class="category-sub">${cat.sub}</div>
+                </div>
+            `).join('');
+        }
+
+        // 渲染TOP10
+        function renderTop10() {
+            const container = document.getElementById('topFundsList');
+            container.innerHTML = fundData.top10.map((fund, index) => `
+                <div class="fund-item ${index < 3 ? 'highlight' : ''}" onclick="showFundDetail(${index})">
+                    <div class="fund-info">
+                        <div class="fund-name">${index + 1}. ${fund.name}</div>
+                        <div class="fund-code">${fund.code} | 评级: ${fund.rating}</div>
+                    </div>
+                    <div class="fund-return">+${fund.return1y.toFixed(2)}%</div>
+                </div>
+            `).join('');
+        }
+
+        // 渲染迷你图表
+        function renderMiniCharts() {
+            // 收益对比图
+            const returnSvg = `
+                <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffd700"/>
+                            <stop offset="100%" style="stop-color:#ff8c00"/>
+                        </linearGradient>
+                    </defs>
+                    ${fundData.top10.slice(0, 5).map((f, i) => {
+                        const h = (f.return1y / 40) * 80;
+                        return `<rect x="${i * 60 + 10}" y="${90 - h}" width="40" height="${h}" fill="url(#barGrad)" rx="4"/>
+                                <text x="${i * 60 + 30}" y="${85 - h}" fill="#fff" font-size="8" text-anchor="middle">+${f.return1y.toFixed(0)}%</text>`;
+                    }).join('')}
+                </svg>
+            `;
+            document.getElementById('chartReturn').innerHTML = returnSvg;
+
+            // 散点图
+            const scatterSvg = `
+                <svg viewBox="0 0 300 100">
+                    <rect x="10" y="10" width="280" height="80" fill="none" stroke="rgba(255,255,255,0.2)" rx="4"/>
+                    ${Array.from({length: 20}, (_, i) => {
+                        const x = 20 + Math.random() * 260;
+                        const y = 20 + Math.random() * 60;
+                        return `<circle cx="${x}" cy="${y}" r="3" fill="${i < 3 ? '#ffd700' : 'rgba(255,255,255,0.3)'}"/>`;
+                    }).join('')}
+                </svg>
+            `;
+            document.getElementById('chartScatter').innerHTML = scatterSvg;
+
+            // 夏普图
+            const sharpeSvg = `
+                <svg viewBox="0 0 300 100">
+                    <defs>
+                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#667eea"/>
+                            <stop offset="100%" style="stop-color:#f5576c"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M 20 50 Q 80 20 150 30 T 280 40" stroke="url(#lineGrad)" stroke-width="3" fill="none"/>
+                    ${[20, 80, 150, 220, 280].map((x, i) => `<circle cx="${x}" cy="${[50, 20, 30, 25, 40][i]}" r="4" fill="#ffd700"/>`).join('')}
+                </svg>
+            `;
+            document.getElementById('chartSharpe').innerHTML = sharpeSvg;
+
+            // 类别分布
+            const categorySvg = `
+                <svg viewBox="0 0 300 100">
+                    ${fundData.categories.map((cat, i) => {
+                        const w = (cat.count / 84) * 280;
+                        const colors = ['#667eea', '#f5576c', '#4facfe', '#43e97b'];
+                        return `<rect x="10" y="${i * 22 + 10}" width="${w}" height="15" fill="${colors[i]}" rx="3"/>
+                                <text x="${w + 15}" y="${i * 22 + 21}" fill="#fff" font-size="10">${cat.count}</text>`;
+                    }).join('')}
+                </svg>
+            `;
+            document.getElementById('chartCategory').innerHTML = categorySvg;
+        }
+
+        // 显示基金详情
+        function showFundDetail(index) {
+            const fund = fundData.top10[index];
+            const modal = document.getElementById('detailModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+            
+            title.textContent = fund.name;
+            
+            // 生成雷达图
+            const radarSvg = generateRadarChart({
+                labels: ['收益', '风控', '夏普', '回撤', '胜率', '阿尔法'],
+                values: [fund.return1y/40, 0.8, fund.sharpe/3, 0.7, 0.6, 0.75]
+            });
+            
+            body.innerHTML = `
+                <div class="radar-container">${radarSvg}</div>
+                <div class="dimension-list">
+                    <div class="dimension-card">
+                        <div class="dimension-title">1. 投资框架</div>
+                        <div class="dimension-content">该基金采用量化选股策略，通过多因子模型筛选优质标的，重点关注成长性、价值性和动量因子。</div>
+                    </div>
+                    <div class="dimension-card">
+                        <div class="dimension-title">2. 投资特点</div>
+                        <div class="dimension-content">• 高集中度持仓<br>• 灵活调仓<br>• 注重风险控制</div>
+                    </div>
+                    <div class="dimension-card">
+                        <div class="dimension-title">3. 核心指标</div>
+                        <div class="dimension-content">近1年收益率: +${fund.return1y.toFixed(2)}%<br>夏普比率: ${fund.sharpe}<br>最大回撤: -8.5%</div>
+                    </div>
+                    <div class="dimension-card">
+                        <div class="dimension-title">4. 调仓逻辑</div>
+                        <div class="dimension-content">根据市场风格轮动，动态调整成长/价值配比，月度调仓频率约30%。</div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 生成雷达图
+        function generateRadarChart(data) {
+            const size = 300;
+            const center = size / 2;
+            const radius = 100;
+            const angleStep = (Math.PI * 2) / data.labels.length;
+            
+            const points = data.values.map((v, i) => {
+                const angle = i * angleStep - Math.PI / 2;
+                const r = v * radius;
+                return {
+                    x: center + r * Math.cos(angle),
+                    y: center + r * Math.sin(angle)
+                };
+            });
+            
+            const pathData = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
+            
+            const labelsSvg = data.labels.map((label, i) => {
+                const angle = i * angleStep - Math.PI / 2;
+                const x = center + (radius + 20) * Math.cos(angle);
+                const y = center + (radius + 20) * Math.sin(angle);
+                return `<text x="${x}" y="${y}" fill="#ffd700" font-size="12" text-anchor="middle" dominant-baseline="middle">${label}</text>`;
+            }).join('');
+            
+            const gridLines = [0.2, 0.4, 0.6, 0.8, 1].map(scale => {
+                const points = data.labels.map((_, i) => {
+                    const angle = i * angleStep - Math.PI / 2;
+                    const r = scale * radius;
+                    return `${center + r * Math.cos(angle)},${center + r * Math.sin(angle)}`;
+                }).join(' ');
+                return `<polygon points="${points}" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>`;
+            }).join('');
+            
+            return `
+                <svg viewBox="0 0 ${size} ${size}">
+                    ${gridLines}
+                    <path d="${pathData}" fill="rgba(102, 126, 234, 0.3)" stroke="#667eea" stroke-width="2"/>
+                    ${points.map(p => `<circle cx="${p.x}" cy="${p.y}" r="4" fill="#ffd700"/>`).join('')}
+                    ${labelsSvg}
+                </svg>
+            `;
+        }
+
+        // 关闭弹窗
+        function closeModal() {
+            document.getElementById('detailModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 显示分类详情
+        function showCategoryDetail(index) {
+            alert('查看分类详情: ' + fundData.categories[index].name);
+        }
+
+        // 显示图表详情
+        function showChartDetail(type) {
+            alert('查看大图: ' + type);
+        }
+
+        // 底部导航切换
+        function showSection(section) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+
+        // 点击弹窗外部关闭
+        document.getElementById('detailModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // 启动
+        init();
+    </script>
+</body>
+</html>

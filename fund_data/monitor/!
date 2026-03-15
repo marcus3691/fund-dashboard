@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/root/.openclaw/workspace/fund_data/monitor/consensus_report_generator.py", line 825, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/.openclaw/workspace/fund_data/monitor/consensus_report_generator.py", line 806, in main
+    report_path, html_content = generator.generate_and_save()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.openclaw/workspace/fund_data/monitor/consensus_report_generator.py", line 764, in generate_and_save
+    html_content = self.generate_html_report()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.openclaw/workspace/fund_data/monitor/consensus_report_generator.py", line 348, in generate_html_report
+    content: '';
+    ^^^^^^^
+NameError: name 'content' is not defined

@@ -111,15 +111,127 @@ def run_manager_monitor():
     return success, fail
 
 def run_report_monitor():
-    """运行研报监控"""
+    """运行研报监控 - 包含季报文本解析"""
     print(f"\n{'='*60}")
-    print(f"市场研报监控 - {datetime.now().strftime('%Y-%m-%d')}")
+    print(f"基金季报文本监控 - {datetime.now().strftime('%Y-%m-%d')}")
     print(f"{'='*60}\n")
     
-    # TODO: 实现研报抓取
-    print("⚠️ 研报监控开发中...")
+    try:
+        from integrated_report_monitor import run_quarterly_text_monitor
+        
+        # 获取核心基金列表
+        from manager_tiers import CORE_MANAGERS
+        
+        # 选择前10个核心基金进行季报监控（避免一次处理太多）
+        target_funds = [{'fund_code': code, 'fund_name': name} 
+                       for code, name in CORE_MANAGERS[:10]]
+        
+        print(f"监控目标: {len(target_funds)} 位核心基金经理的季报")
+        print(f"重点提取: 投资策略和运作分析章节\n")
+        
+        result = run_quarterly_text_monitor(
+            fund_list=target_funds,
+            force_update=False,  # 默认不强制更新，避免重复处理
+            generate_report=True
+        )
+        
+        # 将解析结果转为信号
+        if result.get('successful', 0) > 0:
+            new_signals = convert_strategy_to_signals(result)
+            print(f"\n✅ 季报监控完成，生成 {len(new_signals)} 个信号")
+        
+        return result
+        
+    except Exception as e:
+        print(f"❌ 季报监控运行失败: {e}")
+        import traceback
+        traceback.print_exc()
+        return {'error': str(e)}
+
+
+def convert_strategy_to_signals(monitor_result: Dict) -> List[Dict]:
+    """
+    将季报分析结果转换为ETF信号
     
-    return []
+    Args:
+        monitor_result: 监控结果
+        
+    Returns:
+        List[Dict]: 生成的信号列表
+    """
+    signals = []
+    
+    analyzed_funds = monitor_result.get('summary', {}).get('analyzed_funds', [])
+    
+    for fund in analyzed_funds:
+        # 基于行业偏好生成信号
+        sectors = fund.get('sectors', [])
+        sentiment = fund.get('sentiment_score', 0)
+        
+        # 将行业映射到ETF
+        sector_etf_map = {
+            '科技': '科技ETF/半导体ETF',
+            '消费': '消费ETF/食品饮料ETF',
+            '医药': '医药ETF',
+            '新能源': '新能源ETF/光伏ETF',
+            '金融': '银行ETF/证券ETF',
+            '周期': '有色ETF/化工ETF',
+            '制造': '军工ETF/高端制造ETF'
+        }
+        
+        for sector in sectors[:2]:  # 取前两个行业
+            if sector in sector_etf_map:
+                direction = '加仓' if sentiment > 0 else '关注'
+                signal = {
+                    'id': f"REPORT_{datetime.now().strftime('%Y%m%d')}_{len(signals)+1:03d}",
+                    'timestamp': datetime.now().isoformat(),
+                    'type': 'sector',
+                    'priority': 'high' if sentiment >= 2 else 'medium',
+                    'status': 'pending_review',
+                    'trigger': {
+                        'event': f"{fund.get('fund_name')}季报披露",
+                        'source': '基金季报文本监控',
+                        'current_value': f"市场情绪{sentiment:+.0f}"
+                    },
+                    'action': {
+                        'layer': 'satellite',
+                        'target': sector_etf_map[sector],
+                        'direction': direction,
+                        'suggested_weight': 3 if sentiment > 0 else 2,
+                        'rationale': f"【季报监控】{fund.get('fund_name')}({fund.get('fund_code')})最新季报显示看好{sector}板块，市场情绪得分{sentiment:+.0f}"
+                    },
+                    'review_status': 'pending',
+                    'reviewer': None,
+                    'review_notes': f"报告日期: {fund.get('report_date')}"
+                }
+                signals.append(signal)
+    
+    # 保存到ETF信号系统
+    if signals:
+        update_etf_signals_with_strategy(signals)
+    
+    return signals
+
+
+def update_etf_signals_with_strategy(new_signals: List[Dict]):
+    """将季报生成的信号更新到ETF信号系统"""
+    signals_file = '/root/.openclaw/workspace/fund_data/analysis/etf_signals.json'
+    
+    try:
+        with open(signals_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except:
+        data = {'active_signals': [], 'pending_signals': []}
+    
+    if 'pending_signals' not in data:
+        data['pending_signals'] = []
+    
+    data['pending_signals'].extend(new_signals)
+    
+    with open(signals_file, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    print(f"✅ 已将 {len(new_signals)} 个季报信号录入ETF系统")
 
 def run_daily_monitor():
     """运行每日监控（新闻+观点+研报）"""

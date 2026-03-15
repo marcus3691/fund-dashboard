@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Monitor - 本地情报仪表盘</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/deck.gl@8.9.0/dist.min.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        #root { width: 100vw; height: 100vh; }
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #2a2a3e;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+        }
+        .nav-tab {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+        }
+        .nav-tab:hover, .nav-tab.active {
+            background: rgba(0,212,255,0.2);
+            border-color: #00d4ff;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 280px;
+            background: rgba(15,15,25,0.95);
+            border-right: 1px solid #2a2a3e;
+            padding: 16px;
+            overflow-y: auto;
+        }
+        .panel {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .panel-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .panel-title::before {
+            content: '';
+            width: 4px;
+            height: 12px;
+            background: #00d4ff;
+            border-radius: 2px;
+        }
+        .layer-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            margin: 4px 0;
+            background: rgba(255,255,255,0.02);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .layer-item:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .layer-item input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #00d4ff;
+        }
+        .layer-item label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .map-container {
+            flex: 1;
+            position: relative;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        .stats-bar {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            gap: 16px;
+            pointer-events: none;
+        }
+        .stat-card {
+            background: rgba(15,15,25,0.9);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            pointer-events: auto;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        .news-panel {
+            width: 320px;
+            background: rgba(15,15,25,0.95);
+            border-left: 1px solid #2a2a3e;
+            padding: 16px;
+            overflow-y: auto;
+        }
+        .news-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 6px;
+            border-left: 3px solid #00d4ff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .news-item:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateX(4px);
+        }
+        .news-time {
+            font-size: 11px;
+            color: #666;
+        }
+        .news-title {
+            font-size: 13px;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        .news-source {
+            font-size: 11px;
+            color: #00d4ff;
+            margin-top: 6px;
+        }
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #666;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+        .badge-hot { background: rgba(255,100,100,0.2); color: #ff6464; }
+        .badge-new { background: rgba(100,255,100,0.2); color: #64ff64; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        
+        // 模拟数据源
+        const MOCK_NEWS = [
+            { id: 1, title: "红海航运危机持续，多家航运公司改道", source: "Reuters", time: "10分钟前", category: "冲突" },
+            { id: 2, title: "美联储暗示2024年可能降息三次", source: "Bloomberg", time: "25分钟前", category: "金融" },
+            { id: 3, title: "乌克兰无人机袭击俄罗斯炼油厂", source: "BBC", time: "1小时前", category: "军事" },
+            { id: 4, title: "比特币突破历史新高，ETF资金持续流入", source: "CoinDesk", time: "2小时前", category: "加密" },
+            { id: 5, title: "台海局势：解放军军机例行巡航", source: "新华社", time: "3小时前", category: "军事" },
+            { id: 6, title: "OPEC+宣布延长减产协议至二季度", source: "CNBC", time: "4小时前", category: "能源" },
+            { id: 7, title: "AI芯片需求激增，英伟达股价创新高", source: "WSJ", time: "5小时前", category: "科技" },
+            { id: 8, title: "缅甸地震造成多处基础设施损毁", source: "AFP", time: "6小时前", category: "灾害" },
+        ];
+        
+        const LAYERS = [
+            { id: 'conflicts', name: '冲突区域', icon: '🔥' },
+            { id: 'military', name: '军事基地', icon: '🎖️' },
+            { id: 'nuclear', name: '核设施', icon: '☢️' },
+            { id: 'cables', name: '海底电缆', icon: '🔌' },
+            { id: 'pipelines', name: '油气管道', icon: '🛢️' },
+            { id: 'datacenters', name: '数据中心', icon: '🖥️' },
+            { id: 'ports', name: '战略港口', icon: '⚓' },
+            { id: 'airports', name: '机场延误', icon: '✈️' },
+            { id: 'earthquakes', name: '地震监测', icon: '🌋' },
+            { id: 'fires', name: '卫星火点', icon: '🔥' },
+            { id: 'flights', name: '军机追踪', icon: '🛩️' },
+            { id: 'vessels', name: '舰船监控', icon: '🚢' },
+        ];
+        
+        const WORLD_DATA = [
+            { lat: 31.5, lon: 34.5, type: 'conflict', name: '加沙地带', severity: 'high' },
+            { lat: 50.45, lon: 30.52, type: 'conflict', name: '基辅', severity: 'high' },
+            { lat: 35.68, lon: 139.76, type: 'datacenter', name: '东京数据中心集群', severity: 'low' },
+            { lat: 37.77, lon: -122.42, type: 'datacenter', name: '硅谷', severity: 'low' },
+            { lat: 25.20, lon: 55.27, type: 'ports', name: '迪拜港', severity: 'medium' },
+            { lat: 1.35, lon: 103.82, type: 'ports', name: '新加坡港', severity: 'medium' },
+            { lat: 35.68, lon: 51.42, type: 'nuclear', name: '纳坦兹核设施', severity: 'high' },
+            { lat: 39.10, lon: 125.76, type: 'nuclear', name: '宁边核设施', severity: 'high' },
+            { lat: 24.71, lon: -81.09, type: 'cables', name: '迈阿密电缆登陆点', severity: 'medium' },
+            { lat: 50.85, lon: 4.35, type: 'military', name: '北约总部', severity: 'medium' },
+            { lat: 38.87, lon: -77.04, type: 'military', name: '五角大楼', severity: 'medium' },
+            { lat: 55.75, lon: 37.62, type: 'military', name: '莫斯科军区', severity: 'high' },
+        ];
+        
+        function App() {
+            const [activeTab, setActiveTab] = useState('world');
+            const [activeLayers, setActiveLayers] = useState(['conflicts', 'datacenters']);
+            const mapRef = useRef(null);
+            const deckRef = useRef(null);
+            
+            useEffect(() => {
+                // 初始化 MapLibre 地图
+                const map = new maplibregl.Map({
+                    container: 'map',
+                    style: {
+                        version: 8,
+                        sources: {
+                            'osm': {
+                                type: 'raster',
+                                tiles: ['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'],
+                                tileSize: 256,
+                                attribution: '© OpenStreetMap © CARTO'
+                            }
+                        },
+                        layers: [{
+                            id: 'osm',
+                            type: 'raster',
+                            source: 'osm'
+                        }]
+                    },
+                    center: [20, 30],
+                    zoom: 2,
+                    pitch: 45,
+                    bearing: 0
+                });
+                
+                mapRef.current = map;
+                
+                // 添加导航控件
+                map.addControl(new maplibregl.NavigationControl());
+                
+                // 添加数据源
+                map.on('load', () => {
+                    map.addSource('world-data', {
+                        type: 'geojson',
+                        data: {
+                            type: 'FeatureCollection',
+                            features: WORLD_DATA.map(d => ({
+                                type: 'Feature',
+                                geometry: {
+                                    type: 'Point',
+                                    coordinates: [d.lon, d.lat]
+                                },
+                                properties: {
+                                    name: d.name,
+                                    type: d.type,
+                                    severity: d.severity
+                                }
+                            }))
+                        }
+                    });
+                    
+                    map.addLayer({
+                        id: 'world-points',
+                        type: 'circle',
+                        source: 'world-data',
+                        paint: {
+                            'circle-radius': 8,
+                            'circle-color': [
+                                'match',
+                                ['get', 'severity'],
+                                'high', '#ff4444',
+                                'medium', '#ffaa00',
+                                'low', '#00d4ff',
+                                '#888'
+                            ],
+                            'circle-opacity': 0.8,
+                            'circle-stroke-width': 2,
+                            'circle-stroke-color': '#fff'
+                        }
+                    });
+                    
+                    // 添加脉冲动画效果
+                    map.addLayer({
+                        id: 'world-pulse',
+                        type: 'circle',
+                        source: 'world-data',
+                        paint: {
+                            'circle-radius': 16,
+                            'circle-color': [
+                                'match',
+                                ['get', 'severity'],
+                                'high', '#ff4444',
+                                'medium', '#ffaa00',
+                                'low', '#00d4ff',
+                                '#888'
+                            ],
+                            'circle-opacity': 0.2
+                        },
+                        filter: ['==', ['get', 'severity'], 'high']
+                    });
+                });
+                
+                return () => map.remove();
+            }, []);
+            
+            const toggleLayer = (layerId) => {
+                setActiveLayers(prev => 
+                    prev.includes(layerId) 
+                        ? prev.filter(id => id !== layerId)
+                        : [...prev, layerId]
+                );
+            };
+            
+            return (
+                <div className="app-container">
+                    <header className="header">
+                        <div className="logo">🌍 World Monitor</div>
+                        <div className="nav-tabs">
+                            <button 
+                                className={`nav-tab ${activeTab === 'world' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('world')}
+                            >
+                                🌐 世界
+                            </button>
+                            <button 
+                                className={`nav-tab ${activeTab === 'tech' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('tech')}
+                            >
+                                💻 科技
+                            </button>
+                            <button 
+                                className={`nav-tab ${activeTab === 'finance' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('finance')}
+                            >
+                                💰 金融
+                            </button>
+                        </div>
+                    </header>
+                    
+                    <div className="main-content">
+                        <aside className="sidebar">
+                            <div className="panel">
+                                <div className="panel-title">数据图层</div>
+                                {LAYERS.map(layer => (
+                                    <div key={layer.id} className="layer-item" onClick={() => toggleLayer(layer.id)}>
+                                        <input 
+                                            type="checkbox" 
+                                            checked={activeLayers.includes(layer.id)}
+                                            onChange={() => {}}
+                                        />
+                                        <label>{layer.icon} {layer.name}</label>
+                                    </div>
+                                ))}
+                            </div>
+                            
+                            <div className="panel">
+                                <div className="panel-title">情报摘要</div>
+                                <div style={{fontSize: '13px', lineHeight: '1.6', color: '#aaa'}}>
+                                    <p style={{marginBottom: '10px'}}>
+                                        <strong style={{color: '#ff6464'}}>⚠️ 高风险区域：</strong>
+                                        中东局势持续紧张，红海航运受阻。
+                                    </p>
+                                    <p style={{marginBottom: '10px'}}>
+                                        <strong style={{color: '#ffaa00'}}>📊 市场动态：</strong>
+                                        全球股市波动加剧，加密货币创新高。
+                                    </p>
+                                    <p>
+                                        <strong style={{color: '#64ff64'}}>🌐 网络状态：</strong>
+                                        主要海底电缆运行正常。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div className="panel">
+                                <div className="panel-title">不稳定指数 (CII)</div>
+                                <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+                                    <div style={{
+                                        width: '60px', 
+                                        height: '60px', 
+                                        borderRadius: '50%',
+                                        background: 'conic-gradient(#ff4444 0deg, #ff4444 126deg, #333 126deg)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '18px',
+                                        fontWeight: 'bold'
+                                    }}>
+                                        35
+                                    </div>
+                                    <div style={{fontSize: '12px', color: '#888'}}>
+                                        <div>🟡 中等风险</div>
+                                        <div style={{marginTop: '4px'}}>基于 12 个信号</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        
+                        <div className="map-container">
+                            <div id="map"></div>
+                            <div className="stats-bar">
+                                <div className="stat-card">
+                                    <div className="stat-label">活跃冲突</div>
+                                    <div className="stat-value">23</div>
+                                </div>
+                                <div className="stat-card">
+                                    <div className="stat-label">军事基地</div>
+                                    <div className="stat-value">220+</div>
+                                </div>
+                                <div className="stat-card">
+                                    <div className="stat-label">监控舰船</div>
+                                    <div className="stat-value">1,847</div>
+                                </div>
+                                <div className="stat-card">
+                                    <div className="stat-label">实时新闻</div>
+                                    <div className="stat-value">150+</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <aside className="news-panel">
+                            <div className="panel-title">实时情报流</div>
+                            {MOCK_NEWS.map(news => (
+                                <div key={news.id} className="news-item">
+                                    <div className="news-time">{news.time}</div>
+                                    <div className="news-title">{news.title}</div>
+                                    <div className="news-source">
+                                        {news.source}
+                                        <span className={`badge badge-${news.id <= 2 ? 'hot' : 'new'}`}>
+                                            {news.category}
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
+                        </aside>
+                    </div>
+                </div>
+            );
+        }
+        
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>

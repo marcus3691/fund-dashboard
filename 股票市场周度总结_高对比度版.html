@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>股票市场周度总结报告</title>
+    <style>
+        @page { size: A4; margin: 2cm; }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+            font-size: 12pt;
+            line-height: 1.8;
+            color: #000000;
+            background: #ffffff;
+        }
+        
+        /* 标题区域 - 简洁白底黑字 */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #000000;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 24pt;
+            color: #000000;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        
+        .header .info {
+            font-size: 11pt;
+            color: #333333;
+        }
+        
+        /* 章节标题 */
+        h2 {
+            font-size: 16pt;
+            color: #000000;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        h3 {
+            font-size: 13pt;
+            color: #000000;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        /* 图表容器 */
+        .chart-box {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #cccccc;
+        }
+        
+        .chart-box img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .chart-title {
+            font-size: 11pt;
+            color: #333333;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* 数据表格 - 高对比度 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11pt;
+        }
+        
+        th {
+            background-color: #333333;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #333333;
+        }
+        
+        td {
+            padding: 8px 10px;
+            text-align: center;
+            border: 1px solid #999999;
+            color: #000000;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        /* 涨跌颜色 */
+        .up { color: #cc0000; font-weight: bold; }
+        .down { color: #006600; font-weight: bold; }
+        
+        /* 重点提示框 */
+        .highlight {
+            background-color: #ffffcc;
+            border: 2px solid #ffcc00;
+            padding: 15px;
+            margin: 20px 0;
+            color: #000000;
+        }
+        
+        .highlight strong {
+            color: #cc6600;
+        }
+        
+        /* 列表 */
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 5px 0;
+            color: #000000;
+        }
+        
+        /* 页脚 */
+        .footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #999999;
+            font-size: 10pt;
+            color: #666666;
+            text-align: center;
+        }
+        
+        /* 分页 */
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <!-- 封面 -->
+    <div class="header">
+        <h1>股票市场周度总结报告</h1>
+        <div class="info">
+            报告周期：2026年3月2日 - 3月6日（5个交易日）<br>
+            报告日期：2026年3月8日<br>
+            数据来源：Tushare Pro API
+        </div>
+    </div>
+    
+    <!-- 核心数据概览 -->
+    <h2>一、核心数据概览</h2>
+    
+    <table style="font-size: 14pt;">
+        <thead>
+            <tr>
+                <th style="width:25%; background:#1a1a1a;">上证指数</th>
+                <th style="width:25%; background:#1a1a1a;">深证成指</th>
+                <th style="width:25%; background:#1a1a1a;">创业板指</th>
+                <th style="width:25%; background:#1a1a1a;">科创50</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="font-size: 18pt; font-weight: bold;">
+                <td style="padding:20px;">
+                    <span style="color:#006600;">-1.40%</span>
+                </td>
+                <td style="padding:20px;">
+                    <span style="color:#006600;">-1.87%</span>
+                </td>
+                <td style="padding:20px;">
+                    <span style="color:#006600;">-2.44%</span>
+                </td>
+                <td style="padding:20px;">
+                    <span style="color:#006600;">-2.37%</span>
+                </td>
+            </tr>
+            <tr style="font-size: 10pt; color:#666;">
+                <td>4,182.59 → 4,124.19</td>
+                <td>12,978.32 → 12,735.68</td>
+                <td>2,756.45 → 2,689.12</td>
+                <td>1,125.36 → 1,098.74</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p style="background:#f5f5f5; padding:15px; border-left:4px solid #333;">
+        <strong>市场特征：</strong>本周四大指数全线收跌，创业板指跌幅最大（-2.44%）。日均成交额约7,400亿，较上周缩量约12%。市场呈现普跌格局，亏钱效应明显。
+    </p>
+    
+    <!-- 第二部分：指数详情 -->
+    <h2>二、指数详细数据</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>指数名称</th>
+                <th>周初点位</th>
+                <th>周末点位</th>
+                <th>周涨跌</th>
+                <th>成交额(亿)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>上证指数</td>
+                <td>4,182.59</td>
+                <td>4,124.19</td>
+                <td class="down">-1.40%</td>
+                <td>3,245</td>
+            </tr>
+            <tr>
+                <td>深证成指</td>
+                <td>12,978.32</td>
+                <td>12,735.68</td>
+                <td class="down">-1.87%</td>
+                <td>4,128</td>
+            </tr>
+            <tr>
+                <td>创业板指</td>
+                <td>2,756.45</td>
+                <td>2,689.12</td>
+                <td class="down">-2.44%</td>
+                <td>1,856</td>
+            </tr>
+            <tr>
+                <td>科创50</td>
+                <td>1,125.36</td>
+                <td>1,098.74</td>
+                <td class="down">-2.37%</td>
+                <td>892</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p><strong>市场特征：</strong>本周四大指数全线收跌，创业板指跌幅最大（-2.44%），科创50紧随其后（-2.37%）。市场呈现普跌格局，成长股承压明显。日均成交额约7,400亿，较上周缩量约12%。</p>
+    
+    <div class="chart-box">
+        <img src="report_images/chart1_indices.png" alt="指数走势对比">
+        <div class="chart-title">图1：主要指数本周表现对比</div>
+    </div>
+    
+    <!-- 第二部分：ETF资金流向 -->
+    <h2>二、ETF资金流向分析</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ETF名称</th>
+                <th>代表板块</th>
+                <th>本周涨跌</th>
+                <th>本周成交额(亿)</th>
+                <th>上周成交额(亿)</th>
+                <th>资金流向</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>沪深300ETF</td>
+                <td>大盘蓝筹</td>
+                <td class="down">-1.35%</td>
+                <td>125</td>
+                <td>142</td>
+                <td>小幅流出</td>
+            </tr>
+            <tr>
+                <td>黄金ETF</td>
+                <td>黄金板块</td>
+                <td class="down">-4.72%</td>
+                <td>89</td>
+                <td>156</td>
+                <td style="color:#cc0000;font-weight:bold;">大幅流出</td>
+            </tr>
+            <tr>
+                <td>半导体ETF</td>
+                <td>半导体</td>
+                <td class="down">-2.85%</td>
+                <td>168</td>
+                <td>145</td>
+                <td style="color:#006600;font-weight:bold;">小幅流入</td>
+            </tr>
+            <tr>
+                <td>新能源车ETF</td>
+                <td>新能源</td>
+                <td class="down">-2.98%</td>
+                <td>112</td>
+                <td>108</td>
+                <td style="color:#006600;font-weight:bold;">小幅流入</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="chart-box">
+        <img src="report_images/chart2_etf_flow.png" alt="ETF资金流向">
+        <div class="chart-title">图2：ETF资金流向对比（本周vs上周）</div>
+    </div>
+    
+    <div class="highlight">
+        <strong>资金流向解读：</strong>
+        <ul>
+            <li><span style="color:#006600;font-weight:bold;">半导体ETF</span>：成交放量至168亿，资金逆势流入，国产替代逻辑受追捧</li>
+            <li><span style="color:#cc0000;font-weight:bold;">黄金ETF</span>：成交萎缩至89亿，资金大幅流出，金价回调拖累</li>
+            <li>沪深300ETF：成交缩量，蓝筹防御资金观望</li>
+        </ul>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- 第三部分：板块表现 -->
+    <h2>三、重点板块本周表现</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>板块</th>
+                <th>周涨跌</th>
+                <th>相对大盘</th>
+                <th>龙头标的</th>
+                <th>市场地位</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>黄金板块</td>
+                <td class="down">-10.19%</td>
+                <td>跑输8.8个百分点</td>
+                <td>山东黄金、中金黄金</td>
+                <td style="color:#cc0000;font-weight:bold;">领跌</td>
+            </tr>
+            <tr>
+                <td>机器人板块</td>
+                <td class="down">-4.93%</td>
+                <td>跑输3.5个百分点</td>
+                <td>绿的谐波、鸣志电器</td>
+                <td>跟跌</td>
+            </tr>
+            <tr>
+                <td>半导体板块</td>
+                <td class="down">-2.91%</td>
+                <td>跑输1.5个百分点</td>
+                <td>中芯国际、北方华创</td>
+                <td style="color:#006600;font-weight:bold;">抗跌</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="chart-box">
+        <img src="report_images/chart3_sectors.png" alt="板块涨跌幅">
+        <div class="chart-title">图3：重点板块本周表现对比</div>
+    </div>
+    
+    <!-- 第四部分：市场情绪 -->
+    <h2>四、市场情绪指标</h2>
+    
+    <div class="chart-box">
+        <img src="report_images/chart4_sentiment.png" alt="市场情绪仪表盘">
+        <div class="chart-title">图4：市场情绪指标仪表盘</div>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>指标</th>
+                <th>本周数值</th>
+                <th>上周数值</th>
+                <th>变化</th>
+                <th>解读</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>涨跌家数比</td>
+                <td>35:65</td>
+                <td>52:48</td>
+                <td class="down">↓</td>
+                <td>亏钱效应明显</td>
+            </tr>
+            <tr>
+                <td>涨停家数(日均)</td>
+                <td>45家</td>
+                <td>68家</td>
+                <td class="down">↓23家</td>
+                <td>热点减少</td>
+            </tr>
+            <tr>
+                <td>跌停家数(日均)</td>
+                <td>12家</td>
+                <td>5家</td>
+                <td class="up">↑7家</td>
+                <td>抛压加重</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="page-break"></div>
+    
+    <!-- 第五部分：下周展望 -->
+    <h2>五、下周展望与操作建议</h2>
+    
+    <h3>关键事件日历</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>事件</th>
+                <th>影响板块</th>
+                <th>预期</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>3月10日</td>
+                <td>英伟达GTC大会</td>
+                <td>AI算力、光模块</td>
+                <td>关注B100进展</td>
+            </tr>
+            <tr>
+                <td>3月12日</td>
+                <td>美国CPI数据</td>
+                <td>黄金、汇率</td>
+                <td>通胀预期变化</td>
+            </tr>
+            <tr>
+                <td>3月15日</td>
+                <td>国内MLF操作</td>
+                <td>金融、地产</td>
+                <td>流动性预期</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>操作建议</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>板块</th>
+                <th>建议</th>
+                <th>目标仓位</th>
+                <th>核心逻辑</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>半导体</td>
+                <td style="color:#006600;font-weight:bold;">逢低加仓</td>
+                <td>20%</td>
+                <td>国产替代+业绩改善</td>
+            </tr>
+            <tr>
+                <td>AI算力</td>
+                <td style="color:#006600;font-weight:bold;">持有</td>
+                <td>25%</td>
+                <td>英伟达大会催化</td>
+            </tr>
+            <tr>
+                <td>黄金</td>
+                <td style="color:#cc0000;font-weight:bold;">观望</td>
+                <td>5%</td>
+                <td>等待金价企稳</td>
+            </tr>
+            <tr>
+                <td>现金</td>
+                <td>保留</td>
+                <td>35%</td>
+                <td>市场调整期</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="highlight">
+        <strong>风险提示：</strong>
+        <ol>
+            <li>美联储政策转向超预期</li>
+            <li>Q1业绩大面积不及预期</li>
+            <li>地缘政治冲突升级</li>
+            <li>人民币汇率波动加剧</li>
+        </ol>
+    </div>
+    
+    <div class="footer">
+        <p>数据来源：Tushare Pro API（http://tushare.xyz）| 报告编制：OpenClaw Agent</p>
+        <p>免责声明：本报告仅供参考，不构成投资建议。股市有风险，投资需谨慎。</p>
+    </div>
+</body>
+</html>

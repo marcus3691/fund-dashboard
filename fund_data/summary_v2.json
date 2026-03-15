@@ -1,0 +1,44 @@
+{
+  "data_date": "2026-03-09 07:28:06",
+  "total": 314,
+  "success": 314,
+  "failed": 0,
+  "categories": {
+    "主动股票型": {
+      "count": 25,
+      "avg_return_1y": 6.8,
+      "avg_volatility": 16.2,
+      "avg_sharpe": 0.25
+    },
+    "混合型-偏股": {
+      "count": 106,
+      "avg_return_1y": 4.5,
+      "avg_volatility": 15.3,
+      "avg_sharpe": 0.14
+    },
+    "混合型-平衡": {
+      "count": 65,
+      "avg_return_1y": 4.6,
+      "avg_volatility": 16.6,
+      "avg_sharpe": 0.15
+    },
+    "混合型-偏债": {
+      "count": 1,
+      "avg_return_1y": 0.2,
+      "avg_volatility": 7.5,
+      "avg_sharpe": -0.23
+    },
+    "指数增强型": {
+      "count": 66,
+      "avg_return_1y": 6.4,
+      "avg_volatility": 14.8,
+      "avg_sharpe": 0.28
+    },
+    "债券型-主动": {
+      "count": 51,
+      "avg_return_1y": 1.2,
+      "avg_volatility": 2.6,
+      "avg_sharpe": -0.8
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "qveris": {
+      "version": "0.1.0",
+      "installedAt": 1772151002045
+    },
+    "qveris-official": {
+      "version": "1.0.0",
+      "installedAt": 1772196301865
+    }
+  }
+}

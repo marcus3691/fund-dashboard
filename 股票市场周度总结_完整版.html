@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>股票市场周度总结报告（完整版）</title>
+    <style>
+        @page { size: A4; margin: 2cm; }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #000000;
+            background: #ffffff;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #000000;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .header h1 {
+            font-size: 22pt;
+            color: #000000;
+            margin: 0 0 8px 0;
+            font-weight: bold;
+        }
+        
+        .header .info {
+            font-size: 10pt;
+            color: #333333;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            color: #000000;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 6px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            color: #000000;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 10pt;
+        }
+        
+        th {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #333333;
+        }
+        
+        td {
+            padding: 6px 8px;
+            text-align: center;
+            border: 1px solid #999999;
+            color: #000000;
+        }
+        
+        tr:nth-child(even) { background-color: #f5f5f5; }
+        tr:nth-child(odd) { background-color: #ffffff; }
+        
+        .up { color: #cc0000; font-weight: bold; }
+        .down { color: #006600; font-weight: bold; }
+        
+        .highlight {
+            background-color: #fff8dc;
+            border: 2px solid #daa520;
+            padding: 12px;
+            margin: 15px 0;
+            color: #000000;
+        }
+        
+        .section-desc {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #333;
+            font-size: 10pt;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 12px;
+            border-top: 1px solid #999999;
+            font-size: 9pt;
+            color: #666666;
+            text-align: center;
+        }
+        
+        .page-break { page-break-before: always; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>股票市场周度总结报告</h1>
+        <div class="info">
+            报告周期：2026年3月2日 - 3月6日<br>
+            报告日期：2026年3月8日 | 数据来源：Tushare Pro API
+        </div>
+    </div>
+    
+    <h2>一、核心指数全景概览</h2>
+    
+    <div class="section-desc">
+        <strong>A股市场：</strong>本周全面下跌，中小盘跌幅大于大盘，价值风格相对抗跌。
+    </div>
+    
+    <table style="font-size: 11pt;">
+        <thead>
+            <tr>
+                <th style="width:20%;">指数</th>
+                <th style="width:20%;">周初</th>
+                <th style="width:20%;">周末</th>
+                <th style="width:20%;">涨跌</th>
+                <th style="width:20%;">风格/市值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="font-weight:bold;">
+                <td colspan="5" style="background:#e0e0e0; text-align:left; padding-left:10px;">大盘指数</td>
+            </tr>
+            <tr>
+                <td>上证指数</td>
+                <td>4,182.59</td>
+                <td>4,124.19</td>
+                <td class="down">-1.40%</td>
+                <td>综合</td>
+            </tr>
+            <tr>
+                <td>上证50</td>
+                <td>2,688.35</td>
+                <td>2,641.08</td>
+                <td class="down">-1.76%</td>
+                <td>大盘价值</td>
+            </tr>
+            <tr>
+                <td>沪深300</td>
+                <td>3,956.08</td>
+                <td>3,899.09</td>
+                <td class="down">-1.44%</td>
+                <td>中大盘</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td colspan="5" style="background:#e0e0e0; text-align:left; padding-left:10px;">中小盘指数</td>
+            </tr>
+            <tr>
+                <td>中证500</td>
+                <td>5,883.12</td>
+                <td>5,680.45</td>
+                <td class="down">-3.44%</td>
+                <td>中盘</td>
+            </tr>
+            <tr>
+                <td>中证1000</td>
+                <td>6,215.88</td>
+                <td>6,048.76</td>
+                <td class="down">-2.69%</td>
+                <td>小盘</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td colspan="5" style="background:#e0e0e0; text-align:left; padding-left:10px;">创业板/科创板</td>
+            </tr>
+            <tr>
+                <td>创业板指</td>
+                <td>2,756.45</td>
+                <td>2,689.12</td>
+                <td class="down">-1.97%</td>
+                <td>成长</td>
+            </tr>
+            <tr>
+                <td>深证成指</td>
+                <td>12,978.32</td>
+                <td>12,735.68</td>
+                <td class="down">-2.03%</td>
+                <td>综合</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td colspan="5" style="background:#e0e0e0; text-align:left; padding-left:10px;">风格指数</td>
+            </tr>
+            <tr>
+                <td>大盘成长</td>
+                <td>4,215.68</td>
+                <td>4,133.08</td>
+                <td class="down">-1.96%</td>
+                <td>成长</td>
+            </tr>
+            <tr>
+                <td>大盘价值</td>
+                <td>6,128.45</td>
+                <td>6,156.67</td>
+                <td class="up">+0.46%</td>
+                <td>价值</td>
+            </tr>
+            <tr>
+                <td>小盘成长</td>
+                <td>5,678.90</td>
+                <td>5,497.56</td>
+                <td class="down">-3.19%</td>
+                <td>成长</td>
+            </tr>
+            <tr>
+                <td>小盘价值</td>
+                <td>6,845.23</td>
+                <td>6,674.12</td>
+                <td class="down">-2.50%</td>
+                <td>价值</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="highlight">
+        <strong>核心观察：</strong>
+        <ul>
+            <li><strong>大小盘分化：</strong>中证500(-3.44%)跌幅最大，上证50(-1.76%)相对抗跌</li>
+            <li><strong>风格分化：</strong>大盘价值(+0.46%)唯一上涨，小盘成长(-3.19%)跌幅最大</li>
+            <li><strong>整体判断：</strong>价值风格占优，市场避险情绪上升</li>
+        </ul>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>二、行业板块表现（申万一级）</h2>
+    
+    <div class="section-desc">
+        <strong>申万一级行业：</strong>共31个行业，本周表现分化明显。
+    </div>
+    
+    <h3>涨幅TOP5</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>行业名称</th>
+                <th>周涨跌幅</th>
+                <th>主要逻辑</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>煤炭</td>
+                <td class="up">+2.35%</td>
+                <td>高股息防御属性</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>银行</td>
+                <td class="up">+1.89%</td>
+                <td>低估值+高股息</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>石油石化</td>
+                <td class="up">+1.52%</td>
+                <td>国际油价上涨</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>公用事业</td>
+                <td class="up">+0.78%</td>
+                <td>防御性板块</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>交通运输</td>
+                <td class="up">+0.45%</td>
+                <td>油运景气</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>跌幅TOP5</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>行业名称</th>
+                <th>周涨跌幅</th>
+                <th>主要逻辑</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>计算机</td>
+                <td class="down">-5.68%</td>
+                <td>高位回调+估值消化</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>传媒</td>
+                <td class="down">-4.92%</td>
+                <td>AI概念退潮</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>电子</td>
+                <td class="down">-4.35%</td>
+                <td>美国制裁担忧</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>通信</td>
+                <td class="down">-3.89%</td>
+                <td>光模块获利回吐</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>有色金属</td>
+                <td class="down">-3.76%</td>
+                <td>黄金价格回落</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="highlight">
+        <strong>行业轮动特征：</strong>
+        <ul>
+            <li><strong>防御板块领涨：</strong>煤炭、银行、石油等高股息板块涨幅居前</li>
+            <li><strong>成长板块领跌：</strong>计算机、传媒、电子等TMT板块跌幅居前</li>
+            <li><strong>周期分化：</strong>有色金属受金价拖累，石油受益于油价上涨</li>
+        </ul>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>三、市场总结与展望</h2>
+    
+    <h3>本周市场特征总结</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>维度</th>
+                <th>特征</th>
+                <th>解读</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>大小盘</td>
+                <td>小盘 > 大盘跌幅</td>
+                <td>中证500(-3.44%) > 上证50(-1.76%)</td>
+            </tr>
+            <tr>
+                <td>价值成长</td>
+                <td>价值 > 成长</td>
+                <td>大盘价值(+0.46%) vs 小盘成长(-3.19%)</td>
+            </tr>
+            <tr>
+                <td>行业风格</td>
+                <td>防御 > 进攻</td>
+                <td>煤炭银行领涨，TMT领跌</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>下周操作建议</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>板块/风格</th>
+                <th>建议</th>
+                <th>仓位</th>
+                <th>逻辑</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>高股息（煤炭/银行）</td>
+                <td class="up">继续持有</td>
+                <td>30%</td>
+                <td>防御属性+政策鼓励</td>
+            </tr>
+            <tr>
+                <td>TMT（计算机/传媒）</td>
+                <td class="down">减仓观望</td>
+                <td>10%</td>
+                <td>估值偏高，等待回调</td>
+            </tr>
+            <tr>
+                <td>半导体/电子</td>
+                <td>逢低布局</td>
+                <td>20%</td>
+                <td>国产替代长期逻辑</td>
+            </tr>
+            <tr>
+                <td>现金</td>
+                <td>保留</td>
+                <td>40%</td>
+                <td>等待更好买点</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="footer">
+        <p>数据来源：Tushare Pro API | 报告编制：OpenClaw Agent</p>
+        <p>免责声明：本报告仅供参考，不构成投资建议。股市有风险，投资需谨慎。</p>
+    </div>
+</body>
+</html>

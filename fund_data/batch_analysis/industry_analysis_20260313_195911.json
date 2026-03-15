@@ -1,0 +1,547 @@
+[
+  {
+    "code": "013495.OF",
+    "name": "信澳产业优选一年持有A",
+    "quality_score": 96.7,
+    "industry_distribution": {
+      "光伏": 36.72,
+      "半导体": 11.86,
+      "汽车零部件": 21.48,
+      "电机": 10.62,
+      "锂电池": 9.77,
+      "机器人": 9.37,
+      "锂矿": 8.79
+    },
+    "top_industry": [
+      "光伏",
+      36.72
+    ]
+  },
+  {
+    "code": "025476.OF",
+    "name": "银华瑞和C",
+    "quality_score": 96.6,
+    "industry_distribution": {
+      "煤炭": 11.65,
+      "石油": 5.94,
+      "有色": 22.24,
+      "军工": 5.67,
+      "化工": 5.53,
+      "有色/稀土": 5.46
+    },
+    "top_industry": [
+      "有色",
+      22.24
+    ]
+  },
+  {
+    "code": "016617.OF",
+    "name": "国泰价值优选灵活配置C",
+    "quality_score": 94.8,
+    "industry_distribution": {
+      "其他": 16.07,
+      "电网设备": 16.64,
+      "石油/天然气": 8.41,
+      "白酒": 22.45,
+      "银行": 7.55,
+      "汽车零部件": 7.29
+    },
+    "top_industry": [
+      "白酒",
+      22.45
+    ]
+  },
+  {
+    "code": "015211.OF",
+    "name": "招商安鼎平衡1年持有A",
+    "quality_score": 93.9,
+    "industry_distribution": {
+      "航运": 37.3,
+      "医药": 22.15,
+      "其他": 32.589999999999996,
+      "汽车零部件": 11.28,
+      "军工": 11.13
+    },
+    "top_industry": [
+      "航运",
+      37.3
+    ]
+  },
+  {
+    "code": "017667.OF",
+    "name": "鹏华新材料A",
+    "quality_score": 93.9,
+    "industry_distribution": {
+      "化工": 22.76,
+      "医疗器械": 41.879999999999995,
+      "其他": 20.3,
+      "半导体设备": 10.76,
+      "石油/天然气": 10.42
+    },
+    "top_industry": [
+      "医疗器械",
+      41.879999999999995
+    ]
+  },
+  {
+    "code": "019184.OF",
+    "name": "大成趋势回报C",
+    "quality_score": 93.8,
+    "industry_distribution": {
+      "其他": 112.17999999999998
+    },
+    "top_industry": [
+      "其他",
+      112.17999999999998
+    ]
+  },
+  {
+    "code": "019205.OF",
+    "name": "鹏华优质企业C",
+    "quality_score": 93.6,
+    "industry_distribution": {
+      "其他": 80.59,
+      "军工": 8.49
+    },
+    "top_industry": [
+      "其他",
+      80.59
+    ]
+  },
+  {
+    "code": "018460.OF",
+    "name": "大成新锐产业C",
+    "quality_score": 93.0,
+    "industry_distribution": {
+      "汽车零部件": 63.26,
+      "其他": 40.13
+    },
+    "top_industry": [
+      "汽车零部件",
+      63.26
+    ]
+  },
+  {
+    "code": "020199.OF",
+    "name": "万家双引擎C",
+    "quality_score": 92.9,
+    "industry_distribution": {
+      "其他": 44.65,
+      "有色": 18.5,
+      "航运": 16.78,
+      "石油": 8.17
+    },
+    "top_industry": [
+      "其他",
+      44.65
+    ]
+  },
+  {
+    "code": "019197.OF",
+    "name": "大成国企改革C",
+    "quality_score": 92.8,
+    "industry_distribution": {
+      "其他": 49.3,
+      "汽车零部件": 52.56
+    },
+    "top_industry": [
+      "汽车零部件",
+      52.56
+    ]
+  },
+  {
+    "code": "015157.OF",
+    "name": "申万菱信行业轮动C",
+    "quality_score": 92.8,
+    "industry_distribution": {
+      "其他": 33.3,
+      "水电": 13.96,
+      "有色": 7.5,
+      "光伏": 13.36
+    },
+    "top_industry": [
+      "其他",
+      33.3
+    ]
+  },
+  {
+    "code": "018656.OF",
+    "name": "新华行业周期轮换C",
+    "quality_score": 92.6,
+    "industry_distribution": {
+      "石油": 34.11,
+      "其他": 17.52,
+      "航运": 11.620000000000001
+    },
+    "top_industry": [
+      "石油",
+      34.11
+    ]
+  },
+  {
+    "code": "012816.OF",
+    "name": "国泰致和A",
+    "quality_score": 92.4,
+    "industry_distribution": {
+      "锂电池": 8.96,
+      "其他": 25.22,
+      "电网设备": 16.27,
+      "石油/天然气": 15.879999999999999,
+      "银行": 8.03,
+      "稀土": 7.74
+    },
+    "top_industry": [
+      "其他",
+      25.22
+    ]
+  },
+  {
+    "code": "013274.OF",
+    "name": "长城优化升级C",
+    "quality_score": 92.3,
+    "industry_distribution": {
+      "光伏": 11.37,
+      "锂电池": 36.8,
+      "其他": 44.209999999999994
+    },
+    "top_industry": [
+      "其他",
+      44.209999999999994
+    ]
+  },
+  {
+    "code": "015722.OF",
+    "name": "长城中小盘成长C",
+    "quality_score": 91.6,
+    "industry_distribution": {
+      "光伏": 11.29,
+      "其他": 63.339999999999996,
+      "锂电池": 7.07
+    },
+    "top_industry": [
+      "其他",
+      63.339999999999996
+    ]
+  },
+  {
+    "code": "017885.OF",
+    "name": "长城久润C",
+    "quality_score": 91.4,
+    "industry_distribution": {
+      "其他": 81.06,
+      "白酒": 36.64
+    },
+    "top_industry": [
+      "其他",
+      81.06
+    ]
+  },
+  {
+    "code": "015945.OF",
+    "name": "易方达国防军工C",
+    "quality_score": 91.2,
+    "industry_distribution": {
+      "其他": 85.35000000000001,
+      "军工": 21.39
+    },
+    "top_industry": [
+      "其他",
+      85.35000000000001
+    ]
+  },
+  {
+    "code": "020360.OF",
+    "name": "中海混改红利主题C",
+    "quality_score": 91.1,
+    "industry_distribution": {
+      "其他": 63.34,
+      "半导体设备": 20.42
+    },
+    "top_industry": [
+      "其他",
+      63.34
+    ]
+  },
+  {
+    "code": "018918.OF",
+    "name": "华夏清洁能源龙头A",
+    "quality_score": 91.0,
+    "industry_distribution": {
+      "汽车零部件": 12.47,
+      "其他": 52.27,
+      "光伏": 25.42
+    },
+    "top_industry": [
+      "其他",
+      52.27
+    ]
+  },
+  {
+    "code": "013284.OF",
+    "name": "上银价值增长3个月持有A",
+    "quality_score": 90.8,
+    "industry_distribution": {
+      "白酒": 89.72999999999999,
+      "其他": 45.51,
+      "银行": 13.81
+    },
+    "top_industry": [
+      "白酒",
+      89.72999999999999
+    ]
+  },
+  {
+    "code": "011566.OF",
+    "name": "富国美丽中国C",
+    "quality_score": 90.7,
+    "industry_distribution": {
+      "其他": 88.99999999999999,
+      "银行": 11.81,
+      "白酒": 10.08
+    },
+    "top_industry": [
+      "其他",
+      88.99999999999999
+    ]
+  },
+  {
+    "code": "011565.OF",
+    "name": "富国周期优势C",
+    "quality_score": 90.6,
+    "industry_distribution": {
+      "其他": 35.05,
+      "锂电池": 10.98,
+      "白酒": 11.25
+    },
+    "top_industry": [
+      "其他",
+      35.05
+    ]
+  },
+  {
+    "code": "013025.OF",
+    "name": "富国宏观策略C",
+    "quality_score": 90.4,
+    "industry_distribution": {
+      "其他": 67.23,
+      "水电": 6.7
+    },
+    "top_industry": [
+      "其他",
+      67.23
+    ]
+  },
+  {
+    "code": "021636.OF",
+    "name": "长城周期优选A",
+    "quality_score": 90.4,
+    "industry_distribution": {
+      "其他": 41.89,
+      "有色": 5.51,
+      "煤炭": 4.64
+    },
+    "top_industry": [
+      "其他",
+      41.89
+    ]
+  },
+  {
+    "code": "014521.OF",
+    "name": "诺安利鑫C",
+    "quality_score": 90.1,
+    "industry_distribution": {
+      "其他": 42.44,
+      "石油": 23.740000000000002,
+      "汽车零部件": 7.17
+    },
+    "top_industry": [
+      "其他",
+      42.44
+    ]
+  },
+  {
+    "code": "014106.OF",
+    "name": "融通成长30C",
+    "quality_score": 89.8,
+    "industry_distribution": {
+      "其他": 54.480000000000004,
+      "水电": 52.82
+    },
+    "top_industry": [
+      "其他",
+      54.480000000000004
+    ]
+  },
+  {
+    "code": "021642.OF",
+    "name": "富国资源精选A",
+    "quality_score": 89.7,
+    "industry_distribution": {
+      "有色": 22.4,
+      "其他": 55.51,
+      "煤炭": 9.19,
+      "石油": 8.88
+    },
+    "top_industry": [
+      "其他",
+      55.51
+    ]
+  },
+  {
+    "code": "020151.OF",
+    "name": "中信保诚景气优选A",
+    "quality_score": 89.3,
+    "industry_distribution": {
+      "其他": 13.54
+    },
+    "top_industry": [
+      "其他",
+      13.54
+    ]
+  },
+  {
+    "code": "018038.OF",
+    "name": "富国融裕两年持有A",
+    "quality_score": 89.3,
+    "industry_distribution": {
+      "其他": 58.41,
+      "有色": 5.57
+    },
+    "top_industry": [
+      "其他",
+      58.41
+    ]
+  },
+  {
+    "code": "019277.OF",
+    "name": "长城国企优选A",
+    "quality_score": 89.3,
+    "industry_distribution": {
+      "其他": 47.519999999999996,
+      "石油": 5.33
+    },
+    "top_industry": [
+      "其他",
+      47.519999999999996
+    ]
+  },
+  {
+    "code": "011346.OF",
+    "name": "淳厚鑫淳一年持有",
+    "quality_score": 89.2,
+    "industry_distribution": {
+      "汽车零部件": 11.2,
+      "其他": 67.41
+    },
+    "top_industry": [
+      "其他",
+      67.41
+    ]
+  },
+  {
+    "code": "011685.OF",
+    "name": "创金合信先进装备A",
+    "quality_score": 89.1,
+    "industry_distribution": {
+      "其他": 123.69000000000001
+    },
+    "top_industry": [
+      "其他",
+      123.69000000000001
+    ]
+  },
+  {
+    "code": "018220.OF",
+    "name": "广发品质优选A",
+    "quality_score": 89.1,
+    "industry_distribution": {
+      "白酒": 20.46,
+      "其他": 63.94
+    },
+    "top_industry": [
+      "其他",
+      63.94
+    ]
+  },
+  {
+    "code": "011888.OF",
+    "name": "民生加银周期优选A",
+    "quality_score": 88.7,
+    "industry_distribution": {
+      "锂电池": 52.3,
+      "其他": 45.47
+    },
+    "top_industry": [
+      "锂电池",
+      52.3
+    ]
+  },
+  {
+    "code": "013844.OF",
+    "name": "中信建投睿选6个月持有A",
+    "quality_score": 88.6,
+    "industry_distribution": {
+      "其他": 266.53999999999996
+    },
+    "top_industry": [
+      "其他",
+      266.53999999999996
+    ]
+  },
+  {
+    "code": "015984.OF",
+    "name": "金鹰碳中和A",
+    "quality_score": 88.3,
+    "industry_distribution": {
+      "其他": 50.05,
+      "光伏": 17.259999999999998,
+      "锂电池": 16.28
+    },
+    "top_industry": [
+      "其他",
+      50.05
+    ]
+  },
+  {
+    "code": "013674.OF",
+    "name": "长城价值甄选一年持有A",
+    "quality_score": 87.8,
+    "industry_distribution": {
+      "白酒": 63.370000000000005,
+      "其他": 26.64
+    },
+    "top_industry": [
+      "白酒",
+      63.370000000000005
+    ]
+  },
+  {
+    "code": "014109.OF",
+    "name": "融通内需驱动C",
+    "quality_score": 87.7,
+    "industry_distribution": {
+      "其他": 78.03999999999999,
+      "水电": 19.06
+    },
+    "top_industry": [
+      "其他",
+      78.03999999999999
+    ]
+  },
+  {
+    "code": "018440.OF",
+    "name": "汇添富量化选股A",
+    "quality_score": 87.6,
+    "industry_distribution": {
+      "白酒": 13.459999999999999,
+      "保险": 2.42,
+      "锂电池": 4.24,
+      "银行": 1.94,
+      "其他": 1.84
+    },
+    "top_industry": [
+      "白酒",
+      13.459999999999999
+    ]
+  }
+]

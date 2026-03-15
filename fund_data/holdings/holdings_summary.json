@@ -1,0 +1,14 @@
+{
+  "fetch_date": "2026-03-09 12:56:59",
+  "total_funds": 194,
+  "quarters": [
+    "2024Q1",
+    "2024Q2",
+    "2024Q3",
+    "2024Q4"
+  ],
+  "total_tasks": 776,
+  "success_quarters": 477,
+  "failed_records": 299,
+  "total_holdings_records": 168955
+}

@@ -1,0 +1,7 @@
+﻿ts_code,name,invest_type,category,return_3m,return_6m,return_1y,volatility,max_drawdown,sharpe,data_points,rank_6m,percentile_6m,rank_1y,percentile_1y,quality_score,scale_status,pass_performance,pass_quality,veto,is_core,is_watch,is_backup,fund_scale,high_quality
+019144.OF,东财景气驱动C,混合型,混合型-偏股,1.2,-13.75,29.57,24.85,17.42,1.11,455,5140.0,1.5139900344959711,27.0,99.50248756218906,81.5,preferred,True,True,False,True,False,False,14.12358038325615,True
+019143.OF,东财景气驱动A,混合型,混合型-偏股,1.24,-13.69,29.69,24.85,17.38,1.11,455,5138.0,1.5523188961287904,26.0,99.52162265595102,81.6,preferred,True,True,False,True,False,False,11.652908943240194,True
+019376.OF,广发睿杰精选A3,混合型,混合型-偏股,0.55,-6.24,19.68,18.63,12.24,0.95,455,4412.0,15.465695668838633,153.0,97.09146574818216,84.9,preferred,True,True,False,True,False,False,5.960810412873563,True
+018376.OF,金信景气优选C,混合型,混合型-偏股,1.62,-4.42,33.7,23.62,17.28,1.34,455,3992.0,23.514756611728625,12.0,99.78951396861844,85.8,preferred,True,True,False,True,False,False,6.75333581240895,True
+018375.OF,金信景气优选A,混合型,混合型-偏股,1.64,-4.37,33.8,23.62,17.25,1.35,455,3976.0,23.821387504791105,10.0,99.82778415614236,86.0,preferred,True,True,False,True,False,False,32.0900853865657,True
+014953.OF,信澳至诚精选C,混合型,混合型-偏股,-2.39,-5.44,17.83,17.41,12.8,0.91,455,4255.0,18.474511307014183,212.0,95.96249521622656,82.5,preferred,True,True,False,True,False,False,17.271823410169823,True

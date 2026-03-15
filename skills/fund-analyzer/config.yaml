@@ -1,0 +1,75 @@
+# Fund Analyzer Skill Configuration
+tushare:
+  # Tushare Pro API configuration
+  token: "080afaf41dbb746406290078112f271e50e79a0858c9494bb52a1ec1"
+  server: "http://tushare.xyz"
+  
+analysis:
+  # Default analysis period (can be overridden via CLI)
+  default_period:
+    start: "2025-01-01"
+    end: "2025-12-31"
+  
+  # Number of top holdings to extract per quarter-end
+  top_holdings: 15
+  
+  # Minimum trading days required for valid analysis
+  min_trading_days: 100
+  
+  # Volatility grouping for peer comparison (%)
+  volatility_groups:
+    low: [0, 10]        # Low volatility
+    mid_low: [10, 15]  # Mid-low volatility  
+    medium: [15, 20]   # Medium volatility
+    high: [20, 30]     # High volatility
+    extreme: [30, 100] # Extreme volatility
+
+# Fund type matching for peer comparison
+fund_type_matching:
+  strict: true  # Only compare same fund types
+  mappings:
+    "FOF": ["FOF"]
+    "股票型": ["股票型"]
+    "混合型": ["混合型", "股票型"]
+
+output:
+  # Output formats
+  formats: ["md", "pdf"]
+  
+  # Output directory
+  directory: "./fund_analysis_reports"
+  
+  # Save intermediate JSON data
+  save_json: true
+
+# Quality control settings
+quality_control:
+  # Verify data sources
+  verify_sources: true
+  
+  # Reject real-time price data
+  reject_realtime_prices: true
+  
+  # Require all quarter-end nodes within period
+  require_all_quarter_ends: true
+  
+  # Require peer comparison
+  require_peer_comparison: true
+
+# AI Analysis framework (9 dimensions)
+ai_framework:
+  dimensions:
+    - investment_philosophy    # One-sentence summary
+    - strategy_characteristics # Style, concentration, frequency
+    - key_metrics             # What the manager tracks
+    - rebalancing_logic       # Quarter-end changes + rationale
+    - peer_comparison         # Volatility-matched ranking
+    - environment_fit         # Suitable/unsuitable markets
+    - trading_strategy        # Buy/sell signals
+    - capability_circle       # Strengths/weaknesses
+    - improvement_plan        # What to expand/retain
+
+# Logging
+logging:
+  level: "INFO"
+  file: "./fund_analyzer.log"

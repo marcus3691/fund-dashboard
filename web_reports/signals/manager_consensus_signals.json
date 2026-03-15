@@ -1,0 +1,300 @@
+{
+  "generated_at": "2026-03-14T23:24:15.328308",
+  "total_managers": 311,
+  "signals": [
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "300750.SZ",
+      "consensus_count": 66,
+      "avg_holding_ratio": 6.45,
+      "managers": [
+        "赵诣",
+        "钟赟",
+        "傅鹏博",
+        "王崇",
+        "刘旭"
+      ],
+      "trigger": "66位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325067"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "300502.SZ",
+      "consensus_count": 53,
+      "avg_holding_ratio": 12751128.74,
+      "managers": [
+        "周蔚文",
+        "周蔚文",
+        "钟赟",
+        "王鹏",
+        "傅鹏博"
+      ],
+      "trigger": "53位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325075"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "300308.SZ",
+      "consensus_count": 53,
+      "avg_holding_ratio": 15117648.63,
+      "managers": [
+        "周蔚文",
+        "曹名长",
+        "周蔚文",
+        "曹名长",
+        "冯明远"
+      ],
+      "trigger": "53位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325077"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "000333.SZ",
+      "consensus_count": 37,
+      "avg_holding_ratio": 59963048.94,
+      "managers": [
+        "萧楠",
+        "谢治宇",
+        "萧楠",
+        "萧楠",
+        "谢治宇"
+      ],
+      "trigger": "37位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325079"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "601899.SH",
+      "consensus_count": 31,
+      "avg_holding_ratio": 12649347.74,
+      "managers": [
+        "曹名长",
+        "谭丽",
+        "曹名长",
+        "谭丽",
+        "王崇"
+      ],
+      "trigger": "31位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325080"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "603259.SH",
+      "consensus_count": 28,
+      "avg_holding_ratio": 10560975.02,
+      "managers": [
+        "周蔚文",
+        "周蔚文",
+        "葛兰",
+        "王崇",
+        "何帅"
+      ],
+      "trigger": "28位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325083"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "002475.SZ",
+      "consensus_count": 26,
+      "avg_holding_ratio": 5.83,
+      "managers": [
+        "赵诣",
+        "归凯",
+        "王鹏",
+        "傅鹏博",
+        "王崇"
+      ],
+      "trigger": "26位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325085"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "601138.SH",
+      "consensus_count": 25,
+      "avg_holding_ratio": 3030030.06,
+      "managers": [
+        "曹名长",
+        "曹名长",
+        "秦毅",
+        "曹名长",
+        "秦毅"
+      ],
+      "trigger": "25位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325086"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "600519.SH",
+      "consensus_count": 20,
+      "avg_holding_ratio": 224948452.53,
+      "managers": [
+        "张坤",
+        "萧楠",
+        "张坤",
+        "萧楠",
+        "张坤"
+      ],
+      "trigger": "20位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325087"
+    },
+    {
+      "type": "stock_consensus",
+      "priority": "high",
+      "code": "603993.SH",
+      "consensus_count": 20,
+      "avg_holding_ratio": 8744504.47,
+      "managers": [
+        "曹名长",
+        "丘栋荣",
+        "曹名长",
+        "丘栋荣",
+        "钟赟"
+      ],
+      "trigger": "20位基金经理重仓持有",
+      "action": "关注相关ETF或个股",
+      "generated_at": "2026-03-14T23:24:15.325089"
+    },
+    {
+      "type": "sector_consensus",
+      "priority": "high",
+      "sector": "其他",
+      "consensus_count": 803,
+      "managers": [
+        "张坤",
+        "谢治宇",
+        "周蔚文",
+        "曹名长",
+        "徐彦"
+      ],
+      "stocks": [
+        "002027.SZ",
+        "6618.HK",
+        "9987.HK",
+        "9988.HK",
+        "0883.HK"
+      ],
+      "trigger": "803位基金经理布局其他",
+      "action": "关注其他板块ETF",
+      "generated_at": "2026-03-14T23:24:15.327996"
+    },
+    {
+      "type": "sector_consensus",
+      "priority": "high",
+      "sector": "科技/半导体",
+      "consensus_count": 232,
+      "managers": [
+        "谢治宇",
+        "冯明远",
+        "李晓星",
+        "归凯",
+        "杨锐文"
+      ],
+      "stocks": [
+        "688099.SH",
+        "002916.SZ",
+        "603659.SH",
+        "603186.SH",
+        "603986.SH"
+      ],
+      "trigger": "232位基金经理布局科技/半导体",
+      "action": "关注科技/半导体板块ETF",
+      "generated_at": "2026-03-14T23:24:15.328001"
+    },
+    {
+      "type": "sector_consensus",
+      "priority": "high",
+      "sector": "消费",
+      "consensus_count": 191,
+      "managers": [
+        "张坤",
+        "萧楠",
+        "谢治宇",
+        "王崇",
+        "何帅"
+      ],
+      "stocks": [
+        "000858.SZ",
+        "000333.SZ",
+        "601058.SH",
+        "601633.SH",
+        "605499.SH"
+      ],
+      "trigger": "191位基金经理布局消费",
+      "action": "关注消费板块ETF",
+      "generated_at": "2026-03-14T23:24:15.328003"
+    },
+    {
+      "type": "sector_consensus",
+      "priority": "high",
+      "sector": "金融",
+      "consensus_count": 185,
+      "managers": [
+        "谢治宇",
+        "周蔚文",
+        "曹名长",
+        "徐彦",
+        "姜诚"
+      ],
+      "stocks": [
+        "601012.SH",
+        "601318.SH",
+        "601600.SH",
+        "601138.SH",
+        "601899.SH"
+      ],
+      "trigger": "185位基金经理布局金融",
+      "action": "关注金融板块ETF",
+      "generated_at": "2026-03-14T23:24:15.328005"
+    },
+    {
+      "type": "sector_consensus",
+      "priority": "high",
+      "sector": "新能源",
+      "consensus_count": 152,
+      "managers": [
+        "谢治宇",
+        "赵诣",
+        "崔宸龙",
+        "陆彬",
+        "钟赟"
+      ],
+      "stocks": [
+        "002594.SZ",
+        "300750.SZ",
+        "002850.SZ",
+        "002812.SZ",
+        "603308.SH"
+      ],
+      "trigger": "152位基金经理布局新能源",
+      "action": "关注新能源板块ETF",
+      "generated_at": "2026-03-14T23:24:15.328006"
+    },
+    {
+      "type": "performance_consensus",
+      "priority": "high",
+      "sentiment": "positive",
+      "trigger": "优秀基金经理占比高(113/231)",
+      "action": "市场情绪积极，可增加权益仓位",
+      "avg_return": 33.83,
+      "generated_at": "2026-03-14T23:24:15.328159"
+    }
+  ]
+}

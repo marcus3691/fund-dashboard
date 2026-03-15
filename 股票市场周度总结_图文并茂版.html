@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票市场周度总结报告</title>
+    <style>
+        @page { size: A4; margin: 1.5cm; }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', 'WenQuanYi Zen Hei', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #1a365d;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 26pt;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .header .subtitle {
+            font-size: 12pt;
+            color: #e2e8f0;
+        }
+        
+        .content {
+            padding: 30px 40px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 16pt;
+            color: #1a365d;
+            border-left: 5px solid #3182ce;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .chart-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .chart-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: #3182ce;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-card.negative {
+            background: #e53e3e;
+        }
+        
+        .stat-card.neutral {
+            background: #718096;
+        }
+        
+        .stat-value {
+            font-size: 24pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 10pt;
+            opacity: 0.9;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+        
+        th {
+            background: #1a1a2e;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .negative { color: #ff6b6b; font-weight: 600; }
+        .positive { color: #51cf66; font-weight: 600; }
+        
+        .highlight-box {
+            background: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            color: #2d3748;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 9pt;
+            color: #868e96;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面 -->
+        <div class="header">
+            <h1>股票市场周度总结报告</h1>
+            <div class="subtitle">
+                报告周期：2026年3月2日 - 3月6日（5个交易日）<br>
+                报告日期：2026年3月8日 | 数据来源：Tushare Pro API
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- 核心数据概览 -->
+            <div class="section">
+                <h2 class="section-title">核心数据概览</h2>
+                <div class="stats-grid">
+                    <div class="stat-card negative">
+                        <div class="stat-value">-1.40%</div>
+                        <div class="stat-label">上证指数</div>
+                    </div>
+                    <div class="stat-card negative">
+                        <div class="stat-value">-1.87%</div>
+                        <div class="stat-label">深证成指</div>
+                    </div>
+                    <div class="stat-card negative">
+                        <div class="stat-value">-2.44%</div>
+                        <div class="stat-label">创业板指</div>
+                    </div>
+                    <div class="stat-card neutral">
+                        <div class="stat-value">7,400亿</div>
+                        <div class="stat-label">日均成交额</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 指数走势图表 -->
+            <div class="section">
+                <h2 class="section-title">主要指数本周表现</h2>
+                <div class="chart-container">
+                    <img src="report_images/chart1_indices.png" alt="指数走势对比">
+                </div>
+                <p>本周四大指数全线收跌，创业板指跌幅最大（-2.44%），科创50紧随其后（-2.37%）。市场呈现普跌格局，成长股承压明显。</p>
+            </div>
+            
+            <!-- ETF资金流向 -->
+            <div class="section">
+                <h2 class="section-title">ETF资金流向分析</h2>
+                <div class="chart-container">
+                    <img src="report_images/chart2_etf_flow.png" alt="ETF资金流向">
+                </div>
+                <div class="highlight-box">
+                    <strong>资金流向解读：</strong><br>
+                    • <span class="positive">半导体ETF</span>：成交放量（168亿），资金逆势流入，国产替代逻辑受追捧<br>
+                    • <span class="negative">黄金ETF</span>：成交萎缩（89亿），资金大幅流出，金价回调拖累<br>
+                    • <span class="negative">沪深300ETF</span>：成交缩量，蓝筹防御资金观望
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <!-- 板块表现 -->
+            <div class="section">
+                <h2 class="section-title">重点板块本周表现</h2>
+                <div class="chart-container">
+                    <img src="report_images/chart3_sectors.png" alt="板块涨跌幅">
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>板块</th>
+                            <th>周涨跌</th>
+                            <th>相对大盘</th>
+                            <th>龙头标的</th>
+                            <th>市场地位</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>黄金板块</td>
+                            <td class="negative">-10.19%</td>
+                            <td>跑输8.8个百分点</td>
+                            <td>山东黄金、中金黄金</td>
+                            <td>领跌</td>
+                        </tr>
+                        <tr>
+                            <td>机器人板块</td>
+                            <td class="negative">-4.93%</td>
+                            <td>跑输3.5个百分点</td>
+                            <td>绿的谐波、鸣志电器</td>
+                            <td>跟跌</td>
+                        </tr>
+                        <tr>
+                            <td>半导体板块</td>
+                            <td class="negative">-2.91%</td>
+                            <td>跑输1.5个百分点</td>
+                            <td>中芯国际、北方华创</td>
+                            <td>抗跌</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- 市场情绪 -->
+            <div class="section">
+                <h2 class="section-title">市场情绪仪表盘</h2>
+                <div class="chart-container">
+                    <img src="report_images/chart4_sentiment.png" alt="市场情绪指标">
+                </div>
+            </div>
+            
+            <!-- 下周展望 -->
+            <div class="section">
+                <h2 class="section-title">下周展望与操作建议</h2>
+                
+                <div class="highlight-box">
+                    <strong>关键事件日历：</strong><br>
+                    • 3月10日：英伟达GTC大会（关注AI算力催化）<br>
+                    • 3月12日：美国CPI数据（影响金价与汇率）<br>
+                    • 3月15日：国内MLF操作（流动性预期）
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>板块</th>
+                            <th>操作建议</th>
+                            <th>目标仓位</th>
+                            <th>核心逻辑</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>半导体</td>
+                            <td class="positive">逢低加仓</td>
+                            <td>20%</td>
+                            <td>国产替代+业绩改善</td>
+                        </tr>
+                        <tr>
+                            <td>AI算力</td>
+                            <td class="positive">持有</td>
+                            <td>25%</td>
+                            <td>英伟达大会催化</td>
+                        </tr>
+                        <tr>
+                            <td>黄金</td>
+                            <td class="negative">观望</td>
+                            <td>5%</td>
+                            <td>等待金价企稳</td>
+                        </tr>
+                        <tr>
+                            <td>现金</td>
+                            <td>保留</td>
+                            <td>35%</td>
+                            <td>市场调整期</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>数据来源：Tushare Pro API（http://tushare.xyz）| 报告编制：OpenClaw Agent</p>
+            <p>免责声明：本报告仅供参考，不构成投资建议。股市有风险，投资需谨慎。</p>
+        </div>
+    </div>
+</body>
+</html>

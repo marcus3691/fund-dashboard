@@ -34,47 +34,29 @@ def scrape_web(url: str, mode: str = "auto", selector: Optional[str] = None) -> 
         }
     """
     try:
-        from scrapling.fetchers import Fetcher, DynamicFetcher, StealthyFetcher
+        from scrapling.fetchers import Fetcher
         
-        # 根据模式选择Fetcher
-        if mode == "static":
-            fetcher = Fetcher
-        elif mode == "dynamic":
-            fetcher = DynamicFetcher
-        elif mode == "stealth":
-            fetcher = StealthyFetcher
-        else:  # auto
-            # 先尝试静态抓取，失败则使用stealth
-            try:
-                page = Fetcher.fetch(url)
-                fetcher_used = "static"
-            except Exception:
-                page = StealthyFetcher.fetch(url, headless=True)
-                fetcher_used = "stealth"
-        
-        # 如果是auto模式且上面已经抓取过了，跳过这里
-        if mode != "auto":
-            if mode in ["dynamic", "stealth"]:
-                page = fetcher.fetch(url, headless=True)
-            else:
-                page = fetcher.fetch(url)
-            fetcher_used = mode
+        # 使用 Fetcher.get() 方法
+        page = Fetcher.get(url)
+        fetcher_used = "static"
         
         # 提取基本信息
         result = {
             "success": True,
             "url": url,
-            "title": page.css("title::text").get("").strip(),
-            "content": page.text[:5000] if hasattr(page, 'text') else "",
-            "fetcher_used": fetcher_used if 'fetcher_used' in locals() else mode
+            "title": page.css("title::text").get("").strip() if hasattr(page, 'css') else "",
+            "content": str(page)[:5000] if page else "",
+            "fetcher_used": fetcher_used
         }
         
         # 如果提供了选择器，提取特定内容
-        if selector:
-            selected = page.css(selector)
-            if selected:
-                result["selected_content"] = selected.get("").strip()
-                result["selected_html"] = selected.get("", attr="outerHTML")
+        if selector and hasattr(page, 'css'):
+            try:
+                selected = page.css(selector)
+                if selected:
+                    result["selected_content"] = selected.get("").strip() if hasattr(selected, 'get') else str(selected)
+            except Exception as e:
+                result["selector_error"] = str(e)
         
         return result
         

@@ -1,0 +1,157 @@
+{
+  "data_date": "2026-03-08 20:35:46",
+  "total_funds": 129,
+  "success_count": 129,
+  "failed_count": 0,
+  "year": 2025,
+  "volatility_distribution": {
+    "中低波动(10-15%)": 53,
+    "中波动(15-20%)": 32,
+    "低波动(0-10%)": 22,
+    "高波动(20-30%)": 22
+  },
+  "top_performers": [
+    {
+      "ts_code": "501099.SH",
+      "name": "平安新兴产业LOF",
+      "annual_return": 106.86,
+      "volatility": 27.44,
+      "sharpe": 3.82
+    },
+    {
+      "ts_code": "501203.SH",
+      "name": "易基创新未来LOF",
+      "annual_return": 74.31,
+      "volatility": 17.57,
+      "sharpe": 4.12
+    },
+    {
+      "ts_code": "501095.SH",
+      "name": "中银证券科技创新LOF",
+      "annual_return": 73.92,
+      "volatility": 27.64,
+      "sharpe": 2.6
+    },
+    {
+      "ts_code": "506002.SH",
+      "name": "易方达科创板",
+      "annual_return": 72.28,
+      "volatility": 22.58,
+      "sharpe": 3.11
+    },
+    {
+      "ts_code": "166001.SZ",
+      "name": "中欧趋势LOF",
+      "annual_return": 69.65,
+      "volatility": 14.57,
+      "sharpe": 4.64
+    },
+    {
+      "ts_code": "506005.SH",
+      "name": "科创板博时",
+      "annual_return": 68.94,
+      "volatility": 23.26,
+      "sharpe": 2.88
+    },
+    {
+      "ts_code": "501201.SH",
+      "name": "科创红土LOF",
+      "annual_return": 67.51,
+      "volatility": 27.68,
+      "sharpe": 2.37
+    },
+    {
+      "ts_code": "160212.SZ",
+      "name": "国泰估值LOF",
+      "annual_return": 66.1,
+      "volatility": 22.24,
+      "sharpe": 2.88
+    },
+    {
+      "ts_code": "161133.SZ",
+      "name": "优势回报FOF-LOF",
+      "annual_return": 64.07,
+      "volatility": 17.44,
+      "sharpe": 3.56
+    },
+    {
+      "ts_code": "161912.SZ",
+      "name": "社会责任定开",
+      "annual_return": 64.07,
+      "volatility": 21.72,
+      "sharpe": 2.86
+    }
+  ],
+  "best_sharpe": [
+    {
+      "ts_code": "166001.SZ",
+      "name": "中欧趋势LOF",
+      "annual_return": 69.65,
+      "volatility": 14.57,
+      "sharpe": 4.64
+    },
+    {
+      "ts_code": "161116.SZ",
+      "name": "黄金主题LOF",
+      "annual_return": 62.34,
+      "volatility": 14.57,
+      "sharpe": 4.14
+    },
+    {
+      "ts_code": "160719.SZ",
+      "name": "嘉实黄金LOF",
+      "annual_return": 53.91,
+      "volatility": 12.58,
+      "sharpe": 4.13
+    },
+    {
+      "ts_code": "501203.SH",
+      "name": "易基创新未来LOF",
+      "annual_return": 74.31,
+      "volatility": 17.57,
+      "sharpe": 4.12
+    },
+    {
+      "ts_code": "164701.SZ",
+      "name": "黄金LOF",
+      "annual_return": 59.22,
+      "volatility": 13.88,
+      "sharpe": 4.12
+    },
+    {
+      "ts_code": "501099.SH",
+      "name": "平安新兴产业LOF",
+      "annual_return": 106.86,
+      "volatility": 27.44,
+      "sharpe": 3.82
+    },
+    {
+      "ts_code": "165513.SZ",
+      "name": "中信保诚商品LOF",
+      "annual_return": 47.6,
+      "volatility": 11.98,
+      "sharpe": 3.81
+    },
+    {
+      "ts_code": "163302.SZ",
+      "name": "大摩资源LOF",
+      "annual_return": 42.54,
+      "volatility": 11.26,
+      "sharpe": 3.6
+    },
+    {
+      "ts_code": "161133.SZ",
+      "name": "优势回报FOF-LOF",
+      "annual_return": 64.07,
+      "volatility": 17.44,
+      "sharpe": 3.56
+    },
+    {
+      "ts_code": "501073.SH",
+      "name": "华安智联LOF",
+      "annual_return": 46.16,
+      "volatility": 12.46,
+      "sharpe": 3.54
+    }
+  ]
+}

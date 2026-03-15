@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>年金产品库与策略库标签体系</title>
+    <style>
+        @page { size: A4; margin: 1.5cm; }
+        body { font-family: "Microsoft YaHei", sans-serif; font-size: 10pt; line-height: 1.5; color: #333; }
+        h1 { font-size: 16pt; color: #1a1a1a; border-bottom: 2px solid #c41230; padding-bottom: 6px; margin: 15px 0; }
+        h2 { font-size: 13pt; color: #c41230; margin-top: 18px; border-left: 3px solid #c41230; padding: 5px 8px; background: #fafafa; }
+        h3 { font-size: 11pt; color: #444; margin-top: 12px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+        th, td { border: 1px solid #ddd; padding: 5px 6px; text-align: left; }
+        th { background: #f5f5f5; font-weight: bold; }
+        .tag { display: inline-block; padding: 1px 4px; border-radius: 2px; font-size: 8pt; margin: 1px; }
+        .tag-blue { background: #e3f2fd; color: #1565c0; }
+        .tag-green { background: #e8f5e9; color: #2e7d32; }
+        .tag-orange { background: #fff3e0; color: #ef6c00; }
+        .tag-red { background: #ffebee; color: #c62828; }
+        .recommend { background: #d4edda; padding: 8px; margin: 8px 0; border-radius: 4px; }
+        .warning { background: #fff3cd; padding: 8px; margin: 8px 0; border-radius: 4px; }
+        .footer { margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 8pt; color: #666; text-align: center; }
+    </style>
+</head>
+<body>
+
+<h1>年金产品库与策略库标签体系</h1>
+<p style="color: #666; font-size: 9pt;">基于经济周期与市场环境的投资指引框架 | 2026年3月</p>
+
+<h2>一、经济周期与市场环境定义</h2>
+
+<table>
+    <tr><th>经济周期</th><th>核心特征</th><th>资产表现</th><th>判断指标</th></tr>
+    <tr>
+        <td><b>复苏期</b></td>
+        <td>经济触底回升，企业盈利改善</td>
+        <td>股票↑ 债券→ 商品↑</td>
+        <td>PMI>50且上升、GDP回升、信用利差收窄</td>
+    </tr>
+    <tr>
+        <td><b>扩张期</b></td>
+        <td>经济繁荣，通胀温和</td>
+        <td>股票↑↑ 债券↓ 商品↑</td>
+        <td>GDP高位、失业率低、盈利高增长</td>
+    </tr>
+    <tr>
+        <td><b>滞胀期</b></td>
+        <td>经济放缓+通胀高企</td>
+        <td>股票↓ 债券↓ 商品↑↑</td>
+        <td>GDP下行+CPI>3%、原油价格上涨</td>
+    </tr>
+    <tr>
+        <td><b>衰退期</b></td>
+        <td>经济收缩，通缩压力</td>
+        <td>股票↓ 债券↑ 商品↓</td>
+        <td>PMI<50、GDP负增长、央行降息</td>
+    </tr>
+</table>
+
+<h2>二、产品库标签体系</h2>
+
+<h3>2.1 基础属性标签</h3>
+
+<table>
+    <tr><th>标签维度</th><th>标签值</th><th>说明</th></tr>
+    <tr>
+        <td>资产类别</td>
+        <td>
+            <span class="tag tag-blue">货币型</span>
+            <span class="tag tag-green">债券型</span>
+            <span class="tag tag-orange">混合型</span>
+            <span class="tag tag-red">股票型</span>
+        </td>
+        <td>产品底层资产类型</td>
+    </tr>
+    <tr>
+        <td>风险等级</td>
+        <td>
+            <span class="tag tag-blue">R1-低风险</span>
+            <span class="tag tag-green">R2-中低风险</span>
+            <span class="tag tag-orange">R3-中风险</span>
+            <span class="tag tag-red">R4-中高风险</span>
+        </td>
+        <td>基于历史回撤和波动率</td>
+    </tr>
+    <tr>
+        <td>投资风格</td>
+        <td>
+            <span class="tag tag-blue">价值型</span>
+            <span class="tag tag-green">成长型</span>
+            <span class="tag tag-orange">平衡型</span>
+            <span class="tag tag-red">指数型</span>
+        </td>
+        <td>权益投资风格特征</td>
+    </tr>
+    <tr>
+        <td>久期特征</td>
+        <td>
+            <span class="tag tag-blue">短久期(0-1年)</span>
+            <span class="tag tag-green">中久期(1-3年)</span>
+            <span class="tag tag-orange">长久期(3-5年)</span>
+            <span class="tag tag-red">超长久期(>5年)</span>
+        </td>
+        <td>债券基金专用</td>
+    </tr>
+    <tr>
+        <td>信用等级</td>
+        <td>
+            <span class="tag tag-blue">高等级(AAA)</span>
+            <span class="tag tag-green">中等级(AA+)</span>
+            <span class="tag tag-orange">信用下沉(&lt;AA+)</span>
+        </td>
+        <td>债券基金专用</td>
+    </tr>
+</table>
+
+<h3>2.2 市场环境适配标签</h3>
+
+<table>
+    <tr><th>产品类型</th><th>适配周期</th><th>不适配周期</th><th>关键判断指标</th></tr>
+    <tr>
+        <td><b>短债基金</b><br/><span class="tag tag-blue">货币型</span> <span class="tag tag-blue">短久期</span></td>
+        <td>加息周期、滞胀期、衰退期</td>
+        <td>降息周期</td>
+        <td>央行加息、利率上行</td>
+    </tr>
+    <tr>
+        <td><b>中长债基金</b><br/><span class="tag tag-green">债券型</span> <span class="tag tag-orange">长久期</span></td>
+        <td>降息周期、衰退期</td>
+        <td>加息周期、滞胀期</td>
+        <td>10Y国债收益率&gt;3.5%</td>
+    </tr>
+    <tr>
+        <td><b>可转债基金</b><br/><span class="tag tag-orange">混合型</span> <span class="tag tag-green">中风险</span></td>
+        <td>复苏期、扩张期</td>
+        <td>衰退期</td>
+        <td>股市估值低位、转债溢价率合理</td>
+    </tr>
+    <tr>
+        <td><b>沪深300指数基金</b><br/><span class="tag tag-red">指数型</span> <span class="tag tag-blue">价值型</span></td>
+        <td>复苏期、扩张期</td>
+        <td>滞胀期</td>
+        <td>PE&lt;12倍、PB&lt;1.5倍</td>
+    </tr>
+    <tr>
+        <td><b>成长风格基金</b><br/><span class="tag tag-green">成长型</span> <span class="tag tag-red">中高风险</span></td>
+        <td>扩张期、流动性宽松</td>
+        <td>滞胀期、衰退期、加息周期</td>
+        <td>利率下行、风险偏好回升</td>
+    </tr>
+    <tr>
+        <td><b>红利低波基金</b><br/><span class="tag tag-blue">价值型</span> <span class="tag tag-green">中低风险</span></td>
+        <td>滞胀期、衰退期、加息周期</td>
+        <td>强复苏期</td>
+        <td>股息率&gt;4%、利率上行</td>
+    </tr>
+    <tr>
+        <td><b>港股通基金</b><br/><span class="tag tag-orange">混合型</span> <span class="tag tag-red">港股</span></td>
+        <td>港股估值低位、人民币升值</td>
+        <td>人民币贬值、地缘政治风险</td>
+        <td>恒生指数PE&lt;10倍</td>
+    </tr>
+</table>
+
+<h2>三、策略库标签体系</h2>
+
+<h3>3.1 策略属性标签</h3>
+
+<table>
+    <tr><th>标签维度</th><th>标签值</th><th>说明</th></tr>
+    <tr>
+        <td>策略层级</td>
+        <td>
+            <span class="tag tag-blue">战略配置</span>
+            <span class="tag tag-green">战术配置</span>
+            <span class="tag tag-orange">证券选择</span>
+            <span class="tag tag-red">风险管理</span>
+        </td>
+        <td>策略在组合中的作用</td>
+    </tr>
+    <tr>
+        <td>收益来源</td>
+        <td>
+            <span class="tag tag-blue">Beta</span>
+            <span class="tag tag-green">Alpha</span>
+            <span class="tag tag-orange">套利</span>
+            <span class="tag tag-red">对冲</span>
+        </td>
+        <td>策略收益驱动因素</td>
+    </tr>
+    <tr>
+        <td>调仓频率</td>
+        <td>
+            <span class="tag tag-blue">低频(年度)</span>
+            <span class="tag tag-green">中频(季度)</span>
+            <span class="tag tag-orange">高频(月度)</span>
+        </td>
+        <td>策略再平衡频率</td>
+    </tr>
+    <tr>
+        <td>实施方式</td>
+        <td>
+            <span class="tag tag-blue">直接投资</span>
+            <span class="tag tag-green">间接投资</span>
+            <span class="tag tag-orange">两者结合</span>
+        </td>
+        <td>策略执行方式</td>
+    </tr>
+</table>
+
+<h3>3.2 经济周期适配矩阵</h3>
+
+<table>
+    <tr><th>策略名称</th><th>复苏期</th><th>扩张期</th><th>滞胀期</th><th>衰退期</th><th>关键信号</th></tr>
+    <tr>
+        <td><b>久期轮动策略</b></td>
+        <td class="recommend">拉长久期</td>
+        <td class="warning">缩短久期</td>
+        <td class="warning">最短久期</td>
+        <td class="recommend">拉长久期</td>
+        <td>10Y国债收益率、央行政策</td>
+    </tr>
+    <tr>
+        <td><b>信用利差策略</b></td>
+        <td class="recommend">信用下沉</td>
+        <td class="warning">维持中性</td>
+        <td class="warning">高等级为主</td>
+        <td class="warning">高等级为主</td>
+        <td>AA-AAA利差、违约率</td>
+    </tr>
+    <tr>
+        <td><b>行业轮动策略</b></td>
+        <td class="recommend">金融/周期</td>
+        <td class="recommend">科技/消费</td>
+        <td class="warning">公用事业/能源</td>
+        <td class="warning">防御性行业</td>
+        <td>行业景气度、盈利预期</td>
+    </tr>
+    <tr>
+        <td><b>风格轮动策略</b></td>
+        <td class="recommend">价值→成长</td>
+        <td class="recommend">成长占优</td>
+        <td class="recommend">价值占优</td>
+        <td class="recommend">价值占优</td>
+        <td>价值/成长相对估值</td>
+    </tr>
+    <tr>
+        <td><b>股债配比策略</b></td>
+        <td class="recommend">逐步加仓权益</td>
+        <td class="recommend">权益高配</td>
+        <td class="warning">降低权益</td>
+        <td class="warning">权益低配</td>
+        <td>股债性价比、ERP</td>
+    </tr>
+    <tr>
+        <td><b>股指期货套保</b></td>
+        <td class="warning">低仓位</td>
+        <td class="warning">逐步加仓</td>
+        <td class="recommend">高仓位</td>
+        <td class="recommend">维持高仓位</td>
+        <td>波动率、回撤控制需求</td>
+    </tr>
+</table>
+
+<h2>四、受托人决策流程</h2>
+
+<table>
+    <tr><th>步骤</th><th>决策内容</th><th>参考依据</th></tr>
+    <tr>
+        <td><b>第一步</b></td>
+        <td>判断经济周期</td>
+        <td>PMI、GDP、通胀、利率等宏观指标</td>
+    </tr>
+    <tr>
+        <td><b>第二步</b></td>
+        <td>确定战略配置</td>
+        <td>选择适配的资产配置策略（股债比例）</td>
+    </tr>
+    <tr>
+        <td><b>第三步</b></td>
+        <td>选择战术策略</td>
+        <td>选择适配的行业/风格/久期策略</td>
+    </tr>
+    <tr>
+        <td><b>第四步</b></td>
+        <td>确定实施方式</td>
+        <td>直接投资 vs 间接投资（产品库选择）</td>
+    </tr>
+    <tr>
+        <td><b>第五步</b></td>
+        <td>构建组合并监控</td>
+        <td>定期评估策略有效性，动态调整</td>
+    </tr>
+</table>
+
+<h2>五、应用示例</h2>
+
+<div class="recommend">
+<b>假设当前判断：复苏期初期</b><br/>
+• 战略配置：权益30%、固收65%、流动性5%<br/>
+• 战术策略：久期轮动→拉长久期、行业轮动→金融/周期、风格轮动→价值→成长<br/>
+• 产品选择：中长债基金（长久期标签）、沪深300指数基金（价值标签）、金融主题基金
+</div>
+
+<div class="footer">
+    <p>报告生成时间：2026年3月6日</p>
+    <p>本标签体系仅供年金投资管理参考，具体投资需符合监管要求</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+﻿ts_code,name,invest_type,category,fund_scale,scale_status,return_3m,return_6m,return_1y,quality_score,percentile_6m,percentile_1y,stock_ratio_4q_avg,is_core,is_watch,is_backup
+019144.OF,东财景气驱动C,混合型,混合型-偏股,14.12358038325615,preferred,1.2,-13.75,29.57,81.5,1.5139900344959711,99.50248756218906,,True,False,False
+019143.OF,东财景气驱动A,混合型,混合型-偏股,11.652908943240194,preferred,1.24,-13.69,29.69,81.6,1.5523188961287904,99.52162265595102,,True,False,False
+019376.OF,广发睿杰精选A3,混合型,混合型-偏股,5.960810412873563,preferred,0.55,-6.24,19.68,84.9,15.465695668838633,97.09146574818216,,True,False,False
+014953.OF,信澳至诚精选C,混合型,混合型-偏股,17.271823410169823,preferred,-2.39,-5.44,17.83,82.5,18.474511307014183,95.96249521622656,,True,False,False

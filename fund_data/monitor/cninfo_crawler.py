@@ -2,13 +2,29 @@
 """
 巨潮资讯网基金季报抓取脚本
 官方信息披露平台，数据权威可靠
+
+整合功能:
+1. 搜索基金并获取公告列表
+2. 下载季报PDF
+3. 自动解析PDF提取"投资策略和运作分析"
 """
 
 import requests
 import json
 import re
+import os
+import sys
 from datetime import datetime
 from typing import Dict, List, Optional
+
+# 添加报告解析器
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from report_parser import ReportParser, parse_report_pdf
+    REPORT_PARSER_AVAILABLE = True
+except ImportError:
+    REPORT_PARSER_AVAILABLE = False
+    print("⚠️ 警告: report_parser模块未找到，PDF解析功能不可用")
 
 class CNInfoCrawler:
     """
@@ -155,15 +171,26 @@ class CNInfoCrawler:
             print(f"下载PDF失败: {e}")
             return None
     
-    def extract_investment_strategy(self, fund_code: str, fund_name: str) -> Dict:
+    def extract_investment_strategy(self, fund_code: str, fund_name: str, 
+                                    auto_parse: bool = True,
+                                    save_pdf: bool = True,
+                                    save_dir: str = None) -> Dict:
         """
-        提取基金投资策略
+        提取基金投资策略（完整流程）
         
         流程:
         1. 搜索基金获取orgId
         2. 获取最新季报
-        3. 下载PDF并解析
+        3. 下载PDF
+        4. 解析PDF提取策略章节
         
+        Args:
+            fund_code: 基金代码
+            fund_name: 基金名称
+            auto_parse: 是否自动解析PDF
+            save_pdf: 是否保存PDF文件
+            save_dir: PDF保存目录
+            
         Returns:
             {
                 'success': bool,
@@ -172,8 +199,10 @@ class CNInfoCrawler:
                 'latest_report': {
                     'title': str,
                     'date': str,
-                    'strategy_text': str,  # 投资策略章节文本
-                    'holdings_text': str   # 持仓章节文本
+                    'strategy_text': str,      # 投资策略章节文本
+                    'strategy_analysis': dict,  # 智能分析结果
+                    'pdf_path': str,           # 本地PDF路径
+                    'pdf_url': str             # 原始PDF链接
                 }
             }
         """
@@ -188,6 +217,7 @@ class CNInfoCrawler:
         
         org_id = fund_info.get('orgId')
         code = fund_info.get('code') or fund_code
+        name = fund_info.get('name') or fund_name
         
         # 2. 获取季报列表
         reports = self.get_quarterly_reports(code, org_id)
@@ -198,10 +228,10 @@ class CNInfoCrawler:
         # 获取最新季报
         latest = reports[0]
         
-        return {
+        result = {
             'success': True,
             'fund_code': code,
-            'fund_name': fund_info.get('name') or fund_name,
+            'fund_name': name,
             'org_id': org_id,
             'latest_report': {
                 'title': latest['title'],
@@ -210,6 +240,169 @@ class CNInfoCrawler:
                 'pdf_url': latest['pdf_url']
             }
         }
+        
+        # 3. 下载PDF
+        pdf_content = self.download_report_pdf(latest['pdf_url'])
+        
+        if not pdf_content:
+            result['success'] = False
+            result['error'] = 'PDF下载失败'
+            return result
+        
+        # 4. 保存PDF（可选）
+        pdf_path = None
+        if save_pdf:
+            if not save_dir:
+                save_dir = '/root/.openclaw/workspace/fund_data/reports_pdf'
+            os.makedirs(save_dir, exist_ok=True)
+            
+            # 生成文件名: 基金代码_基金名称_报告标题.pdf
+            safe_name = re.sub(r'[\\/:*?"<>>|]', '_', name)
+            safe_title = re.sub(r'[\\/:*?"<>>|]', '_', latest['title'])[:50]
+            filename = f"{code}_{safe_name}_{safe_title}.pdf"
+            pdf_path = os.path.join(save_dir, filename)
+            
+            with open(pdf_path, 'wb') as f:
+                f.write(pdf_content)
+            
+            result['latest_report']['pdf_path'] = pdf_path
+            print(f"  📄 PDF已保存: {pdf_path}")
+        
+        # 5. 解析PDF（可选）
+        if auto_parse and REPORT_PARSER_AVAILABLE:
+            print(f"  🔍 正在解析PDF...")
+            parser = ReportParser()
+            parse_result = parser.parse_from_bytes(pdf_content, code, name)
+            
+            if parse_result.get('success'):
+                strategy_section = parse_result.get('strategy_section', {})
+                result['latest_report']['strategy_text'] = strategy_section.get('content')
+                result['latest_report']['strategy_pages'] = f"{strategy_section.get('start_page')}-{strategy_section.get('end_page')}"
+                result['latest_report']['strategy_analysis'] = parse_result.get('analysis')
+                print(f"  ✅ 成功提取策略章节 ({len(strategy_section.get('content', ''))} 字符)")
+            else:
+                result['latest_report']['parse_error'] = parse_result.get('error')
+                print(f"  ⚠️ PDF解析失败: {parse_result.get('error')}")
+        
+        return result
+
+    def batch_extract_strategies(self, fund_list: List[Dict], 
+                                  save_results: bool = True,
+                                  output_file: str = None) -> Dict:
+        """
+        批量提取多个基金的投资策略
+        
+        Args:
+            fund_list: 基金列表，每项包含fund_code和fund_name
+                      例如: [{'fund_code': '005827', 'fund_name': '易方达蓝筹精选'}, ...]
+            save_results: 是否保存结果到文件
+            output_file: 输出文件名
+            
+        Returns:
+            {
+                'total': int,
+                'successful': int,
+                'failed': int,
+                'results': List[Dict],
+                'output_file': str
+            }
+        """
+        results = []
+        successful = 0
+        failed = 0
+        
+        print(f"\n{'='*70}")
+        print(f"批量提取基金投资策略")
+        print(f"共 {len(fund_list)} 个基金")
+        print(f"{'='*70}\n")
+        
+        for i, fund in enumerate(fund_list, 1):
+            fund_code = fund.get('fund_code') or fund.get('code')
+            fund_name = fund.get('fund_name') or fund.get('name')
+            
+            print(f"\n[{i}/{len(fund_list)}] 处理: {fund_name} ({fund_code})")
+            
+            try:
+                result = self.extract_investment_strategy(
+                    fund_code=fund_code,
+                    fund_name=fund_name,
+                    auto_parse=True,
+                    save_pdf=True
+                )
+                results.append(result)
+                
+                if result.get('success'):
+                    successful += 1
+                    if 'strategy_analysis' in result.get('latest_report', {}):
+                        analysis = result['latest_report']['strategy_analysis']
+                        sentiment = analysis.get('market_view', {}).get('sentiment_score', 0)
+                        sectors = analysis.get('sector_preference', {}).get('mentioned_sectors', [])
+                        print(f"    📊 市场情绪: {sentiment:+.0f} | 关注行业: {', '.join(sectors[:3]) if sectors else '无'}")
+                else:
+                    failed += 1
+                    print(f"    ❌ 失败: {result.get('error')}")
+                    
+            except Exception as e:
+                failed += 1
+                print(f"    ❌ 异常: {e}")
+                results.append({
+                    'success': False,
+                    'fund_code': fund_code,
+                    'fund_name': fund_name,
+                    'error': str(e)
+                })
+        
+        # 保存结果
+        output_path = None
+        if save_results:
+            import json
+            
+            if not output_file:
+                output_file = f"batch_strategy_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            
+            save_dir = '/root/.openclaw/workspace/fund_data/monitor/logs'
+            os.makedirs(save_dir, exist_ok=True)
+            output_path = os.path.join(save_dir, output_file)
+            
+            # 只保存成功解析的详细结果
+            summary = {
+                'extraction_time': datetime.now().isoformat(),
+                'total': len(fund_list),
+                'successful': successful,
+                'failed': failed,
+                'results': []
+            }
+            
+            for r in results:
+                if r.get('success') and 'strategy_analysis' in r.get('latest_report', {}):
+                    summary['results'].append({
+                        'fund_code': r.get('fund_code'),
+                        'fund_name': r.get('fund_name'),
+                        'report_title': r['latest_report'].get('title'),
+                        'report_date': r['latest_report'].get('date'),
+                        'strategy_summary': {
+                            'char_count': len(r['latest_report'].get('strategy_text', '')),
+                            'sentiment': r['latest_report']['strategy_analysis'].get('market_view', {}).get('sentiment_score'),
+                            'sectors': r['latest_report']['strategy_analysis'].get('sector_preference', {}).get('mentioned_sectors'),
+                            'actions': r['latest_report']['strategy_analysis'].get('position_adjustment', {}).get('actions'),
+                            'has_outlook': r['latest_report']['strategy_analysis'].get('future_outlook', {}).get('has_outlook')
+                        },
+                        'strategy_text': r['latest_report'].get('strategy_text', '')[:1000]  # 只保存前1000字符
+                    })
+            
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(summary, f, ensure_ascii=False, indent=2)
+            
+            print(f"\n💾 结果已保存: {output_path}")
+        
+        return {
+            'total': len(fund_list),
+            'successful': successful,
+            'failed': failed,
+            'results': results,
+            'output_file': output_path
+        }
+
 
 # 测试
 def test_cninfo_crawler():
@@ -243,5 +436,100 @@ def test_cninfo_crawler():
             print(f"  时间: {reports[0]['time']}")
             print(f"  PDF: {reports[0]['pdf_url']}")
 
+
+def test_full_extraction():
+    """测试完整提取流程（下载+解析）"""
+    print("\n" + "="*70)
+    print("完整提取流程测试（下载+解析）")
+    print("="*70)
+    
+    crawler = CNInfoCrawler()
+    
+    # 测试单个基金完整提取
+    test_fund = {
+        'fund_code': '005827',
+        'fund_name': '易方达蓝筹精选混合'
+    }
+    
+    print(f"\n测试基金: {test_fund['fund_name']} ({test_fund['fund_code']})")
+    print("-"*70)
+    
+    result = crawler.extract_investment_strategy(
+        fund_code=test_fund['fund_code'],
+        fund_name=test_fund['fund_name'],
+        auto_parse=True,
+        save_pdf=True
+    )
+    
+    if result.get('success'):
+        print("\n✅ 提取成功!")
+        print(f"\n报告信息:")
+        report = result['latest_report']
+        print(f"  标题: {report.get('title')}")
+        print(f"  日期: {report.get('date')}")
+        print(f"  PDF路径: {report.get('pdf_path')}")
+        
+        if 'strategy_text' in report:
+            print(f"\n策略章节 ({len(report['strategy_text'])} 字符):")
+            print(f"  页码: {report.get('strategy_pages')}")
+            print(f"\n  内容预览(前300字符):")
+            print(f"  {report['strategy_text'][:300]}...")
+        
+        if 'strategy_analysis' in report:
+            print(f"\n智能分析:")
+            analysis = report['strategy_analysis']
+            market = analysis.get('market_view', {})
+            print(f"  市场情绪得分: {market.get('sentiment_score', 0):+.0f}")
+            print(f"  关键词: {', '.join(market.get('keywords', []))}")
+            
+            sectors = analysis.get('sector_preference', {})
+            print(f"  关注行业: {', '.join(sectors.get('mentioned_sectors', []))}")
+            
+            actions = analysis.get('position_adjustment', {})
+            print(f"  调仓动作: {', '.join(actions.get('actions', []))}")
+    else:
+        print(f"\n❌ 提取失败: {result.get('error')}")
+
+
+def test_batch_extraction():
+    """测试批量提取"""
+    print("\n" + "="*70)
+    print("批量提取测试")
+    print("="*70)
+    
+    crawler = CNInfoCrawler()
+    
+    # 测试基金列表
+    test_funds = [
+        {'fund_code': '005827', 'fund_name': '易方达蓝筹精选混合'},
+        {'fund_code': '000083', 'fund_name': '汇添富消费行业混合'},
+        {'fund_code': '110022', 'fund_name': '易方达消费行业股票'},
+    ]
+    
+    result = crawler.batch_extract_strategies(
+        fund_list=test_funds,
+        save_results=True
+    )
+    
+    print(f"\n{'='*70}")
+    print(f"批量处理完成!")
+    print(f"  总计: {result['total']}")
+    print(f"  成功: {result['successful']}")
+    print(f"  失败: {result['failed']}")
+    if result.get('output_file'):
+        print(f"  结果文件: {result['output_file']}")
+
+
 if __name__ == "__main__":
-    test_cninfo_crawler()
+    import sys
+    
+    if len(sys.argv) > 1 and sys.argv[1] == '--full':
+        test_full_extraction()
+    elif len(sys.argv) > 1 and sys.argv[1] == '--batch':
+        test_batch_extraction()
+    else:
+        test_cninfo_crawler()
+        print("\n" + "="*70)
+        print("提示: 使用 --full 参数测试完整提取流程")
+        print("      使用 --batch 参数测试批量提取")
+        print("="*70)

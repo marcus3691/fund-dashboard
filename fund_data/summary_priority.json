@@ -1,0 +1,77 @@
+{
+  "data_date": "2026-03-09 09:55:32",
+  "total_target": 6366,
+  "success": 6288,
+  "failed": 78,
+  "categories": {
+    "主动股票型": {
+      "count": 578,
+      "avg_return_1y": 5.2,
+      "avg_volatility": 17.5,
+      "avg_sharpe": 0.17,
+      "top_3": [
+        {
+          "ts_code": "020775.OF",
+          "name": "国寿安保产业升级A",
+          "return_1y": 31.75
+        },
+        {
+          "ts_code": "020774.OF",
+          "name": "国寿安保产业升级C",
+          "return_1y": 31.61
+        },
+        {
+          "ts_code": "020722.OF",
+          "name": "国寿安保数字经济A",
+          "return_1y": 28.46
+        }
+      ]
+    },
+    "混合型-偏股": {
+      "count": 5234,
+      "avg_return_1y": 4.3,
+      "avg_volatility": 13.7,
+      "avg_sharpe": 0.06,
+      "top_3": [
+        {
+          "ts_code": "017697.OF",
+          "name": "华夏新材料龙头A",
+          "return_1y": 40.75
+        },
+        {
+          "ts_code": "017698.OF",
+          "name": "华夏新材料龙头C",
+          "return_1y": 40.6
+        },
+        {
+          "ts_code": "023674.OF",
+          "name": "德邦新兴产业A",
+          "return_1y": 39.86
+        }
+      ]
+    },
+    "混合型-平衡": {
+      "count": 476,
+      "avg_return_1y": 5.1,
+      "avg_volatility": 14.5,
+      "avg_sharpe": 0.05,
+      "top_3": [
+        {
+          "ts_code": "025476.OF",
+          "name": "银华瑞和C",
+          "return_1y": 34.97
+        },
+        {
+          "ts_code": "019207.OF",
+          "name": "大成正向回报C",
+          "return_1y": 33.73
+        },
+        {
+          "ts_code": "020199.OF",
+          "name": "万家双引擎C",
+          "return_1y": 32.85
+        }
+      ]
+    }
+  }
+}
