@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T09:00:01.635793",
+  "generated_at": "2026-03-16T20:00:01.584980",
   "total_managers": 311,
   "signals": [
     {
@@ -17,7 +17,7 @@
       ],
       "trigger": "66位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630358"
+      "generated_at": "2026-03-16T20:00:01.579475"
     },
     {
       "type": "stock_consensus",
@@ -34,7 +34,7 @@
       ],
       "trigger": "53位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630368"
+      "generated_at": "2026-03-16T20:00:01.579482"
     },
     {
       "type": "stock_consensus",
@@ -51,7 +51,7 @@
       ],
       "trigger": "53位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630372"
+      "generated_at": "2026-03-16T20:00:01.579485"
     },
     {
       "type": "stock_consensus",
@@ -68,7 +68,7 @@
       ],
       "trigger": "37位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630374"
+      "generated_at": "2026-03-16T20:00:01.579487"
     },
     {
       "type": "stock_consensus",
@@ -85,7 +85,7 @@
       ],
       "trigger": "31位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630379"
+      "generated_at": "2026-03-16T20:00:01.579490"
     },
     {
       "type": "stock_consensus",
@@ -102,7 +102,7 @@
       ],
       "trigger": "28位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630384"
+      "generated_at": "2026-03-16T20:00:01.579494"
     },
     {
       "type": "stock_consensus",
@@ -119,7 +119,7 @@
       ],
       "trigger": "26位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630386"
+      "generated_at": "2026-03-16T20:00:01.579496"
     },
     {
       "type": "stock_consensus",
@@ -136,7 +136,7 @@
       ],
       "trigger": "25位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630388"
+      "generated_at": "2026-03-16T20:00:01.579498"
     },
     {
       "type": "stock_consensus",
@@ -153,7 +153,7 @@
       ],
       "trigger": "20位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630391"
+      "generated_at": "2026-03-16T20:00:01.579502"
     },
     {
       "type": "stock_consensus",
@@ -170,7 +170,7 @@
       ],
       "trigger": "20位基金经理重仓持有",
       "action": "关注相关ETF或个股",
-      "generated_at": "2026-03-16T09:00:01.630393"
+      "generated_at": "2026-03-16T20:00:01.579504"
     },
     {
       "type": "sector_consensus",
@@ -193,7 +193,7 @@
       ],
       "trigger": "803位基金经理布局其他",
       "action": "关注其他板块ETF",
-      "generated_at": "2026-03-16T09:00:01.635300"
+      "generated_at": "2026-03-16T20:00:01.584414"
     },
     {
       "type": "sector_consensus",
@@ -216,7 +216,7 @@
       ],
       "trigger": "232位基金经理布局科技/半导体",
       "action": "关注科技/半导体板块ETF",
-      "generated_at": "2026-03-16T09:00:01.635306"
+      "generated_at": "2026-03-16T20:00:01.584421"
     },
     {
       "type": "sector_consensus",
@@ -239,7 +239,7 @@
       ],
       "trigger": "191位基金经理布局消费",
       "action": "关注消费板块ETF",
-      "generated_at": "2026-03-16T09:00:01.635309"
+      "generated_at": "2026-03-16T20:00:01.584425"
     },
     {
       "type": "sector_consensus",
@@ -262,7 +262,7 @@
       ],
       "trigger": "185位基金经理布局金融",
       "action": "关注金融板块ETF",
-      "generated_at": "2026-03-16T09:00:01.635313"
+      "generated_at": "2026-03-16T20:00:01.584428"
     },
     {
       "type": "sector_consensus",
@@ -285,7 +285,7 @@
       ],
       "trigger": "152位基金经理布局新能源",
       "action": "关注新能源板块ETF",
-      "generated_at": "2026-03-16T09:00:01.635318"
+      "generated_at": "2026-03-16T20:00:01.584434"
     },
     {
       "type": "performance_consensus",
@@ -294,7 +294,7 @@
       "trigger": "优秀基金经理占比高(113/231)",
       "action": "市场情绪积极，可增加权益仓位",
       "avg_return": 33.83,
-      "generated_at": "2026-03-16T09:00:01.635546"
+      "generated_at": "2026-03-16T20:00:01.584635"
     }
   ]
 }
