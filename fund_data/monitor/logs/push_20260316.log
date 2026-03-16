@@ -8,3 +8,34 @@
 [09:00:03]   ✅ 报告索引页面已生成
 [09:00:03]   ✅ Web文件已复制到Git仓库
 [09:00:03] 步骤3: Git提交和推送...
+[master 500e7f5] 自动推送: 基金产品库报告更新 - 2026-03-16 09:00:03
+ 24 files changed, 3636 insertions(+), 51 deletions(-)
+ create mode 100644 __pycache__/fund_report_email_sender.cpython-312.pyc
+ create mode 100644 __pycache__/fund_report_html_generator.cpython-312.pyc
+ create mode 100644 __pycache__/trump_visit_strategy_v2.cpython-312.pyc
+ create mode 100644 auto_run_20260315.log
+ create mode 100644 auto_run_summary_20260315.json
+ create mode 100755 fund_auto_runner.py
+ create mode 100644 fund_daily_report_20260315.html
+ create mode 100644 fund_data/monitor/__pycache__/consensus_signal_generator.cpython-312.pyc
+ create mode 100644 fund_data/monitor/history/signals_20260316.json
+ create mode 100644 fund_data/monitor/logs/push_20260316.log
+ create mode 100644 fund_data/monitor/logs/weekly_20260316.log
+ create mode 100644 fund_data/monitor/reports/consensus_report_weekly_20260316.html
+ create mode 100644 fund_report_email_sender.py
+ create mode 100644 fund_report_html_generator.py
+ create mode 100644 last_notification.txt
+ create mode 100644 manager_consensus_signals.json
+ create mode 100755 run_auto_daily.sh
+ create mode 100644 web_reports/weekly/consensus_report_weekly_20260316.html
+ create mode 100644 weekly/consensus_report_weekly_20260316.html
+[09:00:03] =========================================
+[09:00:03] 开始执行报告全量推送
+[09:00:03] =========================================
+[09:00:03] 步骤1: 复制最新报告到Web目录...
+[09:00:03]   ✅ 周报已复制: consensus_report_weekly_20260316.html
+[09:00:03]   ✅ 信号数据已复制
+[09:00:03] 步骤2: 生成报告索引页面...
+[09:00:03]   ✅ 报告索引页面已生成
+[09:00:03]   ✅ Web文件已复制到Git仓库
+[09:00:03] 步骤3: Git提交和推送...
