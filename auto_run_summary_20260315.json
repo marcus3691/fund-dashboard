@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "run_time": "2026-03-15 23:10:10",
+    "tasks_completed": 2,
+    "tasks_failed": 1,
+    "key_findings": [
+      "特朗普策略预期收益: +0.90%"
+    ]
+  },
+  "details": {
+    "consensus_signals": {
+      "status": "error",
+      "message": "'ManagerConsensusSignal' object has no attribute 'total_managers'"
+    },
+    "trump_strategy": {
+      "status": "success",
+      "expected_return": "+0.90%",
+      "portfolio_count": 6,
+      "scenarios_summary": {
+        "谈得好": {
+          "probability": "35%",
+          "return": "+0.85%"
+        },
+        "谈一般": {
+          "probability": "40%",
+          "return": "+0.85%"
+        },
+        "没谈好": {
+          "probability": "25%",
+          "return": "+1.05%"
+        }
+      }
+    },
+    "fund_screening": {
+      "status": "success",
+      "summary": {
+        "core_count": 121,
+        "core_avg_return": 21.456280991735536,
+        "core_avg_quality": 87.18595041322314,
+        "watch_count": 75
+      }
+    }
+  }
+}
