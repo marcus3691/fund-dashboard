@@ -1,0 +1,294 @@
+{
+  "update_time": "2026-03-18 18:02:13",
+  "data_source": "Tushare Pro (待接入)",
+  "etf_list": {
+    "515220.SH": {
+      "name": "煤炭ETF",
+      "layer": "core",
+      "category": "能源",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "512400.SH": {
+      "name": "有色金属ETF",
+      "layer": "core",
+      "category": "有色",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "518880.SH": {
+      "name": "黄金ETF",
+      "layer": "core",
+      "category": "贵金属",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "159972.SZ": {
+      "name": "5年地债ETF",
+      "layer": "core",
+      "category": "债券",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "512480.SH": {
+      "name": "半导体ETF",
+      "layer": "satellite",
+      "category": "科技-算力",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "515880.SH": {
+      "name": "通信ETF",
+      "layer": "satellite",
+      "category": "科技-光模块",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "159819.SZ": {
+      "name": "人工智能ETF",
+      "layer": "satellite",
+      "category": "科技-AI应用",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "516510.SH": {
+      "name": "云计算ETF",
+      "layer": "satellite",
+      "category": "科技-云服务",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "512660.SH": {
+      "name": "军工ETF",
+      "layer": "satellite",
+      "category": "军工",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "516020.SH": {
+      "name": "化工ETF",
+      "layer": "satellite",
+      "category": "化工",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "510300.SH": {
+      "name": "沪深300ETF",
+      "layer": "hedge",
+      "category": "宽基",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    },
+    "511010.SH": {
+      "name": "国债ETF",
+      "layer": "hedge",
+      "category": "债券",
+      "latest": {
+        "date": "2026-03-14",
+        "open": 2.15,
+        "close": 2.18,
+        "high": 2.2,
+        "low": 2.14,
+        "volume": 1250000,
+        "amount": 2725000
+      },
+      "change_pct": 1.4,
+      "metrics": {
+        "ma5": 2.12,
+        "ma10": 2.1,
+        "ma20": 2.08,
+        "ma60": 2.02,
+        "high_52w": 2.45,
+        "low_52w": 1.85,
+        "volatility_20d": 15.5
+      }
+    }
+  }
+}
