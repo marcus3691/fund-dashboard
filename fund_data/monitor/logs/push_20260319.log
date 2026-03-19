@@ -8,3 +8,23 @@
 [20:00:02]   ✅ 报告索引页面已生成
 [20:00:02]   ✅ Web文件已复制到Git仓库
 [20:00:02] 步骤3: Git提交和推送...
+[master 4b47f3a] 自动推送: 基金产品库报告更新 - 2026-03-19 20:00:02
+ 14 files changed, 2489 insertions(+), 51 deletions(-)
+ create mode 100644 daily/consensus_report_daily_20260319.html
+ create mode 100644 fund_data/monitor/CONSENSUS_SIGNAL_REPORT_20260318.md
+ create mode 100644 fund_data/monitor/history/signals_20260319.json
+ create mode 100644 fund_data/monitor/logs/daily_20260319.log
+ create mode 100644 fund_data/monitor/logs/push_20260319.log
+ create mode 100644 fund_data/monitor/reports/consensus_report_daily_20260319.html
+ create mode 100644 "knowledge_base/\345\256\217\350\247\202\347\255\226\347\225\245/20260318-\345\237\272\351\207\221\347\273\217\347\220\206\345\205\261\350\257\206\346\212\245\345\221\212.md"
+ create mode 100644 web_reports/daily/consensus_report_daily_20260319.html
+[20:00:02] =========================================
+[20:00:02] 开始执行报告全量推送
+[20:00:02] =========================================
+[20:00:02] 步骤1: 复制最新报告到Web目录...
+[20:00:02]   ✅ 日报已复制: consensus_report_daily_20260319.html
+[20:00:02]   ✅ 信号数据已复制
+[20:00:02] 步骤2: 生成报告索引页面...
+[20:00:02]   ✅ 报告索引页面已生成
+[20:00:02]   ✅ Web文件已复制到Git仓库
+[20:00:02] 步骤3: Git提交和推送...
