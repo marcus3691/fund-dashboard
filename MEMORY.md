@@ -1702,3 +1702,25 @@ pro = ts.pro_api()
 - 研报摘要（三种方法根据场景选择）
 - 深度研究（多源验证避免单一视角偏差）
 - 长任务管理（tmux后台运行不受中断）
+
+
+---
+
+## Tushare Pro API Token
+
+**记录时间**: 2026-03-21
+**更新时间**: 2026-03-21 19:20
+**状态**: ✅ 有效，已验证
+
+### 当前Token
+```
+ac67f4a573934b28bcd76489aa579d47fcca70bd09ad9f2154208a82
+```
+
+### 历史Token
+- 旧: `33996190080200cd63a01732ad443c390d9d580913ec938d4e1d704d` （已失效）
+
+### 使用注意
+- Token在Tushare Pro官网刷新后需5-10分钟生效
+- 系统已改用HTTP API调用（绕过tushare库兼容性问题）
+- 配置位置: `investment_system/config/config.py`
