@@ -8,3 +8,66 @@
 [20:00:02]   ✅ 报告索引页面已生成
 [20:00:02]   ✅ Web文件已复制到Git仓库
 [20:00:02] 步骤3: Git提交和推送...
+[master bbe664c] 自动推送: 基金产品库报告更新 - 2026-03-21 20:00:02
+ 58 files changed, 8381 insertions(+), 236 deletions(-)
+ create mode 100644 backtest/ETF_Portfolio_Analysis_Report_2026Q1.md
+ create mode 100644 backtest/comparison_report_etf_vs_stocks.md
+ create mode 100644 backtest/nav_curve_2026q1.png
+ create mode 100644 backtest/nav_curve_real_2026q1.png
+ create mode 100644 backtest/portfolio_backtest_2026q1.csv
+ create mode 100644 backtest/portfolio_backtest_real_2026q1.csv
+ create mode 100644 backtest/portfolio_backtest_report_2026q1.md
+ create mode 100644 backtest/portfolio_backtest_report_real_2026q1.md
+ create mode 100644 backtest/run_backtest.py
+ create mode 100644 backtest/run_backtest_akshare.py
+ create mode 100644 backtest/run_backtest_real.py
+ create mode 100644 daily/consensus_report_daily_20260321.html
+ create mode 100644 fund_data/monitor/history/signals_20260321.json
+ create mode 100644 fund_data/monitor/logs/daily_20260321.log
+ create mode 100644 fund_data/monitor/logs/push_20260321.log
+ create mode 100644 fund_data/monitor/reports/consensus_report_daily_20260321.html
+ create mode 100644 investment_system/__pycache__/main_controller.cpython-312.pyc
+ create mode 100644 investment_system/agents/__init__.py
+ create mode 100644 investment_system/agents/__pycache__/__init__.cpython-312.pyc
+ create mode 100644 investment_system/agents/__pycache__/attribution_analyzer.cpython-312.pyc
+ create mode 100644 investment_system/agents/__pycache__/data_miner.cpython-312.pyc
+ create mode 100644 investment_system/agents/__pycache__/portfolio_optimizer.cpython-312.pyc
+ create mode 100644 investment_system/agents/__pycache__/report_generator.cpython-312.pyc
+ create mode 100644 investment_system/agents/__pycache__/risk_calc.cpython-312.pyc
+ create mode 100644 investment_system/agents/__pycache__/signal_monitor.cpython-312.pyc
+ create mode 100644 investment_system/agents/__pycache__/smart_portfolio_model.cpython-312.pyc
+ create mode 100644 investment_system/agents/attribution_analyzer.py
+ create mode 100644 investment_system/agents/data_miner.py
+ create mode 100644 investment_system/agents/portfolio_optimizer.py
+ create mode 100644 investment_system/agents/report_generator.py
+ create mode 100644 investment_system/agents/risk_calc.py
+ create mode 100644 investment_system/agents/signal_monitor.py
+ create mode 100644 investment_system/agents/smart_portfolio_model.py
+ create mode 100644 investment_system/attribution_results.pkl
+ create mode 100644 investment_system/config/__pycache__/config.cpython-312.pyc
+ create mode 100644 investment_system/config/config.py
+ create mode 100644 investment_system/investment_report.md
+ create mode 100644 investment_system/main_controller.py
+ create mode 100644 investment_system/reports/full_20260321_183450.md
+ create mode 100644 investment_system/reports/full_20260321_191924.md
+ create mode 100644 investment_system/reports/full_20260321_192310.md
+ create mode 100644 investment_system/reports/full_20260321_192711.md
+ create mode 100644 investment_system/reports/smart_config_20260321_192711.md
+ create mode 100644 investment_system/risk_results.pkl
+ create mode 100644 investment_system/test_data.pkl
+ create mode 100644 memory/2026-03-21.md
+ create mode 100644 portfolio-allocation-20260320.md
+ create mode 100644 portfolio-backtest-2026q1.md
+ create mode 100644 power-equipment-forecast-2025-2027.md
+ create mode 100644 power-equipment-vs-coal-2026.md
+ create mode 100644 web_reports/daily/consensus_report_daily_20260321.html
+[20:00:02] =========================================
+[20:00:02] 开始执行报告全量推送
+[20:00:02] =========================================
+[20:00:02] 步骤1: 复制最新报告到Web目录...
+[20:00:02]   ✅ 日报已复制: consensus_report_daily_20260321.html
+[20:00:02]   ✅ 信号数据已复制
+[20:00:02] 步骤2: 生成报告索引页面...
+[20:00:02]   ✅ 报告索引页面已生成
+[20:00:02]   ✅ Web文件已复制到Git仓库
+[20:00:02] 步骤3: Git提交和推送...
