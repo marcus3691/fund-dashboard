@@ -171,6 +171,358 @@
       "review_status": "pending",
       "reviewer": null,
       "review_notes": "基于博弈论的中期策略信号，已用真实行情数据验证（2月28日-3月13日）。触发条件：①霍尔木兹通航正常 ②油价跌破90 ③美伊释放谈判信号。信号触发后调仓策略：核心层煤炭ETF（515220.SH）获利了结50-70%（已有+6.11%收益），保留30%底仓；黄金ETF（518880.SH）和有色ETF（512400.SH）继续持有（已被套-5.39%/-12.21%，等待地缘缓和后反弹解套）；卫星层半导体ETF（512480.SH）和通信ETF（515880.SH）分批抄底加仓（已调整-6.71%/-3.41%，跌幅充分有反弹空间）"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_001",
+      "timestamp": "2026-03-14T23:24:44.413810",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "66位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "66人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "300750.SZ",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：66位基金经理重仓300750.SZ，平均持仓6.45%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_002",
+      "timestamp": "2026-03-14T23:24:44.413826",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "53位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "53人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "300502.SZ",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：53位基金经理重仓300502.SZ，平均持仓12751128.74%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_003",
+      "timestamp": "2026-03-14T23:24:44.413835",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "53位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "53人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "300308.SZ",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：53位基金经理重仓300308.SZ，平均持仓15117648.63%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_004",
+      "timestamp": "2026-03-14T23:24:44.413840",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "37位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "37人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "000333.SZ",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：37位基金经理重仓000333.SZ，平均持仓59963048.94%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_005",
+      "timestamp": "2026-03-14T23:24:44.413846",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "31位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "31人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "601899.SH",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：31位基金经理重仓601899.SH，平均持仓12649347.74%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_006",
+      "timestamp": "2026-03-14T23:24:44.413850",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "28位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "28人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "603259.SH",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：28位基金经理重仓603259.SH，平均持仓10560975.02%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_007",
+      "timestamp": "2026-03-14T23:24:44.413855",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "26位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "26人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "002475.SZ",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：26位基金经理重仓002475.SZ，平均持仓5.83%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_008",
+      "timestamp": "2026-03-14T23:24:44.413860",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "25位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "25人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "601138.SH",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：25位基金经理重仓601138.SH，平均持仓3030030.06%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_009",
+      "timestamp": "2026-03-14T23:24:44.413866",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "20位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "20人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "600519.SH",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：20位基金经理重仓600519.SH，平均持仓224948452.53%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_010",
+      "timestamp": "2026-03-14T23:24:44.413871",
+      "type": "manager_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "20位基金经理重仓持有",
+        "source": "基金经理共识",
+        "current_value": "20人持有"
+      },
+      "action": {
+        "layer": "satellite",
+        "target": "603993.SH",
+        "direction": "关注",
+        "suggested_weight": 3,
+        "rationale": "基金经理共识：20位基金经理重仓603993.SH，平均持仓8744504.47%"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_011",
+      "timestamp": "2026-03-14T23:24:44.413876",
+      "type": "sector_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "803位基金经理布局其他",
+        "source": "基金经理共识",
+        "current_value": "803人布局"
+      },
+      "action": {
+        "layer": "core",
+        "target": "其他ETF",
+        "direction": "关注",
+        "suggested_weight": 5,
+        "rationale": "行业共识：803位基金经理布局其他板块"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_012",
+      "timestamp": "2026-03-14T23:24:44.413885",
+      "type": "sector_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "232位基金经理布局科技/半导体",
+        "source": "基金经理共识",
+        "current_value": "232人布局"
+      },
+      "action": {
+        "layer": "core",
+        "target": "科技/半导体ETF",
+        "direction": "关注",
+        "suggested_weight": 5,
+        "rationale": "行业共识：232位基金经理布局科技/半导体板块"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_013",
+      "timestamp": "2026-03-14T23:24:44.413890",
+      "type": "sector_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "191位基金经理布局消费",
+        "source": "基金经理共识",
+        "current_value": "191人布局"
+      },
+      "action": {
+        "layer": "core",
+        "target": "消费ETF",
+        "direction": "关注",
+        "suggested_weight": 5,
+        "rationale": "行业共识：191位基金经理布局消费板块"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_014",
+      "timestamp": "2026-03-14T23:24:44.413894",
+      "type": "sector_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "185位基金经理布局金融",
+        "source": "基金经理共识",
+        "current_value": "185人布局"
+      },
+      "action": {
+        "layer": "core",
+        "target": "金融ETF",
+        "direction": "关注",
+        "suggested_weight": 5,
+        "rationale": "行业共识：185位基金经理布局金融板块"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_015",
+      "timestamp": "2026-03-14T23:24:44.413898",
+      "type": "sector_consensus",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "152位基金经理布局新能源",
+        "source": "基金经理共识",
+        "current_value": "152人布局"
+      },
+      "action": {
+        "layer": "core",
+        "target": "新能源ETF",
+        "direction": "关注",
+        "suggested_weight": 5,
+        "rationale": "行业共识：152位基金经理布局新能源板块"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
+    },
+    {
+      "id": "SIG_CONSENSUS_20260314_016",
+      "timestamp": "2026-03-14T23:24:44.413903",
+      "type": "market_sentiment",
+      "priority": "high",
+      "status": "active",
+      "trigger": {
+        "event": "优秀基金经理占比高(113/231)",
+        "source": "基金经理业绩共识",
+        "current_value": "平均收益33.83%"
+      },
+      "action": {
+        "layer": "hedge",
+        "target": "511010.SH,510300.SH",
+        "direction": "调整",
+        "suggested_weight": 5,
+        "rationale": "市场情绪：positive，建议市场情绪积极，可增加权益仓位"
+      },
+      "review_status": "pending",
+      "reviewer": null,
+      "expires_at": "2026-03-21T23:59:59"
     }
   ],
   "signal_rules": {
@@ -180,7 +532,10 @@
         "触发阈值明确且可量化",
         "建议调仓幅度≤5%"
       ],
-      "priority": ["low", "medium"]
+      "priority": [
+        "low",
+        "medium"
+      ]
     },
     "manual_review": {
       "conditions": [
@@ -188,32 +543,75 @@
         "建议调仓幅度>5%",
         "涉及全部清仓或大幅加仓"
       ],
-      "priority": ["high", "critical"]
+      "priority": [
+        "high",
+        "critical"
+      ]
     }
   },
   "signal_sources": {
     "geopolitical": {
       "name": "地缘冲突监控",
-      "sources": ["新华社", "路透社", "BBC", "Al Jazeera"],
-      "keywords": ["霍尔木兹", "伊朗", "以色列", "中东", "石油", "航运"],
+      "sources": [
+        "新华社",
+        "路透社",
+        "BBC",
+        "Al Jazeera"
+      ],
+      "keywords": [
+        "霍尔木兹",
+        "伊朗",
+        "以色列",
+        "中东",
+        "石油",
+        "航运"
+      ],
       "check_frequency": "每2小时"
     },
     "tech_rotation": {
       "name": "科技行业轮动",
-      "sources": ["NVIDIA官网", "OpenAI博客", "工信部", "半导体行业协会"],
-      "keywords": ["AI芯片", "光模块", "大模型", "算力", "云计算"],
+      "sources": [
+        "NVIDIA官网",
+        "OpenAI博客",
+        "工信部",
+        "半导体行业协会"
+      ],
+      "keywords": [
+        "AI芯片",
+        "光模块",
+        "大模型",
+        "算力",
+        "云计算"
+      ],
       "check_frequency": "每日"
     },
     "macro": {
       "name": "宏观数据",
-      "sources": ["国家统计局", "美联储", "OPEC", "EIA"],
-      "keywords": ["CPI", "PMI", "利率", "原油库存", "GDP"],
+      "sources": [
+        "国家统计局",
+        "美联储",
+        "OPEC",
+        "EIA"
+      ],
+      "keywords": [
+        "CPI",
+        "PMI",
+        "利率",
+        "原油库存",
+        "GDP"
+      ],
       "check_frequency": "数据发布时"
     },
     "technical": {
       "name": "技术指标",
-      "sources": ["交易所行情"],
-      "indicators": ["MA突破", "波动率异常", "成交量突变"],
+      "sources": [
+        "交易所行情"
+      ],
+      "indicators": [
+        "MA突破",
+        "波动率异常",
+        "成交量突变"
+      ],
       "check_frequency": "实时"
     }
   }
