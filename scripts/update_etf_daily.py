@@ -30,68 +30,125 @@ ETF_UNIVERSE = {
     "511010.SH": {"name": "国债ETF", "layer": "hedge", "category": "债券"},
 }
 
+import requests
+
 def fetch_etf_daily(code, name):
     """
-    获取ETF日线数据
-    实际使用时接入Tushare Pro API
-    当前使用模拟数据演示结构
+    从Tushare Pro获取ETF日线数据
     """
-    # TODO: 接入Tushare Pro
-    # import tushare as ts
-    # pro = ts.pro_api('your_token')
-    # df = pro.fund_daily(ts_code=code, start_date='20240101', end_date='20260314')
+    token = 'b5733b112e3fb832a729f1faa92155a3e2527e0c27cc148b6615fc58'
+    url = 'http://api.tushare.pro'
     
-    # 模拟返回数据结构
-    return {
-        "code": code,
-        "name": name,
-        "latest": {
-            "date": "2026-03-14",
-            "open": 2.15,
-            "close": 2.18,
-            "high": 2.20,
-            "low": 2.14,
-            "volume": 1250000,
-            "amount": 2725000
+    # 获取最近10个交易日的数据用于计算均线
+    from datetime import datetime, timedelta
+    end_date = datetime.now().strftime('%Y%m%d')
+    start_date = (datetime.now() - timedelta(days=60)).strftime('%Y%m%d')
+    
+    payload = {
+        'api_name': 'fund_daily',
+        'token': token,
+        'params': {
+            'ts_code': code,
+            'start_date': start_date,
+            'end_date': end_date
         },
-        "change_pct": 1.40,
-        "metrics": {
-            "ma5": 2.12,
-            "ma10": 2.10,
-            "ma20": 2.08,
-            "ma60": 2.02,
-            "high_52w": 2.45,
-            "low_52w": 1.85,
-            "volatility_20d": 15.5
-        }
+        'fields': 'trade_date,open,high,low,close,vol,amount'
     }
+    
+    try:
+        r = requests.post(url, json=payload, timeout=30)
+        result = r.json()
+        
+        if result.get('code') != 0 or not result.get('data'):
+            print(f"  ⚠️ Tushare返回空数据或错误: {result.get('msg', 'unknown')}")
+            return None
+        
+        fields = result['data']['fields']
+        items = result['data']['items']
+        
+        if not items:
+            print(f"  ⚠️ 无交易数据")
+            return None
+        
+        # 转换数据格式
+        daily_data = []
+        for item in items:
+            row = dict(zip(fields, item))
+            daily_data.append({
+                "date": row['trade_date'],
+                "open": float(row['open']),
+                "close": float(row['close']),
+                "high": float(row['high']),
+                "low": float(row['low']),
+                "volume": int(row['vol']),
+                "amount": float(row['amount'])
+            })
+        
+        # 按日期排序（旧到新）
+        daily_data.sort(key=lambda x: x['date'])
+        
+        latest = daily_data[-1]
+        prev = daily_data[-2] if len(daily_data) >= 2 else daily_data[-1]
+        change_pct = round((latest['close'] - prev['close']) / prev['close'] * 100, 2) if prev['close'] != 0 else 0
+        
+        metrics = calculate_metrics(daily_data)
+        
+        return {
+            "code": code,
+            "name": name,
+            "latest": {
+                "date": latest['date'][:4] + '-' + latest['date'][4:6] + '-' + latest['date'][6:],
+                "open": latest['open'],
+                "close": latest['close'],
+                "high": latest['high'],
+                "low": latest['low'],
+                "volume": latest['volume'],
+                "amount": round(latest['amount'], 2)
+            },
+            "change_pct": change_pct,
+            "metrics": metrics
+        }
+        
+    except Exception as e:
+        print(f"  ❌ 请求失败: {e}")
+        return None
 
 def calculate_metrics(daily_data):
     """计算技术指标"""
-    if not daily_data:
-        return {}
-    
-    closes = [d["close"] for d in daily_data[-60:]]  # 最近60天
-    if len(closes) < 20:
+    if not daily_data or len(daily_data) < 20:
         return {}
     
     import statistics
     
-    return {
-        "ma5": sum(closes[-5:]) / 5,
-        "ma10": sum(closes[-10:]) / 10,
-        "ma20": sum(closes[-20:]) / 20,
-        "ma60": sum(closes[-60:]) / 60 if len(closes) >= 60 else None,
-        "volatility_20d": statistics.stdev(closes[-20:]) / statistics.mean(closes[-20:]) * 100
+    closes = [d["close"] for d in daily_data]
+    
+    metrics = {
+        "ma5": round(sum(closes[-5:]) / 5, 4),
+        "ma10": round(sum(closes[-10:]) / 10, 4),
+        "ma20": round(sum(closes[-20:]) / 20, 4),
+        "volatility_20d": round(statistics.stdev(closes[-20:]) / statistics.mean(closes[-20:]) * 100, 2)
     }
+    
+    if len(closes) >= 60:
+        metrics["ma60"] = round(sum(closes[-60:]) / 60, 4)
+    
+    # 52周高低点（最近252个交易日≈1年）
+    if len(closes) >= 60:
+        metrics["high_52w"] = round(max(closes[-min(252, len(closes)):]), 4)
+        metrics["low_52w"] = round(min(closes[-min(252, len(closes)):]), 4)
+    
+    return metrics
 
 def update_etf_data():
     """更新所有ETF数据"""
     etf_data = {
         "update_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "data_source": "Tushare Pro (待接入)",
+        "data_source": "Tushare Pro",
         "etf_list": {}
     }
+    
+    success_count = 0
+    failed_count = 0
     
     for code, info in ETF_UNIVERSE.items():
         print(f"Updating {code} - {info['name']}...")
@@ -99,12 +156,18 @@ def update_etf_data():
         # 获取日线数据
         daily = fetch_etf_daily(code, info['name'])
         
+        if daily is None:
+            print(f"  ⚠️ 跳过 {code} - 无数据")
+            failed_count += 1
+            continue
+        
         etf_data["etf_list"][code] = {
             **info,
             "latest": daily["latest"],
             "change_pct": daily["change_pct"],
             "metrics": daily["metrics"]
         }
+        success_count += 1
     
     # 保存到JSON文件
     output_path = os.path.join(os.path.dirname(__file__), "etf_daily_data.json")
@@ -114,7 +177,9 @@ def update_etf_data():
     print(f"\n✅ ETF数据更新完成！")
     print(f"📁 保存路径: {output_path}")
     print(f"🕐 更新时间: {etf_data['update_time']}")
-    print(f"📊 共更新 {len(ETF_UNIVERSE)} 只ETF")
+    print(f"📊 成功: {success_count} / {len(ETF_UNIVERSE)} 只ETF")
+    if failed_count > 0:
+        print(f"⚠️ 失败: {failed_count} 只ETF")
     
     return etf_data
 
