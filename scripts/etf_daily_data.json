@@ -1,5 +1,5 @@
 {
-  "update_time": "2026-05-26 13:28:20",
+  "update_time": "2026-05-26 18:20:20",
   "data_source": "Tushare Pro",
   "etf_list": {
     "515220.SH": {
@@ -7,20 +7,20 @@
       "layer": "core",
       "category": "能源",
       "latest": {
-        "date": "2026-05-25",
-        "open": 1.217,
-        "close": 1.218,
-        "high": 1.252,
-        "low": 1.213,
-        "volume": 9602177,
-        "amount": 1177358.33
+        "date": "2026-05-26",
+        "open": 1.205,
+        "close": 1.206,
+        "high": 1.228,
+        "low": 1.197,
+        "volume": 4772594,
+        "amount": 574923.16
       },
-      "change_pct": 3.22,
+      "change_pct": -0.99,
       "metrics": {
-        "ma5": 1.2132,
-        "ma10": 1.2228,
-        "ma20": 1.2492,
-        "volatility_20d": 3.13
+        "ma5": 1.2046,
+        "ma10": 1.2195,
+        "ma20": 1.2472,
+        "volatility_20d": 3.23
       }
     },
     "512400.SH": {
@@ -28,19 +28,19 @@
       "layer": "core",
       "category": "有色",
       "latest": {
-        "date": "2026-05-25",
-        "open": 2.05,
-        "close": 2.025,
-        "high": 2.066,
-        "low": 2.01,
-        "volume": 6963712,
-        "amount": 1414202.74
+        "date": "2026-05-26",
+        "open": 2.009,
+        "close": 2.095,
+        "high": 2.1,
+        "low": 1.984,
+        "volume": 8702050,
+        "amount": 1788917.61
       },
-      "change_pct": 0.3,
+      "change_pct": 3.46,
       "metrics": {
-        "ma5": 1.9914,
-        "ma10": 2.0532,
-        "ma20": 2.0983,
+        "ma5": 2.0142,
+        "ma10": 2.0439,
+        "ma20": 2.0981,
         "volatility_20d": 4.17
       }
     },
@@ -49,19 +49,19 @@
       "layer": "core",
       "category": "贵金属",
       "latest": {
-        "date": "2026-05-25",
-        "open": 9.531,
-        "close": 9.512,
-        "high": 9.54,
-        "low": 9.49,
-        "volume": 2386059,
-        "amount": 2269776.99
+        "date": "2026-05-26",
+        "open": 9.481,
+        "close": 9.454,
+        "high": 9.487,
+        "low": 9.442,
+        "volume": 2208614,
+        "amount": 2089349.18
       },
-      "change_pct": 0.54,
+      "change_pct": -0.61,
       "metrics": {
-        "ma5": 9.461,
-        "ma10": 9.5777,
-        "ma20": 9.6901,
+        "ma5": 9.4488,
+        "ma10": 9.5425,
+        "ma20": 9.6678,
         "volatility_20d": 1.8
       }
     },
@@ -70,20 +70,20 @@
       "layer": "core",
       "category": "债券",
       "latest": {
-        "date": "2026-05-25",
-        "open": 119.029,
-        "close": 119.075,
-        "high": 119.09,
-        "low": 119.025,
-        "volume": 98263,
-        "amount": 1169866.3
+        "date": "2026-05-26",
+        "open": 119.096,
+        "close": 119.124,
+        "high": 119.126,
+        "low": 119.076,
+        "volume": 180758,
+        "amount": 2152828.51
       },
       "change_pct": 0.04,
       "metrics": {
-        "ma5": 119.0118,
-        "ma10": 118.9385,
-        "ma20": 118.7935,
-        "volatility_20d": 0.14
+        "ma5": 119.0418,
+        "ma10": 118.9684,
+        "ma20": 118.8175,
+        "volatility_20d": 0.15
       }
     },
     "512480.SH": {
@@ -91,20 +91,20 @@
       "layer": "satellite",
       "category": "科技-算力",
       "latest": {
-        "date": "2026-05-25",
-        "open": 2.191,
-        "close": 2.348,
-        "high": 2.35,
-        "low": 2.165,
-        "volume": 10541574,
-        "amount": 2403690.73
+        "date": "2026-05-26",
+        "open": 2.344,
+        "close": 2.321,
+        "high": 2.344,
+        "low": 2.247,
+        "volume": 11334557,
+        "amount": 2594804.09
       },
-      "change_pct": 7.26,
+      "change_pct": -1.15,
       "metrics": {
-        "ma5": 2.2054,
-        "ma10": 2.1276,
-        "ma20": 1.9711,
-        "volatility_20d": 9.91
+        "ma5": 2.2434,
+        "ma10": 2.1572,
+        "ma20": 2.0048,
+        "volatility_20d": 9.71
       }
     },
     "515880.SH": {
@@ -112,20 +112,20 @@
       "layer": "satellite",
       "category": "科技-光模块",
       "latest": {
-        "date": "2026-05-25",
-        "open": 1.516,
-        "close": 1.562,
-        "high": 1.565,
-        "low": 1.487,
-        "volume": 23733160,
-        "amount": 3627740.17
+        "date": "2026-05-26",
+        "open": 1.546,
+        "close": 1.548,
+        "high": 1.559,
+        "low": 1.518,
+        "volume": 19446060,
+        "amount": 2994108.16
       },
-      "change_pct": 3.79,
+      "change_pct": -0.9,
       "metrics": {
-        "ma5": 1.507,
-        "ma10": 1.5154,
-        "ma20": 1.4449,
-        "volatility_20d": 5.87
+        "ma5": 1.5144,
+        "ma10": 1.5201,
+        "ma20": 1.4526,
+        "volatility_20d": 5.99
       }
     },
     "159819.SZ": {
@@ -133,20 +133,20 @@
       "layer": "satellite",
       "category": "科技-AI应用",
       "latest": {
-        "date": "2026-05-25",
-        "open": 1.989,
-        "close": 2.055,
-        "high": 2.056,
-        "low": 1.972,
-        "volume": 4346923,
-        "amount": 877939.21
+        "date": "2026-05-26",
+        "open": 2.055,
+        "close": 2.043,
+        "high": 2.055,
+        "low": 2.006,
+        "volume": 4382675,
+        "amount": 889884.31
       },
-      "change_pct": 3.84,
+      "change_pct": -0.58,
       "metrics": {
-        "ma5": 1.9918,
-        "ma10": 1.985,
-        "ma20": 1.897,
-        "volatility_20d": 5.77
+        "ma5": 2.0018,
+        "ma10": 1.9933,
+        "ma20": 1.911,
+        "volatility_20d": 5.71
       }
     },
     "516510.SH": {
@@ -154,20 +154,20 @@
       "layer": "satellite",
       "category": "科技-云服务",
       "latest": {
-        "date": "2026-05-25",
-        "open": 1.838,
-        "close": 1.868,
-        "high": 1.869,
-        "low": 1.818,
-        "volume": 1638137,
-        "amount": 303625.53
+        "date": "2026-05-26",
+        "open": 1.858,
+        "close": 1.84,
+        "high": 1.858,
+        "low": 1.81,
+        "volume": 751704,
+        "amount": 137780.25
       },
-      "change_pct": 1.8,
+      "change_pct": -1.5,
       "metrics": {
-        "ma5": 1.8652,
-        "ma10": 1.8929,
-        "ma20": 1.8747,
-        "volatility_20d": 3.03
+        "ma5": 1.848,
+        "ma10": 1.8856,
+        "ma20": 1.8735,
+        "volatility_20d": 3.05
       }
     },
     "512660.SH": {
@@ -175,20 +175,20 @@
       "layer": "satellite",
       "category": "军工",
       "latest": {
-        "date": "2026-05-25",
-        "open": 1.365,
-        "close": 1.376,
-        "high": 1.377,
-        "low": 1.349,
-        "volume": 3345436,
-        "amount": 457030.52
+        "date": "2026-05-26",
+        "open": 1.369,
+        "close": 1.348,
+        "high": 1.369,
+        "low": 1.328,
+        "volume": 2586208,
+        "amount": 346828.86
       },
-      "change_pct": 1.4,
+      "change_pct": -2.03,
       "metrics": {
-        "ma5": 1.3636,
-        "ma10": 1.3954,
-        "ma20": 1.4073,
-        "volatility_20d": 3.17
+        "ma5": 1.3578,
+        "ma10": 1.3833,
+        "ma20": 1.4036,
+        "volatility_20d": 3.3
       }
     },
     "516020.SH": {
@@ -196,20 +196,20 @@
       "layer": "satellite",
       "category": "化工",
       "latest": {
-        "date": "2026-05-25",
-        "open": 0.926,
-        "close": 0.9,
-        "high": 0.927,
-        "low": 0.894,
-        "volume": 2475556,
-        "amount": 224485.81
+        "date": "2026-05-26",
+        "open": 0.899,
+        "close": 0.912,
+        "high": 0.915,
+        "low": 0.886,
+        "volume": 2214647,
+        "amount": 199743.6
       },
-      "change_pct": -2.91,
+      "change_pct": 1.33,
       "metrics": {
-        "ma5": 0.9194,
-        "ma10": 0.9397,
-        "ma20": 0.9656,
-        "volatility_20d": 3.68
+        "ma5": 0.9168,
+        "ma10": 0.9331,
+        "ma20": 0.9635,
+        "volatility_20d": 3.89
       }
     },
     "510300.SH": {
@@ -217,20 +217,20 @@
       "layer": "hedge",
       "category": "宽基",
       "latest": {
-        "date": "2026-05-25",
-        "open": 4.88,
-        "close": 4.937,
-        "high": 4.938,
-        "low": 4.872,
-        "volume": 16250559,
-        "amount": 7970991.06
+        "date": "2026-05-26",
+        "open": 4.912,
+        "close": 4.972,
+        "high": 4.975,
+        "low": 4.91,
+        "volume": 9686751,
+        "amount": 4786813.58
       },
-      "change_pct": 1.54,
+      "change_pct": 0.71,
       "metrics": {
-        "ma5": 4.8694,
-        "ma10": 4.8998,
-        "ma20": 4.8715,
-        "volatility_20d": 1.42
+        "ma5": 4.89,
+        "ma10": 4.9007,
+        "ma20": 4.88,
+        "volatility_20d": 1.44
       }
     },
     "511010.SH": {
@@ -238,19 +238,19 @@
       "layer": "hedge",
       "category": "债券",
       "latest": {
-        "date": "2026-05-25",
-        "open": 141.202,
-        "close": 141.176,
-        "high": 141.202,
-        "low": 141.145,
-        "volume": 16151,
-        "amount": 228006.97
+        "date": "2026-05-26",
+        "open": 141.176,
+        "close": 141.23,
+        "high": 141.235,
+        "low": 141.176,
+        "volume": 10170,
+        "amount": 143613.19
       },
-      "change_pct": -0.02,
+      "change_pct": 0.04,
       "metrics": {
-        "ma5": 141.2192,
-        "ma10": 141.1269,
-        "ma20": 140.987,
+        "ma5": 141.2158,
+        "ma10": 141.1536,
+        "ma20": 141.0066,
         "volatility_20d": 0.12
       }
     }
